@@ -1,0 +1,277 @@
+* Counting and representation
+
+A few notes about this section:  I assume the meanings of the symbols +, *, -, /, and = are fairly clear even without introducing them formally.  Also, I use binary and hexadecimal numbers somewhat frequently here, so I use the notation 0b, 1b, 10b, etc. to express binary numbers, and 0h, 1h, etc. to express hexadecimal numbers.  Their meanings will be introduced more thoroughly later.
+
+** What is the best way to represent numbers?
+
+A natural guess about how to represent numbers is, for every number, make a mark!  | means one, || means two, and so on.  Not bad, but tedious for large numbers.
+
+** How can you get a more efficient representation of numbers?
+
+A natural next step is to cluster.  Every group of five we represent with a new symbol, say V.  Then counting would go |, ||, |||, ||||, V, V|, V||, ...
+
+This is similar to Roman numerals.  We could, like them, also group numbers at tens and fifties, and hundreds, and so on.  If X means ten and D means fifty, and C means a hundred, then CCCX|| means three-hundred twelve.  However, adding Roman numerals can become a pain.  What is DXV||| + CXXXXV||?  Be careful when computing this not to convert these numbers to our modern numbers--that's cheating!
+
+** Is there a more efficient way to represent numbers, one that might be better for the ability to add?
+
+I'm really not sure how anybody thought to come up with a base system.  On the one hand it seems natural:  Count up to a particular amount--in the system we use, that would be 9--and then cycle this amount to a next digit place.  Every time you cycle, you have to empty the previous digit.  Thus you would count 1, 2, 3, 4 ..., 9, 10.  Then 1 and then 0 in 10 are due to a) incrementing the next digit place and b) emptying the previous one.  You do this repeatedly to increment the tens place until you run out of digits, so you create another digit place, and so on.  Thus you count 1, 2, 3, ..., 9, 10, 11, ..., 19, 20, 21, ..., 99, 100, 101, ...
+
+How does this help you to add?  By aligning digit places in a table, you only need to be able to add numbers 0 through 9.
+
+__Example__
+
+Of course this presents a problem when you have to add numbers in a digit that sum to more than 9.
+
+** How do you add, say, 37+26?
+
+You can add as usual, but in each digit place if a number is greater than 9 you can carry extra digits and sum them in the next digit place.
+
+__Example__
+
+A good test of whether you understand this is if you can use it with a base system other than ours which is base-10, which we call decimal.  Base-2 is important in Computer Science, it has only symbols 0b and 1b.
+
+** How do you represent 3 in binary numbers?
+
+To count to 3 in binary we would write 0b, 1b, 10b, 11b.  Hence 11b represents the number three.
+
+** The number 123 can be expressed as 1*100 + 2*10 + 3.  In a similar way you can represent 1011b in binary.  What would the representation be?
+
+1*8 + 0*4 + 1*2 + 1
+
+** What is 123 in binary?  What is 10110b in base-10?
+
+We need to find the largest power of 2 that is smaller than 123--although I haven't yet explained powers, the idea is easy enough to pick up on.  The powers are 1, 2, 4, 8, 16, 32, 64, 128.  By the eighth power of 2 we have exceeded 123, so we can start writing 10000000b and increment from there.
+
+At this point we have 64 and need to make it to 123.  If we increment the next digit we get 64+32 = 96 so that's a good idea, now we have 11000000b.  If we increment the next digit we get 96+16 = 112 so now we have 11100000b.  We continue likewise until we have 11110011b.
+
+To get 10110b we compute 1*16 + 0*8 + 1*4 + 1*2 + 0*1 = 22.
+
+Another base system common in Computer Science is hexadecimal, which is base-16.  Here we use symbols 0h, 1h, ..., 9h, ah, bh, ch, dh, eh, fh.  Of course a represents 10, bh represents 11, and so on, fh represents 15.  Then 10h represents 16, 1ah represents 26, and so on.
+
+** Express 100 in hexadecimal notation, and express 100h in decimal.
+
+16*6 = 96
+
+so
+
+100 = 64h
+
+To get 100h you could count it out but otherwise we have to understand it as 16*16, the number we get when we reach 15 groups of 16, i.e. f0, and then get another group of 16, so 16 groups of 16 in total.  We need a good method for calculating this.  We could throw 16*16 into a calculator, or better yet use a programming language.  Throughout this site I'll frequently use Python as my language.
+
+** If you don't already have Python, I recommend getting Anaconda.  Anaconda will provide a lot of features that make it easier to produce, run, and maintain Python code.  To get it, google Anaconda and follow the install instructions.  When it's installed, open a Spyder session--you may need to research how to do this too, although it may be obvious.  Once you have a session running, click on the console (again, google if you don't already know how to do this), type `16*16` and press enter.  What is the result?
+
+`In[n]: 16*16
+`Out[n]: 256
+
+** Python also has the ability to represent and calculate binary numbers.  Run the commands `bin(2)` which converts the decimal number 2 into the binary number 10b.  You can also run the bin() function on other integer inputs.  Use this to find the binary representation of the decimal number 30.
+
+`In[n]: bin(30)
+`Out[n]: '0b11110'
+
+The surrounding quote marks, '', indicate that this object is a string object--a special kind of object that allows Python to manipulate text rather than numbers.  We won't discuss why Python chooses to represent binary numbers as strings rather than other kinds of numbers--it essentially boils down to this being the best of a bunch of not-great options--but one implication is that you cannot add or multiply numbers in their binary representation.
+
+** Why do you get an error when you try to multiply binary numbers like `bin(2)*bin(3)` which you might expect to result in `'0b110'`?
+
+Because you're essentially trying to multiply text, which Python (quite reasonably) doesn't know how to do.
+
+** Why do you get no error when you try to add binary numbers like `bin(2)+bin(3)`?
+
+Because Python--like many other programming languages--assumes that adding text means putting them together.  Hence if you try to add the text 'a' together with the text 'b' you get 'ab'.
+
+In[n]: 'a'+'b'
+Out[n]: 'ab'
+
+** Enter `int('100', 2)` and see what results.  The goal of this is to take a binary number, 100b, and convert to a decimal number.  Why do you think there is a 2 present?
+
+The 2 is the base of the representation.  Hence Python reads `int('100', 2)` as the command "Read the string '100' as a number in base 2, and convert this into a decimal".  In this case it should return the decimal 4.  The int() function more generally converts any input into its best guess for the corresponding integer.  So for instance, if you give it the string '2', like in `int('2')`, it will produce the integer 2.  That is because the string '2' is text not a number, but you might want the number so that you can do Math with it--and this is how you get it.
+
+Note, "int" is short for "integer".  More on this concept later.
+
+** What do you expect `int('10', 16)` to produce?
+
+Hopefully you guessed this reads '10' in hexadecimal representation and produces the decimal number 16.
+
+** How can you use the bin() and int() functions to compute sums and products in binary?  For instance, suppose you want to sum the binary numbers 10b and 11b which obviously should result in 101b.  How could you get this computation done in Python?  Hint, use the functions in combination, and use the fact that Python can compute sums of integers.
+
+In[n]: bin( int('10', 2)+int('11',2) )
+Out[n]: '0b101'
+
+** Is there a natural relationship between binary and hexadecimal numerals?
+
+The powers of 2 contain the powers of 16, so that for instance the base-2 representation of 16 is 10000b.  Of course the hexadecimal representation of 16 is 10h.  The hexadecimal representation of 16*16 = 265 is 100h and the binary representation is (2*2*2*2)*(2*2*2*2) = 100000000.
+
+** We've described the table algorithm for adding numbers:  Align the digits, sum numbers that are only 0 through 9, carry digits where approrpiate.  To make sure the logic of this is clear, let's make an analogous table algorithm for adding binary numbers; what is it?
+
+I think an illustration suffices:
+
+__Example__
+
+** Find 1001b+1101b and abch+deh.
+
+__Example__
+
+__Example__
+
+** What is 1b + 10b + 100b?
+
+Obviously 111b.
+
+** What is 4 + 9 + 99 + 999 + 9999?
+
+Of course you can brute-force compute.  But if you notice the pattern, you could take the 4, break it up, and distribute one unit to each of the other summands:  (1+9) + (1+99) + (1+999) + (1+9999) = 10 + 100 + 1000 + 10000 = 11110.  The point is to get familiar with the features of base-representation.
+
+** What is 100b + 1b + 11b + 111b + 1111b?
+
+It's harder to read in binary because you're not used to it, but the same trick applies:  100b is the binary count of the other terms and therefore a single unit can be distributed to the others.  (1b+1b) + (1b+11b) + (1b+111b) + (1b+1111b) = 10b + 100b + 1000b + 10000b = 11110b.
+
+** If we use the letter <i>x</i> to represent any number (say in decimal representation), and likewise <i>y</i> is any number, then we have given an algorithm for finding <i>x+y</i>, the tabular method described above: align the digits, know how to sum numbers 0 through 9, carry digits where necessary.  How do we give a similar tabular algorithm for multiplication?
+
+Presumably every reader knows the algorithm:  Align the digits, for each digit in the second number, multiply it with all the digits above, shifting one place over for each digit, carrying where appropriate, creating a row of digits.  For every row created, sum them all, and the result is the product.
+
+__Example__
+
+** Why does the multiplication table algorithm work?
+
+The best explanation comes from the distributive property of multiplication.  Let's take 123 * 45.  By the nature of decimal representation we know this is the same as 123 * (4*10 + 5) because obviously 45 represents four groups of ten and 5 units.  We can then use distribution to turn this into 123*4*10 + 123*5.  Now multiplying by 10 just shifts the digits to the left (hence why we do it in the table algorithm) and the rest is merely finding 123*4 (like in the algorithm).  This is summed with 123*5 (like in the algorithm).  Hence the table algorithm only organizes precisely the steps of distribution, and therefore is valid.
+
+** Find a table algorithm for multiplying binary and hexadecimal numbers, and use it to compute 1101b*1011b and abch*deh.
+
+__Example__
+
+__Example__
+
+** We used but did not justify the distributive property.  Give a justification in terms of repeated addition these common properties of addition:  a) Commutativity <i>x+y = y+x</i> b) Associativity <i>x+(y+z) = (x+y)+z</i> c) Distributivity <i>a*(b+c)</i>.
+
+__Example__
+
+__Example__
+
+__Example__
+
+** Multiplication is commutative too, i.e. <i>x*y = y*x</i>, but the justification is quite different.  We are construing, for example, $$3\ast 4 = \overbrace{3+3+3+3}^4$$ so that the left number means something quite different from the right number.  The left number is repeatedly added, and the right number counts how many times it is added.  Why should it be, then, that this operation is commutative?
+
+If we represent each number as a column of dots, one dot for every bit counted, then multiplication is copying the columns.  We can arrange that in a rectangular array.  Swapping around the left and right numbers amounts to "transposing" the array, that is to say, flipping along the diagonal.
+
+__Example__
+
+Of course the number of dots is the same before and after the transpose.  Hence <i>x*y = y*x</i>.
+
+** Is multiplication associative?
+
+Yes, which we can justify by thinking of <i>x*(y*z)</i> as a three-dimensional array of dots.  Along the <i>x</i>-axis if you take a perpendicular slice you'll get a <i>y*z</i> sized rectangle and there are <i>x</i> copies of them.  In fact <i>(x*y)*z</i> is exactly the same thing except that you make your slice along the <i>z</i> axis and get slices of size <i>x*y</i>.  But since the total number of dots is the same regardless of which axis you slice to examine it--then <i>x*(y*z) = (x*y)*z</i>.
+
+__Example__
+
+** How can we make Python produce repeated addition without merely using the built-in * operation?  To accomplish this requires a fairly large but useful detour through programming.  First we need to use the editor, not just the console.  If you installed Spyder and have it open, the console is (likely) in the lower-right portion of the window while the editor takes up the left half.  Let's do the CompSci famous "Hello World" just to make sure everything's up and running.  Type `print("Hello world")` into the editor.  Now use the menu, i.e. the drop-down lists that are typically at the top of the window, to find a "run" button.  Alternately, depending on your familiarity with this stuff, you could just click a button on the tool bar or use a keyboard shortcut.  Google any of that which you might be interested in learning more about.  Hopefully you'll get this to run and when it does, in the console, you'll see that it printed "Hello world".  If so, great, move on to the next step--otherwise, try to get this working by doing the appropriate googling.
+
+Now to learn about variables.  Variables allow us to store information, typically to be used very soon, not days later--but that's also possible.  In any case, we can create variables which are information storage locations.  To do so we have to do two things at once:  Give the storage location a name, and an initial input.  For instance, if we run the command `variable = 0` this will 1) create a storage space, 2) call that space by the name `variable`, and 3) put 0 in that space.  Now if you run this, and then enter into the console `variable` the console will produce
+
+`In[n]: variable
+`Out[n]: 0
+
+This illustrates that Python remembers what you put in that storage space, and can retreive it for you at any time.  Let's do another example where you store two pieces of information and then compute something.  Enter the following in the editor, where the `1|` part is just to number the lines on the editor, but you don't actually type that part.  Just type `variable1 = 10` and so on.
+
+`1| variable1 = 10
+`2| variable2 = 13
+`3| print(variable1 + variable2)
+
+Run this and the console should print 23.  Yeah sure this isn't hugely helpful just yet, but we're getting there.  If you're interested in the various ways that you can name storage spaces (i.e. the ways you can name variables) you can google this.  But just be aware that while `xY1 = 0` is a valid variable declaration, `1x = 0` is not.  Nor is `'x' = 0` because the thing on the left isn't a variable, it's a string.  Strings are specific types of objects in Python and cannot be used as variables--variables must not have their names surrounded by quote marks.
+
+The next thing to discuss is a list.  An example of a list is `[2,2,2]`.  The purpose of a list is to take information that is disconnected, and group it together in one place.  For instance, suppose I know a bunch of people have names 'Adam', 'Banu', and 'Citlali' and have high scores in a video game, 100, 200, 400.  We could choose to group the names together in one list, like this.
+
+`1| namesList = ['Adam', 'Banu', 'Citlali']
+`2| scoreList = [100, 200, 400]
+
+Of course if you run this nothing much will happen in the console because you haven't told it to do anything.  If you want, in the console, you can enter `namesList`, or you could put `3| print(namesList)` in the editor and run it again.  Notice that if you instead put `3| namesList` in the editor nothing would happen.  That's because, in the editor, Python tries to be quiet--the editor is typically for larger blocks of code to be run all at once, and if Python were constantly showing you what it's doing, it would be a fast-moving wall of text that wouldn't help you.  The console, on the other hand, is made for little experiments and commands, so Python is much more chatty in that context.
+
+Here we've seen how to create lists with information in them, but it would be a sad thing if we couldn't pull the information back out when we need it.  So to make you not sad, this will illustrate how to pull out the first "coordinate" of the list.  I'll do it in the console, assuming that you've created the variables in the editor and have run it.
+
+`In[n]: namesList[0]
+`Out[n]: 'Adam'
+
+To get the second coordinate we use
+
+`In[n]: namesList[1]
+`Out[n]: 'Banu'
+
+and so on.  Yep, Python uses "zero-indexing", meaning that we count the coordinates of a list starting at 0.  Some students find this frustrating but you'll get used to it.  Or you won't, but it's not my problem.
+
+So we've covered variables, how to make lists, how to get information out of lists.  There are a couple more ingredients we'll need before we can do what we set out to do, which is repeated addition.  One of those ingredients is the "for-loop" structure.  This will essentially march through a list, doing something with every value it reaches.  One fairly trivial thing we could do is have the program print every element of the list.  If we put
+
+`1| namesList = ['Adam', 'Banu', 'Citlali']
+`2| scoreList = [100, 200, 400]
+`3| for name in namesList:
+`4|     print(name)
+
+and run the script, the console will print out all of the names.  Notice that the indentation is a necessary part of the code, and so is the colon at the end of the line.  If we additionally put
+
+`5| for num in scoreList:
+`6|     print(num)
+
+and run the new list, it will print all the names and then print all the numbers.  What's going on here is that `for ... in ...:` is a structure defined in Python where the first "..." creates a new variable (I've used `name` and then `num` in these two cases) and fills that variable with the items in the list--the list comes from the second "..."  A more helpful way to write this abstract description of the for-loop is to say that the structure is `for <var> in <list>:`.  This tells you the part after "for" must be some variable, followed by "in", followed by some list.
+
+A very different story happens if we instead write
+
+`1| namesList = ['Adam', 'Banu', 'Citlali']
+`2| scoreList = [100, 200, 400]
+`3| for name in namesList:
+`4|     print(name)
+`5|     for num in scoreList:
+`6|         print(num)
+`7|     print("Done with scoreList")`
+
+This time the console prints the first name followed by all the scores and then says "Done with scoreList", then the second name followed by the scores and again "Done with scoreList", followed by the third name and the scores and "Done with scoreList".  Why?
+
+The indentation!  By indenting lines 5 and 6 a little extra, this puts the commands <i>inside</i> the for-loop begun on line 3.  Therefore what Python does is:  i) Take the first item of namesList and stores it in `name`, ii) prints the name, iii) takes the first item in scoreList and stores it in `num`, iv) prints num, v) puts the second item in scoreList and stores it in `num` (erasing the previous value), vi) prints `num`, vii) stores the next value in `num`, vii) prints `num`, iix) now that scoreList has been exhausted, Python has reached the end of "embedded" for-loop, so now it moves to line 7 where it prints "Done with scoreList".  But it's not done with the <i>first</i> for-loop!  ix) It only printed "Adam", now it has to go back and replace `name` with the next value in `namesList` and do it all over again.
+
+** What does the following code do?
+
+`1| x = [1,2,3]
+`2| for i in x:
+`3|     print(i*i)
+
+Of course it prints the square of each number.  
+
+** The operations of addition and multiplication have inverses, subtraction and division.  Intuitively each of these "undo" their respective operations.  One way to express that is to say that, if <i>+5</i> turns 3 into 8, then <i>-5</i> turns 8 into 3.  Or more generally, $$x+y=z\Leftrightarrow x=z-y$$.  Another way to state this is "<i>z-y</i> is that number which, when added to <i>y</i> is equal to z".  The latter way of phrasing it will be very useful, as it is an important characterization of all inverses.  How would we likewise characterize division?
+
+If <i>*2</i> turns 7 into 14, then <i>/2</i> turns 14 into 7, or $$x\ast y = z\Leftrightarrow x = y/z$$, or "<i>z/y</i> is that number which, when multiplied by <i>y</i> results in z".
+
+** Produce a table method for subtraction and use it to find 123-45.  Also give a justification for why it works.
+
+Again align the digits.  Typically in school you learn to work right-to-left, and that works, but I think it makes less sense if you're trying to come up with it.  It makes more sense to me to reason:  In 123-45 I know I need at least 60 to close the gap (thinking in terms:  45+60 = 105) and in fact another 20 gets closer but too far ... backtrack to 60 and another 10 or just 70.  We have 45+70 = 115 thus far.  Another 5 and I'm at 120, another 3 after that and I have 123.
+
+Putting it all together 45+60+10+5+3 = 123 or 45+78 = 123 or 78 = 123-54.  The table organizes a lot of this information.  This amounts to the justification that it works.
+
+__Example__
+
+** Produce a table method for division.  Use it to find 5436/36.
+
+The process is in fact very much like the subtraction algorithm if we do subtraction left-to-right the way I did above.  For instance 5436/36 can be computed by easily recognizing we don't need to test 36*1, 36*2, ... 36*9 because 36*10 = 360 is already too small.  So we need not start at the ones-digit, we can skip to the tens; and by the same logic we can even skip the tens but not the hundreds.  At this point we have 36*100 = 3600 which is too small, but if we choose 36*200 that's too big, so let's stick to 36*100 and try to get the rest of the number.  In fact, we have already produced the correct digit in the hundreds place and only need to find the correct digits in every smaller place.  To do so we merely find out what remains for us to "make up" and divide that by 36.
+
+__Example__
+
+We then figure out how close we are and add the remaining.
+
+__Example__
+
+We should talk about why the algorithm works--because for every algorithm we should have something like a proof of its correctness--but first, let's establish some vocabulary.  First if we're talking about a sum like <i>x+y = z</i> then the result of summing, <i>z</i>, is the called "the sum".  Each term in the sum is called a "summand".  In subtraction like <i>x-y = z</i> the result, <i>z</i>, is "the difference" while <i>x</i> is "the minuend" and <i>y</i> is "the subtrahend".  These terms may seem weird, their less commonly used than "sum" and "summand", but they will help us at times to use clearn language.  For multiplication, <i>x*y = z</i> the result, <i>z</i>, is "the product" while <i>x</i> and <i>y</i> are called "factors".  For division <i>x/y = z</i> the result, <i>z</i>, is "the quotient".  Here <i>x</i> is called "the numerator" and <i>y</i> "the denominator".
+
+** Why do subtraction and division have terms that distinguish the left- and right-hand sides of the operation, while addition and multiplication don't?
+
+We've seen that addition and multiplication are commutative so that the left- and right-hand sides don't need to be distinguished.  On the other hand, for right now, 3-5 is meaningless for us because we haven't yet defined negative numbers.  Since there is no choice of summand, <i>x</i> such that <i>x</i>+5 = 3 then 3-5 cannot have a value.  But 5-3 does.  Hence we need to distinguish between the sides of the - operation, and likewise for /.
+
+** Why is the division algorithm valid?
+
+At each stage, we construct the correct digit.  For instance, in computing 5436 we first compute the hundreds digit and get a 1, then compute the tens digit getting a 5, then the ones digit getting a 1.  We know that, for instance, the hundreds digit 1 is correct because 36*100 is too small of a number, but any larger digit would be too large--hence the correct digit cannot be smaller than one nor larger than 1, and so must be 1.  We next need to construct the other digits, call them <i>a, b</i>, such that 36*1<i>ab</i> = 5436.  That is
+
+$$36\ast (100+10\ast a+b) = 5436$$
+
+or after some distribution and subtraction on both sides of the equation,
+
+$$36\ast (10a+b) = 1836$$
+
+We repeat the process to get the correct tens digit, which we find cannot be smaller than 5 and cannot be larger than 5, so must be 5, etc.
+
+Since at every stage we compute the next correct digit, then the algorithm produces all the correct digits.
+
+**

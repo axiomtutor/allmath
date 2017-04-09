@@ -1,0 +1,413 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 5.1.6.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="2017-04-04T00:47:08.915477490"/>
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2017-03-28T00:28:58.614618883">
+	<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="00:00:00">
+	<meta name="created" content="2017-03-21T20:27:10.494278786">
+	<meta name="changed" content="2017-03-21T21:28:20.559350513">
+	<meta name="created" content="2017-03-21T20:27:10.494278786">
+	<meta name="changed" content="2017-03-21T21:17:08.275337413">
+</head>
+<body lang="en-US" dir="ltr">
+<table width="100%" cellpadding="4" cellspacing="0" style="page-break-before: always; page-break-inside: avoid">
+	<col width="128*">
+	<col width="128*">
+	<tr valign="top">
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><a href="../main/main.html">Home</a> &gt; <a href="arithmetic.html">Arithmetic</a>
+			&gt; <a href="arithmeticCh02.html">Extending number sets</a> &gt;
+			Multiplying and dividing</p>
+		</td>
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding: 0.04in">
+			<p align="right">&lt; <a href="02.03.01arithmetic.html">prev</a> |
+			next &gt; 
+			</p>
+		</td>
+	</tr>
+</table>
+<h1><meta name="created" content="2017-03-25T22:30:47.632144693"><meta name="changed" content="2017-03-26T00:54:42.468849574">Arithmetic</h1>
+<p style="margin-top: 0.17in; page-break-after: avoid"><font face="Albany, sans-serif"><font size="4" style="font-size: 14pt">Chapter
+02: Extending number sets</font></font></p>
+<p style="margin-top: 0.17in; page-break-after: avoid"><font face="Albany, sans-serif"><font size="4" style="font-size: 14pt">Section
+04: Complex numbers</font></font></p>
+<p>Abstract: The complex numbers close the reals under square-roots.
+We investigate complex number parts and their relationship to
+2-dimensional space.</p>
+<p>Terms: Complex number, standard form, real part, imaginary part,
+conjugate, complex plane, magnitude, argument, subset</p>
+<p>Symbols: ℂ, ℜ, ℑ, Arg(.), ⊆</p>
+<hr/>
+
+<p>Question: Since we have not yet actually closed our system under
+square-roots, what will we get when we do?</p>
+<p>Answer: The most exciting number system yet! The reals, let's face
+it, were kind of dull if necessary to get the full number line. They
+just kind of continue everything that we could have just by using
+&quot;close enough&quot; rational numbers. And we already have all
+square-roots of positive numbers, since these just have the usual
+decimal sequences, so we make no gains there by closing our system
+under roots. Our gains come from considering sqrt(_1). This number we
+call <i>i</i><span style="font-variant: normal"><span style="font-style: normal">.
+</span></span>
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Of
+course there are other numbers that result from this like sqrt(_2)
+but this is just the same as sqrt(_1 * 2) = sqrt(_1) sqrt(2) = </span></span><i>i</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">sqrt(2).
+So it seems that we don't need square-roots of other negative
+numbers. What about cube-roots? Well cbrt(_1) = _1 so no gain has
+been made there, and for a fourth root, $$\sqrt[4]{\_1} =
+(\_1)^{\wedge 1/4} = ((\_1)^{\wedge 1/2})^{\wedge 1/2} = i^{\wedge
+1/2}$$</span></span><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">so
+again we can suffice with just </span></span><i>i</i><span style="font-variant: normal"><span style="font-style: normal">.
+</span></span>
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">We
+will eventually prove that every complex number can be written in
+</span></span><span style="font-variant: normal"><span style="font-style: normal"><b>standard
+form</b></span></span><span style="font-variant: normal"><span style="font-style: normal">,
+which is </span></span><i>a + ib</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">where
+</span></span><i>a, b ∊ ℝ</i><span style="font-variant: normal"><span style="font-style: normal">.
+This seems unlikely since there is no obvious way to write </span></span><i>i^</i><sup><i>1/2</i></sup><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">in
+such a way, but we will find a way. In the mean time, we will assume
+that this is true and say that the </span></span><span style="font-variant: normal"><span style="font-style: normal"><b>real
+part</b></span></span><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">of
+the complex number is </span></span><i>a</i><span style="font-variant: normal"><span style="font-style: normal">.
+For example the real part of 2+3</span></span><i>i</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is
+2 and we write this by saying ℜ(2+3</span></span><i>i</i><span style="font-variant: normal"><span style="font-style: normal">)
+= 2. Correspondingly the </span></span><span style="font-variant: normal"><span style="font-style: normal"><b>imaginary
+part</b></span></span><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">is
+ℑ(2+3</span></span><i>i</i><span style="font-variant: normal"><span style="font-style: normal">)
+= 3. </span></span>
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Although
+</span></span><i>i = sqrt(_1) </i><span style="font-variant: normal"><span style="font-style: normal">is
+our definition, this isn't actually the most useful fact about </span></span><i>i</i><span style="font-variant: normal"><span style="font-style: normal">.
+We will much more often use the fact that </span></span><i>i^</i><sup><i>2</i></sup>
+<i>= _1</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">which
+is an immediate consequence of the definition. </span></span>
+</p>
+<hr/>
+
+<p>Exercise: In Python we can use the expression <font face="FreeMono, monospace">1j</font>
+to represent a complex number--this comes &quot;out-of-the-box&quot;
+in Python.  Go ahead and use it to compute <font face="FreeMono, monospace">1j*1j.</font>
+ Notice that the 1 must be prefixed to the j for Python to recognize
+this as a complex number.  Also use <font face="FreeMono, monospace">sp.im(1j)</font>
+to find the imaginary part, and <font face="FreeMono, monospace">re(2-3j)</font>
+to find the real part.</p>
+<p>Answer: _1, 1.0, and 2.0.</p>
+<hr/>
+
+<p>Question: How do you operate on complex numbers?</p>
+<p>Answer: Obviously <i>(a+ib) + (c+id) = (a+c) + i(b+d)</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">so
+that addition goes pieces-wise. For instance (3-2</span></span><i>i</i><span style="font-variant: normal"><span style="font-style: normal">)
++ (_4-</span></span><i>i</i><span style="font-variant: normal"><span style="font-style: normal">)
+= _1-3</span></span><i>i</i><span style="font-variant: normal"><span style="font-style: normal">.
+</span></span>
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">It's
+not a lot harder to imagine how multiplication goes. </span></span><i>(a+ib)(c+id)
+= ac + iad + ibc + i^</i><sup><i>2</i></sup><i>bd</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+from here we can factor the </span></span><i>i</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">on
+the middle terms. And of course we can also use the important feature
+that </span></span><i>i</i><span style="font-variant: normal"><span style="font-style: normal">^</span></span><span style="font-variant: normal"><sup><span style="font-style: normal">2</span></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">=
+_1. This simplifies the expression to </span></span><i>ac + i(ad+bc)
+- bd</i><span style="font-variant: normal"><span style="font-style: normal">.
+Typically we group the real and imaginary parts so that we prefer to
+write this as </span></span><i>(a+ib)(c+id) = ac-bd + i(ad+bc)</i><span style="font-variant: normal"><span style="font-style: normal">.
+To illustrate the use of this, (1+2</span></span><i>i</i><span style="font-variant: normal"><span style="font-style: normal">)(3-4</span></span><i>i</i><span style="font-variant: normal"><span style="font-style: normal">)
+= (1*3-(2*_4)) + </span></span><i>i</i><span style="font-variant: normal"><span style="font-style: normal">(1*_4
++ 2*3) = _5 + </span></span><i>i</i><span style="font-variant: normal"><span style="font-style: normal">10.</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Much
+harder is to figure out how to divide complex numbers. What can we do
+to `\frac{a+ib}{c+id}`? What do we even want out of this? As usual we
+want this written in standard form, that is to say, we want to
+identify the real and imaginary parts. To get that we introduce the
+notion of the </span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">conjugate.
+In particular we will use the conjugate of </span></span></span><i><span style="font-weight: normal">c+id</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+The conjugate of </span></span></span><i><span style="font-weight: normal">c+id</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">we
+denote by writing a bar over the expression, `\overline{c+id}` and
+this is defined to be </span></span></span><i><span style="font-weight: normal">c-id</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+That's right, all you do is flip the + to -! Easy as that. If it were
+already a - then flip it to a +. What is the point of the conjugate?
+It has the property that if you multiply </span></span></span><i><span style="font-weight: normal">(c+id)(c-id)
+</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">you
+will have </span></span></span><i><span style="font-weight: normal">no
+complex part!</span></i><span style="font-variant: normal">
+</span><i><span style="font-weight: normal">(c+id)(c-id) = c^</span></i><sup><i><span style="font-weight: normal">2</span></i></sup><i><span style="font-weight: normal">+d^</span></i><sup><i><span style="font-weight: normal">2</span></i></sup><i><span style="font-weight: normal">.
+</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">Make
+sure you can confirm this equality on your own. The reason this
+matters will become apparent soon.</span></span></span></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+Let's take the example `\frac{4-3i}{_2-i}`. To simplify we compute 
+</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+$$\frac{4-3i}{\_2-i}\ast\frac{\_2+i}{\_2+i} =
+\frac{(4-3i)(\_2+i)}{4+1} = \\\\ \frac{\_8+3+i(4+6)}{5} =
+\frac{\_5+i10}{5} \\\\ \_1+i2$$</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+The fact that these numbers simplified so nicely to integer real and
+imaginary parts was a lucky accident. Often the result of these
+computations look like, for instance `\frac{7}{3}-i\frac{2}{5}`.
+Still we obtain real and imaginary parts from this, which is what we
+wanted.</p>
+<hr/>
+
+<p>Exercise: Simplify <i>(2+i)^</i><sup><i>2</i></sup> <span style="font-variant: normal"><span style="font-style: normal">and
+`\frac{2+i}{2-i}`.</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Answer:
+3+</span></span><i>i</i><span style="font-variant: normal"><span style="font-style: normal">4</span></span></p>
+<p style="font-variant: normal; font-style: normal">`\frac{3+i4}{3} =
+1+i\frac{4}{3}`</p>
+<hr/>
+
+<p>Exercise: Find the first 8 powers of <i>i</i><span style="font-variant: normal"><span style="font-style: normal">.</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Answer:
+Let's suppose we start at power 0, although the point I'm trying to
+draw out will become clear no matter where we start. Then </span></span><i>i^</i><sup><i>0</i></sup>
+<i>= 1, i^</i><sup><i>1</i></sup> <i>= i, i^</i><sup><i>2</i></sup> <i>=
+_1, i^</i><sup><i>3</i></sup> <i>= i^</i><sup><i>2</i></sup> <i>i^</i><sup><i>1</i></sup>
+<i>= _1*i = _i, i^</i><sup><i>4</i></sup> <i>= 1, i^</i><sup><i>5</i></sup>
+<i>= i, i^</i><sup><i>6</i></sup> <i>= _i, i^</i><sup><i>8</i></sup>
+<i>= 1.</i></p>
+<p style="font-variant: normal; font-style: normal">In some sense the
+powers of <i>i</i> ... &quot;rotate around&quot; ... in some ...
+sense ...</p>
+<hr/>
+
+<p>Question: Is <i>i &lt; 1</i><span style="font-variant: normal"><span style="font-style: normal">?</span></span></p>
+<p style="font-variant: normal; font-style: normal">Answer: This is a
+curious question. We have given no ordering relation on the complex
+numbers. We could pick one to enforce, but which one would be
+natural? Should we order them by the real part? The imaginary part?
+Some combination thereof?</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">We've
+been thinking about </span></span><i>i</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">in
+a mostly arithmetic and partly algebraic way. We'll discuss this more
+later, but one extremely important idea is that they also have a
+geometric interpretation. What could that even mean? The real numbers
+were clear, because they filled the gaps in the number line, but that
+was everything we needed wasn't it? Wasn't it?</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">It
+turns out that putting the complex numbers on the </span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">coordinate
+plane</span></span></span><span style="font-variant: normal"><span style="font-style: normal">,
+with the real numbers running horizontally and the imaginary numbers
+running vertically, is a really good idea.</span></span></p>
+<p style="font-variant: normal; font-style: normal">__Example__</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Here
+we have illustrated the location of 2+</span></span><i>i</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+_2-</span></span><i>i</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">and
+2-</span></span><i>i</i><span style="font-variant: normal"><span style="font-style: normal">.
+We are effectively putting the real and imaginary point in
+coordinates on a normal coordinate plane. This is called the </span></span><span style="font-variant: normal"><span style="font-style: normal"><b>complex
+plane</b></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.</span></span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">In
+a sense this is telling us something about how we're choosing to
+order the complex numbers. It ain't using the real part or the
+imaginary part, neither one seems privileged in this picture. If
+anything we would naturally order them by how close they are to the
+origin, or 0, of the plane. Thus 0 has distance 0, 1 has distance 1,
+</span></span></span><i><span style="font-weight: normal">i</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">also
+has distance 1, and so on. We won't worry right now about the
+distance of a point like 3+4</span></span></span><i><span style="font-weight: normal">i</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">,
+it's enough just to know that the notion of the distance is
+well-defined and that this is how we're ordering the numbers. To
+indicate the distance of a number from 0 we write |.|. Thus |</span></span></span><i><span style="font-weight: normal">i</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">|
+= 1 and |1| = 1 and |_1| = 1 and |</span></span></span><i><span style="font-weight: normal">i</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">10|
+= 10 and so on. Notice that this agrees with the previous definition
+of |.| as meaning the absolute value, which only removed the negative
+if it existed. In fact we often call this the absolute value of the
+complex number, although I prefer to call it the </span></span></span><span style="font-variant: normal"><span style="font-style: normal"><b>magnitude</b></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.</span></span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">An
+unfortunate consequence of that is that clearly, the ordering does
+not uniquely sort the numbers. By that I mean to indicate that 1 and
+</span></span></span><i><span style="font-weight: normal">i</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">are
+equally distant from 0 and therefore we cannot pick out numbers just
+based on their distance. That also wasn't true of the reals since 1
+and _1 are also equally distant from 0, but at least on the reals
+every two numbers can be compared with &lt; and that's not true with
+complex numbers. </span></span></span>
+</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+However, we can still identify numbers by picking and distance and
+then an angle. 
+</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+__Example__</p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">The
+number 1 has distance 1 and angle 0. The angle is always measured by
+rotating counter-clockwise from the positive real axis. The number </span></span></span><i><span style="font-weight: normal">i</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">has
+angle 90</span></span></span><span style="font-variant: normal"><sup><span style="font-style: normal"><span style="font-weight: normal">o</span></span></sup></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+Here I am using degree-measure, and assuming that it's common
+knowledge that a full circular rotation is indicated by 360</span></span></span><span style="font-variant: normal"><sup><span style="font-style: normal"><span style="font-weight: normal">o</span></span></sup></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+We call the angle of a complex number its </span></span></span><span style="font-variant: normal"><span style="font-style: normal"><b>argument</b></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">,
+and write Arg(1) = 0</span></span></span><span style="font-variant: normal"><sup><span style="font-style: normal"><span style="font-weight: normal">o</span></span></sup></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+By this system of identifying numbers, Arg(_1) = 90</span></span></span><span style="font-variant: normal"><sup><span style="font-style: normal"><span style="font-weight: normal">o</span></span></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+Arg(_</span></span></span><i><span style="font-weight: normal">i</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">)
+= 270</span></span></span><span style="font-variant: normal"><sup><span style="font-style: normal"><span style="font-weight: normal">o</span></span></sup></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+It's intuitively clear that Arg(1+</span></span></span><i><span style="font-weight: normal">i</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">)
+= 45</span></span></span><span style="font-variant: normal"><sup><span style="font-style: normal"><span style="font-weight: normal">o</span></span></sup></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+Notice that if you specify a magnitude and argument, there is exactly
+one complex number located at that point in the complex plane. </span></span></span>
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">In
+a sense, this can now serve as our sorting of the numbers, so that
+complex numbers </span></span></span><i><span style="font-weight: normal">w
+&lt; x</span></i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">is
+true if either |</span></span></span><i><span style="font-weight: normal">w|
+&lt; |x| </span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">or,
+if </span></span></span><i><span style="font-weight: normal">|w| =|x|</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">then
+Arg(</span></span></span><i><span style="font-weight: normal">w</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">)
+&lt; Arg(</span></span></span><i><span style="font-weight: normal">x</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">).
+We typically don't actually do this--typically we just don't care
+about ordering the complex numbers because at this point it's kind of
+useless--but we could if we wanted. Still, the notions of complex
+plane, magnitude, and argument are useful.</span></span></span></p>
+<hr/>
+
+<p>Exercise: Enter <font face="FreeMono, monospace">abs(1+1j) </font>to
+find the absolute value of <font face="FreeMono, monospace">1+1j</font>
+in Python.  Also use <font face="FreeMono, monospace">arg(1+1j)</font>.
+ 
+</p>
+<p>Answer: 1.4something and <font face="Liberation Serif, serif">π</font><font face="Liberation Serif, serif">/4.
+ The second one is (maybe) funny but will make more sense later.</font></p>
+<hr/>
+
+<p>Question: What is the relationship between the operations on
+complex numbers, and their position in the complex plane?</p>
+<p>Answer: Of course summing complex numbers just acts like a shift.
+If you take <i>a+ib</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">and
+add </span></span><i>c+id</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">you
+basically just move it right by </span></span><i>c</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+up by </span></span><i>d</i><span style="font-variant: normal"><span style="font-style: normal">.</span></span></p>
+<p style="font-variant: normal; font-style: normal">__Example__</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">What
+about multiplication? Let's see what happens when we multiply
+(3+</span></span><i>i</i><span style="font-variant: normal"><span style="font-style: normal">4)(1+</span></span><i>i</i><span style="font-variant: normal"><span style="font-style: normal">).</span></span></p>
+<p style="font-variant: normal; font-style: normal">__Example__</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">No
+clear pattern stands out, except that it gets farther away from 0
+than either of the original numbers were to begin with, and it's
+farther to the left than they are. Let's do it again with easier
+numbers. Let's look at </span></span><i>2i*_3</i><span style="font-variant: normal"><span style="font-style: normal">.</span></span></p>
+<p style="font-variant: normal; font-style: normal">__Example__</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Again
+farther away from 0. The distances were 2 and 3 and now it's 6. Looks
+like the product of distances. This is right, and we'll prove it
+later. What about the argument? It was 90</span></span><span style="font-variant: normal"><sup><span style="font-style: normal">o</span></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+180</span></span><span style="font-variant: normal"><sup><span style="font-style: normal">o</span></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">respectively,
+now it's 270</span></span><span style="font-variant: normal"><sup><span style="font-style: normal">o</span></sup></span><span style="font-variant: normal"><span style="font-style: normal">.
+That looks like the sum. Again this is right and we'll prove it
+later. If we look back at the first example, although we may not be
+able to say exactly what the distances are, it looks approximately
+right that |</span></span><i>(3+i4)(1+i)| = |3+i4| * |1+i|</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">which
+is to say the distance of the result is the product of the two
+individual distances. It also looks right that Arg(</span></span>
+<i>(3+i4)(1+i) ) = Arg(3+i4) + Arg(1+i)</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">which
+is to say that the angle of the result is the sum of the two
+individual angles.</span></span></p>
+<p style="font-variant: normal; font-style: normal">This is really
+quite amazing: We get genuinely meaningful geometric transformations
+from doing genuinely meaningful arithmetic operations. Addition
+provides the geometric operation of translation; multiplication
+simultaneously causes &quot;dilation&quot; (scaling toward or away
+from 0) and rotation.</p>
+<hr/>
+
+<p>Exercise: Suppose that |3+<i>i</i><span style="font-variant: normal"><span style="font-style: normal">4|
+= 5 and |1+</span></span><i>i</i><span style="font-variant: normal"><span style="font-style: normal">|
+</span></span><span style="font-variant: normal">≈ </span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">1.4
+(close enough) and that Arg(3+</span></font></span><font face="Liberation Serif, serif"><i>i</i></font><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">4)
+</span></font></span><span style="font-variant: normal">≈ </span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">53
+and Arg(1+</span></font></span><font face="Liberation Serif, serif"><i>i</i></font><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">)
+= 45</span></font></span><span style="font-variant: normal"><sup><font face="Liberation Serif, serif"><span style="font-style: normal">o</span></font></sup></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">.
+Find | (3+</span></font></span><font face="Liberation Serif, serif"><i>i</i></font><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">4)(1+</span></font></span><font face="Liberation Serif, serif"><i>i</i></font><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">)
+| and Arg( (3+</span></font></span><font face="Liberation Serif, serif"><i>i</i></font><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">4)(1+</span></font></span><font face="Liberation Serif, serif"><i>i</i></font><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">)
+).</span></font></span></p>
+<p style="font-variant: normal; font-style: normal"><font face="Liberation Serif, serif">Answer:
+5*1.4 = 7 and 53 + 45 = 98.</font></p>
+<hr/>
+
+<p>Exercise: We've seen the use of multiplication to dilate (scale)
+points away from 0. What has to be true so that we dilate a point
+toward 0? Also, we've seen how to rotate a point counter-clockwise.
+How might you rotate it clockwise?</p>
+<p>Answer: If you multiply by a complex number with distance less
+than 1, it will dilate numbers toward 0. To rotate counter-clockwise,
+you can divide rather than multiply. This makes some intuitive sense
+and we'll leave it at that. Notice that division by a number with
+magnitude greater than 1 shrinks the magnitude of the quotient while
+division by a number of magnitude less than 1 grows the magnitude of
+the quotient.</p>
+<hr/>
+
+<p>Note: It turns out that the complex numbers are &quot;algebraically
+complete&quot; and therefore we will never need a bigger number set
+than this for standard algebraic purposes. Hence we end the
+development here. However, in the next chapter, we will backtrack and
+re-develop some of these things in alternative constructions. In any
+case, let's close this chapter by defining the notion of a set's
+subset. We have already said what set membership means. This tells us
+when a single thing is &quot;in&quot; a set. Now we will say what it
+means for a whole set to be &quot;in&quot; another set. For
+illustration purposes we will use set <i>A = {1, 2, 3} </i><span style="font-variant: normal"><span style="font-style: normal">and
+</span></span><i>B = {1, 2, 3, 4, 5, 6, 7}</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+</span></span><i>C = {4, 9}</i><span style="font-variant: normal"><span style="font-style: normal">.
+Because every element in </span></span><i>A</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is
+also found in </span></span><i>B</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">we
+say that </span></span><i>A</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">is
+a </span></span><span style="font-variant: normal"><span style="font-style: normal"><b>subset</b></span></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">of
+</span></span></span><i><span style="font-weight: normal">B</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+To express this we write </span></span></span><i><span style="font-weight: normal">A
+⊆ B.</span></i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">Notice
+that no other subset relation holds among the three sets. So </span></span></span><i><span style="font-weight: normal">A
+⊈ C </span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></span><i><span style="font-weight: normal">B</span></i><span style="font-variant: normal">
+</span>⊈ <i><span style="font-weight: normal">C</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></span><i><span style="font-weight: normal">C ⊈ B</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+so on. </span></span></span>
+</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+With this notation in place we can say ℕ ⊆ ℤ ⊆ ℚ ⊆ ℝ ⊆
+ℂ. In a picture we can draw this subset relation as 
+</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+__Example__</p>
+</body>
+</html>

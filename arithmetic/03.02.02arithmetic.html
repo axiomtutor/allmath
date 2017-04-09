@@ -1,0 +1,364 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 5.1.6.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="00:00:00"/>
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2017-04-03T22:04:45.974966682">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2017-04-01T20:00:27.965165969">
+	<meta name="created" content="2017-03-30T16:46:05.041052547">
+	<meta name="changed" content="2017-03-30T20:36:27.158812532">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2017-03-28T00:05:40.133330805">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="00:00:00">
+	<meta name="created" content="2017-03-21T20:27:10.494278786">
+	<meta name="changed" content="2017-03-21T21:28:20.559350513">
+	<meta name="created" content="2017-03-21T20:27:10.494278786">
+	<meta name="changed" content="2017-03-21T21:17:08.275337413">
+	<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+<body lang="en-US" dir="ltr">
+<table width="100%" cellpadding="4" cellspacing="0" style="page-break-before: always; page-break-inside: avoid">
+	<col width="128*">
+	<col width="128*">
+	<tr valign="top">
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><a href="/home/adam/Documents/Websites/6te/main/main.html">Home</a>
+			&gt; <a href="/home/adam/Documents/Websites/6te/arithmetic/arithmetic.html">Arithmetic</a>
+			&gt; <a href="/home/adam/Documents/Websites/6te/arithmetic/arithmeticCh03.html">Extensions
+			and alternatives</a> &gt; Factorial, permutation, combination</p>
+		</td>
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding: 0.04in">
+			<p align="right">&lt; <a href="/home/adam/Documents/Websites/6te/arithmetic/03.01.01arithmetic.html">prev</a>
+			| <a href="/home/adam/Documents/Websites/6te/arithmetic/03.03.01arithmetic.html">next</a>
+			&gt; 
+			</p>
+		</td>
+	</tr>
+</table>
+<h1><meta name="created" content="2017-04-01T20:04:45.140884183"><meta name="changed" content="2017-04-01T20:15:48.602015403">Arithmetic</h1>
+<p style="margin-top: 0.17in; page-break-after: avoid"><font face="Albany, sans-serif"><font size="4" style="font-size: 14pt">Chapter
+03: Counting</font></font></p>
+<p style="margin-top: 0.17in; page-break-after: avoid"><font face="Albany, sans-serif"><font size="4" style="font-size: 14pt">Section
+02: <i>p</i><span style="font-variant: normal"><span style="font-style: normal">-adic
+numbers</span></span></font></font></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Abstract:
+</span></span><i>p</i><span style="font-variant: normal"><span style="font-style: normal">-adic
+numbers encode information about divisibility by powers of primes,
+therefore motivating the definition of two </span></span><i>p</i><span style="font-variant: normal"><span style="font-style: normal">-adic
+numbers being close in terms of divisibility by </span></span><i>p</i><span style="font-variant: normal"><span style="font-style: normal">.
+This in turn motivates how we construct subtraction and division.
+This still extends to a bigger class of numbers by closing it under
+division.</span></span></p>
+<hr/>
+
+<p>Question: One tantalizing way to introduce the idea of <i>p</i><span style="font-variant: normal"><span style="font-style: normal">-adic
+integers is to ask, given all of the decisions that we've made in
+constructing these number sets, could we have made other decisions to
+get other equally good or better number systems? </span></span>
+</p>
+<p style="font-variant: normal; font-style: normal">Answer: Although
+the question is too open-ended to answer completely, there is at
+least one affirmative answer. We construct the natural numbers as
+usual, represented in some base system. Let's go ahead and use
+decimal numbers. However, rather than close our number system under
+subtraction in the way that we did in chapter 02, we instead think of
+the following: When we add 1 and 9 to get 10, a 0 pops up. If we add
+1 and 99 two 0's pop up. Of course they're lead by a 1 in front but
+... What if we say that ...9999 is a number. A number with infinitely
+many digits containing 9. If we then add it to 1, every single digit
+will be 0. In this way we could call ...999 the negative of 1. 
+</p>
+<p style="font-variant: normal; font-style: normal">In a similar way,
+we can understand multiplication. Again rather than closing our
+number system under an operation, we can think of 1/3 for example as
+that number which when multiplied by 3 results in 1. ...6667 will
+have this property. Unfortunately it turns out that, for instance,
+1/2 does not have such a number. We cannot multiply 2 with anything
+that will leave a digit of 1 in the ones place and therefore this
+cannot have a reciprocal. The same sort of thing is true for 5. It's
+pretty captivating to think that this observation must somehow be
+relevant to the fact that, by inspecting the ones-digit of any
+number, you can immediately tell whether it's even (the ones-digit
+will have to be even if it is) or if its divisible by 5 (the
+ones-digit will have to be congruent to 0 mod 5 if it is). These two
+numbers are special in base-10 precisely because they are the factors
+of 10.</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">In
+base-2 or in any base that is a prime, the only numbers that don't
+have a reciprocal are of the form </span></span><i>p^</i><sup><i>n</i></sup><span style="font-variant: normal"><span style="font-style: normal">.</span></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">Hence
+when studying </span></span><i>p</i><span style="font-variant: normal"><span style="font-style: normal">-adic
+numbers we require that the base, </span></span><i>p</i><span style="font-variant: normal"><span style="font-style: normal">,
+be a prime number.</span></span></p>
+<p style="font-variant: normal; font-style: normal">In fact modern
+computers use approximately this sort of structure to encode negative
+numbers. Of course computers are finite machines so they restrict to
+a finite sequence of digits, and the left-most digit is regarded as,
+in some sense the &quot;infinite digit place&quot;. 
+</p>
+<hr/>
+
+<p>Question: Although that's a fun thought, it may not be the best
+motivation for studying <i>p-</i><span style="font-variant: normal"><span style="font-style: normal">adic
+numbers. The study of </span></span><i>p</i><span style="font-variant: normal"><span style="font-style: normal">-adic
+integers was motivated by interest in using the number's digit
+representation to learn about divisibility. </span></span>It's
+interesting just how easy it is to determine divisibility by choosing
+representation in a base. In base 10 if a number ends in 0 then it's
+clearly divisible by 10 and therefore divisible by both 2 and 5. If
+it ends in more 0's it's therefore divisible by powers of 10 and
+therefore powers of 2 and 5. It has the unfortunate feature that, if
+it ends in say three 0's it may be divisible by more than three
+powers of 2. Take for instance 800 which is divisible by 2^<sup>6</sup>.
+Hence the divisibility information is not &quot;pure&quot; in a sense
+because the base is not a prime. 
+</p>
+<p>In binary numbers we can read the divisibility by 2 in a more pure
+way: A (non-zero) number ends in (at least) three 0's if and only if
+it is divisible by 2^<sup>3</sup>. The same sort of purity is
+available in any other prime base.</p>
+<p>There seems to be a relationship between a number's remainder and
+the digit representation of that number. So the question is, what is
+that relation? Represent 5 in base-3 and also compute 5 mod 3. What
+do you notice, and does this work for other examples?</p>
+<p>Answer: 5 in base-3 is 12. 5 mod 3 is 2. Of course the interesting
+observation is the matching 2's. If we picked 22 it would have base-3
+representation of 2*3^<sup>2</sup> + 1*3^<sup>1</sup> + 1*3^<sup>0</sup>
+= 211. Here again 22 mod 3 is 1 so that the ones-digit matches the
+mod. Of course that's trivially always going to work because we've
+learned before that we can either mod after summing or before
+summing.</p>
+<p>2*3^<sup>2</sup> + 1*3^<sup>1</sup> + 1*3^<sup>0</sup> mod 3 = 0 +
+0 + 1</p>
+<hr/>
+
+<p>Question: Can we extend this discovery to other digits?</p>
+<p>Answer: If previously we found the 3^<sup>0</sup> digit by modding
+by 3, we can investigate the 3^<sup>1</sup> digit by modding by 3^<sup>2</sup>.
+</p>
+<p>2*3^<sup>2</sup> + 1*3^<sup>1</sup> + 1*3^<sup>0</sup> mod 9 =
+1*3^<sup>1</sup> + 1*3^<sup>0</sup></p>
+<p>If we want to learn just about the &quot;threes-digit&quot;, we'd
+need to subtract off the 1. Then it would show that the threes-digit
+comes from 1*3^<sup>1</sup>, or said more simply, the digit is 1. In
+a sense the mod operator is an annihilator for any terms that have a
+factor matching the mod number. 
+</p>
+<p>If we mod by 3^<sup>3</sup> to try to learn the &quot;nines-digit&quot;
+it is easily computed, because 22 is smaller than the mod number 27,
+so the remainder is trivially 22. Also, no digit mods to 0 because
+none of them have a base of 3^<sup>3</sup> or larger. Hence 
+</p>
+<p>2*3^<sup>2</sup> + 1*3^<sup>1</sup> + 1*3^<sup>0</sup> mod 27 =
+2*3^<sup>2</sup> + 1*3^<sup>1</sup> + 1*3^<sup>0</sup> 
+</p>
+<p>and if we then subtract off everything else that we've found so
+far, the 1*3^<sup>1</sup> + 1*3^<sup>0</sup>, all that remains is the
+2*3^<sup>2</sup> and we have our answer.</p>
+<p>A lot of the ease here was due to the fact that we already knew
+the base-3 representation of 22. If we pick another random number
+like 77 and repeat the process, this time using the process to find
+the base-3 representation, we find 
+</p>
+<p>77 mod 3 = 2 so this is the units-digit.</p>
+<p>77 mod 9 = 5 so the threes-digit is found from 5-2 = 3 = 1*3^<sup>1</sup>.</p>
+<p>77 mod 27 = 23 so the nines-digit is from 23 - (3+2) = 18 = 2*3^<sup>2</sup>.</p>
+<p>77 mod 81 = 77 so the twenty-sevens-digit is from 77 - (18+3+2) =
+54 = 2*3^<sup>3</sup>.</p>
+<p>From this we have found that the base-3 representation of 77 is
+2212. We can confirm the answer by computing 2*3^<sup>3</sup> + 2*3^<sup>2</sup>
++ 1*3^<sup>1</sup> + 2*3^<sup>0</sup>. 
+</p>
+<hr/>
+
+<p>Exercise: Find 1234 in base 5 using the process above.</p>
+<p>Answer: Commas are inserted below to separate calculations:</p>
+<p>1234 mod 5 = 4 , , , 1234 mod 25 = 9 , , , 1234 mod 125 = 109 , ,
+, 1234 mod 625 = 609 , , , 1234 mod 3125 = 1234</p>
+<p>14 - 9 = 5 = 1*5^<sup>1</sup> , , , 109 - 9 = 100 = 4*5^<sup>2</sup>
+, , , 609 - 109 = 500 = 4*5^<sup>3</sup> , , , 1234 - 609 = 625 =
+1*5^<sup>4</sup></p>
+<p>The representation is 14414.</p>
+<p style="font-variant: normal; font-style: normal">Notice that if we
+had kept taking mods with higher powers of 5 then we would only
+repeatedly see 1234. 
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">1234
+mod 5^</span></span><span style="font-variant: normal"><sup><span style="font-style: normal">5</span></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">=
+1234 , , , 1234 mod 5^</span></span><span style="font-variant: normal"><sup><span style="font-style: normal">6</span></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">=
+1234 and so on.</span></span></p>
+<p style="font-variant: normal; font-style: normal">Hence every digit
+thereafter is 1234-1234 = 0.</p>
+<hr/>
+
+<p>Question: What if we represent a negative number in a base system,
+using the same sort of logic? What is -30 in base-7? 
+</p>
+<p>Answer: 
+</p>
+<p>-30 mod 7 = 5 , , , -30 mod 49 = 19 , , , -30 mod 343 = 313 , , ,
+-30 mod 2401 = 2371 ...</p>
+<p>19 - 5 = 14 = 2*7^<sup>1</sup> , , , 313 - 19 = 294 = 6*7^<sup>2 </sup>,
+, , 2371 - 313 = 6*7^<sup>3</sup> ...</p>
+<p>So far we have the digits ...6625. If we continue computing
+further digits they will always be 6. Why? The simplest explanation
+may be to see what happens when we sum this with 30. 30 has
+representation 42 in base-7. Therefore we sum 
+</p>
+<p>__Example__</p>
+<p>Because this is an infinite digit we shouldn't really call this
+base-7. Instead we call it 7-adic. Since ...66625 + 30 = 0 therefore
+...66625 is the negative of 30. It will actually turn out that every
+strictly negative 7-adic number will have infinitely many 6's toward
+the left. Every strictly negative 5-adic number has infinitely many
+4's to the left; in base-<i>p</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">the
+strictly negative numbers have infinitely many </span></span><i>(p-1)'s
+</i><span style="font-variant: normal"><span style="font-style: normal">to
+the left. I say &quot;strictly negative&quot; rather than just
+&quot;negative&quot; for reasons that will become clear. </span></span>
+</p>
+<hr/>
+
+<p>Question: <span style="font-variant: normal"><span style="font-style: normal">By
+using </span></span><i>p</i><span style="font-variant: normal"><span style="font-style: normal">-adic
+integers we easily inspect how many times an integer is divisible by
+</span></span><i>p</i><span style="font-variant: normal"><span style="font-style: normal">.
+If its first </span></span><i>n</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">digits
+are 0 then it can be divided by </span></span><i>p</i><span style="font-variant: normal"><span style="font-style: normal">^</span></span><span style="font-variant: normal"><sup><span style="font-style: normal">n</span></sup></span><span style="font-variant: normal"><span style="font-style: normal">.
+This fact works even when </span></span><i>n = 0</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+in a sense even works when </span></span><i>n = </i>∞<font face="Liberation Serif, serif"><i>.
+</i></font><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">When
+</span></font></span><font face="Liberation Serif, serif"><i>n = 0</i></font><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">the
+integer is &quot;not very divisible by </span></font></span><font face="Liberation Serif, serif"><i>p</i></font><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">&quot;
+and when </span></font></span><font face="Liberation Serif, serif"><i>n
+= 1billion </i></font><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">it
+is very divisible by </span></font></span><font face="Liberation Serif, serif"><i>p</i></font><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">,
+and when </span></font></span><font face="Liberation Serif, serif"><i>n
+= </i></font>∞ <span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">the
+number is 0 and is therefore as divisible by </span></font></span><font face="Liberation Serif, serif"><i>p</i></font><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">as
+it is possible to have. Because this is one of the things that makes
+</span></font></span><font face="Liberation Serif, serif"><i>p</i></font><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">-adic
+integers most interesting, this is the metric by which we decide how
+&quot;big&quot; an integer is. We define |</span></font></span><font face="Liberation Serif, serif"><i>x</i></font><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">|,
+the </span></font></span><font face="Liberation Serif, serif"><i><b>p</b></i></font><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><b>-adic
+absolute value</b></span></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">or
+magnitude of </span></font></span><font face="Liberation Serif, serif"><i>x</i></font><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">,
+to be the largest </span></font></span><font face="Liberation Serif, serif"><i>p^</i></font><sup><font face="Liberation Serif, serif"><i>n</i></font></sup>
+<span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">such
+that </span></font></span><font face="Liberation Serif, serif"><i>p^</i></font><sup><font face="Liberation Serif, serif"><i>n
+</i></font></sup><font face="Liberation Serif, serif"><i>| x</i></font><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">.
+Because this is different for different values of </span></font></span><font face="Liberation Serif, serif"><i>p</i></font><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">we
+in fact write it as </span></font></span><font face="Liberation Serif, serif"><i>|x|</i></font><sub><font face="Liberation Serif, serif"><i>p</i></font></sub><font face="Liberation Serif, serif"><i>.</i></font><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">For
+instance |1|</span></font></span><sub><font face="Liberation Serif, serif"><i>7</i></font></sub><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">=
+0 and |2|</span></font></span><sub><font face="Liberation Serif, serif"><i>7</i></font></sub><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">=
+0, but |7|</span></font></span><sub><font face="Liberation Serif, serif"><i>7</i></font></sub><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">=
+7 and |14|</span></font></span><sub><font face="Liberation Serif, serif"><i>7</i></font></sub><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">=
+7, and |49|</span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal">7</span></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">=
+2. With this established it makes some sense to say that 0 is the
+largest integer in this system, as it can be divided infinitely by </span></font></span><font face="Liberation Serif, serif"><i>p</i></font><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">.
+</span></font></span>
+</p>
+<p><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">We
+have said what the size of an integer is in this system. We often
+define the </span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><b>distance
+</b></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">between
+some two points as the absolute value of the difference. What is the
+distance between 7 and 14 in 7-adic numbers? What is the distance
+between 7 and 49?</span></span></font></span></p>
+<p><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">Answer:
+|14-7|</span></span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">7</span></span></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">=
+|7|</span></span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">7</span></span></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">=
+7 and |49-7|</span></span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">7</span></span></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">=
+|42|</span></span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">7</span></span></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">=
+7.</span></span></font></span></p>
+<hr/>
+
+<p>Question: What can we do about the fact that not every number has
+a reciprocal? We've seen that 1/7 does not exist in <i>p</i><span style="font-variant: normal"><span style="font-style: normal">-adic
+integers, nor does 1/49.</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Answer:
+We can use the old closure trick. Since 1/7 doesn't exist, we just
+close you system under the division operation. The set of </span></span><i>p-</i><span style="font-variant: normal"><span style="font-style: normal">adic
+integers closed under division (by non-zero integers) is called the
+</span></span><i><b>p</b></i><span style="font-variant: normal"><span style="font-style: normal"><b>-adic
+rationals </b></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+we denote this by </span></span></span><span style="font-variant: normal"><span style="font-style: normal"><b>Q</b></span></span><span style="font-variant: normal"><sub><span style="font-style: normal"><b>p</b></span></sub></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+These are a bit unwieldy however, so I won't discuss them more now.
+In order to focus on things of a computational nature, I'll bring up
+one last point that hopefully sells </span></span></span><i><span style="font-weight: normal">p-</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">adic
+numbers as genuinely interesting rather than a kooky but pointless
+play thing.</span></span></span></p>
+<hr/>
+
+<p>Question: What are the solutions of <i>x^</i><sup><i>2</i></sup>
+≡<sub><i>3</i></sub> <i>25</i><span style="font-variant: normal"><span style="font-style: normal">?
+What about mod 9 and 27?</span></span></p>
+<p style="font-variant: normal; font-style: normal">Answer: We've
+seen solutions to linear congruence equations, now we have a
+quadratic. It's no surprise that 5 is a solution and it shouldn't be
+much more of a surprise that _5 is too. The representation of 5 in
+base-3 is not terribly illuminating but _5 has the following modules
+from which we could investigate its representation.</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">_5
+≡</span></span><span style="font-variant: normal"><sub><span style="font-style: normal">3</span></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">1</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">_5
+≡</span></span><span style="font-variant: normal"><sub><span style="font-style: normal">9</span></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">4</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">_5
+≡</span></span><span style="font-variant: normal"><sub><span style="font-style: normal">27</span></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">22</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">_5
+≡</span></span><span style="font-variant: normal"><sub><span style="font-style: normal">81</span></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">76</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">and
+provocatively, 22 is a solution to </span></span><i>x^</i><sup><i>2</i></sup>
+<span style="font-variant: normal">≡</span><span style="font-variant: normal"><sub><span style="font-style: normal">9</span></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">25
+and 76 is a solution to </span></span><i>x^</i><sup><i>2</i></sup>
+<span style="font-variant: normal">≡</span><span style="font-variant: normal"><sub><span style="font-style: normal">27</span></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">25
+and so on. </span></span>
+</p>
+<hr/>
+
+<p>Exercise: Discover a similar pattern in the solutions of <i>x^</i><sup><i>2</i></sup>
+≡<sub><i>5</i></sub> <i>49</i><span style="font-variant: normal"><span style="font-style: normal">.
+This provocative cliffhanger will be the end of our study until we
+circle back around to it when studying Number Theory.</span></span></p>
+<p style="font-variant: normal; font-style: normal">Answer: The
+trivial solution is 7. The modules of _7 are 
+</p>
+<p><i>_7 ≡</i><sub><i>5</i></sub> <i>3</i></p>
+<p><i>_7 ≡</i><sub><i>25</i></sub> <i>18</i></p>
+<p><i>_7 ≡</i><sub><i>125</i></sub> <i>118</i></p>
+<p style="font-variant: normal; font-style: normal">and a solution to
+<i>x^</i><sup><i>2</i></sup> ≡<sub><i>25</i></sub> <i>49 </i>is 18,
+and so on.</p>
+</body>
+</html>

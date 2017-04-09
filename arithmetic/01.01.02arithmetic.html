@@ -1,0 +1,526 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 5.1.6.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="2017-03-18T18:00:32.173513719"/>
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2017-03-16T20:55:17.462470272">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2017-03-16T20:27:19.468485526">
+	<meta name="created" content="2017-03-16T14:31:13.271524688">
+	<meta name="changed" content="2017-03-16T16:40:10.285633538">
+	<style type="text/css">
+		h2.cjk { font-family: "Noto Sans CJK SC Regular" }
+		h2.ctl { font-family: "FreeSans" }
+		h3.cjk { font-family: "Noto Sans CJK SC Regular" }
+		h3.ctl { font-family: "FreeSans" }
+	</style>
+</head>
+<body lang="en-US" dir="ltr">
+<div id="Top" dir="ltr" style="background: #e6e6ff">
+	<h1 style="font-variant: normal; letter-spacing: normal; font-style: normal">
+	<font color="#000000"><font face="DejaVu Serif">Arithmetic I</font></font></h1>
+	<h2 class="western" style="font-variant: normal; letter-spacing: normal; font-style: normal">
+	<font color="#000000"><font face="DejaVu Serif">Chapter 01: Counting
+	and representation</font></font></h2>
+</div>
+<h3 class="western">Abstract: We discuss Roman numerals and base
+systems, focusing on bases 10, 2, and 16. &nbsp;We discuss operations
+on numbers, algorithms for computing them (the typical elementary
+school algorithms, but discussed in a more adult manner), and the
+uses of Python in computation and illustration.<br/>
+<br/>
+Terms
+introduced in this section:&nbsp;</h3>
+<div id="Terms" dir="ltr" style="background: #ccffcc">
+	<p><br/>
+<br/>
+
+	</p>
+	<ul>
+		<li/>
+<p style="margin-bottom: 0in"><span style="font-variant: normal"><font color="#000000"><font face="DejaVu Serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>Number</b></span></span></font></font></font></span><span style="font-variant: normal"><font color="#000000"><font face="DejaVu Serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">:
+		The basic concept of quantity, particularly quantity of a set.</span></span></span></font></font></font></span></p>
+		<li/>
+<p style="margin-bottom: 0in"><span style="font-variant: normal"><font color="#000000"><font face="DejaVu Serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>Set</b></span></span></font></font></font></span><span style="font-variant: normal"><font color="#000000"><font face="DejaVu Serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">:
+		The basic concept of a collection of things.</span></span></span></font></font></font></span></p>
+		<li/>
+<p style="margin-bottom: 0in"><span style="font-variant: normal"><font color="#000000"><font face="DejaVu Serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>Numeral</b></span></span></font></font></font></span><span style="font-variant: normal"><font color="#000000"><font face="DejaVu Serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">:
+		The symbol used to represent a number.</span></span></span></font></font></font></span></p>
+		<li/>
+<p style="margin-bottom: 0in"><span style="font-variant: normal"><font color="#000000"><font face="DejaVu Serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>Base
+		(system)</b></span></span></font></font></font></span><span style="font-variant: normal"><font color="#000000"><font face="DejaVu Serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">:
+		In a numeral system, if it has a base, the base counts the number
+		of primitive symbols in the system. &nbsp;For example, in base-2
+		the symbols are </span></span></span></font></font></font></span><span style="font-variant: normal"><font color="#000000"><font face="FreeMono, monospace"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: #ff99ff">0</span></span></span></span></font></font></font></span><span style="font-variant: normal"><font color="#000000"><span style="letter-spacing: normal">
+		</span></font></span><span style="font-variant: normal"><font color="#000000"><font face="DejaVu Serif, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+		</span></span></span></font></font></font></span><span style="font-variant: normal"><font color="#000000"><font face="FreeMono, monospace"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: #ff99ff">1</span></span></span></span></font></font></font></span><span style="font-variant: normal"><font color="#000000"><font face="DejaVu Serif, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">,
+		and of course there are two symbols. In base-10, our system, the
+		symbols are 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9, and of course there
+		are ten symbols.</span></span></span></font></font></font></span></p>
+		<li/>
+<p style="margin-bottom: 0in"><span style="font-variant: normal"><font color="#000000"><font face="DejaVu Serif, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>Digit</b></span></span></font></font></font></span><span style="font-variant: normal"><font color="#000000"><font face="DejaVu Serif, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">:
+		A digit is any symbol in the numeral system's set of symbols. In
+		base-10 any of 0 through 9 are digits.</span></span></span></font></font></font></span></p>
+		<li/>
+<p style="margin-bottom: 0in"><span style="font-variant: normal"><font color="#000000"><font face="DejaVu Serif, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>Digit
+		place</b></span></span></font></font></font></span><span style="font-variant: normal"><font color="#000000"><font face="DejaVu Serif, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">:
+		An indexing of digits. In 2345 the 2 is in the thousands-digit
+		place, the 3 in the hundreds-digit, the 4 in the tens-digit, and
+		the 5 in the units-digit. Each extra place counts groups of ten of
+		the previous place. Hence the 4 counts four groups of ten units.
+		The 3 counts three groups of ten tens (i.e. it indicates a total of
+		three-hundred). And so on.</span></span></span></font></font></font></span></p>
+		<li/>
+<p style="margin-bottom: 0in"><span style="font-variant: normal"><font color="#000000"><font face="DejaVu Serif, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>Decimal</b></span></span></font></font></font></span><span style="font-variant: normal"><font color="#000000"><font face="DejaVu Serif, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">:
+		The base-10 representation system.</span></span></span></font></font></font></span></p>
+		<li/>
+<p style="margin-bottom: 0in"><span style="font-variant: normal"><font color="#000000"><font face="DejaVu Serif, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>Binary</b></span></span></font></font></font></span><span style="font-variant: normal"><font color="#000000"><font face="DejaVu Serif, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">:
+		The base-2 representation system.</span></span></span></font></font></font></span></p>
+		<li/>
+<p style="margin-bottom: 0in"><span style="font-variant: normal"><font color="#000000"><font face="DejaVu Serif, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>Hexadecimal</b></span></span></font></font></font></span><span style="font-variant: normal"><font color="#000000"><font face="DejaVu Serif, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">:
+		The base-16 representation system.</span></span></span></font></font></font></span></p>
+		<li/>
+<p style="margin-bottom: 0in"></p>
+	</ul>
+	<h3 class="western">Symbols introduced:</h3>
+	<table width="100%" cellpadding="4" cellspacing="0" style="page-break-inside: avoid">
+		<col width="64*">
+		<col width="64*">
+		<col width="64*">
+		<col width="64*">
+		<tr valign="top">
+			<td width="25%" style="border-top: 1px solid #808080; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+				<p>|</p>
+			</td>
+			<td width="25%" style="border-top: 1px solid #808080; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+				<p>The basic numeral for Roman numerals</p>
+			</td>
+			<td width="25%" style="border-top: 1px solid #808080; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+				<p>=, &gt;, &lt;, ≥<font face="Liberation Serif, serif">, </font>≤</p>
+			</td>
+			<td width="25%" style="border: 1px solid #808080; padding: 0.04in">
+				<p>Relations:</p>
+				<p>equal, greater than, less than, greater-or-equal,
+				less-or-equal</p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="25%" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+				<p>0, 1, ..., 9</p>
+			</td>
+			<td width="25%" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+				<p>The digits of base-10</p>
+			</td>
+			<td width="25%" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+				<p>+, -, *, /, <font face="Liberation Serif, serif">Δ</font></p>
+			</td>
+			<td width="25%" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+				<p>Operations:</p>
+				<p>plus, minus, times, divide, exponentiate, root, logarithm</p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="25%" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+				<p><font face="FreeMono, monospace"><span style="background: #ff99ff">0</span></font>,
+				<font face="FreeMono, monospace"><span style="background: #ff99ff">1</span></font></p>
+			</td>
+			<td width="25%" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+				<p>The digits of base-2</p>
+			</td>
+			<td width="25%" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+				<p><br/>
+
+				</p>
+			</td>
+			<td width="25%" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+				<p><br/>
+
+				</p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="25%" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+				<p><span style="background: #66ccff">0</span>, <span style="background: #66ccff">1</span>,
+				..., <span style="background: #66ccff">9</span>, <span style="background: #66ccff">a</span>,
+				<span style="background: #66ccff">b</span>, <span style="background: #66ccff">c</span>,
+				<span style="background: #66ccff">d</span>, <span style="background: #66ccff">e</span>,
+				<span style="background: #66ccff">f</span></p>
+			</td>
+			<td width="25%" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+				<p>The digits of base-16</p>
+			</td>
+			<td width="25%" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+				<p><br/>
+
+				</p>
+			</td>
+			<td width="25%" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+				<p><br/>
+
+				</p>
+			</td>
+		</tr>
+	</table>
+	<p><br/>
+<br/>
+
+	</p>
+</div>
+<h2 class="western">Table of Contents</h2>
+<p>TODO</p>
+<div id="Q1" dir="ltr">
+	<h2 class="western">What is the best way to count?</h2>
+	<p><br/>
+<br/>
+
+	</p>
+	<p>The first natural idea is, for every number, make a mark! Hence
+	counting one, two, three, would go |, ||, |||, and so on. 
+	</p>
+</div>
+<div id="Q2" dir="ltr">
+	<p>That obviously gets tedious for large numbers, so maybe it's not
+	the best.</p>
+	<h2 class="western">What is a better way to count?</h2>
+	<p><br/>
+<br/>
+
+	</p>
+	<p>A next natural idea is to group things together. For every
+	collection of five, say, we could use the symbol V. Then we would
+	count |, ||, |||, ||||, V, V|, ... 
+	</p>
+	<p>This is essentially the same as Roman numerals, although they
+	also had symbols like X, D, C, and M for tens, fifties, hundreds,
+	and thousands respectively. One problem that the Romans faced was:
+	How to efficiently add and multiply numbers? How would you add
+	DXX||| + CDXXXXV? Careful not to convert these, even in your mind,
+	to our number system--that would be cheating! Maybe you think
+	addition isn't so bad, but next try multiplying them!</p>
+</div>
+<div id="Q3" dir="ltr">
+	<h2 class="western">How can we count and do number operations like
+	plus and times, efficiently?</h2>
+	<p><br/>
+<br/>
+
+	</p>
+	<p>It turns out that choosing the right representation system for
+	numbers allows for more efficient calculation. I don't know how
+	anyone came up with a base system when it requires kind of a strong
+	break with what seems like a more natural, Roman-styled system.
+	However, the Sumerians had a base system thousands of years ago.
+	Perhaps without knowing it, we too use a base system, and the base
+	we have is 10 because we have 10 primitive symbols, the digits 0
+	through 9. But it's possible to have just about any base, and a base
+	that is important in Computer Science is base-2, so we'll be using
+	this as a frequent example. Base 16 is also common and we'll mention
+	this a couple times but not as much.</p>
+	<p>In any case, to count in base-10 we know that you cycle through
+	the symbol set, 0, 1, 2, ..., 9. Once the symbol set is exhausted,
+	we create a new digit place to the left, meant to represent a group
+	of ten of whatever units are to the right of it. Hence we continue
+	counting 10, 11, 12, ..., 19, 20, 21, ..., 99, 100, 101, ... Binary
+	numbers go similarly, and we'll use the symbol set <font face="FreeMono, monospace"><span style="background: #ff99ff">0</span></font>,
+	<font face="FreeMono, monospace"><span style="background: #ff99ff">1</span></font>
+	in order to clearly distinguish these symbols from our own. Then to
+	count in binary goes <font face="FreeMono, monospace"><span style="background: #ff99ff">0</span></font>,
+	<font face="FreeMono, monospace"><span style="background: #ff99ff">1</span></font>,
+	<font face="FreeMono, monospace"><span style="background: #ff99ff">10</span></font>,
+	<font face="FreeMono, monospace"><span style="background: #ff99ff">11</span></font>,
+	<font face="FreeMono, monospace"><span style="background: #ff99ff">100</span></font>,
+	<font face="FreeMono, monospace"><span style="background: #ff99ff">101</span></font>,
+	<font face="FreeMono, monospace"><span style="background: #ff99ff">110</span></font>,
+	<font face="FreeMono, monospace"><span style="background: #ff99ff">111</span></font>,
+	... where you will notice the pattern that once a digit exhausts its
+	symbol set (very quickly) we cycle to a next digit place. It should
+	be clear these binary numbers started at zero and counted to 7. 
+	</p>
+	<p>We also call our base-10 system decimal numbers, of course base-2
+	is binary, and base-16 is hexadecimal. The hexadecimal numerals that
+	we'll use to distinguish them are <span style="background: #66ccff">0</span>,
+	<span style="background: #66ccff">1</span>, ..., <span style="background: #66ccff">9</span>,
+	<span style="background: #66ccff">a</span>, <span style="background: #66ccff">b</span>,
+	<span style="background: #66ccff">c</span>, <span style="background: #66ccff">d</span>,
+	<span style="background: #66ccff">e</span>, <span style="background: #66ccff">f</span>.
+	Hence <span style="background: #66ccff">0</span>, <span style="background: #66ccff">1</span>,
+	..., <span style="background: #66ccff">9</span>, each represent zero
+	through nine as usual, but <span style="background: #66ccff">a</span>
+	represents 10, <span style="background: #66ccff">b</span> of course
+	represents 11, and so on until we have <span style="background: #66ccff">f</span><span style="background: transparent">
+	represents 15 and </span><span style="background: #00ccff">10</span><span style="background: transparent">
+	represents 16.</span></p>
+	<h2 class="western">What is the binary representation of eight?</h2>
+	<p><br/>
+<br/>
+
+	</p>
+	<p><font face="FreeMono, monospace"><span style="background: #ff99ff">1000</span></font></p>
+	<p><br/>
+<br/>
+
+	</p>
+</div>
+<div id="Q5" dir="ltr">
+	<p>In Python we can translate back and forth between binary numbers
+	using the <font face="FreeMono, monospace"><span style="background: #eeeeee">bin()</span></font><span style="background: transparent">
+	and </span><font face="FreeMono, monospace"><span style="background: #eeeeee">int()</span></font><span style="background: transparent">
+	functions. Start a Python session, click on the console, and enter
+	</span><font face="FreeMono, monospace"><span style="background: #eeeeee">bin(10)</span></font><span style="background: transparent">
+	and press enter. If you aren't sure how to do this, see guidance on
+	the TODO programming prerequisites page.</span></p>
+	<h2 class="western">What is the binary representation of 10, in
+	Python?</h2>
+	<p><br/>
+<br/>
+
+	</p>
+	<p><span style="background: transparent">You should get the slightly
+	odd </span><font color="#336633"><font face="FreeMono, monospace"><span style="background: transparent">'0b10100'</span></font></font><font color="#000000"><span style="background: transparent">.
+	The leading &quot;0b&quot; only indicates that the rest of the text
+	is a binary representation. It's important to note that this result
+	is a </span></font><font color="#000000"><i><span style="background: transparent">string</span></i></font><span style="font-variant: normal"><font color="#000000"><span style="font-style: normal"><span style="background: transparent">.
+	Again, if you're not familiar with the concept of a string as
+	distinct from a number, go back and read the programming
+	prerequisites. </span></span></font></span>
+	</p>
+</div>
+<div id="Q6" dir="ltr">
+	<p>To turn a binary number back into a decimal numbers we can write
+	int(bin(20), 2) and this should return 20. The 2 indicates the base
+	that you want. If we actually begin with a binary number like <font face="FreeMono, monospace"><span style="background: #ff99ff">1000</span></font>
+	and want to convert to decimal we need to enter <font face="FreeMono, monospace"><span style="background: #eeeeee">int('0b1000')</span></font>.
+		</p>
+	<h2 class="western">What is the decimal representation of <font face="FreeMono, monospace"><span style="background: #ff99ff">1010101</span></font>?</h2>
+	<p><br/>
+<br/>
+
+	</p>
+	<p>Entering <font face="FreeMono, monospace"><span style="background: #eeeeee">int('0b1010101',
+	2)</span></font> should give 85.</p>
+	<div id="Q7" dir="ltr">
+		<p><br/>
+<br/>
+
+		</p>
+	</div>
+	<p>We now want to be able to add numbers, given that I promised it's
+	easier in a base system. Of course Python does this out-of-the box,
+	but it helps to learn the elementry school algorithm just to be
+	clear on what's going on. 
+	</p>
+	<h2 class="western">How can we add 123+45 efficiently?</h2>
+	<p><br/>
+<br/>
+
+	</p>
+	<p>The answer of course is to align the digits in an array and sum
+	the digits. This means we never have to know how to sum numbers
+	greater than 9! We could arrange it in a table like this:</p>
+	<p>__Example__</p>
+	<p>Of course when a cell in the table overflows to a two-digit
+	number we can carry that digit to the next place. This is, in
+	effect, an algorithm. We can completely specify every step so that,
+	for any two given numbers, we compute their sum. The algorithm goes</p>
+	<ol>
+		<li/>
+<p>Align the digits in two rows.</p>
+		<li/>
+<p>Know how to sum any two digits 0 through 9, and do this
+		for all aligned digits, saving the result in a digit place below
+		the original .</p>
+		<li/>
+<p>If any of the resulting digit places have two-digit
+		numbesr, carry the extra digit to the next place and sum.</p>
+		<li/>
+<p>If necessary, continue carrying until all digit places
+		contain only single-digit numbers.</p>
+	</ol>
+	<div id="Q8" dir="ltr">
+		<p><br/>
+<br/>
+
+		</p>
+	</div>
+	<h2 class="western">Come up with an algorithm like the one above,
+	for computing the sum of binary numbers. Use it to find <font face="FreeMono, monospace"><font size="5" style="font-size: 18pt"><b><span style="background: #ff99ff">101+111</span></b></font></font>.</h2>
+	<p><br/>
+<br/>
+
+	</p>
+	<p>An example suffices.</p>
+	<p>__Example__</p>
+	<div id="Q9" dir="ltr">
+		<p>If you try to run <font face="FreeMono, monospace"><span style="background: #eeeeee">bin(10)+bin(15)</span></font>
+		in Python you get a strange result, and if you run <font face="FreeMono, monospace"><span style="background: #eeeeee">bin(10)*bin(15)</span></font>
+		you get an error.</p>
+		<h2 class="western">Why does Python not compute sums and products
+		of binary numbers like this? How can we make it compute them?</h2>
+		<p><br/>
+<br/>
+
+		</p>
+		<p>Of course <font face="FreeMono, monospace"><span style="background: #eeeeee">bin(10)</span></font>
+		is, in Python, a string and therefore when you sum two strings you
+		just tack them together. If you product them, Python has no idea
+		what the product of two texts could mean. 
+		</p>
+		<p>To sum binary numbers we first have to sum them and convert the
+		results, so that we could compute <font face="FreeMono, monospace"><span style="background: #eeeeee">bin(10*15)</span></font>
+		to get the answer.</p>
+		<p>If we already have binary numbers like <font face="FreeMono, monospace"><span style="background: #ff99ff">101</span></font>
+		and <font face="FreeMono, monospace"><span style="background: #ff99ff">111</span></font>,
+		we need to first convert them to integers using <font face="FreeMono, monospace"><span style="background: #eeeeee">int('0b101',
+		2)</span></font> for instance. Now that it's an integer Python
+		knows what to do--at the end we want a binary number, so we wrap it
+		in the bin() function. In total we would execute <font face="FreeMono, monospace"><span style="background: #eeeeee">bin(int('0b101',
+		2)+int('0b111', 2))</span></font> to get <font color="#336633"><font face="FreeMono, monospace">'0b1100'</font></font><font color="#000000"><font face="DejaVu Serif, serif">.
+		</font></font>
+		</p>
+	</div>
+	<div id="Q10" dir="ltr">
+		<h2 class="western">What is 30 in hexadecimal representation, what
+		is 30 in decimal, and compute ab+cd by a table algorithm.</h2>
+		<p><br/>
+<br/>
+
+		</p>
+		<div id="Q11" dir="ltr">
+			<h2 class="western">Is there a special relationship between
+			hexadecimal and binary representation?</h2>
+		</div>
+		<p><br/>
+<br/>
+
+		</p>
+		<h2 class="western">Find 4 + 9 + 99 + 999 + 9999.</h2>
+		<p><br/>
+<br/>
+
+		</p>
+		<p><br/>
+<br/>
+
+		</p>
+		<div id="Q12" dir="ltr">
+			<h2 class="western">Find 100 + 1 + 11 + 111 + 1111.</h2>
+			<p><br/>
+<br/>
+
+			</p>
+			<p><br/>
+<br/>
+
+			</p>
+		</div>
+		<h2 class="western">The number 123 can be represented as 1*100 +
+		2*10 + 3. In a similar way the number 1010 can be represented using
+		base-2, what is that representation?</h2>
+		<p><br/>
+<br/>
+
+		</p>
+		<p><br/>
+<br/>
+
+		</p>
+	</div>
+	<div id="Q13" dir="ltr">
+		<h2 class="western">How do we make a table algorithm for
+		multiplication? Justify the correctness of this algorithm and use
+		it to compute 123*45.</h2>
+		<p><br/>
+<br/>
+
+		</p>
+		<p><br/>
+<br/>
+
+		</p>
+		<div id="Q14" dir="ltr">
+			<h2 class="western">Make a similar algorithm for binary numbers
+			and compute 1101*101.</h2>
+			<p><br/>
+<br/>
+
+			</p>
+			<p><br/>
+<br/>
+
+			</p>
+		</div>
+		<h2 class="western">We've used the distributive property without
+		justifying it. Why is multiplication distributive over addition,
+		i.e. why is it true that <i>x*(y+z) = xy+xz</i><span style="font-variant: normal">
+		</span><span style="font-variant: normal"><span style="font-style: normal">for
+		all numbers </span></span><i>x, y, z</i><span style="font-variant: normal"><span style="font-style: normal">?</span></span></h2>
+		<p><br/>
+<br/>
+
+		</p>
+		<p><br/>
+<br/>
+
+		</p>
+		<div id="Section1" dir="ltr">
+			<h2 class="western">Give justifications for the commutative and
+			associative laws.</h2>
+			<p><br/>
+<br/>
+
+			</p>
+			<p><br/>
+<br/>
+
+			</p>
+		</div>
+		<h2 class="western">Justify the commutative and associative laws
+		for multiplication.</h2>
+		<p><br/>
+<br/>
+
+		</p>
+		<p><br/>
+<br/>
+
+		</p>
+		<div id="Section2" dir="ltr">
+			<h2 class="western">Use lists of repeated numbers in Python to
+			compute the product of two numbers like 3 and 4.</h2>
+			<p><br/>
+<br/>
+
+			</p>
+			<p><br/>
+<br/>
+
+			</p>
+		</div>
+		<p><br/>
+<br/>
+
+		</p>
+	</div>
+	<h2 class="western"><br/>
+<br/>
+
+	</h2>
+	<h2 class="western">Summary</h2>
+	<p><br/>
+<br/>
+
+	</p>
+	<p>Here's what you should know by the end of this Chapter: How to
+	represent numbers in a variety of ways, one in a kind of Roman
+	numeral system and in a few different base systems. You should know
+	how to perform operations on numbers in any base system, on paper
+	and with Python. You should also know something about what the basic
+	arithmetic operations mean. You should also have some beginner's
+	understanding of what an algorithm is.</p>
+</div>
+</body>
+</html>

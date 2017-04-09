@@ -1,0 +1,442 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 5.1.6.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="00:00:00"/>
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2017-03-28T00:05:40.133330805">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="00:00:00">
+	<meta name="created" content="2017-03-21T20:27:10.494278786">
+	<meta name="changed" content="2017-03-21T21:28:20.559350513">
+	<meta name="created" content="2017-03-21T20:27:10.494278786">
+	<meta name="changed" content="2017-03-21T21:17:08.275337413">
+	<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	<style type="text/css">
+		h2.western { font-family: "Albany", sans-serif; font-size: 16pt }
+		h2.cjk { font-family: "Noto Sans CJK SC Regular"; font-size: 16pt }
+		h2.ctl { font-family: "FreeSans"; font-size: 16pt }
+	</style>
+</head>
+<body lang="en-US" dir="ltr">
+<table width="100%" cellpadding="4" cellspacing="0" style="page-break-before: always; page-break-inside: avoid">
+	<col width="128*">
+	<col width="128*">
+	<tr valign="top">
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><a href="../main/main.html">Home</a> &gt; <a href="arithmetic.html">Arithmetic</a>
+			&gt; <a href="arithmeticCh01.html">Counting</a> &gt;
+			Exponentiation, root, and logarithm</p>
+		</td>
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding: 0.04in">
+			<p align="right">&lt; <a href="01.03.01arithmetic.html">prev</a> |
+			next &gt; 
+			</p>
+		</td>
+	</tr>
+</table>
+<h1><meta name="created" content="00:00:00"><meta name="changed" content="2017-03-21T19:52:19.405497492"><meta name="created" content="00:00:00"><meta name="changed" content="2017-03-21T14:35:36.575573861"><meta name="created" content="2017-03-21T13:28:10.159051283"><meta name="changed" content="2017-03-21T13:36:03.273566379">Arithmetic</h1>
+<h2 class="western">Chapter 1: Counting</h2>
+<h2 class="western">Section 4: Exponentiation, root, and logarithm</h2>
+<p>Abstract: Exponentiation is repeated multiplication and it has two
+inverses, the root and the logarithm.</p>
+<p>Terms: Exponentiation, exponential, base, power, square-root,
+cube-root, root, logarithm, exponential representation, scientific
+notation.</p>
+<p>Symbols: ^, sqrt, cbrt, ln, log</p>
+<hr/>
+
+<p>Question: What's the next natural step after multiplication? 
+</p>
+<p>Answer: <b>Exponentiation</b> <span style="font-weight: normal">which
+is repeated multiplication, just like multiplication is repeated
+addition.</span></p>
+<p><span style="font-weight: normal">To establish the vocabulary, if
+</span><i><span style="font-weight: normal">x</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">is
+multiplied with itself </span></span></span><i><span style="font-weight: normal">y</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">times,
+we write </span></span></span><i><span style="font-weight: normal">x^</span></i><sup><i><span style="font-weight: normal">y</span></i></sup>
+<span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+call this the </span></span></span><span style="font-variant: normal"><span style="font-style: normal"><b>exponential</b></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+We call </span></span></span><i><span style="font-weight: normal">x</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">the
+</span></span></span><span style="font-variant: normal"><span style="font-style: normal"><b>base</b></span></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></span><i><span style="font-weight: normal">y</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">the
+</span></span></span><span style="font-variant: normal"><span style="font-style: normal"><b>power</b></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+I've decided to use both the super-script notation in combination
+with the ^ notation, even though typically we only pick one or the
+other. One reason is that eventually I'll want to use superscripts
+for indices and the inclusion of the ^ will help. Also ^ is common
+but notice that it is not the correct symbol in Python. Instead
+Python has reserved ^ to mean &quot;exclusive or&quot;, something
+we'll come to in the section on Logic. You of course are free to play
+with the ^ operation, it's a free country and kind of a free internet
+but ANYWAY. Our current topic is exponentiation and as we've seen
+elsewhere this is performed with the ** notation in Python. This is
+(hopefully) the only point on which my notation will substantially
+diverge from Python's. </span></span></span>
+</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+Actually, the notations converge a little if you let SymPy do some
+pretty printing for you. Try this.</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+In[n]: import sympy as sp</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+In[n+1]: sp.init_session()</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+IPython console for SymPy 1.0 (Python 3.5.2-64-bit) (ground types:
+python)</p>
+<p><br/>
+<br/>
+
+</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+These commands were executed:</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+from __future__ import division</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+from sympy import *</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+x, y, z, t = symbols('x y z t')</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+k, m, n = symbols('k m n', integer=True)</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+f, g, h = symbols('f g h', cls=Function)</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+init_printing()</p>
+<p><br/>
+<br/>
+
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">Documentation
+can be found at <a href="http://docs.sympy.org/1.0/">http://docs.sympy.org/1.0/</a></span></span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">Depending
+on changes to SymPy that take place between the time of writing this
+and your reading it, some of these outputs may change. However, what
+has effectively happened here is that SymPy has set you up with a
+much nicer working environment in the console. You can tell even just
+by typing `x` into the console. It will print out a pretty looking </span></span></span><i><span style="font-weight: normal">x</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">which
+indicates that </span></span></span><i><span style="font-weight: normal">x</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">has
+now been set up as a mathematical variable rather than a CompSci
+variable (we've been using CompSci variables so far, but that's going
+to change soon). We won't get into what this means right now, but
+just realize that by entering the `sp.init_session()` command, it has
+tweaked the behavior of the console for you, with the intention of
+making it easier to use for mathematical purposes. </span></span></span>
+</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+Next type `2**3` into the console. The 8 that it prints is likely
+prettier than it was before (so long as you're doing this in Anaconda
+and have some of the prerequisite software installed--if you don't,
+install what you need and if you still have problems, do some
+googling to fix it). Finally, type `x**2`. You'll see it render this
+expressing with the superscript notation.</p>
+<hr/>
+
+<p>Question: Why should we care about exponentiation? Doesn't this
+typically just describe the area of a square (for a power of 2) and
+volume of a cube (for a power of 3)? Since there is no fourth
+dimension (something the ancient Greeks thought, and therefore
+disregarded powers greater than 3) isn't a larger power meaningless
+and therefore we could just have special words and symbols for second
+and third powers?</p>
+<p>Answer: We do use the word &quot;squared&quot; to mean a second
+power, so that 4 squared is 16, and we use &quot;cubed&quot; to mean
+a third power so that 4 cubed is 64. However, there has been a fourth
+dimension ever since Einstein, and really there's been one ever since
+ancient philosophers thought about time as an extra dimension, and
+really there have been more than 4 dimensions since the Big Bang.
+Let's just allow ourselves any powers that we want, in case we ever
+need them.</p>
+<p>But also, powers are an excellent way to describe base systems!
+Take the number 54321. This is the same as (5*10^<sup>4</sup>) +
+(4*10^<sup>3</sup>)+ (3*10<sup>2</sup>) + (2*10) + 1. In fact, this
+pattern could partially justify us asserting that 10^<sup>1</sup> =
+10 and 10^<sup>0</sup> = 1 so that we can fill the pattern more
+fully: 
+</p>
+<p>54321 = (5*10^<sup>4</sup>) + (4*10^<sup>3</sup>) + (3*10<sup>2</sup>)
++ (2*10^<sup>1</sup>) + (1*10^<sup>0</sup>)</p>
+<p>I'm not sure if this representation of a number has a name but
+I'll choose to call this the <b>exponential representation</b> <span style="font-weight: normal">of
+a number. We call 5 the </span><b>coefficient</b> <span style="font-weight: normal">of
+10^</span><sup><span style="font-weight: normal">4</span></sup> <span style="font-weight: normal">and
+likewise for the other digits. </span>
+</p>
+<hr/>
+
+<p>Exercise: If <i>x = (a*10^</i><sup><i>2</i></sup><i>) + (2*10^</i><sup><i>1</i></sup><i>)
++ (3*10^</i><sup><i>0</i></sup><i>) </i><span style="font-variant: normal"><span style="font-style: normal">and
+</span></span><i>y = (4*10^</i><sup><i>1</i></sup><i>) + (9*10^</i><sup><i>0</i></sup><i>)
+</i><span style="font-variant: normal"><span style="font-style: normal">and
+</span></span><i>x+y = (a*10^</i><sup><i>2</i></sup><i>) + (a*10^</i><sup><i>1</i></sup><i>)
++ (2*10^</i><sup><i>0</i></sup><i>)</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">then
+what is </span></span><i>a</i><span style="font-variant: normal"><span style="font-style: normal">?</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Answer:
+This is something between a Math and Logic puzzle. Since the
+ones-digits sum and create a digit that must carry to the tens, then
+in the tens place we can infer that 1+2+4 = </span></span><i>a</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">so
+that 7 = </span></span><i>a</i><span style="font-variant: normal"><span style="font-style: normal">.
+The rest of the information in the setup wasn't even necessary. </span></span>
+</p>
+<hr/>
+
+<p>Question: At this point there isn't much too be gained by laboring
+too much over the various facts and relationships that exponentials
+have. There is no good table method for computing an exponent so
+there's nothing to discuss there, we would just have to produce
+repeated multiplication. Let's go ahead and write a Python script to
+emulate exponentiation. In the script below, replace the TODO with
+code that will make the script find <span style="font-variant: normal"><span style="font-style: normal">2*2*2*2.</span></span></p>
+<p style="font-variant: normal; font-style: normal">1| exampleList =
+[2, 2, 2, 2]</p>
+<p style="font-variant: normal; font-style: normal">2| ag = TODO1</p>
+<p style="font-variant: normal; font-style: normal">3| for num in
+exampleList:</p>
+<p style="font-variant: normal; font-style: normal">4| TODO2</p>
+<p style="font-variant: normal; font-style: normal">5| print(ag)</p>
+<p style="font-variant: normal; font-style: normal">Answer: Replace
+TODO1 with `1` and TODO2 with `ag *= num`.</p>
+<hr/>
+
+<p>Question: Does exponentiation have any of the properties we've
+studied before, like commutativity, associativity, or distributivity?</p>
+<p>Answer: Easy examples confirm it's neither associative nor
+commutative.</p>
+<p>$$2^{\wedge3} = 8, \quad 3^{\wedge2} = 9$$</p>
+<p>$$2^{\land 2^{\land 3}} = 2^{\land 8} = 256, \quad (2^{\land
+2})^{\land 3} = 4^{\land 3} = 64$$</p>
+<p>Distributive is more interesting because, as we saw, there is no
+such thing as distributive per se, but only distributive over this or
+that operation. We can easily show that exponentiation is not
+distributive over addition.</p>
+<p>$$(1+2)^{\land 2} = 9,\quad 1^{\land 2} + 2^{\land 2} = 5$$</p>
+<p>However, it seems to be distributive over multiplication: $$(2\ast
+3)^{\land 2} = 6^{\land 2} = 36, \quad 2^{\land 2}\ast 3^{\land 2} =
+4\ast 9 = 36$$</p>
+<p>Can we prove that this is true for all numbers? 
+</p>
+<p>Before jumping to that, let's also declare formally that we will
+again assume right-associativity with all operations, including
+exponentiation. Thus `2^{\wedge 3^{\wedge 4}}` is assumed to mean
+`2^{\wedge (3^{\wedge 4})}`.</p>
+<hr/>
+
+<p>Exercise: Prove that <i>(xy)^</i><sup><i>n</i></sup> <i>= x^</i><sup><i>n</i></sup><i>y^</i><sup><i>n</i></sup><i>.
+</i><span style="font-variant: normal"><span style="font-style: normal">Hint:
+Write </span></span><i>(xy)^</i><sup><i>n</i></sup><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">as
+repeated multiplication and use the associativity and commutativity
+of multiplication to re-group factors.</span></span></p>
+<p style="font-variant: normal; font-style: normal">Answer:</p>
+<p style="font-variant: normal; font-style: normal">$$(xy)^{\land n}
+= \overbrace{xyxyxy\cdot\cdot\cdot xy}^{n} =
+\overbrace{xxx\cdot\cdot\cdot x}^{n}\ast
+\overbrace{yyy\cdot\cdot\cdot y}^n\\ = x^{\land n}y^{\land n}$$</p>
+<hr/>
+
+<p>Exercise: There's another law we can prove for exponentials,
+namely one for `(x^{\wedge y})^{\wedge z}`. What is the law and what
+is its proof?</p>
+<p>Answer: The law is that this is equal to $$x^{\land yz}$$ The
+proof works similarly to how the previous one did.</p>
+<p>$$(x^{\land y})^{\land z} = \overbrace{(x^{\land
+y})\cdot\cdot\cdot(x^{\land y})}^{z} = x^{\land
+\overbrace{y+y+...+y}^{z}}$$ where this last equality is true from
+what we proved in the previous exercise. From here we get $$=
+x^{\land yz}$$ from the definition of repeated addition as
+multiplication.</p>
+<hr/>
+
+<p>Question: What is the inverse of exponentiation?</p>
+<p>Answer: There isn't one! Or rather: There isn't <i>just</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">one!
+There are two inverses of exponentiation, and this is due to the fact
+that exponentiation is not commutative. </span></span>
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">To
+illustrate, take the relationship 3^</span></span><span style="font-variant: normal"><sup><span style="font-style: normal">2</span></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">=
+9. The inverse should cancel something here, just like how in 5+1 the
+inverse -1 will cancel the +1 and leave just 5. If we choose to
+cancel the 2 and leave the 3, then we are using the </span></span><span style="font-variant: normal"><span style="font-style: normal"><b>root</b></span></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">inverse,
+in particular the square-root (because it cancels the square). In
+Python you can enter </span></span>
+</p>
+<p style="font-variant: normal; font-style: normal">In[n]: sqrt(9)</p>
+<p style="font-variant: normal; font-style: normal">Out[n]: 3</p>
+<p style="font-variant: normal; font-style: normal">or you could also
+enter</p>
+<p style="font-variant: normal; font-style: normal">In[n]: sqrt(3**2)</p>
+<p style="font-variant: normal; font-style: normal">Out[n]: 3</p>
+<p style="font-variant: normal; font-style: normal">Depending on
+whether you still have the SymPy session loaded by the command
+<font face="FreeMono, monospace">sp.init_session()</font> you the
+output in the console may look slightly different from mine. If you
+have a session running, then if you enter <font face="FreeMono, monospace">sqrt(x)</font>
+you'll get a pretty printing of the expression using the &quot;surd&quot;
+character, $$\sqrt{x}$$</p>
+<p style="font-variant: normal; font-style: normal">SymPy also offers
+a cube-root function to cancel third powers.</p>
+<p style="font-variant: normal; font-style: normal">In[n]: cbrt(1000)</p>
+<p style="font-variant: normal; font-style: normal">Out[n]: 10</p>
+<p style="font-variant: normal; font-style: normal">In Mathematical
+rather than CompSci contexts we write the cube-root as
+$$\sqrt[3]{x}$$</p>
+<p align="left"><span style="font-variant: normal"><span style="font-style: normal">You
+can enter other roots with the command root(</span></span><i>e, p</i><span style="font-variant: normal"><span style="font-style: normal">)
+where </span></span><i>e</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">is
+the intended exponential value and </span></span><i>p</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is
+the power. The standard mathematical notation is $$\sqrt[n]{x}$$</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Finally
+there is the inverse which cancels the base, which we call the
+</span></span><span style="font-variant: normal"><span style="font-style: normal"><b>logarithm</b></span></span><span style="font-variant: normal"><span style="font-style: normal">.
+Where </span></span><span style="font-variant: normal"><font face="FreeMono, monospace"><span style="font-style: normal">sqrt(3**2)</span></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">cancels
+the power and returns the base, 3; with the logarithm </span></span><span style="font-variant: normal"><font face="FreeMono, monospace"><span style="font-style: normal">log(3,
+3**2)</span></font></span><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">cancels
+the base and returns 2, the power. I'll illustrate again on new
+numbers. If you haven't already, you'll likely need to initialize a
+SymPy session.</span></span></p>
+<p style="font-variant: normal; font-style: normal">In[n]: log(5, 25)</p>
+<p style="font-variant: normal; font-style: normal">Out[n]: 2</p>
+<p style="font-variant: normal; font-style: normal">The general
+syntax in SymPy for logarithms is <font face="FreeMono, monospace">log(b,e)</font>
+where <font face="FreeMono, monospace">b</font> represents the base
+and <font face="FreeMono, monospace">e</font> represents the
+exponential value.</p>
+<hr/>
+
+<p>Exercise: As we have done for subtraction and division, state the
+meaning of the root in terms of &quot;The <i>n</i><span style="font-variant: normal"><span style="font-style: normal">th
+root of </span></span><i>x</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">is
+that number which, when ... results in ...&quot; and do likewise for
+the logarithm base </span></span><i>n</i><span style="font-variant: normal"><span style="font-style: normal">.</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Answer:
+The </span></span><i>n</i><span style="font-variant: normal"><span style="font-style: normal">th
+root of </span></span><i>x</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">is
+that number which, when raised to the </span></span><i>n</i><span style="font-variant: normal"><span style="font-style: normal">th
+power, results in </span></span><i>x</i><span style="font-variant: normal"><span style="font-style: normal">.</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">The
+logarithm base </span></span><i>n</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is
+that number which, when put in the power of </span></span><i>n</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">results
+in </span></span><i>x</i><span style="font-variant: normal"><span style="font-style: normal">.</span></span></p>
+<p style="font-variant: normal; font-style: normal">For examples,
+sqrt(16) = 4 and 4 is that number which when raised to the second
+power results in 16.</p>
+<p style="font-variant: normal; font-style: normal">log(3,81) = 4 and
+4 is that number which when put in the power of 3 results in 81.</p>
+<hr/>
+
+<p>Question: Are either the root or logarithm commutative,
+associative, distributive?</p>
+<p>Answer: For commutative and associative, it's hard to pin down
+what these even mean for the square-root function. There is a sense
+we could give to the more general square function, but I fear I'll
+only confuse the reader at this stage, so for commutative and
+associative, let's leave it at &quot;not really&quot;. But there is a
+sense in which distributive does make sense for both of them.</p>
+<p>Starting with the root, and for specificity let's talk about the
+square-root. This does not distribute over addition:
+$$\sqrt{4+9}=\sqrt{13}$$ which is not even a well-defined number for
+us right now. On the other hand $$\sqrt{4}+\sqrt{9}=2+3$$ a totally
+different answer. 
+</p>
+<p>However, it seems to work with multiplication and it does. How do
+we prove it? That is to say, how do we show that, if <i>x</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+</span></span><i>y</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">have
+square roots, then $$\sqrt{xy} = \sqrt{x}\sqrt{y}$$ One nice way to
+prove this is to assume it's true, see if we can move it to a form or
+place we like, and then try to work backwards! Assuming the equation
+is true we can square both sides and get </span></span>
+</p>
+<p style="font-variant: normal; font-style: normal">$$xy =
+(\sqrt{x}\sqrt{y})^{\land 2} = \sqrt{x}^{\land 2} \sqrt{y}^{\land 2}
+= xy$$</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">The
+end result, </span></span><i>xy = xy,</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is
+clearly an equation we can believe. Now to back-track the process we
+just start here and work backwards. </span></span>
+</p>
+<p style="font-variant: normal; font-style: normal">Let's use the
+fact that $$xy = \sqrt{x}^{\land 2}\sqrt{y}^{\land 2} =
+(\sqrt{x}\sqrt{y})^{\land 2}$$</p>
+<p style="font-variant: normal; font-style: normal">From here we can
+square-root both sides and get exactly what we want $$\sqrt{xy} =
+\sqrt{x}\sqrt{y}$$</p>
+<p style="font-variant: normal; font-style: normal">A similar proof
+works for any root and power.</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Now
+for the logarithm; what could we say about, for example, $$log(2,
+xy)$$ that is to say the logarithm-base-2 of </span></span><i>xy</i><span style="font-variant: normal"><span style="font-style: normal">?
+If we tinker and play with distribution over + and * it doesn't work.
+Maybe there is no relationship. </span></span>
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">But</span></span>
+<span style="font-variant: normal"><span style="font-style: normal">here's
+another idea for a proof: Use something that seems relevant and make
+easy manipulations with logarithms to see if a law jumps out at you!
+What I have in mind is to take the law that we proved earlier (I
+re-label the numbers in order not to conflict with the numbers
+already used in this answer)</span></span></p>
+<p style="font-variant: normal; font-style: normal">$$b^{\land
+p}b^{\land q} = b^{\land p+q}$$</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">If
+we just try to take the logarithm-base-</span></span><i>b</i><span style="font-variant: normal"><span style="font-style: normal">,
+what will we get? Because the logarithm cancels the base, then on the
+right-hand-side what we get is obviously just </span></span><i>p+q.</i></p>
+<p style="font-variant: normal; font-style: normal">$$\log(b,
+b^{\land p}b^{\land q}) = p+q$$</p>
+<p style="font-variant: normal; font-style: normal">If you think hard
+enough about it, this really just <i>is</i> the law that we want!
+This tells us that 
+</p>
+<p style="font-variant: normal; font-style: normal">$$\log(b,
+b^{\land p}b^{\land q}) = p+q = \log(b, b^{\land p}) + \log(b,
+b^{\land q})$$</p>
+<p style="font-variant: normal; font-style: normal">If we blot out
+<i>b^</i><sup><i>p</i></sup><sup> </sup>and just call this <i>x</i>,
+and likewise call <i>b^</i><sup><i>q</i></sup> to be <i>y</i> then
+what this shows us is that the logarithm <i>distributes over
+multiplication and turns it into addition!</i></p>
+<p style="font-variant: normal; font-style: normal">$$\log(b, xy) =
+\log(b,x) + \log(b,y)$$</p>
+<hr/>
+
+<p>Exercise: Use the distributive law and the fact that 729 = 27*27
+to effortlessly compute cbrt(729). Also use the derived rule for
+logarithms to easily compute log(2, 4^<sup>4</sup>).</p>
+<p>Answer: cbrt(729) = cbrt(27)cbrt(27) = 3*3 = 9.</p>
+<p>log(2, 4^<sup>4</sup>) = log(2, 4*4*4*4) = log(2, 4) + log(2, 4) +
+log(2, 4) + log(2, 4) = 2*2*2*2 = 16</p>
+<hr/>
+
+<p>Question: The previous solution for the logarithm problem
+indicates that there is another law we can derive, this time for
+log(<i>b, x^</i><sup><i>y</i></sup><span style="font-variant: normal"><span style="font-style: normal">).
+What is it?</span></span></p>
+<p style="font-variant: normal; font-style: normal">Answer: 
+</p>
+<p style="font-variant: normal; font-style: normal">$$\log(b,
+x^{\land y}) = \log(b, \overbrace{xxx\cdot\cdot\cdot x}^y) =
+\overbrace{\log(b,x) + ... + \log(b,x)}^y = y\log(b,x)$$</p>
+<p style="font-variant: normal; font-style: normal">Hence, the law we
+can derive is $$\log(b,x^{\land y}) = y\log(b,x)$$</p>
+</body>
+</html>

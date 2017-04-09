@@ -1,0 +1,697 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 5.1.6.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="2017-03-28T00:09:10.030683630"/>
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2017-03-23T00:12:44.336970391">
+	<meta name="created" content="2017-03-22T16:41:35.858978207">
+	<meta name="changed" content="2017-03-22T17:51:31.164448050">
+	<meta name="created" content="2017-03-22T16:41:35.858978207">
+	<meta name="changed" content="2017-03-22T16:57:44.161732347">
+	<meta name="created" content="2017-03-22T16:41:35.858978207">
+	<meta name="changed" content="2017-03-22T16:57:44.161732347">
+	<meta name="created" content="2017-03-21T20:27:10.494278786">
+	<meta name="changed" content="2017-03-21T21:28:20.559350513">
+	<meta name="created" content="2017-03-21T20:27:10.494278786">
+	<meta name="changed" content="2017-03-21T21:17:08.275337413">
+	<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	<style type="text/css">
+		h2.western { font-family: "Albany", sans-serif; font-size: 16pt }
+		h2.cjk { font-family: "Noto Sans CJK SC Regular"; font-size: 16pt }
+		h2.ctl { font-family: "FreeSans"; font-size: 16pt }
+	</style>
+</head>
+<body lang="en-US" dir="ltr">
+<table width="100%" cellpadding="4" cellspacing="0" style="page-break-before: always; page-break-inside: avoid">
+	<col width="128*">
+	<col width="128*">
+	<tr valign="top">
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><a href="../main/main.html">Home</a> &gt; <a href="arithmetic.html">Arithmetic</a>
+			&gt; <a href="arithmeticCh02.html">Extending number systems</a> &gt;
+			Integers</p>
+		</td>
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding: 0.04in">
+			<p align="right">&lt; prev | <a href="02.02.01arithmetic.html">next</a>
+			&gt; 
+			</p>
+		</td>
+	</tr>
+</table>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<h1>Arithmetic</h1>
+<h2 class="western">Chapter 02 - Extending number systems</h2>
+<h2 class="western">Section 01 - Integers</h2>
+<p>Abstract: Integers are the natural numbers together with
+negatives. They can be constructed mathematically as the closure
+under subtraction or intuitively as modeling steps from a privileged
+position. After their construction we have to define operations in a
+i) consistent and ii) good way.</p>
+<p>Terms: element, natural number, closure, set builder notation,
+integer, positive, negative, absolute value, equivalence relation</p>
+<p>Symbols: ℕ, {, }, :, _, ℤ, ℤ<sup>+</sup>, ℤ<sup>-</sup>,
+_<i>n</i><span style="font-variant: normal"><span style="font-style: normal">,
+|.|,</span></span><span style="font-variant: normal"> ≡</span></p>
+<hr/>
+
+<p>Question: What is 0-1?</p>
+<p>Answer: So far, this means nothing. The only numbers that exist
+for us are 0, 1, 2, ... It will be a helpful description to call
+these numbers <b>natural numbers</b> <span style="font-weight: normal">and
+label the set of all such numbers as ℕ. We often express sets with
+curly braces so that the set of numbers 0, 1, 2 is {0,1,2}. Let's
+call this list </span><i><span style="font-weight: normal">A </span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">so
+that </span></span></span><i><span style="font-weight: normal">A =
+{0,1,2}</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.</span></span></span>
+<span style="font-weight: normal">All this does is collect the
+elements together into a group, in a kind of analogy to how lists
+work in CompSci, except that lists are ordered. A list like </span><font face="FreeMono, monospace"><span style="font-weight: normal">list1
+= [0,0,1,1]</span></font> <font face="Liberation Serif, serif"><span style="font-weight: normal">has
+four elements and a coordinate system so that I can specify the
+&quot;zeroth&quot; and &quot;oneth&quot; elements of the list.
+</span></font><font face="FreeMono, monospace"><span style="font-weight: normal">list1[0]</span></font>
+<font face="Liberation Serif, serif"><span style="font-weight: normal">is,
+with the Python notation, the number 0. list2[1] is also 0. This
+behavior is unlike sets, which are unordered. There is no such thing
+as the zeroth or first element of </span></font><font face="Liberation Serif, serif"><i><span style="font-weight: normal">A</span></i></font><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">.
+It doesn't have a coordinate system. Therefore the set {0,0,1,2} is
+just the same as the set {0,1,2} because all we can say is the set
+contains 0--we cannot distinguish the &quot;first&quot; zero from the
+&quot;second&quot;. The only distinguishing features of sets are
+membership. We can tell {1,2,3} from the set {5,4,3} because the
+former has 1 and the latter doesn't. We cannot tell {1,2,3} from
+{3,2,1} because all sets are the same regardless of ordering. We call
+the contents of a set </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><b>elements</b></span></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">or
+</span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><b>members</b></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">.</span></span></font></span></p>
+<p><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">Now
+back to the question, as I said, for us right now, all that exists in
+the world of numbers is ℕ and in this number set, there is no
+number such that it, plus 1, is 0. However, We could create a number
+like this, call it _1. This _1</span></span></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">will
+denote a newly created number which when added to 1 produces 0. Let's
+investigate the properties that _1</span></span></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">must
+have in order to be consistent with the rest of our numbers. </span></span></font></span>
+</p>
+<p><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">To
+begin with, what should _1</span></span></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">+
+2 be? Well, since _1</span></span></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">+
+2 = _1</span></span></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">+
+1 + 1 and we know the first part of that, _1</span></span></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">+
+1, is equal to 0, then this must simplify to 0 + 1 = 1. Hence we have
+just established that _1 + 2 = 1 and we could likewise show that _1</span></span></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">+
+</span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">n</span></i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">=
+</span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">n</span></i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">-
+1 for all natural numbers </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">n</span></i></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">.
+But here's a twist: </span></span></font></span>
+</p>
+<hr/>
+
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+<font face="Liberation Serif, serif">Question: What is _ + _? </font>
+</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+<font face="Liberation Serif, serif">Answer: Again this cannot exist
+as any of the numbers we've encountered so far. It has the property
+that, when added to 2, sums to 0. We could again create a new number,
+which we could reasonably name as _2 to suggest that it's _ twice. </font>
+</p>
+<p><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">Rather
+than creating a new number over and over, we could instead say that
+we want the &quot;closure&quot; of all numbers under subtraction.
+That is to say, if </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">x</span></i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">y</span></i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">are
+any natural numbers, then we call </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">x</span></i></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">+</span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">y</span></i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">a
+(possibly new) number. Thus we get 5-1 is a number--which we already
+knew--and we get 2-5 is a number, and so on for all choices of
+natural number. Let us define these terms more rigorously now.</span></span></font></span></p>
+<p><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">Definition:
+If </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">@</span></i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">is
+any operation (addition, subtraction, multiplication, etc) then we
+say that the </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><b>closure
+under </b></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><b>@</b></i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">is
+the set of all </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">z</span></i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">such
+that </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">z</span></i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">is
+equal to some </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">x
+@ y</span></i></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">.
+In the notation of set theory we would say that the closure under </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">@</span></i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">is
+{</span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">z
+:</span></i></font></span><span style="font-variant: normal"> </span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">z
+= x @ y </span></i></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">for
+some</span></span></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">natural
+numbers</span></span></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">x,y</span></i></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">}.
+The : symbol is read as &quot;such that&quot;. This is called </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><b>set
+builder notation</b></span></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">and
+generally has the format {&lt;expression&gt; : &lt;condition&gt;}. To
+give another example we could define the set of even natural numbers
+as </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">E
+= {2x : x</span></i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">is
+any natural number</span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">}</span></i></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">.
+Notice that 0 is in </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">E</span></i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">because
+0 = 2*0. Also 2 is in </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">E</span></i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">because
+2 = 2*1. In this way, </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">E</span></i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">will
+contain all and only the even natural numbers.</span></span></font></span></p>
+<p><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">We
+define the </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><b>integers</b></span></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">as
+ℤ = </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">{z
+: z = x - y</span></i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">where
+</span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">x,
+y</span></i></font></span><span style="font-variant: normal"> </span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">are
+some natural numbers</span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">}</span></i></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">.
+Thus 5-1 and 2-5 are in ℤ. To give an example of something not in
+ℤ, 2/5 is not, because there are no natural numbers </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">x,
+y</span></i></font></span><span style="font-variant: normal"> </span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">such
+that 2/5 = </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">x
+- y</span></i></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">.
+We define _ as 0-1 (or, if you prefer, _1 is equal to 0-1) and _2 as
+0-2, and in general _</span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">n</span></i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">is
+0-</span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">n</span></i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">which
+by definition has the property that, when summed with </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">n</span></i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">produces
+0. Every integer that's not a natural number we call a negative, and
+the set of negatives we denote </span></span></font></span><span style="font-variant: normal">ℤ</span><span style="font-variant: normal"><sup><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">-</span></span></font></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">which
+implies </span></span></font></span><span style="font-variant: normal">ℤ</span><span style="font-variant: normal"><sup><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">-</span></span></font></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">=
+</span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">{_1,
+_2, _3, ...}</span></i></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">.
+We call </span></span></font></span><span style="font-variant: normal">ℤ</span><span style="font-variant: normal"><sup><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">+</span></span></font></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">the
+positives, which are non-zero natural numbers, i.e. </span></span></font></span><span style="font-variant: normal">ℤ</span><span style="font-variant: normal"><sup><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">+</span></span></font></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">=
+</span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">{1,
+2, 3, ...}</span></i></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">.</span></span></font></span></p>
+<p><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">The
+choice of </span></span></font></span><span style="font-variant: normal">ℤ
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">as
+the symbol for the integers comes from the fact that they are Zahlen,
+the German word for &quot;numbers&quot;.</span></span></font></span></p>
+<hr/>
+
+<p>Exercise: Use set builder notation to define the set of odd
+natural numbers, the set of prime natural numbers, and the set of
+natural numbers between 10 and 20.</p>
+<p>Answer:</p>
+<p>{<i>z : z = 2x+1 </i><span style="font-variant: normal"><span style="font-style: normal">for
+some natural number </span></span><i>x</i><span style="font-variant: normal"><span style="font-style: normal">}</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">{</span></span><i>z
+: </i><span style="font-variant: normal"><span style="font-style: normal">if
+</span></span><i>y|z</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">then
+</span></span><i>y = 1</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">or
+</span></span><i>y = z</i><span style="font-variant: normal"><span style="font-style: normal">}</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">{</span></span><i>z
+: 10 &lt; z &lt; 20</i><span style="font-variant: normal"><span style="font-style: normal">}</span></span></p>
+<hr/>
+
+<p>Question: Well, so be it, we have integers now. What do we do with
+them?</p>
+<p>Answer: We need to define operations of +, -, *, and so on, until
+we are able to sensibly compute these on all &quot;numbers&quot;.
+Notice by the way that suddenly the word &quot;number&quot; has
+become ambiguous: Natural number? Integer? If we're incautious you
+may need to figure out the intended number set by context, but we
+should be careful to try to specify which numbers we mean in the
+future. 
+</p>
+<p>So let's take for instance _5 and figure out what is _5 + <i>x</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">when
+integer </span></span><i>x</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">is
+greater than 5 and when it's less than 5 (when it's equal to 5, we
+know the sum is 0 by definition). When </span></span><i>x</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is
+greater than 5, like for instance 6, the case is easy. We can just
+argue like so, _5 + 6 = _5 + 5 + 1 = 0 + 1 = 1. That is to say, when
+</span></span><i>x &gt; 5</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">we
+can just split off 5 from </span></span><i>x</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+cancel. </span></span>
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">If
+</span></span><i>x &lt; 5</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">like
+say 4 we could compute the following. _5 + 4 = _5 + (5 - 1) = 0 - 1 =
+_1. Of course this requires an item of faith, that associativity
+allows us to drop the parentheses at the penultimate step. In a way
+we already accepted this article of faith in the previous
+calculation, writing the sum of three things without parentheses at
+all--assuming that this made sense and addition remains associative
+even with negative numbers.</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">In
+a sense it's not an article of faith, it's much worse. It's that
+there is no fact of the matter one way or another--but in defining
+what we mean by negative numbers, we define them</span></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">to
+satisfy all of the previous properties that the natural numbers have:
+Commutativity, associativity, distributivity, and the like. And in
+fact, this state of affairs is just how we should have expected it to
+be: We are doing everything so abstractly, using the closure under
+subtraction to generate our numbers.</span></span></p>
+<hr/>
+
+<p>Question: How is this &quot;theory of integers&quot; connected to
+reality? What do integers mean?</p>
+<p>Answer: Given that _1 is the number which, added to 1, produces 0,
+it seems to in some sense be &quot;to the left&quot; of 0. We could
+imagine that the natural numbers are strung out as points leading to
+the right, 
+</p>
+<dl>
+	<dl>
+		<dl>
+			<dl>
+				<dl>
+					<dl>
+						<dl>
+							<dl>
+								<dl>
+									<dl>
+										<dl>
+											<dl>
+												<dl>
+													<dl>
+														<dl>
+															<dl>
+																<dl>
+																	<dl>
+																		<dl>
+																			<dl>
+																				<dl>
+<dd>
+<table width="192" cellpadding="4" cellspacing="0">
+<col width="30">
+<col width="30">
+<col width="30">
+<col width="30">
+<col width="30">
+<tr valign="top">
+<td width="30" style="border: none; padding: 0in">
+<p>0</p>
+</td>
+<td width="30" style="border: none; padding: 0in">
+<p>1</p>
+</td>
+<td width="30" style="border: none; padding: 0in">
+<p>2</p>
+</td>
+<td width="30" style="border: none; padding: 0in">
+<p>3</p>
+</td>
+<td width="30" style="border: none; padding: 0in">
+<p>4</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="30" style="border: none; padding: 0in">
+<p>.</p>
+</td>
+<td width="30" style="border: none; padding: 0in">
+<p>.</p>
+</td>
+<td width="30" style="border: none; padding: 0in">
+<p>.</p>
+</td>
+<td width="30" style="border: none; padding: 0in">
+<p>.</p>
+</td>
+<td width="30" style="border: none; padding: 0in">
+<p>.</p>
+</td>
+</tr>
+</table>
+																				</dl>
+																			</dl>
+																		</dl>
+																	</dl>
+																</dl>
+															</dl>
+														</dl>
+													</dl>
+												</dl>
+											</dl>
+										</dl>
+									</dl>
+								</dl>
+							</dl>
+						</dl>
+					</dl>
+				</dl>
+			</dl>
+		</dl>
+	</dl>
+</dl>
+<p>If we include the negatives then we could arrange them extending
+infinitely to the left, implying that they're less than 0. 
+</p>
+<dl>
+	<dl>
+		<dl>
+			<dl>
+				<dl>
+					<dl>
+						<dl>
+							<dl>
+								<dl>
+									<dl>
+										<dl>
+											<dl>
+												<dl>
+													<dl>
+														<dl>
+															<dl>
+																<dl>
+																	<dl>
+																		<dl>
+																			<dl>
+																				<dl>
+<dd>
+<table width="192" cellpadding="4" cellspacing="0">
+<col width="16">
+<col width="16">
+<col width="16">
+<col width="16">
+<col width="16">
+<col width="16">
+<col width="16">
+<col width="16">
+<tr valign="top">
+<td width="16" style="border: none; padding: 0in">
+<p>_3</p>
+</td>
+<td width="16" style="border: none; padding: 0in">
+<p>_2</p>
+</td>
+<td width="16" style="border: none; padding: 0in">
+<p>_1</p>
+</td>
+<td width="16" style="border: none; padding: 0in">
+<p>0</p>
+</td>
+<td width="16" style="border: none; padding: 0in">
+<p>1</p>
+</td>
+<td width="16" style="border: none; padding: 0in">
+<p>2</p>
+</td>
+<td width="16" style="border: none; padding: 0in">
+<p>3</p>
+</td>
+<td width="16" style="border: none; padding: 0in">
+<p>4</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="16" style="border: none; padding: 0in">
+<p>.</p>
+</td>
+<td width="16" style="border: none; padding: 0in">
+<p>.</p>
+</td>
+<td width="16" style="border: none; padding: 0in">
+<p>.</p>
+</td>
+<td width="16" style="border: none; padding: 0in">
+<p>.</p>
+</td>
+<td width="16" style="border: none; padding: 0in">
+<p>.</p>
+</td>
+<td width="16" style="border: none; padding: 0in">
+<p>.</p>
+</td>
+<td width="16" style="border: none; padding: 0in">
+<p>.</p>
+</td>
+<td width="16" style="border: none; padding: 0in">
+<p>.</p>
+</td>
+</tr>
+</table>
+																				</dl>
+																			</dl>
+																		</dl>
+																	</dl>
+																</dl>
+															</dl>
+														</dl>
+													</dl>
+												</dl>
+											</dl>
+										</dl>
+									</dl>
+								</dl>
+							</dl>
+						</dl>
+					</dl>
+				</dl>
+			</dl>
+		</dl>
+	</dl>
+</dl>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">What we're doing here is taking a more
+physical or applied perspective than the abstract perspective begun
+above that used closure. Here we start with a description of a system
+we want, and then think of the Mathematical objects or rules that
+have these features. Either perspective is fine, and it's probably
+good to have each in mind to help reinforce the other. 
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">So if this is our physical system, a
+sequence of dots extending to infinity to the right and left, with 0
+as a privileged &quot;starting&quot; position, this could be like a
+one-dimensional line counting steps east and west from home. The plus
+operation takes a certain position and walks more to the right, the
+minus operation takes a position and walks to the left. This could
+also be like a bank account where money is &quot;positive&quot; and
+debt is &quot;negative&quot;. 
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">In any case we will want addition to be
+commutative and associative no matter what the exact physical
+interpretation is. 3 - 4 should mean three steps right and four left;
+_4 + 3 means four left, three right; they should both arrive at _1.
+Similarly 3 + _4 should do the same thing as 3 - 4. They mean subtly
+different things but still calculate to the same number. It may be
+helpful to think of positive numbers as always &quot;facing&quot; or
+being oriented toward the right and negative numbers as facing or
+being oriented toward the left. Then 3 + _4 could be thought of as
+being at 3, and turning around (facing left) and moving forward by 4
+(arriving at _1). On the other hand 3 - 4 could be thought of as
+being at 3, keep facing to the right, but walk backwards by 4--still
+arriving at _1. The main difference to keep track of is that _ is not
+an operation while - is. _1 is a number or a symbol to indicate
+left-ward orientation.</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">In any case, the point here being that
+the physical interpretation suggests to us that the addition
+operation should have all the familiar properties that we know and
+love--making this requirement seem less arbitrary than it might in
+the abstract context. Thus the above demonstration that _5 + 4 = _1
+is valid in both views.</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">One issue we might have is how to add
+two negatives, like _1 + _1. The physical perspective easily
+justifies that this is _2. Abstractly we could argue that _1 + _1 has
+the property that when summed with 2 it results in 0, and so does _2.
+If we require that only one number can have this property then we can
+argue _1 + _1 = _2. If these arguments feel <i>ad hoc</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">don't
+worry: We will review these constructions again in Set Theory and
+Abstract Algebra in a more systematic way.</span></span></p>
+<hr/>
+
+<p>Question: What should multiplication mean in this context?</p>
+<p>Answer: Of course repeated addition is sensible when the negative
+appears on the left. _3 * 4 = _3 + _3 + _3 + _3 = _12</p>
+<p>When a negative number occurs in the right factor though, we seem
+to need to make some sense of adding &quot;negative-many&quot; times.
+What should 2 * _2 be? Abstractly we would only require
+multiplication to be commutative just like it is in the case of
+natural numbers, so that we could justify saying this is the same as
+_2*2 = _4. Physically, things are more difficult, but thinking in
+terms of velocities could help. Suppose we have an object moving at
+60 kilometers per hour for 3 hours, then of course it travels 60*3 =
+180 kilometers. We could regard the time 0 hours to be right now, and
+3 hours to represent 3 hours in the future, so that in a sense this
+calculation represents a prediction. We can then make sense of
+negative time as just being time in the past, before now, and the
+60*_3 = _180 kilometers represents a retrodiction: three hours ago
+the car was 180 kilometers to the left. This perspective in terms of
+velocity also coheres with the notion of negative velocities and
+negative time. It even tells us what to do to multiply two negatives:
+You just retrodict motion toward the left and therefore the location
+must be to the right. So _60*_3 = 180.</p>
+<p>The abstract justification is much trickier (notice how some
+things are handled trivially by the abstract perspective while
+physically they're tough, and vice versa for some other things). We
+could argue in the following way, assuming that multiplication has
+all the nice properties, commutativity, associativity,
+distributivity, and the idea that 0 times any number must be 0.</p>
+<p>$$0 = 1 + \_1 \Rightarrow \\ 0*\_1 = (1 + \_1)*\_1 = 0 = 1*\_1 +
+\_1*\_1 = \_1 + \_1*\_1 $$</p>
+<p>From this we infer that _1*_1 has the property that when summed
+with _1 it results in 0. This is unique to the number 1, so we have
+_1*_1 = 1.</p>
+<hr/>
+
+<p>Question: What about division?</p>
+<p>Answer: The answer of course comes from what we already say about
+multiplication. For instance, _4/2 is that number which when
+multiplied by 2 produces _4. Of course this number must be _2. Other
+cases are equally obvious.</p>
+<hr/>
+
+<p>Exercise: Show that _ _1 = 1.</p>
+<p>Answer: What even is _ _1? To be consistent with previous
+definitions we should say _ _1 = 0 - (0 - 1). We've show that
+subtraction is equivalent to adding a negative, and we can distribute
+a negative 1, so this is the same as 
+</p>
+<p>$$0+\_ 1(0+\_1) = \_1*\_1 = 1$$</p>
+<hr/>
+
+<p>Question: What is a complete algorithm for adding, subtracting,
+multiplying, and dividing integers?</p>
+<p>Answer: It will be helpful to have the concept of the absolute
+value to state this. 
+</p>
+<p>Definition: The <b>absolute value</b> of <i>x</i><span style="font-variant: normal"><span style="font-style: normal">,
+written |</span></span><i>x</i><span style="font-variant: normal"><span style="font-style: normal">|
+is the &quot;positive part&quot; or &quot;size&quot; of </span></span><i>x</i><span style="font-variant: normal"><span style="font-style: normal">.
+Formally we may define this piecewise: If </span></span><i>x</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is
+a natural number, |</span></span><i>x|</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">=
+</span></span><i>x</i><span style="font-variant: normal"><span style="font-style: normal">,
+otherwise </span></span><i>|x| = _x</i><span style="font-variant: normal"><span style="font-style: normal">.
+Notice that the absolute value is always a natural number. For
+example |2| = 2 but |_2| = 2.</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Now
+for an algorithm to find </span></span><i>x+y,</i></p>
+<ul>
+	<li/>
+<p style="font-variant: normal; font-style: normal">If both
+	are natural numbers then of course add as in the last chapter. 
+	</p>
+	<li/>
+<p><span style="font-variant: normal"><span style="font-style: normal">If
+	one is negative, we can assume &quot;without loss of generality&quot;
+	that it is </span></span><i>x</i><span style="font-variant: normal"><span style="font-style: normal">.
+	What this &quot;without loss of generality&quot; means is that, if
+	it were actually </span></span><i>y</i><span style="font-variant: normal">
+	</span><span style="font-variant: normal"><span style="font-style: normal">that's
+	negative, we could just swap the numbers around and the same proof
+	would work. This &quot;without loss of generality&quot; claim comes
+	up so often, we abbreviate it w.l.o.g. Anyway, again w.l.o.g. we
+	assume </span></span><i>x </i><span style="font-variant: normal"><span style="font-style: normal">is
+	negative. </span></span>
+	</p>
+	<ul>
+		<li/>
+<p><span style="font-variant: normal"><span style="font-style: normal">If
+		|</span></span><i>x</i><span style="font-variant: normal"><span style="font-style: normal">|
+		&gt; </span></span><i>|y| </i><span style="font-variant: normal"><span style="font-style: normal">then
+		find |</span></span><i>x</i><span style="font-variant: normal"><span style="font-style: normal">|
+		- |</span></span><i>y|</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">using
+		the usual subtraction process on natural numbers, and the value of
+		</span></span><i>x+y</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">will
+		be </span></span><i>_(|x|-|y|).</i></p>
+		<li/>
+<p><span style="font-variant: normal"><span style="font-style: normal">Otherwise
+		the value is </span></span><i>|y|-|x|</i><span style="font-variant: normal"><span style="font-style: normal">.</span></span></p>
+	</ul>
+	<li/>
+<p><span style="font-variant: normal"><span style="font-style: normal">If
+	both are negative the value is </span></span><i>_(|x|+|y|)</i><span style="font-variant: normal"><span style="font-style: normal">.</span></span></p>
+</ul>
+<p><span style="font-variant: normal"><span style="font-style: normal">For
+subtraction, </span></span><i>x-y = x+_y</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">so
+that the addition algorithm suffices.</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">For
+multiplication </span></span><i>x*y</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is
+</span></span>
+</p>
+<ul>
+	<li/>
+<p style="font-variant: normal; font-style: normal">The usual
+	if they are natural numbers</p>
+	<li/>
+<p><i>_|x|*|y| </i><span style="font-variant: normal"><span style="font-style: normal">if
+	one is negative</span></span></p>
+	<li/>
+<p><span style="font-variant: normal"><span style="font-style: normal">|</span></span><i>x|*|y|
+	</i><span style="font-variant: normal"><span style="font-style: normal">if
+	both are negative</span></span></p>
+</ul>
+<p><span style="font-variant: normal"><span style="font-style: normal">For
+division, </span></span><i>x/y </i><span style="font-variant: normal"><span style="font-style: normal">is
+just like for multiplication: In all cases, divide the absolute
+values. If they're the same sign, the result is positive; otherwise
+the result is negative.</span></span></p>
+<hr/>
+
+<p>Question: How do we exponentiate? 
+</p>
+<p>Answer: Of course again the easy part is to have a negative on the
+left, in which case we perform repeated multiplication. _2^<sup>2</sup>
+= _2*_2 = 4. The hard part is when a negative is on the right: 2^<sup>_2</sup></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">One
+way to motivate this is to look at the progression as we go from 2^</span></span><span style="font-variant: normal"><sup><span style="font-style: normal">2</span></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">=
+4 to 2^</span></span><span style="font-variant: normal"><sup><span style="font-style: normal">1</span></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">=
+2 to 2^</span></span><span style="font-variant: normal"><sup><span style="font-style: normal">0</span></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">=
+1. As the exponent decreases the value is half as large. Since there
+is no number half as large as 1, though, we have to leave this
+undefined ... for now.</span></span></p>
+<p style="font-variant: normal; font-style: normal">Inverses of
+exponentiation are no more interesting than this, so we won't pursue
+those now.</p>
+</body>
+</html>

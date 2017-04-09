@@ -1,0 +1,1419 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 5.1.6.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="2017-04-01T22:28:57.142041067"/>
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2017-04-01T20:00:27.965165969">
+	<meta name="created" content="2017-03-30T16:46:05.041052547">
+	<meta name="changed" content="2017-03-30T20:36:27.158812532">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2017-03-28T00:05:40.133330805">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="00:00:00">
+	<meta name="created" content="2017-03-21T20:27:10.494278786">
+	<meta name="changed" content="2017-03-21T21:28:20.559350513">
+	<meta name="created" content="2017-03-21T20:27:10.494278786">
+	<meta name="changed" content="2017-03-21T21:17:08.275337413">
+	<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+<body lang="en-US" dir="ltr">
+<table width="100%" cellpadding="4" cellspacing="0" style="page-break-before: always; page-break-inside: avoid">
+	<col width="128*">
+	<col width="128*">
+	<tr valign="top">
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><a href="../main/main.html">Home</a> &gt; <a href="arithmetic.html">Arithmetic</a>
+			&gt; <a href="arithmeticCh01.html">Counting</a> &gt; Factorial,
+			permutation, combination</p>
+		</td>
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding: 0.04in">
+			<p align="right">&lt; <a href="01.03.01arithmetic.html">prev</a> |
+			next &gt; 
+			</p>
+		</td>
+	</tr>
+</table>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<h1>Arithmetic</h1>
+<p style="margin-top: 0.17in; page-break-after: avoid"><font face="Albany, sans-serif"><font size="4" style="font-size: 14pt">Chapter
+01: Counting</font></font></p>
+<p style="margin-top: 0.17in; page-break-after: avoid"><font face="Albany, sans-serif"><font size="4" style="font-size: 14pt">Section
+05: Factorial, permutation, combination</font></font></p>
+<p>Abstract: We will often want to count the number of &quot;ways&quot;
+of &quot;choices&quot; that are possible. If there is a sequence of
+choices to be made, we use the Fundamental Counting Principle. If we
+make choices about the arrangement of a fixed collection of objects,
+we use the permutation counting formula. If we make choices not about
+the arrangement of a set of objects, but only about the selection
+from them, we use the combination counting formula. If we need to
+make selections with replacement then we use a &quot;stars-and-bars&quot;
+method.</p>
+<p>Terms: Standard deck of cards<font face="Liberation Serif, serif">,
+suit, face-value, choice, choice set, choice moment, choice sequence,
+total event</font>, Fundamental Counting Principle, magnitude (of a
+set), subset, empty set, permutation, transposition, factorial,
+combination, multinomial</p>
+<p>Symbols: ♠<font face="Liberation Serif, serif">, ♣, ♥, ♦,
+</font>!, P, C</p>
+<hr/>
+
+<p>Question: For various reasons will will want to ask questions like
+&quot;how many different five-card hands are possible when dealt from
+a deck of 52 cards&quot;? Let's make sure--for any international or
+possibly very young audience--that we understand what is meant by
+such a deck of cards.</p>
+<p>A <b>standard deck of 52 cards</b> contains the card ♠<font face="Liberation Serif, serif">2,
+which we call the &quot;2 of spades&quot; and ♣3 which we call the
+&quot;three of clubs&quot;. Every card has a </font><font face="Liberation Serif, serif"><b>suit</b></font><font face="Liberation Serif, serif">,
+which is one of ♠, ♣, ♥, ♦, which are pronounced &quot;spades&quot;,
+&quot;clubs&quot;, &quot;hearts&quot;, and &quot;diamonds&quot;.
+Every card also has a </font><font face="Liberation Serif, serif"><b>face
+value</b></font> <font face="Liberation Serif, serif">which consists
+of the numbers 2 through 10 and then J (for &quot;jack&quot;), Q (for
+&quot;queen&quot;), K (for &quot;king&quot;), and A (for &quot;ace&quot;).
+Thus every suit has 13 cards. Here are all the cards of the spade
+suit:</font></p>
+<p>♠<font face="Liberation Serif, serif">2, ♠3, ♠4, ♠5, ♠6,
+♠7, ♠8, ♠9, ♠10, ♠J, ♠Q, ♠K, ♠A</font></p>
+<p><font face="Liberation Serif, serif">These are listed in order of
+&quot;value&quot;--in many games, the 2 is the least face-value and
+ace is the most, but games can differ about this and sometimes the
+ace plays the role of a 1. The suits often do not have an order to
+them so that there is no such thing as a club being &quot;more
+valuable&quot; than a heart or vice versa--although some games do
+impose an ordering on the suits. </font>
+</p>
+<p><font face="Liberation Serif, serif">There is one other feature of
+the cards, which is color. Spades and clubs are black, hearts and
+diamonds are red. Thus there are 26 black cards and 26 red. Of course
+every face-value appears in four different suits. </font>
+</p>
+<p><font face="Liberation Serif, serif">Cards are usually shuffled so
+that the assignments of cards to players is random. A five-card hand
+is just five cards. We could imagine that a person chooses his hand
+and picks--for whatever reason--♥10, ♥J, ♥Q, ♥K, ♥A. This
+is a possible choice of hand. If the person does not get to choose
+his own hand then we may imagine god, or mother nature, or a genie,
+or a computer simulating a random process, choosing cards and
+assigning them to players. For the time being let's agree to be
+flexible about metaphysics and not engage in a holy war before we
+finish discussing arithmetic.</font></p>
+<p><font face="Liberation Serif, serif">We can think of a hand as
+being built up sequentially, one card at a time, where each card that
+comes up we call a[n individual] choice. A five-card hand is
+constructed by 5 individual choices. The first choice is made from
+the first &quot;choice set&quot;, which is the full deck. To put it
+in set notation, the first choice set is </font>
+</p>
+<p><font face="Liberation Serif, serif">{♠2,♠3,♠4,♠5,♠6,♠7,♠8,♠9,♠10,♠J,♠Q,♠K,♠A,</font></p>
+<p>♣<font face="Liberation Serif, serif">2,♣3,♣4,♣5,♣6,♣7,♣8,♣9,♣10,♣J,♣Q,♣K,♣A,</font></p>
+<p>♥<font face="Liberation Serif, serif">2,♥3,♥4,♥5,♥6,♥7,♥8,♥9,♥10,♥J,♥Q,♥K,♥A,
+</font>
+</p>
+<p>♦<font face="Liberation Serif, serif">2,♦3,♦4,♦5,♦6,♦7,♦8,♦9,♦10,♦J,♦Q,♦K,♦A}
+</font>
+</p>
+<p><font face="Liberation Serif, serif">Because this is the first
+choice we say that the &quot;choice moment&quot; is 1.</font></p>
+<p><font face="Liberation Serif, serif">The second choice is made
+from a smaller choice set, because one of the cards has been removed
+and so can no longer be chosen at the second choice moment. If the
+first choice was ♥10 then the new choice set is </font>
+</p>
+<p><font face="Liberation Serif, serif">{♠2,♠3,♠4,♠5,♠6,♠7,♠8,♠9,♠10,♠J,♠Q,♠K,♠A,</font></p>
+<p>♣<font face="Liberation Serif, serif">2,♣3,♣4,♣5,♣6,♣7,♣8,♣9,♣10,♣J,♣Q,♣K,♣A,</font></p>
+<p>♥<font face="Liberation Serif, serif">2,♥3,♥4,♥5,♥6,♥7,♥8,♥9,♥J,♥Q,♥K,♥A,
+</font>
+</p>
+<p>♦<font face="Liberation Serif, serif">2,♦3,♦4,♦5,♦6,♦7,♦8,♦9,♦10,♦J,♦Q,♦K,♦A}
+</font>
+</p>
+<p><font face="Liberation Serif, serif">The third choice is made at
+the third choice moment from yet a smaller choice set, and so on.
+Once all of the moments have elapsed, so to speak, we call the hand
+that has been constructed the &quot;total event&quot; or just &quot;event&quot;
+for short. </font>
+</p>
+<p><font face="Liberation Serif, serif">This has established a lot of
+vocabulary, most of it coming from the study of Probability, so you
+will encounter it there too--but we will for now avoid outright
+probability of events and instead just focus on counting the events.
+To summarize, a </font><font face="Liberation Serif, serif"><b>choice</b></font>
+<font face="Liberation Serif, serif"><span style="font-weight: normal">is
+a fundamental concept that cannot be explained or decomposed into
+constituent concepts. It is, in that way, like the concept of number
+or set. __Hide__ A choice is made from a </span></font><font face="Liberation Serif, serif"><b>choice
+set</b></font> <font face="Liberation Serif, serif"><span style="font-weight: normal">containing
+every possible choice available at that </span></font><font face="Liberation Serif, serif"><b>choice
+moment</b></font><font face="Liberation Serif, serif"><span style="font-weight: normal">.
+The choice moment is the ordering of the choice sets, so that if
+there are </span></font><font face="Liberation Serif, serif"><i><span style="font-weight: normal">n</span></i></font><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">choices
+made then the choice moment could be any number from 1 to </span></span></font></span><font face="Liberation Serif, serif"><i><span style="font-weight: normal">n</span></i></font><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">,
+indicating the choice set available.</span></span></font></span> <font face="Liberation Serif, serif"><span style="font-weight: normal">A
+</span></font><font face="Liberation Serif, serif"><b>choice sequence</b></font>
+<font face="Liberation Serif, serif"><span style="font-weight: normal">is
+any sequence of choices sets. An </span></font><font face="Liberation Serif, serif"><b>event</b></font>
+<font face="Liberation Serif, serif"><span style="font-weight: normal">is
+any sequence of choices.</span></font></p>
+<p style="font-weight: normal"><font face="Liberation Serif, serif">Returning
+to cards, where every event is a 5-card hand, we may ask how many
+hands are possible. We've seen one, ♥10, ♥J, ♥Q, ♥K, ♥A,
+and any other sequence of five choices would also make a hand. Notice
+that we are saying in this context that a hand is ordered, so that
+♥10, ♥J, ♥Q, ♥A, ♥K is a different hand from the previous
+example.</font></p>
+<p style="font-weight: normal"><font face="Liberation Serif, serif">Answer:
+As usual, we first set our sights on a simpler question before
+answering this one.</font></p>
+<hr/>
+
+<p>Question: One hard part about the hands-of-cards problem is that
+selection of a card influences the choice set at the next moment.
+Let's consider a situation where this doesn't happen. Suppose you
+choose a random number from 1 to 3, and you do this two times. How
+many events are possible?</p>
+<p>Answer: We can draw every single possible event because the
+numbers are relatively small. It will be good try to do so
+systematically to make sure we find them all. Notice the pattern in
+how the events were generated.</p>
+<table width="480" cellpadding="4" cellspacing="1" style="page-break-inside: avoid">
+	<col width="150">
+	<col width="151">
+	<col width="149">
+	<tr valign="top">
+		<td width="150" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="11" sdnum="1033;">
+			<p>11</p>
+		</td>
+		<td width="151" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="12" sdnum="1033;">
+			<p>12</p>
+		</td>
+		<td width="149" style="border: 1px double #808080; padding: 0.04in" sdval="13" sdnum="1033;">
+			<p>13</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="150" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="21" sdnum="1033;">
+			<p>21</p>
+		</td>
+		<td width="151" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="22" sdnum="1033;">
+			<p>22</p>
+		</td>
+		<td width="149" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in" sdval="23" sdnum="1033;">
+			<p>23</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="150" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="31" sdnum="1033;">
+			<p>31</p>
+		</td>
+		<td width="151" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="32" sdnum="1033;">
+			<p>32</p>
+		</td>
+		<td width="149" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in" sdval="33" sdnum="1033;">
+			<p>33</p>
+		</td>
+	</tr>
+</table>
+<p><br/>
+<br/>
+
+</p>
+<p>Thus there are 9 events possible in this problem.</p>
+<hr/>
+
+<p>Exercise: Generate a table for the case in which you choose 1 or 2
+randomly (just two numbers this time, not three) three times.</p>
+<p>Answer:</p>
+<table width="192" cellpadding="4" cellspacing="1" style="page-break-inside: avoid">
+	<col width="86">
+	<col width="85">
+	<tr valign="top">
+		<td width="86" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="111" sdnum="1033;">
+			<p>111</p>
+		</td>
+		<td width="85" style="border: 1px double #808080; padding: 0.04in" sdval="112" sdnum="1033;">
+			<p>112</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="86" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="121" sdnum="1033;">
+			<p>121</p>
+		</td>
+		<td width="85" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in" sdval="122" sdnum="1033;">
+			<p>122</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="86" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="211" sdnum="1033;">
+			<p>211</p>
+		</td>
+		<td width="85" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in" sdval="212" sdnum="1033;">
+			<p>212</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="86" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="221" sdnum="1033;">
+			<p>221</p>
+		</td>
+		<td width="85" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in" sdval="222" sdnum="1033;">
+			<p>222</p>
+		</td>
+	</tr>
+</table>
+<p><br/>
+<br/>
+
+</p>
+<p>Notice that the first row exhibits all events beginning with 11_
+and the second row exhibits all events beginning with 12_. Therefore
+in aggregate the first two row exhibit all events beginning with 1__.
+A similar statement of the remaining rows holds.</p>
+<p>We can in a sense diagram this as what is called a tree structure
+where each level of the tree corresponds to a moment and each branch
+corresponds to a choice at that moment. The leaves of the tree (the
+bottom-most level) are the events.</p>
+<p>__Example__</p>
+<p>Or we could diagram this as a sequence of embedded boxes. In this
+picture the two largest boxes represent the first choice, either a 1
+or 2. Each box contains more boxes for further choices. The smallest
+boxes correspond to events. 
+</p>
+<p>__Example__</p>
+<p>Especially in this box picture, we can understand how to count
+these situations, because we know how to repeatedly add the contents
+of same-sized boxes. At the highest level there are two boxes each
+containing <i>m</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">events
+(let's pretend for now that we don't know what </span></span><i>m</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is,
+even though it's easy enough to see that </span></span><i>m=4</i><span style="font-variant: normal"><span style="font-style: normal">).
+Thus the number of events is 2</span></span><i>m</i><span style="font-variant: normal"><span style="font-style: normal">.
+But now we have to find out what </span></span><i>m</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is.
+But it is itself the result of summing the contents of two same-size
+boxes each with </span></span><i>n</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">events.
+Thus </span></span><i>m=2n</i><span style="font-variant: normal"><span style="font-style: normal">.
+At this level we reach the bottom of the embedding and can directly
+count </span></span><i>n</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">as
+being 2. Thus the total is </span></span><i>2m = 2(2n) = 2(2(2)) = 8</i><span style="font-variant: normal"><span style="font-style: normal">.</span></span></p>
+<p style="font-variant: normal; font-style: normal">We can apply this
+analysis to any situation where the choice set at any moment is
+independent of the choice made at any other moment. That's not true
+in the cards example but it is here, and it would be just as true if
+you chose a random number from 1 to 3 then a random number from 1 to
+5, and then a random number from 1 to 10. The outer-most box would
+have 3 equally sized boxes inside it. Each of these would contain 5
+equally sized boxes in them. Each of these would contain 10 events.
+The total number of events would be 3*5*10 = 150. Clearly the size of
+these numbers gets out of hand quickly so we need to find efficient
+ways not to draw the situations completely even for modestly-sized
+events.</p>
+<hr/>
+
+<p>Exercise: You're at an ice-cream store and you must pick a flavor
+of ice-cream; then pick a size from small or medium or large; then
+pick a topping. There are 30 flavors and 20 toppings, how many ways
+are there to order ice-cream?</p>
+<p>Answer: 30*3*20 = 1800.</p>
+<p>This is called the <b>Fundamental Counting Principle</b><span style="font-weight: normal">.
+To state it formally we'll need the notion of the size of a set. If
+the choice set is {1,2,3} its size is obviously 3 and we will write
+this as |{1,2,3}| = 3. If we give the set the name </span><i><span style="font-weight: normal">S</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">then
+</span></span></span><i><span style="font-weight: normal">S = {1,2,3}</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></span><i><span style="font-weight: normal">|S| = 3</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.</span></span></span>
+<span style="font-weight: normal">Officially we call this the
+</span><b>magnitude </b><span style="font-weight: normal">of the set
+so that </span><i><span style="font-weight: normal">S </span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">has
+magnitude 3. </span></span></span>
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">Now
+for the statement of the Fundamental Counting Principle (FCP): </span></span></span><span style="font-weight: normal">For
+</span><i><span style="font-weight: normal">n</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">choices
+made from independent choice sets </span></span></span><i><span style="font-weight: normal">A</span></i><sub><i><span style="font-weight: normal">1</span></i></sub><i><span style="font-weight: normal">,
+A</span></i><sub><i><span style="font-weight: normal">2</span></i></sub><i><span style="font-weight: normal">,
+..., A</span></i><sub><i><span style="font-weight: normal">n</span></i></sub>
+<span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">the
+number of events is </span></span></span><i><span style="font-weight: normal">|A</span></i><sub><i><span style="font-weight: normal">1</span></i></sub><i><span style="font-weight: normal">|
+* |A</span></i><sub><i><span style="font-weight: normal">2</span></i></sub><i><span style="font-weight: normal">|
+* ... * |A</span></i><sub><i><span style="font-weight: normal">n</span></i></sub><i><span style="font-weight: normal">|.</span></i></p>
+<hr/>
+
+<p>Exercise: How many 5-digit binary numbers are there if the number
+must begin with a 1 in the left-most digit?</p>
+<p>Answer: There is nothing to choose for the left-most digit so we
+ignore it. For each other digit there are 2 choices and 4 moments, so
+there are 2^<sup>4</sup> = 16 such numbers. 
+</p>
+<hr/>
+
+<p>Exercise: If we have sets <i>A={a,b,c} </i><span style="font-variant: normal"><span style="font-style: normal">and
+</span></span><i>B={a,b,c,d,e}</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">then
+we say that </span></span><i>A</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is
+a </span></span><span style="font-variant: normal"><span style="font-style: normal"><b>subset</b></span></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">of
+</span></span></span><i><span style="font-weight: normal">B</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">because
+every element of </span></span></span><i><span style="font-weight: normal">A</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">is
+in </span></span></span><i><span style="font-weight: normal">B</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+How many subsets of </span></span></span><i><span style="font-weight: normal">B</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">are
+there?</span></span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">Answer:
+A subset can be formed by a sequence of choices to either include or
+not include each element. For instance, </span></span></span><i><span style="font-weight: normal">a</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">is
+in or out, so that makes a choice set of 2. There are 5 elements of </span></span></span><i><span style="font-weight: normal">B</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">amounting
+to 5 moments each with a choice-set of in or out. Therefore there are
+2^</span></span></span><span style="font-variant: normal"><sup><span style="font-style: normal"><span style="font-weight: normal">5</span></span></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">=
+32 subsets. If you list out all possible subsets, you may only think
+of 31 of them. The trick here is to think about what happens if we
+say &quot;out out out out out&quot;. This gets you the </span></span></span><span style="font-variant: normal"><span style="font-style: normal"><b>empty
+set</b></span></span><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">which
+we write as {}. The empty set is a genuine set, and useful for
+theoretical reasons that we'll encounter in Set Theory. Indeed we
+assert that the empty set is a subset of every set. To explain why
+and what this means will be easier to tackle when we discuss Logic.</span></span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">Because
+there are 32 subsets of </span></span></span><i><span style="font-weight: normal">B</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">I
+don't have the patience to list them all, but there are 8 subsets of
+</span></span></span><i><span style="font-weight: normal">A</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">so
+I will list those: {}, {a}, {b}, {c}, {a,b}, {a,c}, {b,c}, {a,b,c}.
+You can have sympy print the subsets of </span></span></span><i><span style="font-weight: normal">B</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">with
+the following script.</span></span></span></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+<font face="FreeMono, monospace">1| import sympy as sp</font></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+<font face="FreeMono, monospace">2| x =
+sp.FiniteSet('a','b','c','d','e')</font></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+<font face="FreeMono, monospace">3| for s in x.powerset():</font></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+<font face="FreeMono, monospace">4| print(s)</font></p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">The
+</span></span></span><span style="font-variant: normal"><span style="font-style: normal"><b>powerset
+</b></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">is
+the set of all subsets. We denote the powerset </span></span></span>by
+<font face="Noto Sans CJK SC Regular"><span lang="zh-CN"><i>퓟 </i></span></font><i>(A)
+= { {}, {a}, {b}, {c}, {a,b}, {a,c}, {b,c}, {a,b,c} }.</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">Of
+course the power set grows quickly as the magnitude of the set grows.
+If </span></span><i>|X| = n</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">then
+we've just proved that </span></span><i>| </i><font face="Noto Sans CJK SC Regular"><span lang="zh-CN"><i>퓟
+</i></span></font><i>(X)| = 2^</i><sup><i>n</i></sup><i>. </i><span style="font-variant: normal"><span style="font-style: normal">Because
+it grows so fast, it can be hard for sympy to print it, but it's
+easier to let sympy count it for you. You can add this to the script:</span></span></p>
+<p style="font-variant: normal; font-style: normal"><font face="FreeMono, monospace">5|
+print(len(x.powerset()))</font></p>
+<p style="font-variant: normal; font-style: normal">and it should
+tell you that the &quot;length&quot; or magnitude is 32 as we
+calculated above. 
+</p>
+<hr/>
+
+<p>Question: If we do have choice sets that depend on each other, but
+they are relatively &quot;well-behaved&quot; in the sense that their
+size is independent of the choices made, the same principle applies.
+For instance, suppose you pick a number from 1 to 4 then pick a
+number from the remaining. What is the table of possible events?</p>
+<p>Answer: Notice that no sequence has a repeated number. There are
+4*3 = 12 events.</p>
+<table width="192" cellpadding="4" cellspacing="1" style="page-break-inside: avoid">
+	<col width="54">
+	<col width="55">
+	<col width="53">
+	<tr valign="top">
+		<td width="54" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="12" sdnum="1033;">
+			<p>12</p>
+		</td>
+		<td width="55" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="13" sdnum="1033;">
+			<p>13</p>
+		</td>
+		<td width="53" style="border: 1px double #808080; padding: 0.04in" sdval="14" sdnum="1033;">
+			<p>14</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="54" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="21" sdnum="1033;">
+			<p>21</p>
+		</td>
+		<td width="55" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="23" sdnum="1033;">
+			<p>23</p>
+		</td>
+		<td width="53" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in" sdval="24" sdnum="1033;">
+			<p>24</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="54" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="31" sdnum="1033;">
+			<p>31</p>
+		</td>
+		<td width="55" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="32" sdnum="1033;">
+			<p>32</p>
+		</td>
+		<td width="53" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in" sdval="34" sdnum="1033;">
+			<p>34</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="54" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="41" sdnum="1033;">
+			<p>41</p>
+		</td>
+		<td width="55" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="42" sdnum="1033;">
+			<p>42</p>
+		</td>
+		<td width="53" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in" sdval="43" sdnum="1033;">
+			<p>43</p>
+		</td>
+	</tr>
+</table>
+<p><br/>
+<br/>
+
+</p>
+<p>Although the moments were dependent (picking 1 at the first moment
+caused the choice set to be {2,3,4} at the second) the size of the
+choice set was not and therefore the previous analysis still applied.
+This is an instance of what is called a &quot;permutation&quot;. To
+<b>permute</b> two objects is to swap their places, so that if you
+have two books stacked on a table, permuting the books would mean
+putting the bottom one on top. To permute a bigger sequence is
+analogous: You swap the positions of some of the objects. Notice that
+in the sequence 1,2,3 the sequence 2,3,1 is a permutation but it
+cannot be achieved with a single swap or even two simultaneous swaps.
+Rather, one needs a sequence of swaps: From 1,2,3 to 2,1,3 to 2,3,1
+for instance. (The mathematical word for a swap is a <b>transposition</b><span style="font-weight: normal">.
+One could say that a transposition is a permutation of precisely two
+objects, or one could say that a permutation is any sequence of
+transpositions.) The key feature of a permutation is that there is a
+fixed collection of objects and positions for those objects, and we
+rearrange which objects are assigned to which positions.</span></p>
+<p><span style="font-weight: normal">In the above example, we
+actually had four objects and two position. I hear mathematicians
+describe this as &quot;four permuted two at a time&quot; but that
+doesn't sound good in my ear--makes it seem like everything is
+permuted eventually, in some place, when what we really have is that
+some two objects have no place at all. I'd rather call this &quot;two
+from four permuted&quot;. The law, or theorem, or whatever you want
+to call it, is that </span><i><span style="font-weight: normal">m
+</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">from
+</span></span></span><i><span style="font-weight: normal">n</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">permuted
+is </span></span></span><i><span style="font-weight: normal">n*(n-1)*(n-2)*...*(n-m+1)</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.</span></span></span></p>
+<hr/>
+
+<p>Exercise: Find 3 from 8 permuted.</p>
+<p>Answer: 8*7*6 whatever that is. Notice that this conforms to the
+formula 8*(8-1)*(8-3+1). This supports the claim that <i>nPm =
+n*(n-1)*...(n-m+1)</i><span style="font-variant: normal"><span style="font-style: normal">.</span></span></p>
+<p>Because we frequently calculate the number of permutations, we
+have a notation for it, 8P3. This of this kind of like the infix +
+operation. You put two numbers on either side of it, and it evaluates
+to another number. 
+</p>
+<hr/>
+
+<p>Question: Is the permutation operation commutative, associative,
+or distributive?</p>
+<p>Answer: Simple examples demonstrate that it's not. 2P1 = 2 but 1P2
+doesn't even make sense: After the first choice nothing is left to
+choose. 
+</p>
+<p>7P(3P2) = 7P6 = 7*6*5*4*3*2 but on the other hand (7P3)P2 =
+(7*6*5*4*3)P2 = (7*6*5*4*3)(7*6*5*4*3 - 1). Clearly (7P3)P2 is larger
+because 7*6*5*4*3 - 1 is larger than 2. 
+</p>
+<p>If it's distributive over anything, I've never heard of it. It's
+certainly not distributive over +, *, or other familiar operations. 
+</p>
+<hr/>
+
+<p>Question: Because this descending chain of factors is common, we
+also define the <b>factorial</b> <span style="font-weight: normal">function
+as </span><i><span style="font-weight: normal">n! =
+n*(n-1)*...*(2)(1)</span></i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">so
+that for instance 4! = 4*3*2*1. Sympy has this implemented so that,
+if you import sympy and run </span></span></span><span style="font-variant: normal"><font face="FreeMono, monospace"><span style="font-style: normal"><span style="font-weight: normal">factorial(7)</span></span></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">it
+will calculate the result. Do this to experiment. To get access to
+the permutation function, sympy authors call this the &quot;falling
+factorial&quot; function and therefore you access it with </span></span></span><span style="font-variant: normal"><font face="FreeMono, monospace"><span style="font-style: normal"><span style="font-weight: normal">ff(7,4)</span></span></font></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+Use sympy to calculate (7P3)P2. </span></span></span>
+</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+It is possible to define the permutation function in terms of the
+factorial function. How? Also, it is possible to define the factorial
+function in terms of the permutation function. How?</p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">Answer:
+It's common to define </span></span></span><i><span style="font-weight: normal">nPm</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">as
+`\frac{n!}{(n-m)!}`.</span></span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">We
+could however define </span></span></span><i><span style="font-weight: normal">n!
+</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">as
+</span></span></span><i><span style="font-weight: normal">nPn</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+</span></span></span>
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">To
+confirm that these are correct you can compute, say, </span></span></span><span style="font-variant: normal"><font face="FreeMono, monospace"><span style="font-style: normal"><span style="font-weight: normal">ff(8,4)</span></span></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></span><span style="font-variant: normal"><font face="FreeMono, monospace"><span style="font-style: normal"><span style="font-weight: normal">factorial(8)/factorial(8-4)</span></span></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">to
+see that they result in the same number. Likewise you could compute
+</span></span></span><span style="font-variant: normal"><font face="FreeMono, monospace"><span style="font-style: normal"><span style="font-weight: normal">factorial(10)</span></span></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></span><span style="font-variant: normal"><font face="FreeMono, monospace"><span style="font-style: normal"><span style="font-weight: normal">ff(10,10)</span></span></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">to
+see the same number.</span></span></span></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+To prove that these are correct, notice that 
+</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+$$\frac{n!}{(m-n)!} = \frac{n*(n-1)*...*2*1}{(m-n)*(m-n-1)*...*2*1}$$</p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">the
+numerator and denominator of this fraction both share all the same
+factors from </span></span></span><i><span style="font-weight: normal">m-n</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">onward.
+Therefore they all cancel and `\frac{n!}{(m-n)!} =
+n*(n-1)*...*(n-m)*(n-m+1)`.</span></span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">For
+the other one we can argue that </span></span></span><i><span style="font-weight: normal">nPn
+= n*(n-1)*...*(n-n+1) = n*(n-1)*...*1 = n!</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.</span></span></span></p>
+<hr/>
+
+<p>Question: This effectively settles the hands-of-cards question.
+The number of five-card hands is 52P5. However, the question is a
+little artificial. We are counting <i>ordered</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">hands
+of cards because we are counting arrangements. A more realistic
+question is, how many un-ordered hands of cards are there? </span></span>
+</p>
+<p style="font-variant: normal; font-style: normal">Again to simplify
+the question before tackling it, let's start by asking how many
+un-ordered 3-card hands of cards are possible from a deck that only
+contains the 2, 3, 4, and 5 of spades?</p>
+<p style="font-variant: normal; font-style: normal">Answer: The
+quantity is again small enough, for now, that we can brute-force list
+them all. 
+</p>
+<ul>
+	<li/>
+<p style="font-variant: normal; font-style: normal">Every hand
+	that contains the 2 and 3: 
+	</p>
+	<ul>
+		<li/>
+<p style="font-variant: normal; font-style: normal">2 3 4, 2
+		3 5</p>
+	</ul>
+	<li/>
+<p><span style="font-variant: normal"><span style="font-style: normal">Every
+	</span></span><i>other</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">hand
+	that contains the 2 and 4:</span></span></p>
+	<ul>
+		<li/>
+<p style="font-variant: normal; font-style: normal">2 4 5 
+		</p>
+	</ul>
+	<li/>
+<p style="font-variant: normal; font-style: normal">Every
+	other hand that contains the 2 and 5:</p>
+	<ul>
+		<li/>
+<p style="font-variant: normal; font-style: normal">None 
+		</p>
+	</ul>
+	<li/>
+<p style="font-variant: normal; font-style: normal">Every
+	other hand that contains the 3 and 4:</p>
+	<ul>
+		<li/>
+<p style="font-variant: normal; font-style: normal">3 4 5</p>
+	</ul>
+	<li/>
+<p style="font-variant: normal; font-style: normal">Every
+	other hand that contains the 3 and 5:</p>
+	<ul>
+		<li/>
+<p style="font-variant: normal; font-style: normal">None</p>
+	</ul>
+	<li/>
+<p style="font-variant: normal; font-style: normal">Every
+	other hand that contains the 4 and 5:</p>
+	<ul>
+		<li/>
+<p style="font-variant: normal; font-style: normal">None</p>
+	</ul>
+</ul>
+<p style="font-variant: normal; font-style: normal">The pattern here
+is a little harder to pick up but notice that a lot of the difficult
+comes from needing to list hands that have come up earlier in a
+different order. Thus when listing the hands with 2 and 4 we have to
+omit 2 3 4 because we already counted it when listing the cards with
+2 and 3. We found that the answer here was 4 but we need to find a
+better counting method. 
+</p>
+<hr/>
+
+<p>Question: Let's try this. In order to find the number of 3-card
+hands that are possible from a deck of, say, 2, 3, 4, 5, 6, 7, let's
+first count all of the ordered hands. We know that this is 6P3. 
+</p>
+<p>In this collection of permutations though, how many times is 2, 3,
+4 repeated in various orders? 
+</p>
+<p>Answer: We can list out the various orders, 234, 243, 324, 342,
+423, and 432. There are six of them. Of course a smarter way to count
+these is to observe that it's 3P3 or 3!. 
+</p>
+<hr/>
+
+<p>Question: How many 3-card hands are possible from a deck of 2, 3,
+4, 5, 6, 7?</p>
+<p>Answer: The number of ordered hands is 7P3. This collection of
+permutations, though, can be divided into groups where each group has
+the same cards just rearranged. We know that each of these groups
+will have size 3!, so if we count each group as a single hand, the
+total number of possible hands is (7P3)/(3!) = 35. In case it's not
+clear, the logic here is that division is precisely how we count the
+number of same-sized groups that divide up a whole. Think of 15
+apples put into baskets that hold 5 apples--how many baskets do you
+need--i.e. how many groups will you have?</p>
+<p>__Example__</p>
+<p>This is an example of a combination. A <b>combination</b> <span style="font-weight: normal">merely
+selects a subset from a given set. So for instance 4, 6, 7 is a
+combination selected from 2, 3, 4, 5, 6, 7. Again I hear
+mathematicians describe this as &quot;7 combined 3 at a time&quot;
+but I'd rather call this &quot;3 from 7 combined&quot;. A combination
+is the same as a permutation except that order is not counted. Said
+another way, to form all possible permutations, you imagine first
+selecting a subset and then arranging them. To form all possible
+selections, you only select from the subset and do not then arrange.</span></p>
+<p style="font-weight: normal">A combination is basically all subsets
+of fixed size. If you run 
+</p>
+<p style="font-weight: normal"><font face="FreeMono, monospace">1|
+import sympy as sp</font></p>
+<p style="font-weight: normal"><font face="FreeMono, monospace">2| x
+= sp.FiniteSet(2,3,4,5,6,7)</font></p>
+<p style="font-weight: normal"><font face="FreeMono, monospace">3|
+for s in sp.subsets(x,k=2):</font></p>
+<p style="font-weight: normal"><font face="FreeMono, monospace">4|
+print(set)</font></p>
+<p style="font-weight: normal">it will show you all subsets of size
+2. If you run 
+</p>
+<p style="font-weight: normal"><font face="FreeMono, monospace">5|
+size = 0</font></p>
+<p style="font-weight: normal"><font face="FreeMono, monospace">6|
+for s in sp.subsets(x,k=3):</font></p>
+<p style="font-weight: normal"><font face="FreeMono, monospace">7|
+size += 1</font></p>
+<p style="font-weight: normal"><font face="FreeMono, monospace">8|
+print(size)</font></p>
+<p style="font-weight: normal">it should tell you there are 35
+subsets of size 3. 
+</p>
+<hr/>
+
+<p>Question: What is a formula for counting combinations?</p>
+<p>Answer: If we want <i>m </i><span style="font-variant: normal"><span style="font-style: normal">from
+</span></span><i>n</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">combined,
+we can first find </span></span><i>nPm</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">as
+the number of ordered permutations. We then group these ordered
+events so that any events that share the same choices, just
+re-arranged, are together. Each group has size </span></span><i>m!</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+the number of groups is `\frac{nPm}{m!}`.</span></span></p>
+<hr/>
+
+<p>Question: How can this be written in terms of the factorial
+function?</p>
+<p>Answer: `\frac{nPm}{m!} = \frac{\left(\frac{n!}{(n-m)!}}{m!} =
+\frac{n!}{(n-m)!m!}`</p>
+<p>We often define this function as <i>nCm</i><span style="font-variant: normal"><span style="font-style: normal">.
+This is sometimes called the &quot;choose&quot; or &quot;</span></span><span style="font-variant: normal"><span style="font-style: normal"><b>combinatorial</b></span></span><span style="font-variant: normal"><span style="font-style: normal">&quot;
+or &quot;binomial&quot; function. I will use &quot;combinatorial&quot;.
+</span></span>
+</p>
+<hr/>
+
+<p>Exercise: Use sympy's <font face="FreeMono, monospace">binomial()</font>
+function to find all of 7C1, 7C2, and so on, until 7C6.</p>
+<p>Answer: A for-loop most conveniently calculates these.</p>
+<p><font face="FreeMono, monospace">1| import sympy as sp</font></p>
+<p><font face="FreeMono, monospace">2| for i in range(6):</font></p>
+<p><font face="FreeMono, monospace">3| print( sp.binomial(7, i+1) )</font></p>
+<p>prints 7, 21, 35, 35, 21, and 7. Notice that this strongly
+suggests some kind of symmetry although commutativity is not right. 
+</p>
+<hr/>
+
+<p>Question: How can we explain and characterize the symmetry we
+observe in the combinatorial function?</p>
+<p>Answer: Think about the fact that we are counting the ways of
+choosing <i>m</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">from
+</span></span><i>n</i><span style="font-variant: normal"><span style="font-style: normal">,
+but this leaves </span></span><i>n-m</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">NOT
+chosen! The number of ways of choosing </span></span><i>m</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">corresponds
+exactly to the number of ways to not choose </span></span><i>n-m</i><span style="font-variant: normal"><span style="font-style: normal">.
+Thus 7C1 = 7 ways to choose 1 and also 7C6 = 7 ways to exclude 6 and
+that's also the same as the 7 ways to choose 6. So here's the
+characterization: </span></span><i>nCm = nC(n-m)</i><span style="font-variant: normal"><span style="font-style: normal">.</span></span></p>
+<p style="font-variant: normal; font-style: normal">We can give a
+one-line proof that's easiest to understand starting at the
+right-hand-side: `nC(n-m) = \frac{n!}{(n-[n-m])!(n-m)!} =
+\frac{n!}{m!(n-m)!} = nCm`.</p>
+<hr/>
+
+<p>Exercise: How many (un-ordered) five-card hands are possible from
+a standard deck of cards? 
+</p>
+<p>Answer: 52C5. You can also check this answer by running the
+following script, which involves a bit of a hack to get around the
+fact that <font face="FreeMono, monospace">sp.FiniteSet(range(1,53))</font>
+produces a set of a set rather than producing what I want, which is
+just the set of numbers 1 to 52. (Recall from the programming
+introduction that Python intervals are &quot;clopen&quot;.)</p>
+<p><font face="FreeMono, monospace">1| import sympy as sp</font></p>
+<p><font face="FreeMono, monospace">2| x = sp.FiniteSet(range(1,53))</font></p>
+<p><font face="FreeMono, monospace">3| for i in x:</font></p>
+<p><font face="FreeMono, monospace">4| y = i</font></p>
+<p><font face="FreeMono, monospace">5| print(y)</font></p>
+<p><font face="FreeMono, monospace">6| size = 0</font></p>
+<p><font face="FreeMono, monospace">7| for s in sp.subsets(y,k=5):</font></p>
+<p><font face="FreeMono, monospace">8| size += 1</font></p>
+<p><font face="FreeMono, monospace">9| print(size)</font></p>
+<p>Note: From now on we will assume all hands of cards are
+un-ordered.</p>
+<hr/>
+
+<p>Question: Do either 7C0 or 7C7 make sense?</p>
+<p>Answer: The first would have to mean something like &quot;how many
+ways are there to choose nothing&quot;? The most sensible answer
+would be 1: you just don't choose anything! Walk away, go home!
+Similarly the number of ways of choosing 7 from 7 is 1: you just take
+them all. 
+</p>
+<p>Notice that if we insist that the formula still applies here we
+would have `7C0 = 1 = \frac{7!}{(7-0)!0!} =
+\frac{7!}{7!0!}=\frac{1}{0!}`. If this is to be correct it would
+demand that 0! = 1 and this is something that we accept in
+Mathematics--mostly just for the sake of making this particular
+application work easily. If you test this in sympy it will confirm
+this convention. 
+</p>
+<p>Likewise `7C7 = \frac{7!}{(7-7)!7!} = \frac{7!}{0!7!}` and you get
+the same lesson from this too.</p>
+<hr/>
+
+<p>Exercise: Suppose a binary number has 10 digits, the left-most is
+1, and four of the digits in the number are 0. How many such numbers
+are there?</p>
+<p>Answer: The left-most digit doesn't matter so we ignore it. In
+this exercise, we use the combinatorial function but in a kind of
+reverse way: Rather than pick objects (we can't, we don't have any
+choice about the objects, there have to be four 0s and five 1s) we
+pick positions. There is a fixed set of 9 positions and we want to
+pick four to get filled with 0s and the rest filled with 1s. If we
+pick the first four positions for 0, we get the number 1000011111. If
+we pick the last four positions we get 1111110000. From this
+perspective the answer is simple, 9C4.</p>
+<hr/>
+
+<p>Question: Getting back to counting cards, in some games it's
+valuable to have two pairs of the same face-value, for instance the
+hand ♠<font face="Liberation Serif, serif">5, ♣5, ♥8, ♦8, ♣J
+has two pairs, a pair of 5s and a pair of 8s. How many hands of cards
+have two pairs? </font>
+</p>
+<p><font face="Liberation Serif, serif">Answer: Let's count the
+number of hands that begin with a pair of face-values, followed by a
+pair of different face-values, follow by any card of a face-value
+that has not appeared yet. This strategy has a problem because it
+double-counts the hands where the order of the pairs is swapped--for
+instance, it would count ♠5, ♣5, ♥8, ♦8, ♣J as being
+different from ♥8, ♦8, ♠5, ♣5, ♥8, ♦8, ♣J and that's
+bad. However, this amounts to double-counting and therefore we fix
+the problem by dividing by 2 at the end. The logic is very much the
+same as that which we used in constructing the combinatorial
+function. </font>
+</p>
+<p><font face="Liberation Serif, serif">With this analysis, the first
+card could be any of the 52. The next card has to be one of the 3
+that share the same face-value, so the choice set at the second
+moment has magnitude 3. Again, this counts with order so we should
+divide the count so far by 2, so that for instance ♠5, ♣5 is
+grouped with ♣5, ♠5 and therefore these choices are not
+distinguished. Hence so far we have counted `\frac{52*3}{2}`. </font>
+</p>
+<p><font face="Liberation Serif, serif">For the next card, it cannot
+have the face-value of the first two, so there are 4 cards no longer
+possible, leaving 48 choices. The next card permits 3 choices again
+and again we divide by 2. The last moment has 44 choices. In total
+our count is </font>
+</p>
+<p><font face="Liberation Serif, serif">$$\frac{\frac{52*3}{2}\frac{48*3}{2}}{2}*44
+= 123552$$</font></p>
+<p><font face="Liberation Serif, serif">We can write a sympy script
+to double-check our answer, but it is sufficiently complicated that I
+don't want to engage in that big of a project just yet. However, I
+wrote the script myself and tested it--the answer is indeed correct.
+__Hide__</font></p>
+<p><font face="FreeMono, monospace">import sympy as sp</font></p>
+<p><br/>
+<br/>
+
+</p>
+<p><font face="FreeMono, monospace">x = sp.FiniteSet(range(1,53))</font></p>
+<p><font face="FreeMono, monospace">for i in x:</font></p>
+<p><font face="FreeMono, monospace">y = i</font></p>
+<p><font face="FreeMono, monospace">pairHand = []</font></p>
+<p><br/>
+<br/>
+
+</p>
+<p><font face="FreeMono, monospace">def twoPair(modules):</font></p>
+<p><font face="FreeMono, monospace">counts = [0 for i in range(13)]</font></p>
+<p><font face="FreeMono, monospace">one = False</font></p>
+<p><font face="FreeMono, monospace">two = False</font></p>
+<p><font face="FreeMono, monospace">for i in modules:</font></p>
+<p><font face="FreeMono, monospace">counts[i] += 1</font></p>
+<p><font face="FreeMono, monospace">for i in counts:</font></p>
+<p><font face="FreeMono, monospace">if i &gt; 2:</font></p>
+<p><font face="FreeMono, monospace">return False</font></p>
+<p><font face="FreeMono, monospace">if i == 2:</font></p>
+<p><font face="FreeMono, monospace">two = two or one</font></p>
+<p><font face="FreeMono, monospace">one = True</font></p>
+<p><font face="FreeMono, monospace">return two</font></p>
+<p><br/>
+<br/>
+
+</p>
+<p><font face="FreeMono, monospace">for s in sp.subsets(y,k=5):</font></p>
+<p><font face="FreeMono, monospace">modules = []</font></p>
+<p><font face="FreeMono, monospace">for element in s:</font></p>
+<p><font face="FreeMono, monospace">modules.append(element % 13)</font></p>
+<p><font face="FreeMono, monospace">if twoPair(modules):</font></p>
+<p><font face="FreeMono, monospace">pairHand.append(s)</font></p>
+<p><br/>
+<br/>
+
+</p>
+<p><font face="FreeMono, monospace">print(len(pairHand))</font></p>
+<hr/>
+
+<p>Exercise: A committee is to be formed by picking 3 of 10
+applicants. How many committees are possible? Also, supposing that 6
+of the applicants are female, how many of the possible committees
+have precisely one female member?</p>
+<p>Answer: Of course 10C3 is the number of possible committees. To
+count the number of committees with precisely one female member, we
+first observe that there are 6 choices for the female member. If we
+regard every pair of two men as the choice set at the second moment,
+then there are 4C2 choices available. Notice that the analysis is a
+tad funny: We do not really pick each man, but rather we pick a pair
+of men. If we picked each man individually there would be the worry
+that we are counting with order, by saying that there are 4 options
+for the first man and 3 options for the second. Of course we could
+divide by 2 to eliminate the count with ordering to leave a count
+without ordering--but this is exactly the same thing that the
+combinatorial function does anyway. 
+</p>
+<p>Note: But isn't this the same thing that we did with the woman? We
+multiplied the choice set of females with the choice set of pairs of
+males. Doesn't this imply counting with order because the woman came
+first? No, because the selection from the women was independent of
+the selection from the men and therefore this does not count &quot;with
+order&quot; in the usual sense. This is like the situation with
+ice-cream orders. We counted those as 30 flavors, 3 serving sizes,
+and 20 toppings. We could have chosen the serving size first, and
+instead compute 3*30*20, but this doesn't really &quot;count with
+order&quot; like when we count permutations. In permutations the set
+of objects and positions is fixed, and we assign objects to
+positions. When we have completely independent categories, though,
+like women counted separately from the men, this no longer counts a
+permutation. 
+</p>
+<hr/>
+
+<p>Exercise: A table has six chairs arranged around it in a circle. A
+table arrangement is determined only by who sits next to whom. For
+instance if the people who sit down are A, B, C, D, E, and F, then
+this sequence of letters could be one seating arrangement, and a
+different one would be A, C, B, D, E, F because in this arrangement A
+and C are adjacent, unlike in the other arrangement. However, the
+first arrangement is identical to B, C, D, E, F, A because here
+everyone has merely rotated--but still everyone has the same
+neighbors as before, so it is counted as the same arrangement. Notice
+also that A, B, C, D, E, F is the same arrangement as F, E, D, C, B,
+A because again all of the neighbors are the same (only the
+orientation has been reversed, but that doesn't matter). 
+</p>
+<p>How many arrangements are possible?</p>
+<p>Answer: As is typical we count with order first and then divide
+out by the appropriate groupings to get the correct number. Certainly
+6! would be the count if we counted rotations and everything else as
+different arrangements. But we know that for any arrangement, it can
+be rotated in 6 ways (no rotation, everyone rotates one clockwise,
+everyone rotates two clockwise, and so on up to a five-seat clockwise
+rotation). Thus 6!/6 groups all the rotations and is equal to 5!. To
+account for the possibility of a reflection (reversing orientation),
+every arrangement has one corresponding reflection so that now we
+need to divide out by 2. Thus the answer is 5!/2 = 5*4*3 = 60.</p>
+<hr/>
+
+<p>Question: Suppose that we want to re-arrange the letters in the
+word &quot;mississippi&quot;. However, some &quot;rearrangements&quot;
+are not genuinely different, like if you swap around any of the i's
+or swap any of the s's. On the other hand, swapping an m with an i is
+a genuine rearrangement. How many genuine rearrangements are there?</p>
+<p>Answer: As usual, we count all possible arrangements without
+sophistication, in this case 11!, and then divide as necessary to get
+the correct value. We need to group together all ways of permuting
+the i's and there are 4! ways of doing so, making our new count
+11!/4!. Next we group the remaining by permutations of the s's for
+which there are again 4! ways of doing so. Finally we group together
+all permutations of the p's and there are 2! ways of doing so. Thus
+in total the answer is `\frac{11!}{4!4!2!}`. This is called a
+<b>multinomial</b> <span style="font-weight: normal">expression, used
+for counting all possible rearrangements of </span><i><span style="font-weight: normal">n</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">objects
+with </span></span></span><i><span style="font-weight: normal">m</span></i><sub><i><span style="font-weight: normal">1</span></i></sub>
+<span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">indistinguishable
+objects, and </span></span></span><i><span style="font-weight: normal">m</span></i><sub><i><span style="font-weight: normal">2</span></i></sub>
+<span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">other
+indistinguishable objects, and so on until </span></span></span><i><span style="font-weight: normal">m</span></i><sub><i><span style="font-weight: normal">p</span></i></sub><i><span style="font-weight: normal">.
+</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">This
+only makes sense when </span></span></span><i><span style="font-weight: normal">n
+= m</span></i><sub><i><span style="font-weight: normal">1</span></i></sub><i><span style="font-weight: normal">+m</span></i><sub><i><span style="font-weight: normal">2</span></i></sub><i><span style="font-weight: normal">+...+m</span></i><sub><i><span style="font-weight: normal">p</span></i></sub><i><span style="font-weight: normal">.
+</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">In
+our example here </span></span></span><i><span style="font-weight: normal">n=11</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></span><i><span style="font-weight: normal">m</span></i><sub><i><span style="font-weight: normal">1</span></i></sub>
+<i><span style="font-weight: normal">= 1</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">is
+the number of letters m, </span></span></span><i><span style="font-weight: normal">m</span></i><sub><i><span style="font-weight: normal">2</span></i></sub>
+<i><span style="font-weight: normal">= 4</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">is
+the number of i's, </span></span></span><i><span style="font-weight: normal">m</span></i><sub><i><span style="font-weight: normal">3</span></i></sub>
+<i><span style="font-weight: normal">= 4</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">is
+the number of s's, and </span></span></span><i><span style="font-weight: normal">m</span></i><sub><i><span style="font-weight: normal">4</span></i></sub>
+<i><span style="font-weight: normal">= 2</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">is
+the number of p's. Of course 11 = 1+4+4+2. I omitted the 1 because
+division by 1 isn't necessary. But in general the multinomial formula
+is </span></span></span>
+</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+$$\frac{n!}{m_1!m_2!...m_p!}$$</p>
+<hr/>
+
+<p>Question: To take stock of everything we've covered, we know how
+to count events that are a sequence of independent choices (FCP), how
+to count a sequence of arrangement choices from a fixed collection of
+objects (permutations), a sequence of selection choices from a fixed
+collection of objects (combinations), and rearrangements when some of
+the objects are indistinguishable (multinomial). The following chart
+is also somewhat descriptive.</p>
+<table width="384" cellpadding="0" cellspacing="1" style="page-break-inside: avoid">
+	<col width="126">
+	<col width="127">
+	<col width="125">
+	<tr valign="top">
+		<td width="126" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="127" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding: 0in">
+			<p><b>Ordered</b> 
+			</p>
+		</td>
+		<td width="125" style="border: 1px double #808080; padding: 0in">
+			<p><b>Unordered</b></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="126" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding: 0in">
+			<p><b>Replacement</b></p>
+		</td>
+		<td width="127" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding: 0in">
+			<p>FCP</p>
+		</td>
+		<td width="125" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding: 0in">
+			<p>__________</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="126" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding: 0in">
+			<p><b>Without replacement</b></p>
+		</td>
+		<td width="127" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding: 0in">
+			<p>Permutation</p>
+		</td>
+		<td width="125" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding: 0in">
+			<p>Combination</p>
+		</td>
+	</tr>
+</table>
+<p><br/>
+<br/>
+
+</p>
+<p>I haven't emphasized the distinction between replacement and
+without replacement. Think of a roll of a die to understand
+&quot;replacement&quot;, so to speak. A die is a cube marked with
+numbers 1 through 6 on each face. How many events are possible if it
+is rolled three times? The FCP can analyze this, since the first
+moment has 6 choices, and likewise for the second and third, so 6^<sup>3</sup>
+is the number of events. It's as if we use the choice set {1, 2, 3,
+4, 5, 6} and every time we make a choice from the set, we record it
+and put the choice back in the set for a next choice. 
+</p>
+<p>With permutations and combinations this is not the case, as we
+imagine selecting and keeping objects rather than replacing them. The
+same object cannot be selected more than once.</p>
+<p>So this leads us to wonder, what about the blank cell in the
+table? 
+</p>
+<hr/>
+
+<p>Question: Suppose you roll three die simultaneously and record the
+outcome without paying attention to any notion of ordering the
+numbers--you only care about which numbers appear. How many such
+events are possible?</p>
+<p>Answer: This is a hard one, so again we need to shift our
+attention to a related but simpler problem. Previously when we
+analyzed the number of 10-digit binary numbers are possible if the
+left-most digit is 1, we solved that problem with a shift of
+perspective: Rather than count the objects 0 and 1, since these
+quantities were fixed there was nothing to count--instead we counted
+the positions to which they could be assigned. It's always reasonable
+to wonder whether a technique which solved one problem can be used to
+generate solutions elsewhere. This is not exactly the way you answer
+a question: Rather, this is what you do if you have leisure time,
+have seen a bunch of Math, and get curious about what else you might
+be able to do with it. That is: This investigation is not so directed
+as a Q&amp;A sort of sequence, but sometimes that's how Math gets
+done. You only receive the benefit of <i>post hoc</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">organization
+of these discoveries so that you don't spend a lifetime with an open
+question hanging in the air like that before you stumble on the
+answer.</span></span></p>
+<p>Here's a famous and relevant problem: Suppose you are going to
+give 5 children coins because children are stupid and like useless
+coins. However, you're a cruel adult and will give coins to the
+children according to how valuable you think they are. In order not
+to be too cruel you guarantee that every child receives at least one
+coin, and you have a total of 13 coins. Imagine that for every coin
+we make a star, and the coins that are distributed to children are
+grouped between bars--a so-called <b>stars and bars</b> <span style="font-weight: normal">arrangement
+of the object. The following diagram tells us that the first child
+received 3 coins, the next 1, the next 2, the next 3, and the last 1.
+</span>
+</p>
+<p style="font-weight: normal">***|*|**|***|*</p>
+<p style="font-weight: normal">To find all possible ways of
+distributing coins to kids amounts to finding all possible choices of
+places to insert the bars. Between the 13 coins there are 12
+positions to place a bar, and we need to choose 4 such places to put
+a bar. Hence there are 12C4 ways to distribute the coins. 
+</p>
+<p style="font-weight: normal">This investigation doesn't yet answer
+our question, but we get closer if we imagine a crueler adult who
+does not guarantee that each child gets a coin. In that case the
+following is a possible diagram.</p>
+<p style="font-weight: normal">||*****|*****|***</p>
+<p><span style="font-weight: normal">Here the first two children get
+nothing, the second gets 5, the third gets 5, the last gets 3.
+Because we can repeatedly choose a blank between the starts, we
+cannot use the previous analysis. It used the combinatorial function
+which only permits choice without replacement. However, we can in
+fact </span><i><span style="font-weight: normal">map this problem
+onto another problem</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">where
+the other problem is solvable using old methods. Namely, imagine an
+even crueler adult who first guarantees that every child gets a coin,
+distributes them, and then takes one away from each kid! At the end
+of the day, every such distribution is the same as one made by an
+adult who just gave each kid one fewer coin in the first place. </span></span></span>
+</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+So in the diagram above, it corresponds to the crueler adult's
+diagram</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+*|*|******|******|****</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+where ever kid gets one more coin (before the adult finally takes
+these back away). If the kids will eventually receive a total of 13
+coins, then initially the adult uses 13+5 = 18 coins and later takes
+these 5 away (one from each kid). Of course there are 17C4 ways of
+distributing bars in this case, and as we've claimed, for every one
+of these distributions there is a distribution where one coin is
+removed from each kid. Hence we have the answer.</p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">The
+formula generalizes the process: If we want to distribute </span></span></span><i><span style="font-weight: normal">n</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">coins
+to </span></span></span><i><span style="font-weight: normal">m</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">kids
+then, if every kid gets at least one coin, there are </span></span></span><i><span style="font-weight: normal">(n-1)C(m-1)</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">ways
+to do so. If some kids may receive no coins, there are </span></span></span><i><span style="font-weight: normal">(n+m-1)C(m-1)</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">ways.
+ </span></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">This
+quantity we call the </span></span></span><span style="font-variant: normal"><span style="font-style: normal"><b>multiset
+number</b></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">
+and we write it as `\left(\left(\binom{n}{m}\right)\right)` so that
+therefore `\left(\left(\frac{n}{m}\right)\right) = (n+m-1)C(m-1)`.</span></span></span></p>
+<hr/>
+
+<p>Exercise: <span style="font-variant: normal"><span style="font-style: normal">Suppose
+four numbers sum to 16.  How many choices are possible for the four
+numbers if all the choices must be positive?  What if some of the
+choices may be 0?  </span></span>
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Answer:
+You can write 16 stars and determine the places to insert 3 bars.  If
+the numbers must be positive then there must be a star between any
+two bars and the answer is 15C3.  If the numbers can be zero, 19C3. 
+This is otherwise </span></span>
+</p>
+<hr/>
+
+<p>Question: Can we now answer the previous question: how many
+outcomes are possible on three un-ordered die rolls?</p>
+<p>Answer: If we regard the stars in the stars-and-bars arrangement
+as telling us how many of each number comes up, we have as solution. 
+For instance a die roll that resulted in 1, 1, 2 would be diagrammed 
+</p>
+<p>**|*||||</p>
+<p>Because the 1 came up twice, the 2 once, and everything else 0
+times.  This means we want the multiset number
+`\left(\left(\binom{3}{6}\right)\right) = 56`.  I'll go ahead and
+list all of the possibilities to confirm.</p>
+<table width="384" cellpadding="4" cellspacing="1" style="page-break-inside: avoid">
+	<col width="45">
+	<col width="46">
+	<col width="46">
+	<col width="46">
+	<col width="46">
+	<col width="46">
+	<col width="44">
+	<tr valign="top">
+		<td width="45" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="111" sdnum="1033;">
+			<p>111</p>
+		</td>
+		<td width="46" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="112" sdnum="1033;">
+			<p>112</p>
+		</td>
+		<td width="46" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="113" sdnum="1033;">
+			<p>113</p>
+		</td>
+		<td width="46" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="114" sdnum="1033;">
+			<p>114</p>
+		</td>
+		<td width="46" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="115" sdnum="1033;">
+			<p>115</p>
+		</td>
+		<td width="46" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="116" sdnum="1033;">
+			<p>116</p>
+		</td>
+		<td width="44" style="border: 1px double #808080; padding: 0.04in" sdval="222" sdnum="1033;">
+			<p><b>222</b></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="45" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="122" sdnum="1033;">
+			<p>122</p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="123" sdnum="1033;">
+			<p>123</p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="124" sdnum="1033;">
+			<p>124</p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="125" sdnum="1033;">
+			<p>125</p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="126" sdnum="1033;">
+			<p>126</p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="223" sdnum="1033;">
+			<p><b>223</b></p>
+		</td>
+		<td width="44" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in" sdval="224" sdnum="1033;">
+			<p><b>224</b></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="45" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="133" sdnum="1033;">
+			<p>133</p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="134" sdnum="1033;">
+			<p>134</p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="135" sdnum="1033;">
+			<p>135</p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="136" sdnum="1033;">
+			<p>136</p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="225" sdnum="1033;">
+			<p><b>225</b></p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="226" sdnum="1033;">
+			<p><b>226</b></p>
+		</td>
+		<td width="44" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in" sdval="233" sdnum="1033;">
+			<p><b>233</b></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="45" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="144" sdnum="1033;">
+			<p>144</p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="145" sdnum="1033;">
+			<p>145</p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="146" sdnum="1033;">
+			<p>146</p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="234" sdnum="1033;">
+			<p><b>234</b></p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="235" sdnum="1033;">
+			<p><b>235</b></p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="236" sdnum="1033;">
+			<p><b>236</b></p>
+		</td>
+		<td width="44" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in" sdval="244" sdnum="1033;">
+			<p><b>244</b></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="45" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="155" sdnum="1033;">
+			<p>155</p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="156" sdnum="1033;">
+			<p>156</p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="245" sdnum="1033;">
+			<p><b>245</b></p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="246" sdnum="1033;">
+			<p><b>246</b></p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="255" sdnum="1033;">
+			<p><b>255</b></p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="256" sdnum="1033;">
+			<p><b>256</b></p>
+		</td>
+		<td width="44" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in" sdval="266" sdnum="1033;">
+			<p><b>266</b></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="45" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="166" sdnum="1033;">
+			<p>166</p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="333" sdnum="1033;">
+			<p><b>333</b></p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="334" sdnum="1033;">
+			<p><b>334</b></p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="335" sdnum="1033;">
+			<p><b>335</b></p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="336" sdnum="1033;">
+			<p><b>336</b></p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="344" sdnum="1033;">
+			<p><b>344</b></p>
+		</td>
+		<td width="44" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in" sdval="345" sdnum="1033;">
+			<p><b>345</b></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="45" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="346" sdnum="1033;">
+			<p><b>346</b></p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="355" sdnum="1033;">
+			<p><b>355</b></p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="356" sdnum="1033;">
+			<p><b>356</b></p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="366" sdnum="1033;">
+			<p><b>366</b></p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="444" sdnum="1033;">
+			<p><b>444</b></p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="445" sdnum="1033;">
+			<p><b>445</b></p>
+		</td>
+		<td width="44" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in" sdval="446" sdnum="1033;">
+			<p><b>446</b></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="45" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="455" sdnum="1033;">
+			<p><b>455</b></p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="456" sdnum="1033;">
+			<p><b>456</b></p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="466" sdnum="1033;">
+			<p><b>466</b></p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="555" sdnum="1033;">
+			<p><b>555</b></p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="556" sdnum="1033;">
+			<p><b>556</b></p>
+		</td>
+		<td width="46" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in" sdval="566" sdnum="1033;">
+			<p><b>566</b></p>
+		</td>
+		<td width="44" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in" sdval="666" sdnum="1033;">
+			<p><b>666</b></p>
+		</td>
+	</tr>
+</table>
+<p><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+</body>
+</html>

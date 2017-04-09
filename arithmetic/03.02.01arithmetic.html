@@ -1,0 +1,253 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 5.1.6.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="2017-03-28T17:46:05.440376446"/>
+	<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="00:00:00">
+	<meta name="created" content="2017-03-25T17:53:26.327482733">
+	<meta name="changed" content="2017-03-25T22:28:06.976616543">
+</head>
+<body lang="en-US" dir="ltr">
+<h1>Arithmetic</h1>
+<p style="margin-top: 0.17in; page-break-after: avoid"><font face="Albany, sans-serif"><font size="4" style="font-size: 14pt">Chapter
+02 - Extending number systems</font></font></p>
+<p style="margin-top: 0.17in; page-break-after: avoid"><font face="Albany, sans-serif"><font size="4" style="font-size: 14pt">Section
+04 - <i>p</i><span style="font-variant: normal"><span style="font-style: normal">-adic
+numbers</span></span></font></font></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Terms:
+</span></span><i>p</i><span style="font-variant: normal"><span style="font-style: normal">-adic
+digit, </span></span><i>p</i><span style="font-variant: normal"><span style="font-style: normal">-adic
+integer, strictly negative, </span></span><i>p-</i><span style="font-variant: normal"><span style="font-style: normal">adic
+rationals, </span></span><i>p</i><span style="font-variant: normal"><span style="font-style: normal">-adic
+numbers</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Symbols:
+</span></span><span style="font-variant: normal"><span style="font-style: normal"><b>Z</b></span></span><sub><i><span style="font-weight: normal">p</span></i></sub><i><span style="font-weight: normal">,
+</span></i><i><b>Q</b></i><span style="font-variant: normal"><sub><span style="font-style: normal"><span style="font-weight: normal">p</span></span></sub></span><i><span style="font-weight: normal">,
+</span></i>
+</p>
+<hr/>
+
+<p style="margin-bottom: 0in">Question: It probably will occur to the
+reader that, given all of these choices that we've made, first to
+represent numbers as digits, and then close systems of numbers under
+operations, and then close them under digit sequences ...</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">Was there another good choice that we
+could have made instead? 
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">Answer: That's a hard question to
+answer in its full generality given how very open-ended it is.  Still
+it's a good question that turns out to have at least one important
+positive answer: <i>p</i><span style="font-variant: normal"><span style="font-style: normal">-adic
+numbers. These have only been studied for the last century-and-change
+in response to certain specific mathematical needs, but their use has
+been growing in recent years.  </span></span><span style="font-variant: normal"><span style="font-style: normal">The
+subject is cool but skipable given how new and exotic it is.</span></span></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><span style="font-variant: normal"><span style="font-style: normal">Definition:
+If </span></span><i>p</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">is
+a prime number, all of the numbers 0, 1, ..., </span></span><i>p-1 </i><span style="font-variant: normal"><span style="font-style: normal">we
+call </span></span><i><b>p</b></i><span style="font-variant: normal"><span style="font-style: normal"><b>-adic
+digits</b></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+</span></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">Take
+for example 31-adic digits.  These are 0, 1, 2, ..., and so on up to
+30.  However 31 and 32 are not 31-adic digits.</span></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">
+</span></span></span>
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">Intuitively,
+initially we will think of this as just the same thing as a
+base-system as we've studied it, where the base has to be a prime
+number.  For instance we've already done this quite a lot with
+base-2, but here we will consider also base-3, base-5, etcetera. 
+Thus if we use 7-adic numbers, the number 132 would represent 1*7^</span></span></span><span style="font-variant: normal"><sup><span style="font-style: normal"><span style="font-weight: normal">2</span></span></sup></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">
++ 3*7^</span></span></span><span style="font-variant: normal"><sup><span style="font-style: normal"><span style="font-weight: normal">1</span></span></sup></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">
++ 2*7^</span></span></span><span style="font-variant: normal"><sup><span style="font-style: normal"><span style="font-weight: normal">0</span></span></sup></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">
+or if written in base-10 this would be 49+21+2 = 72.  We will be
+switching the base representation of numbers so often that I won't
+attempt to a unique formatting to the text of each </span></span></span><span style="font-variant: normal"><i><span style="font-weight: normal">p</span></i></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">-adic
+representation.</span></span></span></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">We
+call a </span></span></span><i><b>p</b></i><span style="font-variant: normal"><span style="font-style: normal"><b>-adic
+integer representation</b></span></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">any
+number of the form </span></span></span><i><span style="font-weight: normal">a</span></i><sub><i><span style="font-weight: normal">0</span></i></sub><i><span style="font-weight: normal">a</span></i><sub><i><span style="font-weight: normal">1</span></i></sub><i><span style="font-weight: normal">a</span></i><sub><i><span style="font-weight: normal">2</span></i></sub><i><span style="font-weight: normal">...a</span></i><sub><i><span style="font-weight: normal">n</span></i></sub>
+<span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">if
+each </span></span></span><i><span style="font-weight: normal">a</span></i><sub><i><span style="font-weight: normal">i</span></i></sub><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">is
+a </span></span></span><i><span style="font-weight: normal">p-</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">adic
+digit. There is no operation going on between the digits (yet), this
+is just some listing of </span></span></span><i><span style="font-weight: normal">p-</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">adic
+digits. So for instance 12,10,0,14 is a 17-adic integer
+representation, where I've thrown in commas to help see the
+separation of digits. The number that we associate with this
+representation, the </span></span></span><i><b>p</b></i><span style="font-variant: normal"><span style="font-style: normal"><b>-adic
+integer</b></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">,
+regards these digits as coefficients of powers of </span></span></span><i><span style="font-weight: normal">p</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+Thus 12,10,0,14 regarded as a 17-adic integer is equal to `12\ast
+17^3 + 10\ast 17^2 + 0\ast 17 + 14`. In decimal representation we
+would call this number 61860.</span></span></span></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">Of
+course this is just base-</span></span></span><i><span style="font-weight: normal">p</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">representation
+so far, just specifying that </span></span></span><i><span style="font-weight: normal">p</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">must
+be a prime. Well we've been doing that all along with </span></span></span><i><span style="font-weight: normal">p
+= 2</span></i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">although
+under this description we might be motivated to try other primes.
+Addition is defined in the familiar way for </span></span></span><i><span style="font-weight: normal">p</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">-adic
+numbers but for subtraction we actually make a funny twist. We say
+that 0 - 1 in, say, 2-adic numbers, is </span></span></span>
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal">
+__Example__</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal">
+That is to say, rather than constructing negative numbers as those
+with a _ symbol in front, we let the digits of the number carry on to
+infinity. In doing so however, we ensure that the negative of any
+2-adic integer is an infinite sequence of 1s except for some
+collection of 0s close to the early digits. So for instance _2 in
+2-adic numbers is ...11110 because if you sum this with 10 (which is
+the 2-adic integer for the number 2) then you get ...00000 or just 0.
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">There
+we illustrated with 2-adic integers, but for any prime </span></span></span><i><span style="font-weight: normal">p</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">the
+</span></span></span><i><span style="font-weight: normal">p</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">-adic
+negative of a natural number will have an infinite collection of
+digits </span></span></span><i><span style="font-weight: normal">p-1</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">followed
+by a collection of finitely many digits that may not be </span></span></span><i><span style="font-weight: normal">p-1</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+So for another example the 3-adic negative of 1 is ...22222 and the
+3-adic negative of 2 is ...22221 and the 3-adic negative of 3 is
+...22220 and so on. We call these numbers &quot;strictly&quot;
+negative.</span></span></span></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">One
+funny upshot of permitting digits to carry on infinitely to the left,
+though, is that some of them are not strictly negative even with
+these infinite non-zero digits. For instance in 2-adic numbers
+...10101010 is a number that's neither positive nor negative,
+strictly speaking, although it clearly cancels with ...110110 so that
+these two are </span></span></span><i><span style="font-weight: normal">relatively</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">negative,
+that is to say, negative to each other in the way that _2 is negative
+to 2 since they sum to 0. </span></span></span>
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal">
+To define multiplication we effectively just extend the table
+algorithm that we described before. For any of these funny
+neither-negative-nor-positive numbers, you can only compute their
+digit expansion in finite time and not fully discover them, but for
+some you can still give a full description. A trivial example is that
+in 2-adic numbers the number ...0101 * 10 = ...1010 and since you can
+figure out the pattern in the digits then you don't need to compute
+until infinite to fully describe the digit sequence. 
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">We
+call this set of numbers </span></span></span><span style="font-variant: normal"><span style="font-style: normal"><b>Z</b></span></span><sub><i><span style="font-weight: normal">p</span></i></sub><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+It will likely be no surprise, given how integer-y this thing is,
+that division is not defined on it just like integer division is not
+defined in the usual way for certain numbers. In particular, in </span></span></span><span style="font-variant: normal"><span style="font-style: normal"><b>Z</b></span></span><span style="font-variant: normal"><sub><span style="font-style: normal"><span style="font-weight: normal">2</span></span></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">the
+number 1/10 (i.e. the number which when multiplied by 10 returns 1)
+does not exist--again I reiterate that I'm writing in 2-adic so that
+1/10 in decimal is 1/2. The shock comes from the fact that this (and
+things like it, such as 1/100 which in decimal would be 1/4) are the
+only numbers that are not necessarily divisible. For instance in
+2-adic integers 1/11 = ...111 because of the following calculation </span></span></span>
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal">
+__Example__</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal">
+What this is telling us is that i) one-third in 2-adic integers is
+...111 and ii) what we constructed as rational numbers using regular
+base systems, are neither strictly positive nor strictly negative in
+this system. I.e. in 2-adic integers, the ratio 1/11 or &quot;one-third&quot;
+is neither positive nor negative. Of course this is a strong
+departure from how we ordered the rational numbers in section 2 of
+this chapter, which was based off of a good ordering of the integers,
+and which made up our number line. You'll have to have patience
+before you can discover why any of this matters.</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<hr/>
+
+<p>Exercise: Find ...3334 + ...3334 in 7-adic integers. What can you
+conclude about this number, in terms of it being some kind of ratio?</p>
+<p>Answer: ...3334 + ...3334 = ...0001 = 1. Thus in 7-adic numbers
+...3334 = 1/2.</p>
+<hr/>
+
+<p>Question: We won't prove it now but it turns out that the <i>p</i><span style="font-variant: normal"><span style="font-style: normal">-adic
+integers ending in 0 are the ones which do no have reciprocals in the
+integer system. What happens if, like in the base system that we
+explored before, we close the system under the operation of division?</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Answer:
+We get a genuinely new number system, of course, the </span></span><i>p-</i><span style="font-variant: normal"><span style="font-style: normal">adic
+numbers, denoted </span></span><span style="font-variant: normal"><span style="font-style: normal"><b>Q</b></span></span><sub><i><span style="font-weight: normal">p</span></i></sub><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+Amusingly (to me) the rationals were numbers that had finitely many
+non-zero numbers to the left but could have non-zero digits
+infinitely to the right. For instance 3.333... is a rational number
+but not ...3333. In our case, it will turn out that we can associate
+with every </span></span></span><i><span style="font-weight: normal">p</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">-adic
+number a digit expansion with an infinity of digits to the </span></span></span><i><span style="font-weight: normal">left</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">but
+finitely many to the </span></span></span><i><span style="font-weight: normal">right</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">!
+</span></span></span>
+</p>
+<hr/>
+
+<p>Question: Since we cannot talk about sorting <i>p</i><span style="font-variant: normal"><span style="font-style: normal">-adic
+numbers on a number line, how else do these numbers relate to each
+other?</span></span></p>
+<p style="font-variant: normal; font-style: normal">Answer: We have
+to define a notion of closeness, and our definition springs from how
+this number system is used--something I haven't explained at all. 
+</p>
+</body>
+</html>

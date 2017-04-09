@@ -1,0 +1,668 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 5.1.6.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="2017-03-28T00:22:50.917350534"/>
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2017-03-26T15:13:12.348572387">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2017-03-26T00:39:04.363227700">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2017-03-25T16:43:41.326256907">
+	<meta name="created" content="2017-03-22T23:56:04.631748215">
+	<meta name="changed" content="2017-03-23T01:41:18.359883405">
+	<meta name="created" content="2017-03-22T16:41:35.858978207">
+	<meta name="changed" content="2017-03-22T17:51:31.164448050">
+	<meta name="created" content="2017-03-22T16:41:35.858978207">
+	<meta name="changed" content="2017-03-22T16:57:44.161732347">
+	<meta name="created" content="2017-03-22T16:41:35.858978207">
+	<meta name="changed" content="2017-03-22T16:57:44.161732347">
+	<meta name="created" content="2017-03-21T20:27:10.494278786">
+	<meta name="changed" content="2017-03-21T21:28:20.559350513">
+	<meta name="created" content="2017-03-21T20:27:10.494278786">
+	<meta name="changed" content="2017-03-21T21:17:08.275337413">
+	<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+<body lang="en-US" dir="ltr">
+<table width="100%" cellpadding="4" cellspacing="0" style="page-break-before: always; page-break-inside: avoid">
+	<col width="128*">
+	<col width="128*">
+	<tr valign="top">
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><a href="../main/main.html">Home</a> &gt; <a href="arithmetic.html">Arithmetic</a>
+			&gt; <a href="arithmeticCh02.html">Extending number systems</a> &gt;
+			Rationals</p>
+		</td>
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding: 0.04in">
+			<p align="right">&lt; prev | <a href="02.03.01arithmetic.html">next</a>
+			&gt; 
+			</p>
+		</td>
+	</tr>
+</table>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<h1>Arithmetic 
+</h1>
+<p style="margin-top: 0.17in; page-break-after: avoid"><font face="Albany, sans-serif"><font size="4" style="font-size: 14pt">Chapter
+02 - Extending number systems</font></font></p>
+<p style="margin-top: 0.17in; page-break-after: avoid"><font face="Albany, sans-serif"><font size="4" style="font-size: 14pt">Section
+02 - Rationals</font></font></p>
+<p>Abstract: Rationals are the closure under division and represent
+the ability to segment a quantity into any number of pieces of equal
+size--they also represent ratios.</p>
+<p>Terms: Rational, reciprocal, decimal expansion</p>
+<p>Symbols: ℚ, ∊, .</p>
+<hr/>
+
+<p>Question: What do we get if we next close our number system under
+division as we did with subtraction?</p>
+<p>Answer: We form the set ℚ = {<i>z : z = x/y</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">where
+</span></span><i>x,y</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">are
+integers and </span></span><i>y</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is
+not 0}. In fact, let's introduce another piece of notation for sets,
+so that we can economize expressions a little more. We use the symbol
+∊ to mean &quot;in&quot; so that </span></span><i>x∊A</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">claims
+that element </span></span><i>x</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is
+in set </span></span><i>A</i><span style="font-variant: normal"><span style="font-style: normal">.
+This let's us say ℚ = {</span></span><i>z : z = x/y, </i><span style="font-variant: normal"><span style="font-style: normal">for</span></span>
+<i>x,y</i><span style="font-variant: normal"> ∊ ℤ </span><span style="font-variant: normal"><span style="font-style: normal">and
+</span></span><i>y ≠ 0</i><span style="font-variant: normal"><span style="font-style: normal">}.
+Of course that's the abstract answer. Physically this corresponds to
+endlessly breaking quantities into pieces even below the level of the
+single unit. For instance 2/3 is physically interpreted as breaking a
+unit into three equal pieces and keeping two. We call these numbers
+</span></span><span style="font-variant: normal"><span style="font-style: normal"><b>rational</b></span></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">numbers
+because they correspond to the concept of a ratio of two numbers. We
+call the set ℚ for &quot;quotient&quot; since in a sense, it is the
+set of all quotients of integers.</span></span></span></p>
+<p style="font-variant: normal; font-style: normal">Note: It is a
+little ironic that rationals come after the integers in the standard
+construction of number sets, and yet rationals were &quot;accepted&quot;
+as numbers earlier than the integers were. The Greeks were relatively
+satisfied with the idea of dividing a quantity, if not infinitely,
+then at least very much. However, they rejected any notion of a
+negative since these numbers cannot do any counting--so they thought
+anyway. 
+</p>
+<hr/>
+
+<p>Question: So we have rationals now. How do we add, multiply, and
+so on?</p>
+<p>Answer: This is a pretty tough one to answer <i>a priori</i><span style="font-variant: normal"><span style="font-style: normal">.
+Most readers will undoubtedly know the routine but perhaps not the
+justifications, even if they have a fairly good Math background. To
+sum any (</span></span><i>p/q) + (r/s)</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is
+too difficult to answer directly. For instance what is (1/2) + (1/3)?
+Let's focus first on an easier question.</span></span></p>
+<p style="font-variant: normal; font-style: normal">What's (1/3) +
+(1/3)? Of course in each case we have a quantity obtained by dividing
+a unit into three equal pieces and keeping one of them. If we sum
+them, we now have two of them. So (1/3) + (1/3) = 2/3. In fact, from
+this perspective, it might be helpful to think of the bottom number
+not as dividing but as measuring in a certain standard length. For
+instance we could regard 1 as meaning 1 meter, and then 1/3 just
+means that the unit of measurement is thirds-of-a-meter and there's
+one of them. From this perspective, summing (1/2) + (1/3) is trying
+to sum lengths measured in different units of measurement. To figure
+out the sum we need to convert units, but we need to find a &quot;bridge&quot;
+unit that we can convert both of them into. 
+</p>
+<p style="font-variant: normal; font-style: normal">With a bit of
+thought you might realize that by breaking halves into three equal
+pieces, you get six equally sized pieces; and by breaking thirds into
+two equally sized pieces you get six equally sized pieces. So 1/2 can
+be converted into 3/6 and 1/3 can be converted into 2/6, so that
+sixths is our bridge-unit. From here we can sum (1/2) + (1/3) = (3/6)
++ (2/6) = 5/6.</p>
+<p style="font-variant: normal; font-style: normal">The standard high
+school algorithm is to get a &quot;common denominator&quot;. Often
+this means just multiplying the two denominators, like 2*3 = 6 as in
+the previous example. However, in some cases it is possible to find a
+different bridge unit. Take for instance (7/4) + (11/6). We could
+choose 24 as the bridge unit (or really 24ths, but you know what I
+mean) but 12 is possible too and easier to use. (7/4) + (11/6) =
+(21/12) + (22/12) = 43/12.</p>
+<p style="font-variant: normal; font-style: normal">__Example__</p>
+<hr/>
+
+<p>Question: How do we find the smallest possible bridge unit?</p>
+<p>Answer: It's the lcm of the two denominators! Of course this makes
+sense, we need to give each denominator <i>just</i> enough extra
+factors until they contain the same factors and so are the same
+number--but we don't want to give any more factors than we have to.
+This is just what the lcm does.</p>
+<p>For instance, lcm(2,3) = 6 and lcm(4,6) = 12. The lcm in a sense
+gives 2 a factor of 3 and gives 3 a factor of 2, in order to convert
+both into 6. The work that we put into understanding primes and
+factorization is coming in handy.</p>
+<hr/>
+
+<p>Question: How do we subtract rationals?</p>
+<p>Answer: Of course the same method applies, in which we get a
+&quot;common denominator&quot; and compute the difference of the
+numerators.</p>
+<hr/>
+
+<p>Question: How do we multiply rationals?</p>
+<p>Answer: Again this is hard to approach directly. Choosing an
+easier intermediate question, what if the right factor is an integer?
+We use repeated addition or some similar trick as we studied in the
+previous section--and we require multiplication to be commutative so
+that this works also if there's an integer in the left factor. This
+then means that <i>p/q * r = pr/q</i><span style="font-variant: normal"><span style="font-style: normal">.
+</span></span>
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">If
+we are to next try to understand </span></span><i>(p/q) * (r/s)</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">then
+it would be helpful to think of this as actually saying </span></span><i>((p/q)*r)/s</i><span style="font-variant: normal"><span style="font-style: normal">.
+No, I'm not using associativity here, as that's not valid for
+division--instead, I'm interpreting &quot;* </span></span><i>(r/s)&quot;</i>
+<span style="font-variant: normal"><span style="font-style: normal">as
+&quot;multiply by </span></span><i>r</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+then divide by </span></span><i>s</i><span style="font-variant: normal"><span style="font-style: normal">&quot;.
+In a sense I'm packing a special parenthesis-shifting law into the
+very definition of multiplying rational numbers. Notice that we saw
+in the previous chapter that natural numbers have this property
+assuming that </span></span><i>q|p</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+</span></span><i>s|r</i><span style="font-variant: normal"><span style="font-style: normal">,
+so in a sense we're just enforcing that rationals also have this
+property even when divisibility does not hold. </span></span>
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">But
+to seal the deal we need to say how one divides a rational by an
+integer. What should </span></span><i>(p/q) / z </i><span style="font-variant: normal"><span style="font-style: normal">be?
+Of course if we break the units into </span></span><i>q</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">equal
+pieces and then break each of those into </span></span><i>z</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">equal
+pieces, then we have </span></span><i>qz</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">equal
+pieces. Thus </span></span><span style="font-variant: normal"><i>(p/q)
+/ z</i></span><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">should
+be the same as </span></span><i>p / (qz).</i></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">At
+this point we're justified in saying that </span></span><i>(p/q) *
+(r/s) = (pr) / (qs)</i><span style="font-variant: normal"><span style="font-style: normal">.
+To reiterate, the logic is that we construe this as first
+multiplication by </span></span><span style="font-variant: normal"><i>r</i></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">putting
+it in the numerator, then division by </span></span><span style="font-variant: normal"><i>s</i></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">putting
+it in the denominator. So for instance (1/2) (3/4) = 3/8.</span></span></p>
+<hr/>
+
+<p>Exercise: Justify why, if <i>p</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+</span></span><i>q</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">are
+integers with any common factor, call it </span></span><i>m</i><span style="font-variant: normal"><span style="font-style: normal">,
+then </span></span><i>p/q</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">is
+the same as the rational number with the </span></span><i>m</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">removed
+from both </span></span><i>p</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+</span></span><i>q</i><span style="font-variant: normal"><span style="font-style: normal">.
+So for instance 2 and 10 have a common factor of 2, therefore 2/10 =
+1/5.</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Answer:
+We can give a physical and an abstract answer. The abstract answer is
+that, if </span></span><i>p, q</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">share
+factor </span></span><i>m</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">then
+there exist integers </span></span><i>x, y</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">such
+that </span></span><i>p = mx, q = my</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+therefore </span></span><i>p/q = (mx)/(my) = (m/m)(x/y) = 1(x/y) =
+x/y</i><span style="font-variant: normal"><span style="font-style: normal">.
+Of course the fact that </span></span><i>m/m = 1 </i><span style="font-variant: normal"><span style="font-style: normal">is
+something we knew from natural number operations. </span></span>
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">The
+physical answer is that </span></span><i>m</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">only
+breaks up quantities in the denominator, and then puts just as many
+back together in the numerator. Think of 2/4 which has a factor of 2
+in both the numerator and denominator. This means that we broke a
+unit in half and then in half again, and took two of the halves. We
+could have just as well broken the unit in half and stopped. </span></span>
+</p>
+<hr/>
+
+<p>Question: It's harder to compare rationals than it is to compare
+integers. Which is bigger, 81/37 or 100/51? There are <i>ad hoc</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">tricks
+that you can leverage to answer this. But let's make a general
+procedure once and for all. If </span></span><i>p/q</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+</span></span><i>r/s</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">are
+rational numbers, give an algorithm that assumes only the ability to
+compare integers, in order to determine which is larger. </span></span>
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Answer:
+One way to do this is to assume </span></span><i>p/q &lt; r/s </i><span style="font-variant: normal"><span style="font-style: normal">in
+order to investigate what is equivalent to this being true.
+Intuitively we should be able to multiply both sides of this by any
+number we want--as long as we pick the same number on both sides. I
+mean, think of how it would work with integers. Since 20 &lt; 30 then
+by doubling we get 40 &lt; 60, and we could even halve and get 10 &lt;
+15. The numbers may grow farther apart or closer together but they
+never switch sides. You can even think of this process as &quot;scaling
+things up&quot; or scaling down. Of course this assumes that we
+multiply or divide by a positive. If you experiment with a negative
+then things don't work so well, so to keep things easy let's assume </span></span><i>s</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is
+positive. </span></span>
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Anyway,
+with that principle established then </span></span><i>p/q &lt; r/s</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is
+equivalent to </span></span><i>s(p/q) &lt; sr/s</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">which
+can simplify to </span></span><i>sp/q</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">&lt;
+r. Does this look like improvement? Well at least we have only one
+fraction rather than two. If we do this again with </span></span><i>q</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">this
+time, again assuming </span></span><i>q</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is
+positive, then we get the expression </span></span><i>ps &lt; rq</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">which
+is equivalent to the one we started with after doing all appropriate
+cancellation. This serves as our test, or a very short algorithm: </span></span><i>p/q</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is
+less than </span></span><i>r/s</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">if
+</span></span><i>ps</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">is
+less than </span></span><i>qr</i><span style="font-variant: normal"><span style="font-style: normal">.
+</span></span>
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">A
+natural question is, what happens if one multiplies an inequation
+like this by a negative? Experimentation will show you that it always
+flips the inequation. Can we prove that it does? Suppose </span></span><i>p
+&lt; q</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">where
+</span></span><i>p, q</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">may
+be integers or rationals. Then simply by subtraction on both sides by
+</span></span><i>p</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">and
+</span></span><i>q</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">we
+see that _</span></span><i>q &lt; _p</i><span style="font-variant: normal"><span style="font-style: normal">.
+But this also has the upshot that this is the result of multiplying
+by _1. Hence multiplying by _1 flips the inequation around.
+Multiplying by any other negative quantity is the same as multiplying
+by _1 and then the &quot;rest&quot; of the number so to speak, so
+that this proof really covers all cases. We have shown, then, that
+multiplying by any negative flips the inequation. </span></span>
+</p>
+<p style="font-variant: normal; font-style: normal">As a closing note
+before we move on to other questions, of course a test for less-than
+is automatically a reverse test for greater-than. Testing whether 3/7
+&gt; 4/9 is just a matter of testing whether 4/9 &lt; 3/7 so we
+already have that covered. A test for equality can work exactly the
+same way, although a possibly more efficient algorithm is simply to
+reduce the fraction to its simplest expression--and it makes some
+obvious sense to believe that every rational number has a reduction
+to a least expression. We'll discuss that idea more in Number Theory
+but for now it just makes good sense. 
+</p>
+<hr/>
+
+<p>Question: How do we divide rationals?</p>
+<p>Answer: As usual <i>(p/q) / (r/s)</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">means
+finding the number which when multiplied by </span></span><i>r/s</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">results
+in </span></span><i>p/q</i><span style="font-variant: normal"><span style="font-style: normal">.
+Of course an easy number that has this property is </span></span><i>(p/q)*(s/r)</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">because
+when you multiply this by </span></span><i>r/s</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">you
+get </span></span><i>(p/q)(s/r)(r/s) = (p/q)(rs/rs)</i><span style="font-variant: normal"><span style="font-style: normal">.</span></span></p>
+<p style="font-variant: normal; font-style: normal">Note: Now that
+operations are getting big and ugly, I'm not going to be a stickler
+about the left-associativity rule that I asserted earlier. To be more
+precise, I'll use left-associativity on any operations that are
+written in infix notation, but not if I use any other notation like
+concatenation. I'll also take to writing fractions as `\frac{rs}{rs}`
+and pay no attention to the left-associativity rule in such cases.</p>
+<p style="font-variant: normal; font-style: normal">In any case what
+we've just found is the so-called &quot;flip and multiply&quot; rule
+for dividing rationals: `\frac{p // q}{r // s} = \frac{p}{q}\ast
+\frac{s}{r}`.</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Because
+the &quot;flip&quot; operation is useful for precisely this reason
+then we give it the name of the </span></span><span style="font-variant: normal"><span style="font-style: normal"><b>reciprocal</b></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+Thus the &quot;flip and multiply&quot; rule is inadequate, since most
+students confused this at some time in their lives for thinking that
+</span></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">`\frac{p//q}{r//s}
+= \frac{q}{p}\ast\frac{r}{s}`</span></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+Instead the rule should be something like &quot;fix-product-flip&quot;
+to indicate that the numerator remains fixed and only the denominator
+is flipped.</span></span></span></p>
+<hr/>
+
+<p>Question: How do we exponentiate?</p>
+<p>Answer: We skipped this question when the power was an integer
+last time, and now we return to that case. Recall that we skipped
+this because 1/2 had no meaning for us in that section but it does
+now. By that sort of justification we can claim that 2^<sup>_1 </sup>=
+1/2 and 2^<sup>_2</sup> should be half as big and therefore should be
+1/4, and so on. This justifies claiming that, if <i>n</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is
+any natural number then 2^</span></span><span style="font-variant: normal"><sup><span style="font-style: normal">_n</span></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">=
+1/2^</span></span><span style="font-variant: normal"><sup><span style="font-style: normal">n</span></sup></span><span style="font-variant: normal"><span style="font-style: normal">.
+</span></span>
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">We
+could justify it another way. Notice that we said </span></span><i>x^</i><sup><i>p</i></sup><i>x^</i><sup><i>q</i></sup>
+<i>= x^</i><sup><i>p+q</i></sup> <span style="font-variant: normal"><span style="font-style: normal">because
+we are aggregating the factors of </span></span><i>x</i><span style="font-variant: normal"><span style="font-style: normal">.
+By a similar logic, so long as the resulting power is a natural
+number, we can justify saying </span></span><span style="font-variant: normal"><span style="font-style: normal">`\frac{x^{\wedge
+p}}{x^{\wedge q}} = x^{\wedge p-q}`</span></span><span style="font-variant: normal"><span style="font-style: normal">
+because in the fraction we are canceling factors of </span></span><i>x</i><span style="font-variant: normal"><span style="font-style: normal">.
+But if we try to apply this for, say, </span></span><span style="font-variant: normal"><span style="font-style: normal">`\frac{2^{\wedge
+1}}{2^{\wedge 2}} = \frac{1}{2} = 2^{\wedge 1-2} = 2^{\wedge \_1}`</span></span><span style="font-variant: normal"><span style="font-style: normal">
+then we get the same result as we did from the previous logic, making
+this sound like a consistently good answer. </span></span>
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">The
+but immediately the question becomes harder when we try to figure out
+the exponential where the power is a rational as well. What should
+2^</span></span><span style="font-variant: normal"><sup><span style="font-style: normal">1/2</span></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">be?
+One indication can again come from our exponential laws, since if we
+raise a power to a power, i.e. find `(2</span></span><span style="font-variant: normal"><span style="font-style: normal">^</span></span><span style="font-variant: normal"><span style="font-style: normal">{</span></span><span style="font-variant: normal"><span style="font-style: normal">\wedge
+</span></span><span style="font-variant: normal"><span style="font-style: normal">1/2})</span></span><span style="font-variant: normal"><span style="font-style: normal">^</span></span><span style="font-variant: normal"><span style="font-style: normal">{</span></span><span style="font-variant: normal"><span style="font-style: normal">\wedge
+</span></span><span style="font-variant: normal"><span style="font-style: normal">2}`
+we should be able to multiply the powers and get 2^</span></span><span style="font-variant: normal"><sup><span style="font-style: normal">1</span></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">which
+is 2. That is to say, if we square this quantity we get 2. But that's
+exactly what the square-root is! Thus </span></span><span style="font-variant: normal"><span style="font-style: normal">$$</span></span><span style="font-variant: normal"><span style="font-style: normal">x</span></span><span style="font-variant: normal"><span style="font-style: normal">^</span></span><span style="font-variant: normal"><span style="font-style: normal">{</span></span><span style="font-variant: normal"><span style="font-style: normal">\wedge
+</span></span><span style="font-variant: normal"><span style="font-style: normal">1/n}
+= \sqrt[n]{x}</span></span><span style="font-variant: normal"><span style="font-style: normal">$$</span></span><span style="font-variant: normal"><span style="font-style: normal">
+and more generally </span></span><span style="font-variant: normal"><span style="font-style: normal">$$</span></span><span style="font-variant: normal"><span style="font-style: normal">x</span></span><span style="font-variant: normal"><span style="font-style: normal">^</span></span><span style="font-variant: normal"><span style="font-style: normal">{</span></span><span style="font-variant: normal"><span style="font-style: normal">\wedge
+</span></span><span style="font-variant: normal"><span style="font-style: normal">m/n}
+= \sqrt[n]{x^m}</span></span><span style="font-variant: normal"><span style="font-style: normal">$$</span></span></p>
+<hr/>
+
+<p>Exercise: Find `8^{\wedge 2/3}` and `2^{\wedge 1/2}`.</p>
+<p>Answer: The former is easiest to compute by first finding the
+cube-root, which is 2, then squaring which is 4. Of course the
+official rule about this is to do things in reverse order, but it's
+easy enough to show that the order doesn't matter, you'll get the
+same answer either way.</p>
+<p>The latter does not exist in our number system. 
+</p>
+<hr/>
+
+<p>Question: Can we prove that sqrt(2) is not a rational?</p>
+<p>Answer: This is a very famous proof. We do this by contradiction,
+which means that we assume sqrt(2) is rational and then prove that a
+contradiction follows; therefore the assumption must have been false.</p>
+<p>If sqrt(2) is rational then there must be integers <i>p, q</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">such
+that they share no common factor and </span></span><i>p/q = sqrt(2)</i><span style="font-variant: normal"><span style="font-style: normal">.
+In that case 2 = </span></span><i>p^</i><sup><i>2</i></sup><i>/q^</i><sup><i>2</i></sup>
+<span style="font-variant: normal"><span style="font-style: normal">and
+from that we can infer that </span></span><i>2q^</i><sup><i>2</i></sup>
+<i>= p^</i><sup><i>2</i></sup><i>. </i><span style="font-variant: normal"><span style="font-style: normal">This
+shows that </span></span><i>p^</i><sup><i>2</i></sup><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">has
+a factor of 2 and must be even. But that factor of 2 must have come
+from </span></span><i>p</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">and
+therefore </span></span><i>p^</i><sup><i>2</i></sup><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">must
+have two factors of 2. Well in that case </span></span><i>2q^</i><sup><i>2</i></sup><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">must
+also have two factors of 2. One of them is exhibited clearly but the
+other one must come from </span></span><i>q^</i><sup><i>2</i></sup><span style="font-variant: normal"><span style="font-style: normal">.
+But in that case </span></span><i>q</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">has
+a factor of 2! But we started off by asserting that </span></span><i>p</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+</span></span><i>q</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">had
+no common factors and now they share 2! ⚡</span></span></p>
+<p style="font-variant: normal; font-style: normal">Note: the ⚡
+symbol is used to denote that we have arrived at a contradiction, and
+is used to indicate the end of a proof by contradiction.</p>
+<hr/>
+
+<p>Exercise: Prove that cbrt(2) and sqrt(3) are not rational.</p>
+<p>Answer: The same proof applies but either taking a third power
+(former) or taking a second power and showing they share a factor of
+3 (latter).</p>
+<hr/>
+
+<p>Question: Since sqrt(2) is not rational, what do we say about it?</p>
+<p>Answer: For this section we say that it is not a rational number,
+but we can approximate it with rational numbers. That is to say, we
+can use 1 as a first approximation since 1^<sup>2</sup> = 1 is too
+small. As a next approximation we could try 3/2 but its square, 9/4,
+is larger than 2 and therefore over-shoots the goal. We could test
+4/3 and find that this is too small but only by a little. If we
+continue the process of guessing we can find numbers which square to
+something closer and closer to 2, although the proof above
+demonstrates that we will never find it perfectly. 
+</p>
+<hr/>
+
+<p>Question: We have been describing all rational numbers as
+quotients, but it also makes some sense to find points in-between
+integers by writing an expression like 2.3 to mean a number that is
+between 2 and 3 and closer to 2 than 3. How much closer? If you broke
+up the distance from 2 to 3 into ten equal pieces, we could label
+them 2.1, 2.2, ..., 2.9. So 2.3 is the number that is 3 tenths of the
+way from 2 to 3. 
+</p>
+<p>But given that this is a digit expansion, we want to be able to
+express it as coefficients of powers of 10. That is to say, since we
+regard 456 as 4*10^<sup>2</sup> + 5*10^<sup>1</sup> + 6*10^<sup>0</sup>
+then how should we choose to represent 2.3 in order to continue the
+pattern?</p>
+<p>Answer: This is called the <b>decimal expansion</b> of a number,
+in which we represent say 3/2 as 1.5 or as 1*10^<sup>0</sup> +
+5*10^<sup>_1</sup>. That is to say, digit positions to the right of
+the decimal mark those digits that are coefficients of a negative
+power of 10. This coheres with what we've said elsewhere about
+negative powers, which is that 1*10^<sup>0</sup> + 5*10^<sup>_1</sup>
+= 1 + 5/10 = 3/2. In this way every decimal expansion that terminates
+at some power of 10 has a representation as a ratio. Is the reverse
+true?</p>
+<hr/>
+
+<p>Exercise: Convert 1.21 into a ratio. Also convert 1/3 into a
+decimal expansion. 
+</p>
+<p>Answer: 1.21 = 121/100</p>
+<p>Converting 1/3 is substantially harder. We want an equivalent
+expression that will tell us what the coefficient of 1/10 should be
+(obviously this number is smaller than 1 and so has no units digit).
+Clearly 3 is the largest coefficient we can give it before the number
+becomes too large, so that 1/3 is approximated by 3/10 but there is
+still a bit left-over. The left-over bit is 1/3 - 3/10 = 1/30. We now
+need to find an expression for this in decimal form and add it to our
+current best approximation. The same problem as before arises, so we
+approximate 1/30 by 3/100, which has the largest coefficient of 1/100
+that we could pick before the number grows too large. 
+</p>
+<p>Of course this process repeats itself so that 1/3 ≈ 3/10 + 3/100
++ 3/1000 <font face="Liberation Serif, serif">=</font> 0.333 and we
+can keep getting better approximations of 1/3 by choosing to expand
+more digits. I write ≈ <font face="Liberation Serif, serif">to mean
+&quot;approximately equal to&quot; which, for now, is a subjective
+statement. </font>I don't want to write 1/3 = 0.333... just yet
+because, although the equality is true, we can only claim this when
+we have adequate justification for the &quot;...&quot; and that only
+comes once we have studied Real Analysis. In any case, for now, take
+the statement that 1/3 ≈ <font face="Liberation Serif, serif">0.333...
+to mean that every extra digit of 0.333... gets you closer and closer
+to 1/3.</font></p>
+<p>Let's do it again for 1/7, but this time with a twist. Let's
+assume that in some sense we already have the coefficients and
+therefore we can write</p>
+<p>$$\frac{1}{7} \approx \frac{a_1}{10} + \frac{a_2}{100} +
+\frac{a_3}{100} + ...$$ 
+</p>
+<p>If we multiply both sides by 7 then we have 
+</p>
+<p>$$1 \approx \frac{7a_1}{10} + \frac{7a_2}{100} + \frac{7a_3}{1000}
++ ...$$</p>
+<p>What this tells us that `a_1`, the coefficient for 1/10, must be
+the largest multiple of 7 not to exceed 10. If `7a_1` were to exceed
+10 we'd have a number bigger than 1 which would be a contradiction.
+Then for `a_2` we have to pick the largest multiple not to exceed the
+remainder from the previous choice--and so on. This hints at an
+algorithm for computing the decimal expansion.</p>
+<hr/>
+
+<p>Exercise: Give an algorithm to compute the decimal expansion of a
+given ratio.</p>
+<p>Answer: Of course the algorithm used before for integer division,
+if continued with extra zeros after the integer part, will continue
+to find the coefficients for descending powers of 10. 
+</p>
+<p>__Example__</p>
+<p>This works because we keep finding the value that you can multiply
+by so that we don't exceed the remainder, just as described above. Of
+course I'm kind of equivocating on the meaning of &quot;remainder&quot;
+here but it's fine.</p>
+<hr/>
+
+<p>Exercise: Find the ratio that is approximated by
+.1234123412341234...</p>
+<p>Answer: This won't be a thoroughly rigorously justified method
+just yet, but it should make some sense. Call <i>x</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">=
+.123412341234... Then if we multiply by 10000 this will shift the
+decimal four places so that 10000x = 1234.12341234... Then we can
+cancel the decimals trailing off to infinity, so to speak, by finding
+</span></span><i>10000x - x = 1234.12341234... - 0.12341234... =
+1234</i><span style="font-variant: normal"><span style="font-style: normal">.
+This was computing the decimal expansion difference but if we also
+factor the left-hand-side we get </span></span><i>(10000-1)x</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">which
+is </span></span><i>9999x</i><span style="font-variant: normal"><span style="font-style: normal">.
+This tells us that </span></span><i>9999x = 1243</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+so </span></span><i>x = 1234/9999.</i></p>
+<p style="font-variant: normal; font-style: normal">This wasn't a
+rigorous construction because it subtracted an infinity, so to speak,
+of digits from another infinity of digits. We'll work on tightening
+up the justification later but for now, just notice that if you
+compute the decimal expansion of 1234/9999, you get .12341243... so
+this method does seem to be getting it right even if we don't have a
+rigorous proof of correctness.</p>
+<hr/>
+
+<p>Question: Does every decimal expansion correspond to a rational
+number?</p>
+<p>Answer: We found an algorithm, so to speak, that finds a decimal
+expansions that keeps getting close to sqrt(2) even though we know
+that this number doesn't exist in the rationals. It was a
+guess-and-check algorithm, but it keeps finding new rational numbers
+that are better and better approximations of sqrt(2) without end. In
+running this algorithm we find that it's 1.41421356... If we consider
+the decimal sequence which has &quot;all&quot; of the decimals that
+approximate sqrt(2), then this must not correspond to any rational
+number. 
+</p>
+<p>Here's another decimal sequence that is not a rational number:
+0.1011011101111011111...</p>
+<hr/>
+
+<p>Question: Can we prove that every digit expansion with a
+non-repeating sequence of digits must not be rational? To say the
+same thing in reverse: Can we prove that every rational number
+produces a repeating digit expansion? Hint: if we use the division
+algorithm on two integers, and the algorithm keeps running to
+infinity, but the remainder at each step is always less than the
+quotient, what could this tell us?</p>
+<p>Answer: Since the remainder at every step is less than the
+quotient, there are a finite number of possible values of the
+remainder. However, if we assume we are generating an infinity of
+digits by this process, then at some point the remainder must come up
+again in the process. Once we arrive at a remainder that we've seen
+before, the sequence of remainders after it and therefore the digit
+sequence, will have to repeat over and over. 
+</p>
+<p>The upshot of these considerations are i) that we now have a proof
+of the claim above that 0.10110111... is irrational, ii) that the
+rational numbers are exactly the same numbers as those with repeating
+digit sequences, and iii) therefore not every digit sequence
+corresponds to a rational number. 
+</p>
+<hr/>
+
+<p>Exercise: Let's bring up binary again. I like binary because not
+only does it have use in CompSci and elsewhere, but particularly at
+this stage of development, being able to implement an idea in binary
+shows that you actually understand rather than fooling yourself when
+you're really just coasting on the inertia of what you learned in
+grade school. 
+</p>
+<p>So here are the exercises. Represent 1.5 and 1/3 in binary and
+represent 0b0.011 in decimal. Also, as a point of interest, we know
+that 1/3 ≈ <font face="Liberation Serif, serif">0.333... What is
+1/3 if we were (for whatever reason) to use base-3?</font></p>
+<p>Answer: 1.5 = 3/2 = 0b11 / 0b10 = 0b1.1</p>
+<p>1/3 = 0b1 / 0b11. Since we expressed 1/3 in rational form, we may
+leave the binary representation in rational form as well, and so call
+it a day with this problem. If we want the binary digit form, we
+would use the division algorithm and get 0b0.010101...</p>
+<p>0b0.011 = 1/4 + 1/8 = 3/8</p>
+<p>If we used base-3, something I've never actually heard of anyone
+seriously using but still of brief interest, then I'll just use the
+same digits that I do for decimal. There will be no confusion
+introduced by this because nowhere else on this site will I mention
+base-3 again. So to reiterate, using digits 0, 1, and 2 only, what is
+one-third? The answer is 0.1. Interestingly this is a terminating
+digit expansion so apparently whether a digit representation
+terminates depends on the representation. Thus this feature of
+numbers is not really a feature of numbers per se, but of numbers and
+their representation. 
+</p>
+<hr/>
+
+<p>Exercise: Give a general characterization of what happens when you
+divide a number, say <i>x</i><span style="font-variant: normal"><span style="font-style: normal">,
+by a positive number bigger than 1. Also characterize what happens
+when you divide by 1. Also characterize what happens when you divide
+by a positive number less than 1. Also characterize what happens when
+you divide by a negative.</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Answer:
+Of course when dividing </span></span><i>x</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">by
+a positive number greater than 1, it shrinks toward 0. If </span></span><i>x</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is
+positive that means it gets smaller, like going from 10 and then
+after dividing by 2 becoming 5. If </span></span><i>x</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is
+negative like _10, that means getting bigger by becoming _5. Of
+course dividing by 1 doesn't change the number. By dividing by a
+positive number less than 1, like 1/2, this makes </span></span><i>x</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">&quot;dilate&quot;
+away from 0. For instance `\frac{10}{1//2} = \frac{10}{1}\ast
+\frac{2}{1} = 20`. A similar calculation holds for negative </span></span><i>x</i><span style="font-variant: normal"><span style="font-style: normal">.</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">If
+you divide by a negative, same principles described above hold, after
+you first flip </span></span><i>x</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">to
+the other side of 0. </span></span>
+</p>
+</body>
+</html>

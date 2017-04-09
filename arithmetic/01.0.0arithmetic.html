@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" async
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+        </script>
+        <script src="../js/slideShow.js"></script>
+        <title>Arithmetic - Representation and Calculation</title>
+    </head>
+    <body>
+
+        <h1 class="lev1">Arithmetic - Representation and Calculation</h1>
+
+        <h2 class="lev2">Table of Contents</h2>
+
+        <ol>
+            <li/> Counting with numbers (+, +/, -, *, */, %, ^, ^.)
+            <ol>
+                <li/>  Roman numerals, Hindu-Arabic, and binary
+                <li/> Table methods of computing
+                <ol>
+                    <li/>Adding and subtracting
+                    <li/>Multiplying and dividing
+                    <li/>Exponents, roots, logarithms
+                </ol>
+            </ol>
+            <li/>  Extending number systems (&#x02115, &#8474;, &#8484;, &#8477;)
+            <ol>
+                <li> Negatives
+                <li> Rationals
+                <li> Reals
+                <li> Complex
+            </ol>
+        </ol>
+
+        <h2 class="lev2">0. The guiding questions</h2>
+
+        <p>In this section we discuss numbers, how to add, and so on, but also more complicated subjects              like binary representation and eventually, some basics about complex numbers.  To frame this              in a concrete context, suppose you have a certain number of bags of grain in different warehouses and             would like to tally them up to know the total:  How could you <i>efficiently</i> do             so?  Also suppose that you need to distribute these to peasants in order to            prevent a riot--do you have enough?  Along the way, seeing the different ways we            can choose to represent numbers will tell us something about a very modern            subject, binary numbers.</p>
+
+        <p>Finally, what should we do if certain operations on numbers, like 7/3, do not            have values in our standard number systems?</p>
+
+        <h2>1. Counting with numbers</h2>
+
+        <p><i>Busy idiot summary</i>: Most number systems are in a base, which we use        for counting by cycling when the base symbol set is exhausted, e.g.        0, 1, 10, 11, 100, ... in binary.  Each digit then represents a        count of a power of the base.  This makes easy methods of tabular        calculation for addition, subtraction, multiplication, and        division.  My canonical example of addition is combining baskets of        apples; subtraction is inverse addition, and my canonical example        of subtraction is eating; multiplication is repeated addition, and        my canonical examples of multiplication are either many same-size        baskets of apples, or arranging objects in grids; division is        inverse multiplication, and my canonical example is grouping apples        in baskets.</p>
+
+        <h3>A. Roman numerals, Hindu-Arabic, binary, and hexadecimal</h3>
+        <p>Counting is the obvious place to start in Math, and if we were to        come up with a numeral system the most obvious would be:  For each        thing you make a mark.  Suppose you're an emperor with rowdy        peasants.  You have        stores of grain and the peasants will revolt if you don't        distribute enough grain.  You (or your scribe) visit several grain        stores that you have around the city, and you count the sacks of        grain.  At the first store you count the number of sacks as <br><br>
+
+        |||||||||||||||||||||||||||||||||||<br><br>
+
+        At the next store you count <br><br>
+        ||||||||||||||||||||||||||||||||| <br><br>
+        You continue the process for another ten stores, trying to        determine if you have enough grain to quell this many peasants <br><br>
+        ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||        ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||        ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||        ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||        ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||        ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||        |||||||||||||||||||||||||||||||||||||||||||| <br><br>
+
+        How are you going to answer this <i>quickly</i>? Delete strokes from the grain        and peasant lists until you see which has strokes left over?  (Assuming every sack of grain will satisfy one peasant.)        This process is horribly inefficient and basically equivalent to        the Roman numeral system.  Roman numerals had a slight advantage in        that they would group fives and tens together with a single symbol        like V and X, and so on.  Still, there's an obvious better way, one        we all use every day.  Hindu-Arabic numerals, the numerals that we        use, 0 through 9 arranged in digit places, do a much better job        handling large numbers.  Using these we might write 60 and 33 to        count sacks of grain, where the first number has a 6 in the        tens-place to represent 6 groups of 10.  Roman numerals don't use        digits places and therefore they had to try adding numbers like        VIXX with XXIX.  If I had to do that I would probably prefer to        convert both numbers to my numerals and then add.</p>
+
+        <p>There's a better way and, in fact, the Sumerians knew about it        <i>millenia</i> before the Romans existed.  The Sumerians were one of the few        civilizations in the world to independently invent writing, and quickly        developed a number system with a <b>base</b>. To help understand what this        means, realize that our number system (called the Hindu-Arabic numerals) uses a        base-10 system.  We have a symbol for ten numbers, 0 through 9, and when any        digit "fills up" we cycle it back to 0 and set the next digit up 1.  The        Sumerians (also called the Babylonians) used a base-60 system.  That means they        had a symbol for every number up to 59 and then cycle when the digit fills up.        That's a little deceptive because the symbol they had for 1 was | and the symbol        they had for 2 was ||, and so on.  Basically up to 59, they had a Roman        numeral-like system.  But at 59, they would cycle like we do at 10.          This is where we get 60-second minutes and        360 degrees in a circle.</p>
+
+        <p>Importantly this is very similar to how computers represent numbers in base-2        or binary numbers.  Here they use only on-off, or <a class        = "bin">0</a> and <a class = "bin">1</a>.  In fact, what this        really is in a computer is high-low current, but we'll study that much        later when we learn about Physics.  I will use the special        font style that you see above for binary numbers in order        to distinguish them from decimal (i.e. Hindu-Arabic)        numbers.  In any case, throughout this and many other        sections we'll use only base 10, base 2, and base 16 systems.  Base 16, called        hexadecimal, is also        used in certain computer languages.  Below is a table showing base 10 in the        left column, base 2 in the middle, and base 16 in the right.  Notice base 16 has        a unique symbol for numbers 0 through 15.</p>
+
+        <table class = "data">
+                <tr>
+                    <th> Hindu-Arabic </th>
+                    <th> Binary </th>
+                    <th> Hexadecimal </th>
+                </tr>
+                <tr>
+                    <td> 0 </td>
+                    <td> <a class = "bin">0</a> </td>
+                    <td> <a class = "hex">0</a> </td>
+                </tr>
+                <tr>
+                    <td> 1 </td>
+                    <td>  <a class = "bin">1</a> </td>
+                    <td> <a class = "hex">1 </a></td>
+                </tr>
+                <tr>
+                    <td> 2 </td>
+                    <td>  <a class = "bin">10 </a></td>
+                    <td> <a class = "hex">2 </a></td>
+                </tr>
+                <tr>
+                    <td> 3 </td>
+                    <td> <a class = "bin"> 11 </a></td>
+                    <td> <a class = "hex">3 </a></td>
+                </tr>
+                <tr>
+                    <td> 4 </td>
+                    <td>  <a class = "bin">100 </a></td>
+                    <td> <a class = "hex">4 </a></td>
+                </tr>
+                <tr>
+                    <td> 5 </td>
+                    <td>  <a class = "bin">101 </a></td>
+                    <td> <a class = "hex">5</a> </td>
+                </tr>
+                <tr>
+                    <td> 6 </td>
+                    <td>  <a class = "bin">110 </a></td>
+                    <td> <a class = "hex">6 </a></td>
+                </tr>
+                <tr>
+                    <td> 7 </td>
+                    <td>  <a class = "bin">111 </a></td>
+                    <td> <a class = "hex">7 </a></td>
+                </tr>
+                <tr>
+                    <td> 8 </td>
+                    <td>  <a class = "bin">1000 </a></td>
+                    <td> <a class = "hex">8 </a></td>
+                </tr>
+                <tr>
+                    <td> 9 </td>
+                    <td>  <a class = "bin">1001 </a></td>
+                    <td> <a class = "hex">9</a> </td>
+                </tr>
+                <tr>
+                    <td> 10 </td>
+                    <td>  <a class = "bin">1010 </a></td>
+                    <td> <a class = "hex">a </a></td>
+                </tr>
+                <tr>
+                    <td> 11 </td>
+                    <td>  <a class = "bin">1011 </a></td>
+                    <td> <a class = "hex">b </a></td>
+                </tr>
+                <tr>
+                    <td> 12 </td>
+                    <td>  <a class = "bin">1100 </a></td>
+                    <td> <a class = "hex">c </a></td>
+                </tr>
+                <tr>
+                    <td> 13 </td>
+                    <td>  <a class = "bin">1101 </a></td>
+                    <td> <a class = "hex">d </a></td>
+                </tr>
+                <tr>
+                    <td> 14 </td>
+                    <td>  <a class = "bin">1110 </a></td>
+                    <td> <a class = "hex">e </a></td>
+                </tr>
+                <tr>
+                    <td> 15 </td>
+                    <td>  <a class = "bin">1111 </a></td>
+                    <td> <a class = "hex">f </a></td>
+                </tr>
+                <tr>
+                    <td> 16 </td>
+                    <td> <a class = "bin"> 10000</a> </td>
+                    <td> <a class = "hex">10 </a></td>
+                </tr>
+        </table>
+
+        <p>Hopefully the pattern is clear.  In base 10 a number in the "tens place"
+        represents count of the groups of ten so that 16 means 1 group of 10 plus 6
+        single units.  The number 432 represents 4 groups of one hundred, plus three
+        groups of ten, plus 2 singles.  This goes by powers of 10 and the same is true
+        for binary numbers.  The powers of ten are <a class =
+        "bin">1, 10, 100, 1000</a>, and so on.  The
+        powers of two are 1, 2, 4, 8, 16, etc.  In binary the
+        number <a class = "bin">101</a> represents 1 group of fours, no
+        groups of two, and a single unit.  Therefore if we want to represent it in
+        Hindu-Arabic numerals it would be 5.  </p>
+
+        <h3>B. Computer and table methods of computing</h3>
+        <h4>I. Adding and subtracting</h4>
+
+        <p>Now that we can count, how do we add?  If we use Hindu-Arabic numerals to say that
+    there are 567 sacks of grain in one store and 45 in another, how many sacks are
+    there in total?  We need to group the ones of 567 (i.e. we need 7) together with the
+    ones of 45 (i.e. together with 5).  Together these make 12 of course, but now that
+    we have formed an extra group of tens we need to carry it over to the tens place.
+    At this point we have to combine 6 and 4 and 1, all together making 11.  But with
+    more than ten groups of ten (i.e. more than 100) we can section off that 100 and
+    carry it to the hundreds digit, which is now 6.  All together that makes 612.  All
+    of these moves can be organized in a table method. </p>
+
+        <input name = "01sum", type = "button", value = "Next Step",
+    onclick = "nxtBtn('01sum', '01sum', this.??);" /></input>
+
+        <br/><br/>
+
+        <div id = "canvas1">
+            <canvas id = "01sum", style = "display:inline; width: 300px;
+    height: 300px">Your
+    broswer cannot display this sum animation in canvas</canvas>
+        </div>
+
+        <p>Of course practically, this technique is almost useless
+    these days.  We built computers for exactly this. Well, not
+    exactly, but you get the point.  I will produce screen shots
+    from the JQt environment showing the commands I issue.  If you
+    haven't read the introduction which includes information on the
+    use of J, backtrack to it now.  I'll use the language as a
+    calculator, but also as a guide for the syntax that I write, so
+    it will pay to start using J as your calculator too.<br\><br\>
+
+        <img src="../images/jsum1.png"/><br/><br/>
+
+        Now the question, which the reader may not have seen before, is
+    how we reproduce this for binary and hexadecimal numbers.  The
+    method is simple, or at least I think it is.  To add <a class =
+    "bin">11011</a>
+    with <a class = "bin">111 </a> we look first at the ones digit,
+    which has<a class = "bin"> 1</a> and <a class = "bin">1</a>.
+    We combine these to get <a class = "bin">10</a>.  This carries to the next digit
+    where we sum <a class = "bin">1 </a>and <a class = "bin">1 </a>and <a class = "bin">1</a> to produce <a class = "bin">11</a>, the digit carries
+    again and so on.  The process is illustrated below.</p>
+
+        <div id = "canvas2">
+            <canvas id = "bisum", style = "width: 200px; height:200px">
+        Your browser cannot show you this canvas animation of
+        binary sums.
+            </canvas>
+        </div>
+        <script type = "text/javascript">
+        makeAnim("../images/jsum");
+    </script>
+
+    <p>How could we represent this process in J?  </p>
+
+    <p class = "ex">
+        <ol class = "ex">
+            <li/>Use a table method to sum the hexadecimal numbers
+            <a class="hex">9c1</a> and <a class="hex"> df</a>.
+        </ol>
+    </p>
+
+    </p>
+        \(\forall x\) $$\forall \frac{x}{y}$$
+
+  </body>
+</html>

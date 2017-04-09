@@ -1,0 +1,759 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 5.1.6.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="2017-04-08T19:07:46.404068046"/>
+	<meta name="created" content="2017-04-06T13:51:34.283847448">
+	<meta name="changed" content="2017-04-06T15:50:23.940150169">
+</head>
+<body lang="en-US" dir="ltr">
+<p>Logic 
+</p>
+<p>Chapter 02: Propositional Logic</p>
+<p>Section 02: Disjunction, conditional, biconditional</p>
+<p>Abstract: Continuing with the previous theme, we introduce new
+symbols for &quot;or&quot;, &quot;if&quot; and &quot;if and only if&quot;.</p>
+<p>Terms: Disjunction, disjunct, distribution, de Morgan's, atom set,
+truth-vector, disjunctive normal form</p>
+<p>Symbols: ∨<span style="font-weight: normal">, </span><i><span style="font-weight: normal">A()</span></i></p>
+<hr/>
+
+<p>Question: Next symbol?</p>
+<p>Answer: <span style="font-weight: normal">The English word &quot;or&quot;
+is the nearest meaning for the symbol ∨, which we call </span><b>disjunction</b><span style="font-weight: normal">.
+We take </span><span style="font-variant: normal">&#120161;∨&#120162;
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">to
+be true if and only if either </span></span></span><span style="font-variant: normal">&#120161;
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">or
+</span></span></span><span style="font-variant: normal">&#120162; </span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">is
+true. The truth table can help make this clearer.&#119976;&#119976;</span></span></span></p>
+<table width="288" cellpadding="4" cellspacing="1" style="page-break-inside: avoid">
+	<col width="38">
+	<col width="39">
+	<col width="39">
+	<col width="39">
+	<col width="39">
+	<col width="37">
+	<tr valign="top">
+		<td width="38" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120161;</p>
+		</td>
+		<td width="39" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120162;</p>
+		</td>
+		<td width="39" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="39" bgcolor="#f1e9ed" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120161;</p>
+		</td>
+		<td width="39" bgcolor="#e3d4dc" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>∨</p>
+		</td>
+		<td width="37" bgcolor="#f1e9ed" style="border: 1px double #808080; padding: 0.04in">
+			<p>&#120162;</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="38" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="39" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="39" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="39" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="39" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="37" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>T</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="38" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="39" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="39" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="39" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="39" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="37" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>F</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="38" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="39" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="39" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="39" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="39" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="37" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>T</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="38" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="39" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="39" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="39" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="39" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="37" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>F</p>
+		</td>
+	</tr>
+</table>
+<p><br/>
+<br/>
+
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">In
+our more formal notation we can express this as (</span></span></span><span style="font-variant: normal">&#120161;∨&#120162;</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">)</span></span></span><span style="font-variant: normal"><span style="text-decoration: none"><sup>ℳ</sup></span></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">=
+F if and only if both </span></span></span><span style="font-variant: normal">&#120161;</span><span style="font-variant: normal"><span style="text-decoration: none"><sup>ℳ</sup></span></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">=
+F and </span></span></span><span style="font-variant: normal">&#120162;</span><span style="font-variant: normal"><span style="text-decoration: none"><sup>ℳ</sup></span></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">=
+F. Notice that this is stated in terms of a condition on </span></span></span><span style="font-variant: normal">&#120161;∨&#120162;
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">being
+</span></span></span><i><span style="font-weight: normal">false</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+There is precisely one way for a disjunction to be false: both
+&quot;</span></span></span><span style="font-variant: normal"><span style="font-style: normal"><b>disjuncts</b></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">&quot;
+must be false. Notice that this expresses what is called the
+&quot;inclusive-or&quot;, which is not always what the English word
+&quot;or&quot; communicates. If you say, &quot;You can have a donut
+or a bagel&quot;, there is some here implication that you can only
+have one, not both. If you have both, this would not count as
+something you were told you &quot;could do&quot;. Such a use of the
+word &quot;or&quot; is known as an &quot;exclusive-or&quot;. The
+exclusive-or will make a strong showing, denoted by the symbol XOR,
+in Computer Science but not for right now. In any case I present the
+truth-table to see how this is different from the inclusive-or that
+we will use. </span></span></span>
+</p>
+<p><br/>
+<br/>
+
+</p>
+<table width="288" cellpadding="4" cellspacing="1" style="page-break-inside: avoid">
+	<col width="38">
+	<col width="39">
+	<col width="39">
+	<col width="39">
+	<col width="39">
+	<col width="37">
+	<tr valign="top">
+		<td width="38" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120161;</p>
+		</td>
+		<td width="39" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120162;</p>
+		</td>
+		<td width="39" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="39" bgcolor="#f1e9ed" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120161;</p>
+		</td>
+		<td width="39" bgcolor="#e3d4dc" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p style="font-variant: normal; font-style: normal; font-weight: normal">
+			XOR</p>
+		</td>
+		<td width="37" bgcolor="#f1e9ed" style="border: 1px double #808080; padding: 0.04in">
+			<p>&#120162;</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="38" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="39" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="39" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="39" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="39" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="37" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>T</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="38" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="39" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="39" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="39" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="39" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="37" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>F</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="38" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="39" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="39" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="39" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="39" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="37" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>T</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="38" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="39" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="39" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="39" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="39" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="37" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>F</p>
+		</td>
+	</tr>
+</table>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<hr/>
+
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">Exercise:
+You've probably wondered what the ^ symbol does in Python if not
+compute an exponent. It turns out that it computes the exclusive-or!
+Try running </span></span></span><span style="font-variant: normal"><font face="FreeMono, monospace"><span style="font-style: normal"><span style="font-weight: normal">True
+^ True</span></span></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></span><span style="font-variant: normal"><font face="FreeMono, monospace"><span style="font-style: normal"><span style="font-weight: normal">True
+^ False</span></span></font></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+You can even try it on numbers like 0 and 1. Generally in Computer
+Science we associate the number 0 with false and the number 1 with
+true. ^ will behave exactly as you expect it to on such numbers.
+However, on any other numbers, it will give results that are likely
+confusing and surprising. I won't go into the explanation, but it
+suffices to say that it involves a conversion of the decimal number
+into binary, and then computes the XOR on 0's and 1's, before
+converting back to decimal at the end.</span></span></span></p>
+<p><br/>
+<br/>
+
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">Answer:
+</span></span></span><span style="font-variant: normal"><font face="FreeMono, monospace"><span style="font-style: normal"><span style="font-weight: normal">True
+^ True</span></span></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">returns
+</span></span></span><span style="font-variant: normal"><font face="FreeMono, monospace"><span style="font-style: normal"><span style="font-weight: normal">False</span></span></font></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">,
+and </span></span></span><span style="font-variant: normal"><font face="FreeMono, monospace"><span style="font-style: normal"><span style="font-weight: normal">True
+^ False</span></span></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">returns
+</span></span></span><span style="font-variant: normal"><font face="FreeMono, monospace"><span style="font-style: normal"><span style="font-weight: normal">True</span></span></font></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+</span></span></span>
+</p>
+<hr/>
+
+<p>Question: It should be pretty obvious that disjunction is
+associative and commutative, although knock yourself out with a
+truth-table to demonstrate it if you like. Instead, this exercise
+will focus on connections between the three symbols, <span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">¬,
+∧, and ∨. </span></span></span>
+</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+(i) What will our laws of precedence be, now that we have a new
+symbol? We decided it for negation and conjunction, and decided that
+negation will have narrow scope.</p>
+<p style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">(ii)
+Does any distribution law hold for ¬(</span></span>&#120161;∨&#120162;<span style="font-style: normal"><span style="font-weight: normal">)?
+For ¬(</span></span>&#120161;∧&#120162;<span style="font-style: normal"><span style="font-weight: normal">)?</span></span></p>
+<p style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">(iii)
+Does any distribution law hold for </span></span>&#120161;∨<span style="font-style: normal"><span style="font-weight: normal">(</span></span>&#120162;∧&#120163;<span style="font-style: normal"><span style="font-weight: normal">)?
+For </span></span>&#120161;∧<span style="font-style: normal"><span style="font-weight: normal">(</span></span>&#120162;∨&#120163;<span style="font-style: normal"><span style="font-weight: normal">)?</span></span></p>
+<p style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">Answer:
+(i) We will again choose the negation to have the narrowest scope,
+but that doesn't resolve what we decide for the competition between
+disjunction and conjunction. We still need, for instance, a decision
+about how to read </span></span>&#120161;∨&#120162;∧&#120163;<span style="font-style: normal"><span style="font-weight: normal">.
+Typically we just won't write something like this because even with a
+precedence rule, it gets hard to read without parentheses. However,
+in some cases we will rely on precedence, and assume that </span></span>&#120161;∨&#120162;∧&#120163;
+<span style="font-style: normal"><span style="font-weight: normal">means
+</span></span>&#120161;∨<span style="font-style: normal"><span style="font-weight: normal">(</span></span>&#120162;∧&#120163;<span style="font-style: normal"><span style="font-weight: normal">).
+That is to say, conjunction takes precedence over disjunction (and
+negation takes the highest precedence of them all).</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">(ii)
+Yes, and if you're puzzled about how to see it, think in terms of a
+natural language expression. If you say, in some kind of malformed
+English, &quot;Not ( Russia is large or Costa Rica is large )&quot;
+first let's clean this up and better express it as &quot;Neither
+Russia nor Costa Rica is large&quot;. Now clearly this proposition is
+equivalent to the </span></span></span><i><span style="font-weight: normal">conjunction</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">&quot;Russia
+is not large and Costa Rica is not large&quot;. Therefore we might
+expect that ¬(</span></span></span><span style="font-variant: normal">&#120161;∨&#120162;</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">)
+is equivalent to ¬</span></span></span><span style="font-variant: normal">&#120161;∧</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">¬</span></span></span><span style="font-variant: normal">&#120162;</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+If you draw the truth-table for these you will see that they are
+equivalent. Likewise ¬(</span></span></span><span style="font-variant: normal">&#120161;∧&#120162;</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">)
+is equivalent to ¬</span></span></span><span style="font-variant: normal">&#120161;∨</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">¬</span></span></span><span style="font-variant: normal">&#120162;</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+This equivalence is called </span></span></span><span style="font-variant: normal"><span style="font-style: normal"><b>the
+distribution law</b></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.</span></span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">(iii)
+Yes, and this one is not so easy to motivate by a natural language
+example, but it still makes some intuitive sense. </span></span></span><span style="font-variant: normal">&#120161;∨</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">(</span></span></span><span style="font-variant: normal">&#120162;∧&#120163;</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">)
+should be true (or false) in the same situations as (</span></span></span><span style="font-variant: normal">&#120161;∨&#120162;</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">)∧(</span></span></span><span style="font-variant: normal">&#120161;∨&#120163;</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">).
+Both of these are made immediately true whenever </span></span></span><span style="font-variant: normal">&#120161;
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">is.
+If </span></span></span><span style="font-variant: normal">&#120161;
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">is
+false, then in both cases the their truth requires both </span></span></span><span style="font-variant: normal">&#120162;
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></span><span style="font-variant: normal">&#120163; </span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">to
+be true. Again, a truth-table will definitely prove the equivalence.
+This is called </span></span></span><span style="font-variant: normal"><span style="font-style: normal"><b>de
+Morgan's law</b></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.</span></span></span></p>
+<hr/>
+
+<p>Exercise: <span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">For
+each of the following, find a sentence equivalent to it which is
+expressed with fewer symbols. You don't need to use the truth-table
+if you can find a way to answer these without it. Your options are to
+thing in terms of a natural language sentence, the truth-table, or to
+use equivalences we've already found.</span></span></span></p>
+<p style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">(i)
+</span></span>&#120161;∨<span style="font-style: normal"><span style="font-weight: normal">(</span></span>&#120162;∧<span style="font-style: normal"><span style="font-weight: normal">¬</span></span>&#120162;<span style="font-style: normal"><span style="font-weight: normal">)</span></span></p>
+<p style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">(ii)
+</span></span>&#120161;∨<span style="font-style: normal"><span style="font-weight: normal">(</span></span>&#120162;∨<span style="font-style: normal"><span style="font-weight: normal">¬</span></span>&#120162;<span style="font-style: normal"><span style="font-weight: normal">)</span></span></p>
+<p style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">(iii)
+</span></span>&#120161;∧<span style="font-style: normal"><span style="font-weight: normal">(</span></span>&#120162;∨<span style="font-style: normal"><span style="font-weight: normal">¬</span></span>&#120162;<span style="font-style: normal"><span style="font-weight: normal">)
+</span></span>
+</p>
+<p style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">(iv)
+</span></span>&#120161;∧<span style="font-style: normal"><span style="font-weight: normal">(</span></span>&#120162;∧<span style="font-style: normal"><span style="font-weight: normal">¬</span></span>&#120162;<span style="font-style: normal"><span style="font-weight: normal">)
+</span></span>
+</p>
+<p style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">(v)
+</span></span>&#120161;∧&#120162;∧<span style="font-style: normal"><span style="font-weight: normal">(</span></span>&#120163;∧<span style="font-style: normal"><span style="font-weight: normal">¬</span></span>&#120163;<span style="font-style: normal"><span style="font-weight: normal">)</span></span></p>
+<p style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">(vi)
+</span></span>&#120161;∨&#120162;∨<span style="font-style: normal"><span style="font-weight: normal">(</span></span>&#120163;∧<span style="font-style: normal"><span style="font-weight: normal">¬</span></span>&#120163;<span style="font-style: normal"><span style="font-weight: normal">)</span></span></p>
+<p style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">Answer:
+(i) </span></span>&#120161; <span style="font-style: normal"><span style="font-weight: normal">(ii)
+</span></span>&#120162;∨<span style="font-style: normal"><span style="font-weight: normal">¬</span></span>&#120162;
+<span style="font-style: normal"><span style="font-weight: normal">(iii)
+</span></span>&#120161; <span style="font-style: normal"><span style="font-weight: normal">(iv)
+</span></span>&#120162;∧<span style="font-style: normal"><span style="font-weight: normal">¬</span></span>&#120162;
+<span style="font-style: normal"><span style="font-weight: normal">(v)
+</span></span>&#120161;∧&#120162; <span style="font-style: normal"><span style="font-weight: normal">(vi)
+</span></span>&#120161;∨&#120162;</p>
+<hr/>
+
+<p>Question: If two sentences have the same truth-table, are they
+therefore equivalent?</p>
+<p>Answer: At first glance the answer seems like a trivial &quot;yes&quot;
+because that's practically what the definition of equivalent is.
+However, is the truth-table for <span style="font-variant: normal">&#120161;
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">(i.e.
+just the table with T, F down the column) the same as the truth-table
+for </span></span></span><span style="font-variant: normal">&#120162;
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">(also
+with just T, F down its column but with </span></span></span><span style="font-variant: normal">&#120162;
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">in
+the first row instead)? What about </span></span></span><span style="font-variant: normal">&#120161;∨</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">(</span></span></span><span style="font-variant: normal">&#120162;∧</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">¬</span></span></span><span style="font-variant: normal">&#120162;</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">)
+and </span></span></span><span style="font-variant: normal">&#120161;
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">which
+we've seen are equivalent, but the former has four rows and the
+latter just two? Do these have the same truth-table?</span></span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">The
+answer is no, but clearly if we collect together all of the atoms in
+either sentence and build the truth-tables from those, that brings
+greater uniformity. Moreover, if we only focus on the truth-values
+under the main connective, this gives us a good tool for comparing
+sentences. Therefore if </span></span></span><span style="font-variant: normal"><u>&#120161;</u></span><span style="font-variant: normal"><span style="text-decoration: none">
+</span></span><span style="font-variant: normal"><span style="text-decoration: none"><span style="font-style: normal"><span style="font-weight: normal">is
+any proposition, atomic or possibly complex, and </span></span></span></span><span style="font-variant: normal"><u>&#120162;</u></span><span style="font-variant: normal"><span style="text-decoration: none">
+</span></span><span style="font-variant: normal"><span style="text-decoration: none"><span style="font-style: normal"><span style="font-weight: normal">is
+another, we define their </span></span></span></span><span style="font-variant: normal"><span style="text-decoration: none"><span style="font-style: normal"><b>atom
+set</b></span></span></span><span style="font-variant: normal"><span style="text-decoration: none">
+</span></span><span style="font-variant: normal"><span style="text-decoration: none"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">to
+be the set of all atoms that occur in either of the two. We write the
+atom set as </span></span></font></span></span><span style="text-decoration: none"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">A</span></i></font></span><span style="font-variant: normal"><span style="text-decoration: none"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">(</span></span></font></span></span><span style="font-variant: normal"><u>&#120161;</u></span><span style="font-variant: normal"><span style="text-decoration: none"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">,
+</span></span></font></span></span><span style="font-variant: normal"><u>&#120162;</u></span><span style="font-variant: normal"><span style="text-decoration: none"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">).
+</span></span></font></span></span>
+</p>
+<p><span style="font-variant: normal"><span style="text-decoration: none"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">For
+example, in the propositions </span></span></font></span></span><span style="font-variant: normal"><u>&#120161;</u></span><span style="font-variant: normal"><span style="text-decoration: none">
+</span></span><span style="font-variant: normal"><span style="text-decoration: none"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">=
+¬(</span></span></font></span></span><span style="font-variant: normal"><span style="text-decoration: none">&#120161;</span></span><span style="font-variant: normal"><span style="text-decoration: none"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">1</span></span></font></sub></span></span><span style="font-variant: normal"><span style="text-decoration: none">
+∧ </span></span><span style="font-variant: normal"><span style="text-decoration: none">&#120161;</span></span><span style="font-variant: normal"><span style="text-decoration: none"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">2</span></span></font></sub></span></span><span style="font-variant: normal"><span style="text-decoration: none">
+∧ </span></span><span style="font-variant: normal"><span style="text-decoration: none"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">¬(
+¬ </span></span></font></span></span><span style="font-variant: normal"><span style="text-decoration: none">&#120161;</span></span><span style="font-variant: normal"><span style="text-decoration: none"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">1</span></span></font></sub></span></span><span style="font-variant: normal"><span style="text-decoration: none">
+∨ </span></span><span style="font-variant: normal"><span style="text-decoration: none">&#120161;</span></span><span style="font-variant: normal"><span style="text-decoration: none"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">3</span></span></font></sub></span></span><span style="font-variant: normal"><span style="text-decoration: none">
+</span></span><span style="font-variant: normal"><span style="text-decoration: none"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">))
+and </span></span></font></span></span><span style="font-variant: normal"><u>&#120162;</u></span><span style="font-variant: normal"><span style="text-decoration: none">
+</span></span><span style="font-variant: normal"><span style="text-decoration: none"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">=
+</span></span></font></span></span><span style="font-variant: normal"><span style="text-decoration: none">&#120161;</span></span><span style="font-variant: normal"><span style="text-decoration: none"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">2</span></span></font></sub></span></span><span style="font-variant: normal"><span style="text-decoration: none">
+∨ </span></span><span style="font-variant: normal"><span style="text-decoration: none">&#120161;</span></span><span style="font-variant: normal"><span style="text-decoration: none"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">1</span></span></font></sub></span></span><span style="font-variant: normal"><span style="text-decoration: none">
+∨ </span></span><span style="font-variant: normal"><span style="text-decoration: none">&#120161;</span></span><span style="font-variant: normal"><span style="text-decoration: none"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">3</span></span></font></sub></span></span><span style="font-variant: normal"><span style="text-decoration: none">
+</span></span><span style="font-variant: normal"><span style="text-decoration: none"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">then
+we have </span></span></font></span></span><span style="text-decoration: none"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">A</span></i></font></span><span style="font-variant: normal"><span style="text-decoration: none"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">(</span></span></font></span></span><span style="font-variant: normal"><u>&#120161;</u></span><span style="font-variant: normal"><span style="text-decoration: none"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">,
+</span></span></font></span></span><span style="font-variant: normal"><u>&#120162;</u></span><span style="font-variant: normal"><span style="text-decoration: none"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">)
+= {</span></span></font></span></span><span style="font-variant: normal"><span style="text-decoration: none">&#120161;</span></span><span style="font-variant: normal"><span style="text-decoration: none"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">1</span></span></font></sub></span></span><span style="font-variant: normal"><span style="text-decoration: none"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">,
+</span></span></font></span></span><span style="font-variant: normal"><span style="text-decoration: none">&#120161;</span></span><span style="font-variant: normal"><span style="text-decoration: none"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">2</span></span></font></sub></span></span><span style="font-variant: normal"><span style="text-decoration: none"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">,
+</span></span></font></span></span><span style="font-variant: normal"><span style="text-decoration: none">&#120161;</span></span><span style="font-variant: normal"><span style="text-decoration: none"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">3</span></span></font></sub></span></span><span style="font-variant: normal"><span style="text-decoration: none"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">}.
+Notice that I will use double-struck letters for atoms and
+underlined, double-struck letters for possibly complex sentences.</span></span></font></span></span></p>
+<p><span style="font-variant: normal"><span style="text-decoration: none"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">Then
+we define the </span></span></font></span></span><span style="font-variant: normal"><span style="text-decoration: none"><font face="Liberation Serif, serif"><span style="font-style: normal"><b>truth-vector</b></span></font></span></span><span style="font-variant: normal"><span style="text-decoration: none">
+</span></span><span style="font-variant: normal"><span style="text-decoration: none"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">of
+a proposition </span></span></font></span></span><span style="font-variant: normal"><u>&#120161;</u></span><span style="font-variant: normal"><span style="text-decoration: none">
+</span></span><span style="font-variant: normal"><span style="text-decoration: none"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">under
+an atom set </span></span></font></span></span><span style="text-decoration: none"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">A</span></i></font></span><span style="font-variant: normal"><span style="text-decoration: none"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">.
+This is list of truth-values that appear under the main operator in
+its truth-table, where the truth-table is drawn with all atoms in </span></span></font></span></span><span style="text-decoration: none"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">A</span></i></font></span><span style="font-variant: normal"><span style="text-decoration: none"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">.
+So for instance the truth-vector of ¬</span></span></font></span></span><span style="font-variant: normal"><span style="text-decoration: none">&#120161;
+</span></span><span style="font-variant: normal"><span style="text-decoration: none"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">is
+just [F, T] if the atom set is just {</span></span></font></span></span><span style="font-variant: normal"><span style="text-decoration: none">&#120161;</span></span><span style="font-variant: normal"><span style="text-decoration: none"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">}.
+However, the truth-vector is {F,F,T,T} if the atom set is {</span></span></font></span></span><span style="font-variant: normal"><span style="text-decoration: none">&#120161;</span></span><span style="font-variant: normal"><span style="text-decoration: none"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">,</span></span></font></span></span><span style="font-variant: normal"><span style="text-decoration: none">&#120162;</span></span><span style="font-variant: normal"><span style="text-decoration: none"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">}
+for instance. </span></span></font></span></span>
+</p>
+<hr/>
+
+<p>Exercise: Using the concept of the truth-vector, give a necessary
+and sufficient condition for two sentences being equivalent.</p>
+<p>Answer: It is necessary and sufficient that whenever propositions
+<span style="font-variant: normal"><u>&#120161;</u></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></span><span style="font-variant: normal"><u>&#120162;</u></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">are
+equivalent, they have the same truth-vector under atom set </span></span></span><i><span style="font-weight: normal">A</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">(</span></span></span><span style="font-variant: normal"><u>&#120161;</u></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">,
+</span></span></span><span style="font-variant: normal"><u>&#120162;</u></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">).
+</span></span></span>
+</p>
+<hr/>
+
+<p>Exercise: Throughout the exercise we use the atom set {<span style="font-variant: normal">&#120161;</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">,
+</span></span></span><span style="font-variant: normal">&#120162;</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">}.
+</span></span></span>We have seen that proposition <span style="font-variant: normal">&#120161;∨&#120162;
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">has
+truth-vector [T, T, T, F]. Proposition </span></span></span><span style="font-variant: normal">&#120161;∧&#120162;
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">has
+truth-vector [T, F, F, F].</span></span></span></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+(i) Find a proposition with truth-vector [F, F, F, T].</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+(ii) Find a proposition with truth-vector [T, T, T, T].</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+(iii) Find a proposition with truth-vector [T, T, F, T].</p>
+<p>(iv) Find a proposition with truth-vector [F, T, T, F] (do not use
+XOR, build it out of other operations).</p>
+<p>Answer: (i) <span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">¬(</span></span></span><span style="font-variant: normal">&#120161;∨&#120162;</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">)
+</span></span></span>
+</p>
+<p style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">(ii)
+</span></span>&#120161;∨<span style="font-style: normal"><span style="font-weight: normal">¬</span></span>&#120161;</p>
+<p style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">(note
+that, under atom set {</span></span>&#120161;<span style="font-style: normal"><span style="font-weight: normal">,
+</span></span>&#120162;<span style="font-style: normal"><span style="font-weight: normal">},
+this has truth-vector [T, T, T, T] and not [T,T] as it would under
+the atom set {</span></span>&#120161;<span style="font-style: normal"><span style="font-weight: normal">})</span></span></p>
+<p style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">(iii)
+</span></span>&#120161;∨<span style="font-style: normal"><span style="font-weight: normal">¬</span></span>&#120162;</p>
+<p style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">(iv)
+A good way to construct this one, because it's maybe a little hard to
+guess, is to realize that it's the same as XOR and to reason that XOR
+says &quot;Either </span></span>&#120161; <span style="font-style: normal"><span style="font-weight: normal">or
+</span></span>&#120162; <span style="font-style: normal"><span style="font-weight: normal">but
+not both.&quot; In our symbols that can be written (</span></span>&#120161;∨&#120162;<span style="font-style: normal"><span style="font-weight: normal">)∧¬(</span></span>&#120161;∧&#120162;<span style="font-style: normal"><span style="font-weight: normal">).</span></span></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+There were, of course, other propositions that have these same
+truth-vectors.</p>
+<hr/>
+
+<p>Exercise: What is the relationship between a structure, a
+proposition, and the proposition's truth-vector?</p>
+<p>Answer: The structure determines one of the values in the
+truth-vector, by determining that row of the truth-table. 
+</p>
+<hr/>
+
+<p>Exercise: Suppose you are given any truth-vector of length 2^<sup><i>n</i></sup><span style="font-variant: normal"><span style="font-style: normal">.
+What must be the size of the atom set?</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Answer:
+An atom set of </span></span><i>n</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">elements
+generates a truth-table of length 2^</span></span><sup><i>n</i></sup><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+therefore this is the length of the truth-vector. Thus the atom set
+must have </span></span><i>n</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">elements.</span></span></p>
+<hr/>
+
+<p>Exercise: Suppose you are given an arbitrary truth-vector of
+length 2^<sup><i>n</i></sup><span style="font-variant: normal"><span style="font-style: normal">.
+Can you always find a sentence which produces this truth-vector under
+an atom set of size </span></span><i>n</i><span style="font-variant: normal"><span style="font-style: normal">?</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Answer:
+Yes, it's kind of a tricky process when you first learn it, but
+basically what you do is form the sentence which &quot;asserts&quot;
+all of the structures where the truth-vector is true. For example
+take the truth-vector [T,T,F,T,F,F,F,F] under atom set {</span></span><span style="font-variant: normal">&#120161;</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">,
+</span></span></span><span style="font-variant: normal">&#120162;</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">,
+</span></span></span><span style="font-variant: normal">&#120163;</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">}.
+To build the sentence that we want, we can &quot;assert&quot; the
+first structure because we want a sentence that is true there. That
+is to say, we assert </span></span></span><span style="font-variant: normal">&#120161;∧&#120162;∧&#120163;
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">because
+this corresponds to the first structure where </span></span></span><span style="font-variant: normal">&#120161;
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></span><span style="font-variant: normal">&#120162; </span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></span><span style="font-variant: normal">&#120163; </span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">are
+all true. We also assert the second structure, by which I mean we
+form the proposition </span></span></span><span style="font-variant: normal">&#120161;∧&#120162;∧</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">¬</span></span></span><span style="font-variant: normal">&#120163;
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">as
+the second structure is true for </span></span></span><span style="font-variant: normal">&#120161;
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></span><span style="font-variant: normal">&#120162; </span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">but
+false for </span></span></span><span style="font-variant: normal">&#120163;</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+We skip the third structure because the truth-value is false in the
+third coordinate of the vector. We assert the fourth structure,
+</span></span></span><span style="font-variant: normal">&#120161;∧</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">¬</span></span></span><span style="font-variant: normal">&#120162;∧</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">¬</span></span></span><span style="font-variant: normal">&#120163;</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">,
+and we're finished with the individual assertions.</span></span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">Finally
+we chain all of the assertions into a disjunction. We get the
+sentence (</span></span></span><span style="font-variant: normal">&#120161;∧&#120162;∧&#120163;</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">)
+∨ (</span></span></span><span style="font-variant: normal">&#120161;∧&#120162;∧</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">¬</span></span></span><span style="font-variant: normal">&#120163;</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">)
+∨ (</span></span></span><span style="font-variant: normal">&#120161;∧</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">¬</span></span></span><span style="font-variant: normal">&#120162;∧</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">¬</span></span></span><span style="font-variant: normal">&#120163;</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">).
+If you draw the truth-table of this sentence you'll see that it has T
+only in the first, second, and third structures. This is called
+</span></span></span><span style="font-variant: normal"><span style="font-style: normal"><b>disjunctive
+normal form</b></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+There is also a conjunctive normal form but we won't discuss it. </span></span></span>
+</p>
+<hr/>
+
+<p>Exercise: In SymPy we can calculate many of these things. Negation
+is denoted by a ~, conjunction by &amp;, disjunction by |. Notice
+that the second line just declares to SymPy that p, q, and r will
+serve as symbols, or variables. We will use that to express
+propositions but later on these can be variables in equations,
+functions, and more.</p>
+<p>1| import sympy as sp</p>
+<p>2| p, q, r = sp.symbols('p q r') 
+</p>
+<p>3| x = p &amp; (q | r) 
+</p>
+<p>4| print(x)</p>
+<p>5| print( x.atoms() )</p>
+<p>6| print( sp.Equivalent(x, (p&amp;q)|(p&amp;r) ) )</p>
+<p>7| print( sp.to_dnf(x) )</p>
+<p>8| print( x.subs( {p: False, q: True, r: False} )</p>
+<p>Explain what each line of this code does.</p>
+<p>Answer: 1| of course imports SymPy.</p>
+<p>2| of course declares symbols.</p>
+<p>3| creates a formula and saves it in the variable x</p>
+<p>4| prints x</p>
+<p>5| prints all of the atoms that occur in x (this is the atom set
+of just that sentence)</p>
+<p>6| prints whether x is equivalent to this other sentence.</p>
+<p>7| prints the disjunctive normal form of x</p>
+<p>8| evaluates x under the structure that assigns p to False, q to
+True, and r to False. 
+</p>
+<hr/>
+
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+Question: Next symbol?</p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">Answer:
+This one attempts (poorly) to capture the notion of &quot;if ... then
+...&quot; For example, when trying to represent the sentence &quot;If
+the circle has a radius of 2 then it has a circumference of </span></span></span><i><span style="font-weight: normal">4</span></i><font face="Liberation Serif, serif"><i><span style="font-weight: normal">π</span></i></font><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">&quot;
+we will write </span></span></font></span><span style="font-variant: normal">&#120161;</span><span style="font-variant: normal"><font face="Latin Modern Math">→</font></span><span style="font-variant: normal">&#120162;
+</span><span style="font-variant: normal">where of course &#120161;
+represents &quot;the circle has radius 2&quot; and &#120162;
+represents &quot;the circle has circumference </span><span style="font-variant: normal"><i>4</i></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">π</span></i></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">.
+ We call &#120161; the </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><b>antecedent</b></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">
+of the if-then sentence and &#120162;</span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">
+the </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><b>consequent</b></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">.</span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">
+We will shortly see how the framework we have built is inadequate to
+capture this meaning in most natural language contexts.  We have to
+decide how we will evaluate this operation in terms of truth-value. 
+The least controversial decision is to suppose that, if &#120161;</span></span></font></span><span style="font-variant: normal"><span style="text-decoration: none"><sup><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">ℳ</span></span></font></sup></span></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">
+= T and &#120162;</span></span></font></span><span style="font-variant: normal"><span style="text-decoration: none"><sup><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">ℳ</span></span></font></sup></span></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">
+= T then (&#120161;</span></span></font></span><span style="font-variant: normal"><font face="Latin Modern Math"><span style="font-style: normal"><span style="font-weight: normal">→</span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">&#120162;)</span></span></font></span><span style="font-variant: normal"><span style="text-decoration: none"><sup><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">ℳ</span></span></font></sup></span></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">
+= T.  After all, if the circle really does have radius 2 and really
+dies have circumference </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">4π</span></i></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">
+then you really do regard the if-then sentence as a true one.  The
+next consideration should be fairly incontroversial, if &#120161;</span></span></font></span><span style="font-variant: normal"><span style="text-decoration: none"><sup><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">ℳ</span></span></font></sup></span></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">
+= T and &#120162;</span></span></font></span><span style="font-variant: normal"><span style="text-decoration: none"><sup><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">ℳ</span></span></font></sup></span></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">
+= F then we should say that (&#120161;</span></span></font></span><span style="font-variant: normal"><font face="Latin Modern Math"><span style="font-style: normal"><span style="font-weight: normal">→</span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">&#120162;)</span></span></font></span><span style="font-variant: normal"><span style="text-decoration: none"><sup><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">ℳ</span></span></font></sup></span></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">
+= F.  After all, in saying, &quot;if &#120161; then &#120162;&quot;
+is kind of like a promise that, should you find &#120161; is true
+then you will also find that &#120162; is.  If you instead find that
+&#120162; is false, then you may regard the promise as broken and the
+if-then sentence therefore false.  </span></span></font></span>
+</p>
+<p><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">After
+these, there are only bad options.  What if &#120161;</span></span></font></span><span style="font-variant: normal"><span style="text-decoration: none"><sup><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">ℳ</span></span></font></sup></span></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">
+= F?  Since the if-then is like a promise conditional on &#120161;
+being true, then when you find that &#120161; is not true it is as if
+you made no promise at all.  How should we evaluate the truth of the
+if-then in this case, though?  We could, and perhaps should, say that
+it has no value in this case.  However, if we were to adopt that
+convention then further analyses would become very inconvenient and
+awkward.  __Hide__  The most useful convention is to suppose that
+such a sentence is true.  Therefore in both cases where &#120161;</span></span></font></span><span style="font-variant: normal"><span style="text-decoration: none"><sup><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">ℳ</span></span></font></sup></span></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">
+= F and &#120162;</span></span></font></span><span style="font-variant: normal"><span style="text-decoration: none"><sup><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">ℳ</span></span></font></sup></span></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">
+= T, and also where &#120161;</span></span></font></span><span style="font-variant: normal"><span style="text-decoration: none"><sup><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">ℳ</span></span></font></sup></span></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">
+= F and &#120162;</span></span></font></span><span style="font-variant: normal"><span style="text-decoration: none"><sup><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">ℳ</span></span></font></sup></span></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">
+= F, we will say that (&#120161;</span></span></font></span><span style="font-variant: normal"><font face="Latin Modern Math"><span style="font-style: normal"><span style="font-weight: normal">→</span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">&#120162;)</span></span></font></span><span style="font-variant: normal"><span style="text-decoration: none"><sup><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">ℳ</span></span></font></sup></span></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">
+= T.  That is to say:  &#120161;</span></span></font></span><span style="font-variant: normal"><font face="Latin Modern Math"><span style="font-style: normal"><span style="font-weight: normal">→</span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">&#120162;
+is true when the antecedent and consequent are both true, and also
+true when the antecedent is false.  </span></span></font></span>
+</p>
+<p><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">It
+is a bit funny, and it mis-matches natural English language in a lot
+of examples (according to this analysis &quot;If pigs fly then 1+1=3&quot;
+is a true sentence because the antecedent is false).  However, to get
+a more realistic analysis requires a LOT, and it doesn't aid our
+study of Mathematics, so we skip it.  </span></span></font></span>
+</p>
+<hr/>
+
+<p>Exercise: Draw the truth-table for the conditional.</p>
+<p><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p>&#120161;∧&#120162;∧&#120163; &#120161;∧&#120162;∧&#120163;</p>
+<p><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p>&#120161;&#120161;&#120161;&#120161;&#120161;&#120161;&#120161;&#120161;&#120161;&#120161;&#120161;&#120161;&#120161;</p>
+<p>&#120162;&#120162;&#120162;&#120162;&#120162;&#120162;&#120162;&#120162;&#120162;&#120162;&#120162;&#120162;&#120162;</p>
+<p>&#120163;&#120163;&#120163;&#120163;&#120163;&#120163;&#120163;&#120163;&#120163;</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+¬¬¬¬¬¬¬¬¬¬¬¬¬</p>
+<p>∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧</p>
+<p>∨∨∨∨∨∨</p>
+</body>
+</html>

@@ -1,0 +1,677 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 5.1.6.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="2017-04-04T14:39:04.904285047"/>
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2017-03-28T23:58:31.540764592">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2017-03-28T14:20:04.654906399">
+	<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="00:00:00">
+	<meta name="created" content="2017-03-21T20:27:10.494278786">
+	<meta name="changed" content="2017-03-21T21:28:20.559350513">
+	<meta name="created" content="2017-03-21T20:27:10.494278786">
+	<meta name="changed" content="2017-03-21T21:17:08.275337413">
+</head>
+<body lang="en-US" dir="ltr">
+<table width="100%" cellpadding="4" cellspacing="0" style="page-break-before: always; page-break-inside: avoid">
+	<col width="128*">
+	<col width="128*">
+	<tr valign="top">
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><a href="../main/main.html">Home</a> &gt; <a href="arithmetic.html">Arithmetic</a>
+			&gt; <a href="arithmeticCh03.html">Alternative systems and
+			applications</a> &gt; Modular arithmetic</p>
+		</td>
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding: 0.04in">
+			<p align="right">&lt; prev | <a href="03.02.02arithmetic.html">next</a>
+			&gt; 
+			</p>
+		</td>
+	</tr>
+</table>
+<h1><meta name="changed" content="2017-03-26T01:18:09.167215516">Arithmetic
+</h1>
+<p style="margin-top: 0.17in; page-break-after: avoid"><font face="Albany, sans-serif"><font size="4" style="font-size: 14pt">Chapter
+03: Alternative systems</font></font></p>
+<p style="margin-top: 0.17in; page-break-after: avoid"><font face="Albany, sans-serif"><font size="4" style="font-size: 14pt">Section
+01: Modular arithmetic</font></font></p>
+<p>Abstract: If we cycle our counting, like counting hours on a
+clock, we get a new number system. The numbers in the system are
+congruence classes, which already have negative elements in a sense.
+Some elements also have reciprocals.</p>
+<p>Terms: Equivalent mod <i>n, </i><span style="font-variant: normal"><span style="font-style: normal">congruence
+class, integers mod </span></span><i>n</i><span style="font-variant: normal"><span style="font-style: normal">,
+zero divisors, Euclidean division algorithm, minimum (of a set)</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Symbols:
+</span></span><span style="font-variant: normal">≡</span><sub><font face="Liberation Serif, serif"><i>n</i></font></sub><font face="Liberation Serif, serif"><i>,
+</i></font><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">[.],
+ℤ</span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal">n</span></font></sub></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">,
+</span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>minA</i></font></span></p>
+<hr/>
+
+<p>Question: An ancient Chinese text contained the question &quot;<span style="font-variant: normal"><font color="#222222"><font face="sans-serif"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">There
+are certain things whose number is unknown. If we count them by
+threes, we have two left over; by fives, we have three left over; and
+by sevens, two are left over. How many things are there?</span></span></span></font></font></font></span>&quot;
+Well?</p>
+<p>Answer: This is a hard problem and we can run through all numbers
+until we eventually find that 23 satisfies this problem since 23 mod
+3 = 2, 23 mod 5 = 3, 23 mod 7 = 2. It's not the only number that
+does, also 128 satisfies these relations too. In general all numbers
+<i>23+105n</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">satisfy
+this question. W</span></span>e would like to find a more efficient
+algorithm for this than simply trying each number, but as usual, we
+need to break the problem down into simpler parts. An important tool
+is to define the notion of modular arithmetic.</p>
+<p>For any given positive integer <i>n</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">we
+define the set of integers mod </span></span><i>n</i><span style="font-variant: normal"><span style="font-style: normal">.
+In a sense this is like restricting our arithmetic down to just the
+numbers 0, 1, ..., </span></span><i>n-1</i><span style="font-variant: normal"><span style="font-style: normal">.
+If we ever exceed these numbers we cycle back to 0. This is really
+just finding the remainders mod </span></span><i>n</i><span style="font-variant: normal"><span style="font-style: normal">.
+Take for instance </span></span><i>n = 5</i><span style="font-variant: normal"><span style="font-style: normal">,
+then we restrict to the numbers 0, 1, 2, 3, 4. If we ever compute 4+1
+we say that this is congruent to 0 mod 5 and write 4+1 </span></span><span style="font-variant: normal">≡</span><sub><font face="Liberation Serif, serif"><i>5</i></font></sub>
+<span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">0</span></font></span><font face="Liberation Serif, serif"><i>.
+</i></font><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">Similarly
+4+2 </span></font></span><span style="font-variant: normal">≡</span><sub><font face="Liberation Serif, serif"><i>5</i></font></sub>
+<span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">1
+and 3+3 </span></font></span><span style="font-variant: normal">≡</span><sub><font face="Liberation Serif, serif"><i>5</i></font></sub>
+<span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">2
+and so on, which defines the idea of two numbers being </span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><b>equivalent
+mod </b></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><b>n</b></i></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">.
+This means that 0 ≡</span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><i>5</i></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">5
+≡</span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><i>5</i></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">10
+and so on. In the same vein we can say</span></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">1
+≡</span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><i>5</i></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">6
+≡</span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><i>5</i></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">11
+and so on. Thus we define a notion of a </span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><b>congruence
+class</b></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">.
+The congruence class of 0, written [0]</span></span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">5</span></span></font></sub></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">,
+is the set of all things congruent to 0. Hence [0]</span></span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">5</span></span></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">=
+{</span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">m∊ℤ
+: m ≡</span></i></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><i><span style="font-weight: normal">5</span></i></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">0}.
+Notice that this includes negatives like _5 since _5 mod 5 = 0. If
+that last sentence was not immediately obvious you may want to review
+the definition of the mod function given in the first chapter of this
+topic.</span></span></font></span><span style="font-variant: normal">
+</span>
+</p>
+<p><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">With
+this notation we can also say [1]</span></span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">5</span></span></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">=
+{..., _4, 1, 6, ...} and likewise for the three other congruence
+classes. We say that the set of all congruence classes, {[0]</span></span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">5</span></span></font></sub></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">,
+[1]</span></span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">5</span></span></font></sub></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">,
+[2]</span></span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">5</span></span></font></sub></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">,
+[3]</span></span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">5</span></span></font></sub></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">,
+[4]</span></span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">5</span></span></font></sub></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">},
+is the integers mod 5 and we denote this by ℤ</span></span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">5</span></span></font></sub></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">.
+To be sure the point is clear, I'm saying ℤ</span></span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">5</span></span></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">=
+{[0]</span></span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">5</span></span></font></sub></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">,
+[1]</span></span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">5</span></span></font></sub></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">,
+[2]</span></span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">5</span></span></font></sub></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">,
+[3]</span></span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">5</span></span></font></sub></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">,
+[4]</span></span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">5</span></span></font></sub></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">}.
+Likewise we define </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><b>the
+integers mod </b></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><b>n</b></i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">as
+the set of equivalence classes [0]</span></span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">1</span></span></font></sub></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">,
+..., [</span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">n-1</span></i></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">]</span></span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><i><span style="font-weight: normal">n</span></i></font></sub></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">.</span></span></font></span></p>
+<p><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">Notice
+that this system has no real need for subtraction because there
+already exist numbers that sum to 0. 4+1 ≡</span></span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><i><span style="font-weight: normal">5</span></i></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">0
+so that in a sense [4]</span></span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">5</span></span></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">is
+the negative of [1]</span></span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">5</span></span></font></sub></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">.
+By a similar logic [3]</span></span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">5</span></span></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">is
+the negative of [2]</span></span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">5</span></span></font></sub></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">.</span></span></font></span></p>
+<hr/>
+
+<p>Exercise: List the congruence classes of ℤ<sub>3</sub> and
+determine what 71 is congruent to mod 3. 
+</p>
+<p>Answer: ℤ<sub>3</sub> = {[0]<sub>3</sub>, [1]<sub>3</sub>,
+[2]<sub>3</sub>]} and we can find which one 71 is in by shaving off
+this number by 3s or by dividing it by 3 and finding the remainder.
+The latter sounds easier so let's use the fact that 71 mod 3 = 2.
+Hence 71 ∊ [2]<sub>3</sub>. 
+</p>
+<hr/>
+
+<p>Question: How can we add numbers in ℤ<sub>n</sub>? For instance
+how can we easily compute [12]<sub>4</sub> + [100]<sub>4</sub> +
+[137]<sub>4</sub>? And what about multiplication?</p>
+<p>Answer: It makes some sense that we could compute each mod and
+then sum the results, and then computing another mod if needed. This
+is easier than first summing 12+100+137 and then computing the mod
+because summing makes the number much larger and therefore harder to
+mod. If it is legitimate mod first then we could compute [0]<sub>4</sub>
++ [0]<sub>4</sub> + [3]<sub>4</sub> and immediately obtain that the
+answer is [3]<sub>4</sub>. 
+</p>
+<p>So can we be assured that we can mod first and then sum rather
+than sum and then mod? Sure, here's a proof. If <i>w </i><span style="font-variant: normal">≡</span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><i>n</i></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>x
+</i></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">then
+there must exist integer </span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>m</i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">such
+that </span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>w
+= mn + x.</i></font></span><span style="font-variant: normal"> </span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">This
+should be clear from the definitions in terms of remainders. Notice
+the switch from congruence to equality; now that we have equality, we
+are justified in using substitution of equals. Likewise if </span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>y
+</i></font></span><span style="font-variant: normal">≡</span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><i>n</i></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>z
+</i></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">then
+there is some </span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>p</i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">such
+that </span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>y
+= np + z</i></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">.
+We want to show that if you first sum </span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>w+y</i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">it'll
+be in the same if you first found </span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>w'</i></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">s
+congruence class (which is </span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>x</i></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">)
+and </span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>y</i></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">'s
+(which is </span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>z</i></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">)
+and summed the congruence classes. Thus we want to show </span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>w+y
+</i></font></span><span style="font-variant: normal">≡</span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><i>n</i></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>x+z</i></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">.
+This is the same as saying that we want to show that there is some
+integer </span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>q</i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">such
+that </span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>w+y
+= nq(x+z)</i></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">.
+Now that's a clear statement of what we want. Getting back to what we
+have, </span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>w
+= mn + x</i></font></span><span style="font-variant: normal"> </span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">and
+</span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>y
+= np + z</i></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">,
+if we then sum </span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>w+y</i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">we
+get </span></font></span>
+</p>
+<p style="font-variant: normal; font-style: normal"><font face="Liberation Serif, serif">$$w+y
+= mn+x+np+z = n(m+p) + x + z$$</font></p>
+<p><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">But
+since </span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>m+p</i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">is
+an integer, it can serve as our </span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>q</i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">and
+this ends the proof. </span></font></span>
+</p>
+<p><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">For
+multiplication much the same story is true, we can first mod and then
+multiply if we want--and usually, we want. The proof that this is
+legitimate will require us to</span></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">show
+</span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>wy
+</i></font></span><span style="font-variant: normal">≡</span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><i>n</i></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>xz</i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">which
+is the same as there existing a </span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>q</i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">such
+that </span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>wy
+= nq + xz</i></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">.
+The proof is </span></font></span>
+</p>
+<p style="font-variant: normal; font-style: normal"><font face="Liberation Serif, serif">$$wy
+= (mn+x)(pn+z) = mnpn+mnz+xpn+xz = n(mnp + mz+xp) + xz$$</font></p>
+<p><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">In
+this we choose </span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>q
+= mnp + mz + xp</i></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">.
+Thus if we want to compute [12]</span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal">4</span></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">*
+[100]</span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal">4</span></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">*
+[137]</span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal">4</span></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">we
+get the same result as by computing [0]</span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal">4</span></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">*
+[0]</span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal">4</span></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">*
+[3]</span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal">4</span></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">which
+is clearly [0]</span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal">4</span></font></sub></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">.</span></font></span></p>
+<hr/>
+
+<p>Question: What about division? 
+</p>
+<p>Answer: It turns out that division in this system is quite
+different from how we construct it with normal numbers. Recall that
+<i>p/q</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">means
+the number which, when multiplied by </span></span><i>q,</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">produces
+</span></span><i>p</i><span style="font-variant: normal"><span style="font-style: normal">.
+I said this</span></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">perspective
+would be important and by now this must be the fifth time at least
+that I've made important use of the idea. </span></span>
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Anyway,
+suppose that we work in </span></span><span style="font-variant: normal">ℤ</span><span style="font-variant: normal"><sub><span style="font-style: normal">3</span></sub></span><span style="font-variant: normal"><span style="font-style: normal">.
+I'm getting tired of writing all these subscripts so I'll just drop
+them. Context should determine which module I'm using, and if it's
+not then I'll put the subscripts back on. What is for instance
+[1]/[2] in ℤ</span></span><span style="font-variant: normal"><sub><span style="font-style: normal">3</span></sub></span><span style="font-variant: normal"><span style="font-style: normal">?
+It doesn't take checking a lot of cases before you find that [2][2] =
+[4] = [1]. Therefore [1]/[2] = [2]! Very strange this system where a
+number (other than 1 or _1) is its own reciprocal. We write the
+reciprocal of [2] with the superscript notation</span></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">[2]^</span></span><span style="font-variant: normal"><sup><span style="font-style: normal">_1
+</span></sup></span><span style="font-variant: normal"><span style="font-style: normal">=
+[2], hearkening back to our notation for reciprocals in other
+contexts. Unfortunately, for now,</span></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">the
+only good way to find a number's</span></span><span style="font-variant: normal">
+reciprocal </span><span style="font-variant: normal"><span style="font-style: normal">is
+to cycle through all of the possible products in the set.</span></span></p>
+<hr/>
+
+<p>Exercise: Find [5]^<sup>_1</sup> and [7]^<sup>_1</sup> if we work
+in ℤ<sub>9</sub>.<sup> </sup>Does every number in the set have a
+reciprocal?</p>
+<p>Answer: [5][2] = [10] = [1] so [5]^<sup>_1</sup> = [2]. By a
+similar calculation you can show [7]^<sup>_1</sup> = [4]. Not all
+numbers have reciprocals. [0], [3], and [6] don't, and it's no
+accident that these are the numbers which share a common factor with
+9. These are also the numbers which you can multiply by something to
+get [0]. So for instance [3][3] = [9] = [0] and [6][3] = [18] = [0].
+For this reason we call [0], [3], and [6] <b>zero divisors</b><span style="font-weight: normal">.
+We give the name </span><b>units</b> <span style="font-weight: normal">to
+the numbers that are not zero divisors so that, mod 9, the numbers
+[1], [2], [4], [5], [7], and [8] are units. </span>
+</p>
+<hr/>
+
+<p>Exercise: Find the units and zero divisors of ℤ<sub>10</sub>.</p>
+<p>Answer: The units are [1], [3], [7], and [9]. Everything else is a
+zero divisor.</p>
+<hr/>
+
+<p>Question: How can we characterize the units and/or zero divisors?</p>
+<p>Answer: The units are the numbers coprime with <i>n </i><span style="font-variant: normal"><span style="font-style: normal">in
+</span></span><span style="font-variant: normal">ℤ</span><span style="font-variant: normal"><sub><i>n</i></sub></span><span style="font-variant: normal"><span style="font-style: normal">!
+I </span></span><i>told you</i><span style="font-variant: normal">
+the </span><span style="font-variant: normal"><span style="font-style: normal">concept
+of coprime would return! Since 1, 2, 4, 5, 7, are all coprime with 9,
+then these will all be units in ℤ</span></span><span style="font-variant: normal"><sub><span style="font-style: normal">9</span></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+everything else a zero divisor. </span></span>
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">As
+a small note, to sort of exercise the concept, notice an easy
+consequence of this claim. If </span></span><i>n</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is
+prime, then every number is a unit except [0]. </span></span>
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">In
+any case, this is a very important fact and we're about to study it
+somewhat deeply. The claim is that </span></span><span style="font-variant: normal"><i>[m]</i></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is
+a unit mod </span></span><span style="font-variant: normal"><i>n</i></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">if
+they're coprime. This is equivalent to saying that, if they're
+coprime, there is another number, call it </span></span><span style="font-variant: normal"><i>[a]</i></span><span style="font-variant: normal"><span style="font-style: normal">,
+such that </span></span><span style="font-variant: normal"><i>[m][a]
+= [1].</i></span><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">This
+last equation is equivalent in terms of integers to saying there is
+an integer, call it </span></span><span style="font-variant: normal"><i>b,
+</i></span><span style="font-variant: normal"><span style="font-style: normal">such
+that </span></span><span style="font-variant: normal"><i>am + bn = 1.</i></span><span style="font-variant: normal">
+</span>
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">This</span></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">important
+fact is a special case that has been generalized in </span></span><span style="font-variant: normal"><span style="font-style: normal"><b>Bezout's
+identity</b></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+This tells us that, even if </span></span></span><span style="font-variant: normal"><i><span style="font-weight: normal">m</span></i></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></span><span style="font-variant: normal"><i><span style="font-weight: normal">n</span></i></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">aren't
+coprime, we can still get </span></span></span><span style="font-variant: normal"><i><span style="font-weight: normal">am+bn
+= gcd(m,n)</span></i></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+We will delay the proof of this theorem until the end of the section,
+but in the mean time we will exercise the use of the theorem to get
+clear on what it means.</span></span></span></p>
+<hr/>
+
+<p>Exercise: Find gcd(2,3) and find numbers <i>a, b</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">such
+that </span></span><i>2a + 3b = gcd(2,3).</i></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Answer:
+In this case gcd(2,3) = 1 because they're coprime. Clearly one of </span></span><i>a,
+b</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">is
+going to have to be negative, and it's very easy to see that </span></span><i>a=_1</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+</span></span><i>b=1</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">work.
+With this choice we get </span></span><i>2a + 3b = 1</i><span style="font-variant: normal"><span style="font-style: normal">.</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Although
+the numbers are small enough that the answer was easy to obtain,
+let's start using the so-called </span></span><span style="font-variant: normal"><span style="font-style: normal"><b>Euclidean
+division algorithm</b></span></span><span style="font-variant: normal"><span style="font-style: normal">.
+To do this, we first divide the larger of the two numbers, 3, by the
+smaller, 2, getting the quotient and remainder. Hence we find </span></span>
+</p>
+<p style="font-variant: normal; font-style: normal">$$3 = 2(1) + 1$$</p>
+<p style="font-variant: normal; font-style: normal">Because the
+numbers are so small, at this point, we already move the term with 2
+in it, to the other side of the equation.</p>
+<p style="font-variant: normal; font-style: normal">$$2(\_1)+3(1) =
+1$$</p>
+<hr/>
+
+<p>Exercise: Find gcd(10, 25) and find <i>a, b</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">such
+that </span></span><i>10a + 15b = gcd(10,15). </i><span style="font-variant: normal"><span style="font-style: normal">Use
+the division algorithm.</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Answer:
+gcd(10,15) = 5. This time </span></span><i>a = _2</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+</span></span><i>b = 1</i><span style="font-variant: normal"><span style="font-style: normal">.
+The division algorithm goes</span></span></p>
+<p style="font-variant: normal; font-style: normal">$$25 = 10(2) + 5
+\Rightarrow 10(\_2)+25(1)=5$$</p>
+<hr/>
+
+<p>Exercise: Find gcd(234, 432) and find <i>a, b</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">such
+that </span></span><i>234a + 432b = gcd(234, 432). </i><span style="font-variant: normal"><span style="font-style: normal">Use
+the division algorithm.</span></span></p>
+<p style="font-variant: normal; font-style: normal">Answer: gcd(234,
+432) = 18. This time the numbers are so hard to find, it will be
+easier to start with the division algorithm in order to find <i>a, b</i>.</p>
+<p style="font-variant: normal; font-style: normal">$$432 = 234(1) +
+198$$</p>
+<p style="font-variant: normal; font-style: normal">But since we do
+not yet have the gcd in our expression, we need extra steps in the
+division algorithm. To do so, we make a new equation with only the
+divisor and remainder from what we found earlier.</p>
+<p style="font-variant: normal; font-style: normal">$$234 = 198(1) +
+36$$</p>
+<p style="font-variant: normal; font-style: normal">Again we don't
+have the gcd so we do it again.</p>
+<p style="font-variant: normal; font-style: normal">$$198 = 36(5) +
+18$$</p>
+<p style="font-variant: normal; font-style: normal">If we didn't
+already know that 18 were the gcd, we could confirm it by further
+computing 36 = 18(2)+0. Whenever we reach a line with no remainder,
+we have found the gcd. 
+</p>
+<p style="font-variant: normal; font-style: normal">Now that we have
+the gcd, we reach the end of this stage of the algorithm and move
+into the second stage. In this second stage, we work from the last
+equation to the first, solving for remainders and substituting. The
+last equation solved for its remainder is</p>
+<p style="font-variant: normal; font-style: normal">$$198-36(5) =
+18$$</p>
+<p style="font-variant: normal; font-style: normal">We will then keep
+substituting numbers into the left-hand side until we get an equation
+with the gcd. We always substitute the remainders that we found at
+each equation, so to begin with, we substitute 36.</p>
+<p style="font-variant: normal; font-style: normal">$$198 -
+(\overbrace{234-198}^{36})(5) = 18$$</p>
+<p style="font-variant: normal; font-style: normal">and next sub the
+previous remainder, 198,</p>
+<p style="font-variant: normal; font-style: normal">$$\overbrace{432-234(1)}^{198}-(234-(\overbrace{432-234(1)}^{198}))(5)
+= 18$$</p>
+<p style="font-variant: normal; font-style: normal">This is an
+equation that has only our two numbers, 234 and 432, together with a
+bunch of factors. If we simplify, we'll get the <i>a</i> and <i>b</i>
+values that we're seeking.</p>
+<p style="font-variant: normal; font-style: normal">$$432 - 234 -
+(234 - 432 + 234)(5) = 18\\ 432 - 234 - (234(2)-432)(5) = 18 \\ 432-
+234(10) + 432(5) = 18 \\ 234(\_10) + 432(6) = 18$$</p>
+<p style="font-variant: normal; font-style: normal">Hence <i>a, b =
+_10, 18</i> respectively. 
+</p>
+<hr/>
+
+<p>Exercise: Let's do it one more time with a robust use of the
+algorithm. In general the idea is that you compute the quotient and
+remainder, and the remainder itself can be &quot;broken down&quot;
+until it eventually in the sequence it must get broken down to the
+gcd. With enough substitute going back up the chain of equations, you
+will substitute the original expression which has the original
+numbers. Let's find the gcd and coefficients for 20 and 97.</p>
+<p>Answer: 
+</p>
+<p>__Example__</p>
+<hr/>
+
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+Question: What is the proof of Bezout's identity?</p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">Answer:
+The Euclidean algorithm is almost the whole proof of Bezout's
+identity! I mean, it always terminates at the gcd, and by
+construction it necessarily solves for the gcd in terms of </span></span></span><span style="font-variant: normal"><i><span style="font-weight: normal">m
+</span></i></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></span><span style="font-variant: normal"><i><span style="font-weight: normal">n</span></i></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+The only serious gap in the proof is the claim that the algorithm
+terminates at the gcd--if we could seal that hole, this would be a
+pretty good proof. Note that in this section my goal is to give the
+most intuitive proof that I can and therefore may skimp on some
+rigor. I'll present a more thorough proof in the Number Theory
+chapter.</span></span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">So
+how can we know that the Euclidean algorithm always terminates at the
+gcd? To do so we have two parts to prove: i) That the number it
+terminates at divides both of the original numbers, and ii) that it
+is the greatest such number. Let's call the number </span></span></span><span style="font-variant: normal"><i><span style="font-weight: normal">d</span></i></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">,
+which the algorithm terminates at. This is to say, we eventually
+reach a line that reads </span></span></span><span style="font-variant: normal"><i><span style="font-weight: normal">c
+= dq</span></i></span><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">for
+some appropriate </span></span></span><span style="font-variant: normal"><i><span style="font-weight: normal">c</span></i></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></span><span style="font-variant: normal"><i><span style="font-weight: normal">q</span></i></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+For part (i) we want to prove that </span></span></span><span style="font-variant: normal"><i><span style="font-weight: normal">d</span></i></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">divides
+both </span></span></span><span style="font-variant: normal"><i><span style="font-weight: normal">m</span></i></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></span><span style="font-variant: normal"><i><span style="font-weight: normal">n</span></i></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+In the line just above the one where </span></span></span><span style="font-variant: normal"><i><span style="font-weight: normal">c
+= dq</span></i></span><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">appears,
+we will have another line like </span></span></span><span style="font-variant: normal"><i><span style="font-weight: normal">c</span></i></span><span style="font-variant: normal"><sub><i><span style="font-weight: normal">2</span></i></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><i><span style="font-weight: normal">=
+cq</span></i></span><span style="font-variant: normal"><sub><i><span style="font-weight: normal">2</span></i></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><i><span style="font-weight: normal">+
+d</span></i></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">,
+i.e. one where </span></span></span><span style="font-variant: normal"><i><span style="font-weight: normal">d</span></i></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">features
+as the remainder and </span></span></span><span style="font-variant: normal"><i><span style="font-weight: normal">c</span></i></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">the
+divisor, as this is the nature of the algorithm. But in that case, </span></span></span><span style="font-variant: normal"><i><span style="font-weight: normal">d</span></i></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">divides
+the right-hand side, i.e. </span></span></span><span style="font-variant: normal"><i><span style="font-weight: normal">d</span></i></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">divides
+</span></span></span><span style="font-variant: normal"><i><span style="font-weight: normal">cq</span></i></span><span style="font-variant: normal"><sub><i><span style="font-weight: normal">2</span></i></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><i><span style="font-weight: normal">+
+d</span></i></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+__Hide__ Therefore </span></span></span><span style="font-variant: normal"><i><span style="font-weight: normal">d</span></i></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">divides
+the left-hand side since it's equal, i.e. </span></span></span><span style="font-variant: normal"><i><span style="font-weight: normal">d|c</span></i></span><span style="font-variant: normal"><sub><i><span style="font-weight: normal">2</span></i></sub></span><span style="font-variant: normal"><i><span style="font-weight: normal">.
+</span></i></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">Well
+at this stage we can go up a line, say to </span></span></span><span style="font-variant: normal"><i><span style="font-weight: normal">c</span></i></span><span style="font-variant: normal"><sub><i><span style="font-weight: normal">3</span></i></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><i><span style="font-weight: normal">=
+c</span></i></span><span style="font-variant: normal"><sub><i><span style="font-weight: normal">2</span></i></sub></span><span style="font-variant: normal"><i><span style="font-weight: normal">q</span></i></span><span style="font-variant: normal"><sub><i><span style="font-weight: normal">3</span></i></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><i><span style="font-weight: normal">+
+c</span></i></span><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+repeat the basic argument: </span></span></span><span style="font-variant: normal"><i><span style="font-weight: normal">c
+</span></i></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">divides
+the right-hand side and therefore it divides the left-hand side. And
+so on, until we reach the top two lines, which contain our original
+numbers. Thus we have a chain of divisibility relations that have at
+their bottom </span></span></span><span style="font-variant: normal"><i><span style="font-weight: normal">d</span></i></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+I.e. </span></span></span><span style="font-variant: normal"><i><span style="font-weight: normal">d|c|c</span></i></span><span style="font-variant: normal"><sub><i><span style="font-weight: normal">2</span></i></sub></span><span style="font-variant: normal"><i><span style="font-weight: normal">|c</span></i></span><span style="font-variant: normal"><sub><i><span style="font-weight: normal">3</span></i></sub></span><span style="font-variant: normal"><i><span style="font-weight: normal">|...|m|n.
+</span></i></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">Since
+divisibility is a transitive relation __Hide__ then </span></span></span><span style="font-variant: normal"><i><span style="font-weight: normal">d</span></i></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">divides
+</span></span></span><span style="font-variant: normal"><i><span style="font-weight: normal">m
+</span></i></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></span><span style="font-variant: normal"><i><span style="font-weight: normal">n</span></i></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+</span></span></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">So
+we have proved part (i).</span></span></font></span></p>
+<p><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">Next
+we need to show that </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">d</span></i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">is
+the largest common divisor, that is to say if </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">e</span></i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">also
+divides both numbers then </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">e
+≤ d</span></i></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">.
+This way of mathematically stating &quot;largest such that blah blah
+blah&quot; is common: Show that it has the &quot;blah blah blah&quot;
+property and then show that anything else that has the &quot;blah
+blah blah&quot; property must be less-than-or-equal-to. So how do we
+do it? We have already shown that </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">d
+= am + bn</span></i></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">.
+If </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">e|m
+</span></i></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">e|n</span></i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">then
+</span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">e</span></i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">must
+divide the right-hand side because it divides both summands.
+Therefore it divides </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">d</span></i></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">,
+the left-hand side. But if </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">e|d</span></i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">then
+</span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i><span style="font-weight: normal">e
+≤ d</span></i></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">.
+__Hide__</span></span></font></span></p>
+<p style="font-variant: normal">□</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+<font face="Liberation Serif, serif">Note: The box symbol denotes the
+end of a proof. It tells you &quot;If you didn't understand that the
+proof is over, you need to go back and re-read.&quot;</font></p>
+<hr/>
+
+<p>Question: What does any of this have to do with the question that
+began our studies? 
+</p>
+<p>Answer: Let's again take a simpler version of the problem, like
+when a quantity is grouped by 3s there are 2 left over and when
+grouped by 4s there is 1 left over. This is a system of congruence
+equations.</p>
+<p>$$x \equiv_3 2 \\ x \equiv_4 1$$</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">We
+can determine </span></span><i>x </i><span style="font-variant: normal"><span style="font-style: normal">up
+to a multiple of 12, but after 12 the congruence patterns repeat. To
+demonstrate this, look at how the pattern in the aligned numbers
+repeats below.</span></span></p>
+<p style="font-variant: normal; font-style: normal">__Example__</p>
+<p style="font-variant: normal; font-style: normal">This
+demonstration above shows all combinations of remainders mod 3 and 4.
+So 0 has remainder 0 for both. 1 has remainder 1 for both. Five
+columns down shows us that 4 has remainder 1 mod 3 and remainder 0
+mod 4. As you can see, after 12, the pattern of remainders repeats
+and therefore we can only answer this question up to a multiple of
+12. So be it, we will solve this up to mod 12.</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">One
+(of a great many) thing that Bezout's identity gives us is what I
+said before, that every </span></span><i>m</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">coprime
+to </span></span><i>n</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">has
+a reciprocal in </span></span><span style="font-variant: normal">ℤ</span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><i>n</i></font></sub></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">,
+i.e. there is some </span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>[a]</i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">such
+that </span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>[a][m]
+= 1</i></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">.
+Since 3 and 4 are coprime (in fact, prime) then we can find their
+reciprocals mod the other. 3^</span></font></span><span style="font-variant: normal"><sup><font face="Liberation Serif, serif"><span style="font-style: normal">_1</span></font></sup></span><span style="font-variant: normal">
+≡</span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal">4</span></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">3
+and 4^</span></font></span><span style="font-variant: normal"><sup><font face="Liberation Serif, serif"><span style="font-style: normal">_1</span></font></sup></span><span style="font-variant: normal">
+≡</span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><span style="font-style: normal">3</span></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">1.
+What this does for us is allows us to slip in a factor of 3*3^</span></font></span><span style="font-variant: normal"><sup><font face="Liberation Serif, serif"><span style="font-style: normal">_1</span></font></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">=
+3*3 = 9 in the second equation and 4*4^</span></font></span><span style="font-variant: normal"><sup><font face="Liberation Serif, serif"><span style="font-style: normal">_1</span></font></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">=
+4*1 = 4 in the first, because in each congruence relation this is
+like inserting a factor of 1. </span></font></span>
+</p>
+<p style="font-variant: normal; font-style: normal"><font face="Liberation Serif, serif">$$x
+\equiv_3 2*4 = 8 \\ x\equiv_4 1*9 = 9$$</font></p>
+<p><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">So
+... what does </span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>this</i></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">get
+us? Notice that 8 ≡</span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><i>4</i></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">0
+and 9 ≡</span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><i>3</i></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">0.
+What this means is that we can add these to each congruence equation
+without changing it.</span></font></span></p>
+<p style="font-variant: normal; font-style: normal"><font face="Liberation Serif, serif">$$x
+\equiv_3 8 + 9 \\ x \equiv_4 9 + 8$$</font></p>
+<p style="font-variant: normal; font-style: normal"><font face="Liberation Serif, serif">From
+this it follows that `x \equiv_{12} 17 \equiv_{12} 5`. Lo and behold
+5 solves the system of congruence equations.</font></p>
+<hr/>
+
+<p>Exercise: Let's try this with a larger collection of congruence
+equations. Solve 
+</p>
+<p>$$x \equiv_5 3\\ x\equiv_7 5 \\ x\equiv_{8} 0$$</p>
+<p>Answer: Again we cannot solve this system except up to mode 5*7*8
+= 280, after which the pattern of remainders repeats. Last time we
+found the reciprocal of one number mod the other and so on. This time
+things are not quite as clear.</p>
+<p>We want to again insert a factor into the first equation that, mod
+5, is congruent to 1; but mod 7 and 8 is congruent to 0. A natural
+number to find therefore is 5<span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">6^</span></font></span><span style="font-variant: normal"><sup><font face="Liberation Serif, serif"><span style="font-style: normal">_1</span></font></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">mod
+5. This is easy since 56 ≡</span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><i>5</i></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">1
+so we already have 56^</span></font></span><span style="font-variant: normal"><sup><font face="Liberation Serif, serif"><span style="font-style: normal">_1</span></font></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">=
+1. Thus we change the first congruence equation to </span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>x
+</i></font></span><span style="font-variant: normal">≡</span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><i>5</i></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>3</i></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">*56
+= 168.</span></font></span></p>
+<p><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">Similarly
+we find 40^</span></font></span><span style="font-variant: normal"><sup><font face="Liberation Serif, serif"><span style="font-style: normal">_1</span></font></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">mod
+7. This one's hard so we can use Bezout's identity to find it.</span></font></span></p>
+<p style="font-variant: normal; font-style: normal"><font face="Liberation Serif, serif">__Example__</font></p>
+<p><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">Since
+3*40 - 7*17 = 1 then 3*40 ≡</span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><i>7</i></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">1
+so 40^</span></font></span><span style="font-variant: normal"><sup><font face="Liberation Serif, serif"><span style="font-style: normal">_1</span></font></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">=
+3 mod 7 and therefore we make the second congruence equation </span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>x
+</i></font></span><span style="font-variant: normal">≡</span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><i>7</i></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">5*40*3
+= 600.</span></font></span></p>
+<p><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">For
+the final congruence we could perform similar labors but since it's
+congruent to 0, then multiplication by anything will stay 0. At this
+point we sum all of the numbers and set </span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><i>x
+</i></font></span><span style="font-variant: normal">≡</span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><i>280</i></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">168+600
+≡</span></font></span><span style="font-variant: normal"><sub><font face="Liberation Serif, serif"><i>280</i></font></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">208.
+</span></font></span>
+</p>
+<p style="font-variant: normal; font-style: normal"><font face="Liberation Serif, serif">And
+amazingly if we check, it all works out. 208 mod 5 = 3 and 208 mod 7
+= 5 and 208 mod 8 = 0.</font></p>
+<hr/>
+
+</body>
+</html>

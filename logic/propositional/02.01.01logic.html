@@ -1,0 +1,1941 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 5.1.6.2 (Linux)"/>
+	<meta name="created" content="2017-04-05T19:39:29.209257646"/>
+	<meta name="changed" content="2017-04-06T15:50:28.321400946"/>
+</head>
+<body lang="en-US" dir="ltr">
+<h1>Logic 
+</h1>
+<p style="margin-top: 0.17in; page-break-after: avoid"><font face="Albany, sans-serif"><font size="4" style="font-size: 14pt">Chapter
+02: Propositional Logic</font></font></p>
+<p style="margin-top: 0.17in; page-break-after: avoid"><font face="Albany, sans-serif"><font size="4" style="font-size: 14pt">Section
+01: Propositions and operations</font></font></p>
+<p>Abstract: The basic syntax, how to form well-formed formulas; also
+the basic semantics, how to evaluate the truth of a proposition.</p>
+<p>Terms: atomic proposition, negation, proposition, true, false,
+structure, negand, conjunction, conjunct, main operator, truth-table,
+equivalent, double-negation, standard truth-table 
+</p>
+<p>Symbols:  <span style="font-style: normal">&#120161;</span>, &#120162;,
+&#120163;, ¬, T, F, <font face="FreeSerif, serif"><span style="text-decoration: none">&#120028;,
+</span></font>∧</p>
+<hr/>
+
+<p>Question: What will be our basic unit of study?</p>
+<p>Answer: The proposition.  <b>Atomic propositions</b> are sentences
+that are either true or false.  For instance &quot;One plus one is
+two&quot; is a true proposition and &quot;Russia is small&quot; is a
+false proposition.  The sentence &quot;Which way did he go?&quot; is
+a well-formed sentence and all, but it's neither true nor false and
+therefore not a proposition; nor are exclamations (sometimes), nor
+are commands.  
+</p>
+<p>We will not be interested in any particular proposition, but
+rather the relationships that certain kinds of propositions have to
+other propositions.  Therefore, in order to ignore the details of a
+given proposition, we use the symbol <span style="font-style: normal">&#120161;
+to denote any proposition.  If we want to talk about a proposition
+besides &#120161; then we may use &#120162; or &#120163;, and if we
+need more than these we may use subscripts to index an infinite set
+of propositions, e.g. &#120161;</span><sub><span style="font-style: normal">2</span></sub><span style="font-style: normal">.
+ </span>
+</p>
+<hr/>
+
+<p>Question: What do we do with them? 
+</p>
+<p>Answer: These propositions are intended to be simple, and we build
+up more complex propositions using what are called logical
+operations.  The first logical operation to consider is <b>negation</b><span style="font-weight: normal">,
+which represents the denial of a proposition, like &quot;One plus one
+is not two.&quot;  We use the ¬ symbol to denote negatio</span>n, so
+that if &#120161; represents &quot;one plus one is two&quot; then ¬&#120161;
+represents &quot;one plus one is not two&quot;.  Although &#120161;
+is an atomic proposition, ¬&#120161; is not.  Rather, we call ¬&#120161;
+a c<span style="font-style: normal"><span style="font-weight: normal">omplex
+proposition, or just a </span></span><span style="font-style: normal"><b>proposition</b></span><span style="font-style: normal"><span style="font-weight: normal">
+for short.  </span></span>
+</p>
+<p><span style="font-style: normal"><span style="font-weight: normal">Although
+we want to keep syntax and semantics separate, it is most helpful to
+introduce them in tandem.  I've already said what the intuitive
+semantics of this symbol are, the natural language &quot;negation&quot;
+or &quot;not&quot;.  However, in Propositional Logic what we mean by
+&quot;semantics&quot; is the truth of a proposition, or how the
+symbol affects the truth of a proposition.  We will use the symbols T
+and F to denote the value </span></span><span style="font-style: normal"><b>true</b></span><span style="font-style: normal"><span style="font-weight: normal">
+and the value </span></span><span style="font-style: normal"><b>false</b></span><span style="font-style: normal"><span style="font-weight: normal">.
+ It is up to Science, or Philosophy, or some other discipline to
+decide whether a proposition gets the value true or false; logicians
+will consider all possibilities and remain agnostic about the truth
+or falsity of any given atomic proposition.  We only concern our
+selves with: </span></span><i><span style="font-weight: normal">if</span></i><span style="font-style: normal"><span style="font-weight: normal">
+&#120161; is true </span></span><i><span style="font-weight: normal">then
+</span></i><span style="font-style: normal"><span style="font-weight: normal">...
+or </span></span><i><span style="font-weight: normal">if </span></i><span style="font-style: normal"><span style="font-weight: normal">&#120161;
+is false </span></span><i><span style="font-weight: normal">then </span></i><span style="font-style: normal"><span style="font-weight: normal">...
+ </span></span>
+</p>
+<p><span style="font-style: normal"><span style="font-weight: normal">Now,
+when &#120161; is true ¬&#120161; is false, naturally; and vice
+versa.  We can also form more complicated propositions, although I
+won't promise that they're terribly interesting.  ¬ ¬ &#120161; is
+another sentence we're able to form with the symbols that we have so
+far.  What happens if &#120161; is true?  In that case the first
+negation &quot;toggles&quot; it to false and then the next negation
+toggles it back to true; likewise if &#120161; is false then ¬ ¬ &#120161;
+is false.</span></span></p>
+<p><span style="font-style: normal"><span style="font-weight: normal">Whenever
+we hypothesize a truth-value for &#120161; we are considering what is
+called a structure.  A </span></span><span style="font-style: normal"><b>structure</b></span><span style="font-style: normal"><span style="font-weight: normal">
+is an assignment of truth-values to the atomic propositions in a
+language.  We will denote a structure by </span></span><font face="FreeSerif, serif"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">&#120028;
+and we will write &#120161;</span></span></span></font><sup><font face="FreeSerif, serif"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">&#120028;</span></span></span></font></sup><font face="FreeSerif, serif"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">
+= </span></span></span></font>T to express that the structure assigns
+<span style="font-style: normal"><span style="font-weight: normal">&#120161;
+true, and </span></span><font face="FreeSerif, serif"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">&#120161;</span></span></span></font><sup><font face="FreeSerif, serif"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">&#120028;</span></span></span></font></sup><font face="FreeSerif, serif"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">
+</span></span></span></font>= F to of course denote that it's false.
+When <span style="font-style: normal"><span style="font-weight: normal">we
+select a structure, we are interested in using it to decide the
+truth-value of complex propositions.  We've seen that, if </span></span><font face="FreeSerif, serif"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">&#120161;</span></span></span></font><sup>&#120028;</sup>
+= T then (¬&#120161;) <sup><font face="FreeSerif, serif"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">&#120028;</span></span></span></font></sup><font face="FreeSerif, serif"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">
+</span></span></span></font>= F; and when <font face="FreeSerif, serif"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">&#120161;</span></span></span></font><sup>&#120028;</sup>
+= F then (¬&#120161;) <sup><font face="FreeSerif, serif"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">&#120028;</span></span></span></font></sup><font face="FreeSerif, serif"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">
+</span></span></span></font>= T.   When things get complicated we'll
+enjoy the use of a table to keep these calculations organized.</p>
+<table width="96" cellpadding="4" cellspacing="1" style="page-break-inside: avoid">
+	<col width="14">
+	<col width="15">
+	<col width="15">
+	<col width="13">
+	<tr valign="top">
+		<td width="14" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120161;</p>
+		</td>
+		<td width="15" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="15" bgcolor="#e3d4dc" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>¬</p>
+		</td>
+		<td width="13" bgcolor="#f1e8f0" style="border: 1px double #808080; padding: 0.04in">
+			<p>&#120161;</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="14" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="15" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="15" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="13" bgcolor="#f1e8f0" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>T</p>
+		</td>
+	</tr>
+</table>
+<p><br/>
+<br/>
+
+</p>
+<p>We reserve the white columns at the left to state what the
+structure is, and an extra space to separate the proposition that
+we're evaluating.  Underneath <span style="font-style: normal"><span style="font-weight: normal">&#120161;
+in the proposition I copy the truth-value that the model gives it,
+and highlight it in light purple.  After that I compute what the
+negation does to it, and highlight the final value in a darker shade.
+ This may seem like excessive coloring and notation, but you'll
+likely be glad its there when these propositions get complex.  </span></span>
+</p>
+<p><br/>
+<br/>
+
+</p>
+<table width="96" cellpadding="4" cellspacing="1" style="page-break-inside: avoid">
+	<col width="14">
+	<col width="15">
+	<col width="15">
+	<col width="13">
+	<tr valign="top">
+		<td width="14" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120161;</p>
+		</td>
+		<td width="15" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="15" bgcolor="#e3d4dc" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>¬</p>
+		</td>
+		<td width="13" bgcolor="#f1e9ed" style="border: 1px double #808080; padding: 0.04in">
+			<p>&#120161;</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="14" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="15" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="15" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="13" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>F</p>
+		</td>
+	</tr>
+</table>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">Of course the above is the table for
+the structure that assigns F to <span style="font-style: normal"><span style="font-weight: normal">&#120161;.
+ We can augment a table with several propositions, each evaluated by
+the same structure.  If </span></span><font face="FreeSerif, serif"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">&#120028;</span></span></span></font><span style="font-style: normal"><span style="font-weight: normal">
+is a structure making &#120161; true then we can write</span></span></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<table width="288" cellpadding="4" cellspacing="1" style="page-break-inside: avoid">
+	<col width="26">
+	<col width="27">
+	<col width="27">
+	<col width="27">
+	<col width="27">
+	<col width="27">
+	<col width="27">
+	<col width="25">
+	<tr valign="top">
+		<td width="26" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120161;</p>
+		</td>
+		<td width="27" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="27" bgcolor="#e3d4dc" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>¬</p>
+		</td>
+		<td width="27" bgcolor="#f1e9ed" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120161;</p>
+		</td>
+		<td width="27" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="27" bgcolor="#d6becb" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>¬</p>
+		</td>
+		<td width="27" bgcolor="#e3d4dc" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>¬</p>
+		</td>
+		<td width="25" bgcolor="#f1e9ed" style="border: 1px double #808080; padding: 0.04in">
+			<p>&#120161;</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="26" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="27" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="27" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="27" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="27" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="27" bgcolor="#d6becb" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="27" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="25" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>T</p>
+		</td>
+	</tr>
+</table>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<hr/>
+
+<p>Exercise: Draw the augmented table for ¬<span style="font-style: normal"><span style="font-weight: normal">&#120161;
+and ¬¬ &#120161; under the structure that assigns F to &#120161;. 
+Describe the same calculations using the </span></span><sup><font face="FreeSerif, serif"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">&#120028;</span></span></span></font></sup><font face="FreeSerif, serif"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">
+</span></span></span></font>notation.</p>
+<p style="margin-bottom: 0in"><span style="font-style: normal"><span style="font-weight: normal">Answer:
+</span></span>
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<table width="288" cellpadding="4" cellspacing="1" style="page-break-inside: avoid">
+	<col width="26">
+	<col width="27">
+	<col width="27">
+	<col width="27">
+	<col width="27">
+	<col width="27">
+	<col width="27">
+	<col width="25">
+	<tr valign="top">
+		<td width="26" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120161;</p>
+		</td>
+		<td width="27" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="27" bgcolor="#e3d4dc" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>¬</p>
+		</td>
+		<td width="27" bgcolor="#f1e9ed" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120161;</p>
+		</td>
+		<td width="27" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="27" bgcolor="#d6becb" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>¬</p>
+		</td>
+		<td width="27" bgcolor="#e3d4dc" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>¬</p>
+		</td>
+		<td width="25" bgcolor="#f1e9ed" style="border: 1px double #808080; padding: 0.04in">
+			<p>&#120161;</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="26" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="27" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="27" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="27" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="27" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="27" bgcolor="#d6becb" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="27" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="25" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>F</p>
+		</td>
+	</tr>
+</table>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><span style="font-style: normal"><span style="font-weight: normal">We
+are assuming th</span></span>at &#120028; is a structure assigning F
+to <span style="font-style: normal"><span style="font-weight: normal">&#120161;,
+i.e. that &#120161;</span></span><sup><span style="font-style: normal"><span style="font-weight: normal">&#120028;</span></span></sup><span style="font-style: normal"><span style="font-weight: normal">
+= F</span></span>.  The evaluation (<span style="font-style: normal"><span style="font-weight: normal">¬&#120161;)</span></span><sup><span style="font-style: normal"><span style="font-weight: normal">&#120028;</span></span></sup>
+= T is immediate from the definition of the symbol.  The evaluation
+of <span style="font-style: normal"><span style="font-weight: normal">¬¬
+&#120161;</span></span> begins by evaluating (<span style="font-style: normal"><span style="font-weight: normal">¬&#120161;)</span></span><sup><span style="font-style: normal"><span style="font-weight: normal">&#120028;</span></span></sup>.
+ Since this evaluates to T, then (<span style="font-style: normal"><span style="font-weight: normal">¬¬
+&#120161;)</span></span><sup><span style="font-style: normal"><span style="font-weight: normal">&#120028;</span></span></sup><span style="font-style: normal"><span style="font-weight: normal">
+= F</span></span>.  We will more explicitly define the evaluation
+rules in the next section.    But if we call the sentence inside of a
+negation the <b>negand</b><span style="font-weight: normal">, then
+the rule should be clear:  The negation is true if and only if the
+negand is false.</span></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<hr/>
+
+<p style="margin-bottom: 0in"><span style="font-style: normal"><span style="font-weight: normal">Exercise:
+Python makes use of boolean values </span></span><font face="FreeMono, monospace"><span style="font-style: normal"><span style="font-weight: normal">True</span></span></font><span style="font-style: normal"><span style="font-weight: normal">
+and </span></span><font face="FreeMono, monospace"><span style="font-style: normal"><span style="font-weight: normal">False</span></span></font><span style="font-style: normal"><span style="font-weight: normal">
+for a lot of applications.  Run </span></span><font face="FreeMono, monospace"><span style="font-style: normal"><span style="font-weight: normal">p
+= True</span></span></font><span style="font-style: normal"><span style="font-weight: normal">
+and then </span></span><font face="FreeMono, monospace"><span style="font-style: normal"><span style="font-weight: normal">not
+p</span></span></font><span style="font-style: normal"><span style="font-weight: normal">,
+and see what you get.  Then try </span></span><font face="FreeMono, monospace"><span style="font-style: normal"><span style="font-weight: normal">not
+not p</span></span></font><span style="font-style: normal"><span style="font-weight: normal">.</span></span></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><span style="font-style: normal"><span style="font-weight: normal">Answer:
+</span></span><font face="FreeMono, monospace"><span style="font-style: normal"><span style="font-weight: normal">False</span></span></font><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">
+then </span></span></font><font face="FreeMono, monospace"><span style="font-style: normal"><span style="font-weight: normal">True.</span></span></font></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<hr/>
+
+<p><span style="font-style: normal"><span style="font-weight: normal">Question:
+Ok, negation.  What else you got?</span></span></p>
+<p><span style="font-style: normal"><span style="font-weight: normal">Answer:
+Another common construction is </span></span><span style="font-style: normal"><b>conjunction</b></span><span style="font-style: normal"><span style="font-weight: normal">,
+which in English most often is expressed with &quot;and&quot;.  Take
+the sentence &quot;1+1=2 and 1+2=3&quot;.  The claim made by that
+proposition is that both component sentences are true--so if one (or
+both) of them is false, the claim is false.  For this we use the
+symbol ∧ so that, if &#120161; represents the proposition &quot;Russia
+is small&quot; and &#120162; represents &quot;Costa Rica is small&quot;
+then &#120161;∧&#120162; represents &quot;Russia and Costa Rica are
+small&quot;.  Notice that I could have chosen to say this as &quot;Russia
+is small and Costa Rica is small&quot; but that's unnecessarily
+verbose.  When &quot;translating&quot; sentences from symbols to
+natural language, it's best to choose the most natural possible
+language.</span></span></p>
+<p><span style="font-style: normal"><span style="font-weight: normal">Also
+notice that propositions like &quot;Russia is large&quot; may be
+considered inadequately vague to be an acceptable proposition.  Large
+compared to what, people?  Then yeah, of course.  Large compared to
+stars?  No, actually quite small.  Again, we as logicians are not in
+the truth-assignment business.  We can decide in private whether the
+sentence is true, or we can hash it out with others--but the logician
+only takes over once the assignments to the atoms has already been
+made.  </span></span>
+</p>
+<p><span style="font-style: normal"><span style="font-weight: normal">In
+the language of structures we have, (&#120161;∧&#120162;)</span></span><sup><font face="FreeSerif, serif"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">&#120028;</span></span></span></font></sup><span style="font-style: normal"><span style="font-weight: normal">
+= T if and only if both &#120161;</span></span><sup><font face="FreeSerif, serif"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">&#120028;</span></span></span></font></sup><span style="font-style: normal"><span style="font-weight: normal">
+= T and &#120162;</span></span><sup><font face="FreeSerif, serif"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">&#120028;</span></span></span></font></sup><span style="font-style: normal"><span style="font-weight: normal">
+= T.  Thus when &#120161;</span></span><sup><font face="FreeSerif, serif"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">&#120028;</span></span></span></font></sup><span style="font-style: normal"><span style="font-weight: normal">
+= T but &#120162;</span></span><sup><font face="FreeSerif, serif"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">&#120028;</span></span></span></font></sup><span style="font-style: normal"><span style="font-weight: normal">
+= F we get the result that (&#120161;∧&#120162;)</span></span><sup><font face="FreeSerif, serif"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">&#120028;</span></span></span></font></sup><span style="font-style: normal"><span style="font-weight: normal">
+= F.  This may seem unfair, like the sentence deserves half-truth or
+something, when one of the sentences is true but the other false. 
+However, this is not how we choose to interpret the meaning of
+conjunction or the notion of truth.</span></span></p>
+<p><span style="font-style: normal"><span style="font-weight: normal">As
+a point of vocabulary, we call the component sentences in a
+conjunction a </span></span><span style="font-style: normal"><b>conjunct</b></span><span style="font-style: normal"><span style="font-weight: normal">.
+ </span></span>
+</p>
+<hr/>
+
+<p>Exercise: <span style="font-style: normal"><span style="font-weight: normal">Now
+that we have two symbols, though, ambiguity becomes an immediate
+issue.  How should we read ¬&#120161;∧&#120162;?  Should it be
+(¬&#120161;)∧&#120162; or should it be ¬(&#120161;∧&#120162;)? 
+First, we should compute them under a model to check that this even
+matters.  Does it?</span></span></p>
+<p><span style="font-style: normal"><span style="font-weight: normal">Answer:</span></span></p>
+<p><span style="font-style: normal"><span style="font-weight: normal">Notice
+that in the left-hand proposition in the table below, conjunction is
+the darkest shade because it is the last symbol that we evaluate.  We
+call this symbol the </span></span><span style="font-style: normal"><b>main
+operator</b></span><span style="font-style: normal"><span style="font-weight: normal">.
+ If the main operator of a proposition is negation we call the
+proposition &quot;a negation&quot;; whenever the main operator of a
+sentence is conjunction we call the proposition &quot;a conjunction&quot;.
+ Hence the left-hand sentence is a conjunction and the right-hand
+sentence is a negation.  </span></span>
+</p>
+<table width="703" cellpadding="4" cellspacing="1" style="page-break-inside: avoid">
+	<col width="49">
+	<col width="50">
+	<col width="50">
+	<col width="50">
+	<col width="50">
+	<col width="50">
+	<col width="50">
+	<col width="50">
+	<col width="50">
+	<col width="50">
+	<col width="50">
+	<col width="48">
+	<tr valign="top">
+		<td width="49" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120161;</p>
+		</td>
+		<td width="50" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120162;</p>
+		</td>
+		<td width="50" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="50" bgcolor="#e3d4dc" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>(<span style="font-style: normal"><span style="font-weight: normal">¬</span></span></p>
+		</td>
+		<td width="50" bgcolor="#f1e9ed" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120161;<span style="font-style: normal"><span style="font-weight: normal">)</span></span></p>
+		</td>
+		<td width="50" bgcolor="#d6becb" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>∧</p>
+		</td>
+		<td width="50" bgcolor="#f1e9ed" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120162;</p>
+		</td>
+		<td width="50" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="50" bgcolor="#d6becb" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><span style="font-style: normal"><span style="font-weight: normal">¬</span></span></p>
+		</td>
+		<td width="50" bgcolor="#f1e9ed" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><span style="font-style: normal"><span style="font-weight: normal">(&#120161;</span></span></p>
+		</td>
+		<td width="50" bgcolor="#e3d4dc" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>∧</p>
+		</td>
+		<td width="48" bgcolor="#f1e9ed" style="border: 1px double #808080; padding: 0.04in">
+			<p>&#120162;<span style="font-style: normal"><span style="font-weight: normal">)</span></span></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="49" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="50" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="50" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="50" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="50" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="50" bgcolor="#d6becb" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="50" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="50" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="50" bgcolor="#d6becb" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="50" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="50" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="48" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>T</p>
+		</td>
+	</tr>
+</table>
+<p><br/>
+<br/>
+
+</p>
+<p><span style="font-style: normal"><span style="font-weight: normal">That
+example made it look like the answer is &quot;no&quot;.  But if we
+pick a different model then we get, for instance, </span></span>
+</p>
+<p><br/>
+<br/>
+
+</p>
+<table width="703" cellpadding="4" cellspacing="1" style="page-break-inside: avoid">
+	<col width="49">
+	<col width="50">
+	<col width="50">
+	<col width="50">
+	<col width="50">
+	<col width="50">
+	<col width="50">
+	<col width="50">
+	<col width="50">
+	<col width="50">
+	<col width="50">
+	<col width="48">
+	<tr valign="top">
+		<td width="49" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120161;</p>
+		</td>
+		<td width="50" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120162;</p>
+		</td>
+		<td width="50" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="50" bgcolor="#e3d4dc" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>(<span style="font-style: normal"><span style="font-weight: normal">¬</span></span></p>
+		</td>
+		<td width="50" bgcolor="#f1e9ed" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120161;<span style="font-style: normal"><span style="font-weight: normal">)</span></span></p>
+		</td>
+		<td width="50" bgcolor="#d6becb" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>∧</p>
+		</td>
+		<td width="50" bgcolor="#f1e9ed" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120162;</p>
+		</td>
+		<td width="50" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="50" bgcolor="#d6becb" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><span style="font-style: normal"><span style="font-weight: normal">¬</span></span></p>
+		</td>
+		<td width="50" bgcolor="#f1e9ed" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><span style="font-style: normal"><span style="font-weight: normal">(&#120161;</span></span></p>
+		</td>
+		<td width="50" bgcolor="#e3d4dc" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>∧</p>
+		</td>
+		<td width="48" bgcolor="#f1e9ed" style="border: 1px double #808080; padding: 0.04in">
+			<p>&#120162;<span style="font-style: normal"><span style="font-weight: normal">)</span></span></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="49" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="50" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="50" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="50" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="50" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="50" bgcolor="#d6becb" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="50" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="50" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="50" bgcolor="#d6becb" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="50" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="50" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="48" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>F</p>
+		</td>
+	</tr>
+</table>
+<p><br/>
+<br/>
+
+</p>
+<p><span style="font-style: normal"><span style="font-weight: normal">This
+demonstrates that the order of operations for conjunction and
+negation do matter and therefore we need a rule to settle the
+ambiguity, should it arise.</span></span></p>
+<hr/>
+
+<p><span style="font-style: normal"><span style="font-weight: normal">Question:
+Which rule shall we pick to disambiguate negation and conjunction?</span></span></p>
+<p><span style="font-style: normal"><span style="font-weight: normal">Answer:
+The standard treatment of this issue is to make negation take the
+smallest scope possible, that is to say, we assume ¬</span></span>&#120161;∧&#120162;
+means (<span style="font-style: normal"><span style="font-weight: normal">¬&#120161;)∧&#120162;.
+ </span></span>
+</p>
+<hr/>
+
+<p>Exercise: <span style="font-style: normal"><span style="font-weight: normal">Of
+course we jumped to the ambiguous case but this is not the only kind
+of proposition that we can construct with the new symbol.  One that
+we could construct is &#120161;∧&#120161;.  What is the truth-value
+of this proposition when &#120161; is true?  When &#120161; is false?
+ If you care to, you can check your answer by running in Python </span></span><font face="FreeMono, monospace"><span style="font-style: normal"><span style="font-weight: normal">True
+and True</span></span></font><span style="font-style: normal"><span style="font-weight: normal">
+and </span></span><font face="FreeMono, monospace"><span style="font-style: normal"><span style="font-weight: normal">False
+and False</span></span></font><span style="font-style: normal"><span style="font-weight: normal">.</span></span></p>
+<p><span style="font-style: normal"><span style="font-weight: normal">Answer:
+&#120161;∧&#120161; has exactly the same truth-value as &#120161;
+does.  When &#120161; is true, &#120161;∧&#120161; is true; when &#120161;
+is false &#120161;∧&#120161; is false.</span></span></p>
+<hr/>
+
+<p>Exercise: At this stage it is worth introducing the notion of a
+truth-table.  A <b>truth-table</b> is merely a tabular display of
+every possible structure.  For instance, here is a truth-table for
+the propositions &#120161;∧&#120162; and &#120162;∧&#120161;. 
+What does the table show you about these propositions?</p>
+<p> 
+</p>
+<table width="480" cellpadding="4" cellspacing="1" style="page-break-inside: avoid">
+	<col width="38">
+	<col width="39">
+	<col width="39">
+	<col width="39">
+	<col width="39">
+	<col width="39">
+	<col width="39">
+	<col width="39">
+	<col width="39">
+	<col width="37">
+	<tr valign="top">
+		<td width="38" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120161;</p>
+		</td>
+		<td width="39" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120162;</p>
+		</td>
+		<td width="39" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="39" bgcolor="#f1e9ed" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120161;</p>
+		</td>
+		<td width="39" bgcolor="#e3d4dc" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>∧</p>
+		</td>
+		<td width="39" bgcolor="#f1e9ed" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120162;</p>
+		</td>
+		<td width="39" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="39" bgcolor="#f1e9ed" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120162;</p>
+		</td>
+		<td width="39" bgcolor="#e3d4dc" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>∧</p>
+		</td>
+		<td width="37" bgcolor="#f1e9ed" style="border: 1px double #808080; padding: 0.04in">
+			<p>&#120161;</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="38" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="39" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="39" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="39" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="39" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="39" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="39" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="39" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="39" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="37" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>T</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="38" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="39" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="39" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="39" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="39" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="39" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="39" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="39" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="39" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="37" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>T</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="38" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="39" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="39" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="39" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="39" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="39" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="39" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="39" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="39" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="37" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>F</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="38" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="39" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="39" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="39" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="39" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="39" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="39" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="39" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="39" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="37" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>F</p>
+		</td>
+	</tr>
+</table>
+<p><br/>
+<br/>
+
+</p>
+<p><span style="font-style: normal"><span style="font-weight: normal">Answer:
+The two propositions have, in every model, the same truth-value;
+therefore they are what we call </span></span><span style="font-style: normal"><b>equivalent</b></span><span style="font-style: normal"><span style="font-weight: normal">.
+ What this tells us is that conjunction is commutative.</span></span></p>
+<p><span style="font-style: normal"><span style="font-weight: normal">Notice
+that we could re-arrange the order of the structures listed in the
+truth-table here, and still have a truth-table for these
+propositions.  For uniformity, we will require the order that I have
+given here, starting with all truth and ending with all falsehood. 
+The exact algorithm for constructing the right order of the
+structures in-between, we will describe soon.</span></span></p>
+<hr/>
+
+<p>Exercise: Produce the truth-table for just the proposition <span style="font-style: normal"><span style="font-weight: normal">¬¬
+&#120161;.  What can you infer from it?</span></span></p>
+<p><span style="font-style: normal"><span style="font-weight: normal">Answer:
+</span></span>
+</p>
+<table width="288" cellpadding="4" cellspacing="1" style="page-break-inside: avoid">
+	<col width="48">
+	<col width="49">
+	<col width="49">
+	<col width="49">
+	<col width="47">
+	<tr valign="top">
+		<td width="48" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120161;</p>
+		</td>
+		<td width="49" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="49" bgcolor="#d6becb" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><span style="font-style: normal"><span style="font-weight: normal">¬</span></span></p>
+		</td>
+		<td width="49" bgcolor="#e3d4dc" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><span style="font-style: normal"><span style="font-weight: normal">¬</span></span></p>
+		</td>
+		<td width="47" bgcolor="#f1e9ed" style="border: 1px double #808080; padding: 0.04in">
+			<p>&#120161;</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="48" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="49" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="49" bgcolor="#d6becb" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="49" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="47" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>T</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="48" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="49" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="49" bgcolor="#d6becb" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="49" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="47" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>F</p>
+		</td>
+	</tr>
+</table>
+<p><br/>
+<br/>
+
+</p>
+<p><span style="font-style: normal"><span style="font-weight: normal">Of
+course this exhibits that &#120161; is equivalent to ¬¬ &#120161;. 
+This equivalence is called </span></span><span style="font-style: normal"><b>double
+negation</b></span><span style="font-style: normal"><span style="font-weight: normal">.</span></span></p>
+<hr/>
+
+<p>Exercise: The truth-table for propositions that contained two
+atoms, <span style="font-style: normal"><span style="font-weight: normal">&#120161;
+and &#120162;, was four rows tall.  The truth-table for a proposition
+containing just &#120161; was two rows tall.  How tall will a
+truth-table be if the proposition under analysis has three atoms? 
+How do you generate all the possible choices of T and F for the
+various atoms?</span></span></p>
+<p><span style="font-style: normal"><span style="font-weight: normal">Answer:
+8 rows tall.  The reason is that, for every atom, we have two choices
+to make, T or F.  In light of the Arithmetic that we learned before,
+when you make a sequence of choices you multiply the choice sets.  In
+this case that means 2*2*2 = 8.  In general if a proposition contains
+</span></span><i><span style="font-weight: normal">n</span></i><span style="font-style: normal"><span style="font-weight: normal">
+atoms then its truth-table will be 2^</span></span><sup><i><span style="font-weight: normal">n</span></i></sup><span style="font-style: normal"><span style="font-weight: normal">
+rows tall.</span></span></p>
+<p><span style="font-style: normal"><span style="font-weight: normal">To
+generate all possible choices, begin by listing all possible choices
+that start with &#120161; being assigned T, and run through all
+choices for the remaining atoms.  To run through the remaining atoms,
+generate all choices where &#120162; is T.</span></span></p>
+<table width="96" cellpadding="4" cellspacing="1" style="page-break-inside: avoid">
+	<col width="22">
+	<col width="23">
+	<col width="21">
+	<tr valign="top">
+		<td width="22" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120161;</p>
+		</td>
+		<td width="23" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120162;</p>
+		</td>
+		<td width="21" style="border: 1px double #808080; padding: 0.04in">
+			<p>&#120163;</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="22" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="23" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="21" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>T</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="22" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="23" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="21" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>F</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="22" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="23" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="21" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="22" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="23" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="21" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="22" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="23" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="21" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="22" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="23" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="21" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="22" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="23" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="21" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="22" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="23" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="21" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p><br/>
+
+			</p>
+		</td>
+	</tr>
+</table>
+<p><br/>
+<br/>
+
+</p>
+<p><span style="font-style: normal"><span style="font-weight: normal">Still
+keeping &#120161; as T, we generate all choices where &#120162; is F.</span></span></p>
+<p><br/>
+<br/>
+
+</p>
+<table width="96" cellpadding="4" cellspacing="1" style="page-break-inside: avoid">
+	<col width="22">
+	<col width="23">
+	<col width="21">
+	<tr valign="top">
+		<td width="22" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120161;</p>
+		</td>
+		<td width="23" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120162;</p>
+		</td>
+		<td width="21" style="border: 1px double #808080; padding: 0.04in">
+			<p>&#120163;</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="22" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="23" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="21" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>T</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="22" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="23" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="21" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>F</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="22" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="23" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="21" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>T</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="22" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="23" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="21" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>F</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="22" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="23" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="21" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="22" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="23" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="21" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="22" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="23" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="21" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="22" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="23" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="21" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p><br/>
+
+			</p>
+		</td>
+	</tr>
+</table>
+<p><br/>
+<br/>
+
+</p>
+<p><span style="font-style: normal"><span style="font-weight: normal">We've
+now generated all possibilities where &#120161; is T, because under
+that provision we generated all possibilities where &#120162; was T
+and all where &#120162; was F--well folks, that's just all
+possibilities!  What remains is to  then suppose &#120161; is F and
+do it all over again.  That produces </span></span>
+</p>
+<p><br/>
+<br/>
+
+</p>
+<table width="96" cellpadding="4" cellspacing="1" style="page-break-inside: avoid">
+	<col width="22">
+	<col width="23">
+	<col width="21">
+	<tr valign="top">
+		<td width="22" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120161;</p>
+		</td>
+		<td width="23" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120162;</p>
+		</td>
+		<td width="21" style="border: 1px double #808080; padding: 0.04in">
+			<p>&#120163;</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="22" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="23" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="21" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>T</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="22" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="23" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="21" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>F</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="22" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="23" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="21" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>T</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="22" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="23" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="21" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>F</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="22" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="23" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="21" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>T</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="22" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="23" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="21" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>F</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="22" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="23" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="21" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>T</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="22" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="23" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="21" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>F</p>
+		</td>
+	</tr>
+</table>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><span style="font-style: normal"><span style="font-weight: normal">This
+algorithm constructs the structures in what we will call the </span></span><span style="font-style: normal"><b>standard
+truth-table</b></span><span style="font-style: normal"><span style="font-weight: normal">.
+ However, notice that the order truth-values assigned to the
+different propositions will also change if we write the </span></span><i><span style="font-weight: normal">propositions</span></i><span style="font-style: normal"><span style="font-weight: normal">
+in a different order.  Therefore, again for uniformity, the standard
+truth-table will also require that the sentences are listed in
+lexical order.</span></span></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<hr/>
+
+<p>Exercise: Show that conjunction is associative.</p>
+<p>Answer: 
+</p>
+<table width="100%" cellpadding="4" cellspacing="1" style="page-break-inside: avoid">
+	<col width="17*">
+	<col width="17*">
+	<col width="17*">
+	<col width="17*">
+	<col width="17*">
+	<col width="17*">
+	<col width="17*">
+	<col width="17*">
+	<col width="17*">
+	<col width="17*">
+	<col width="17*">
+	<col width="17*">
+	<col width="17*">
+	<col width="17*">
+	<col width="17*">
+	<tr valign="top">
+		<td width="7%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120161;</p>
+		</td>
+		<td width="7%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120162;</p>
+		</td>
+		<td width="7%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120163;</p>
+		</td>
+		<td width="7%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><span style="font-style: normal"><span style="font-weight: normal">(&#120161;</span></span></p>
+		</td>
+		<td width="7%" bgcolor="#e3d4dc" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>∧</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120162;<span style="font-style: normal"><span style="font-weight: normal">)</span></span></p>
+		</td>
+		<td width="7%" bgcolor="#d6becb" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>∧</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120163;</p>
+		</td>
+		<td width="7%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>&#120161;</p>
+		</td>
+		<td width="7%" bgcolor="#d6becb" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>∧</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><span style="font-style: normal"><span style="font-weight: normal">(&#120162;</span></span></p>
+		</td>
+		<td width="7%" bgcolor="#e3d4dc" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>∧</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border: 1px double #808080; padding: 0.04in">
+			<p>&#120163;<span style="font-style: normal"><span style="font-weight: normal">)</span></span></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" bgcolor="#d6becb" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" bgcolor="#d6becb" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>T</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" bgcolor="#d6becb" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" bgcolor="#d6becb" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>F</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#d6becb" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" bgcolor="#d6becb" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>T</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#d6becb" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" bgcolor="#d6becb" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>F</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" bgcolor="#d6becb" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#d6becb" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>T</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" bgcolor="#d6becb" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#d6becb" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>F</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#d6becb" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>T</p>
+		</td>
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#d6becb" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>T</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#d6becb" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><br/>
+
+			</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#d6becb" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#e3d4dc" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p>F</p>
+		</td>
+		<td width="7%" bgcolor="#f1e9ed" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in">
+			<p>F</p>
+		</td>
+	</tr>
+</table>
+<p><br/>
+<br/>
+
+</p>
+<hr/>
+
+<p><br/>
+<br/>
+
+</p>
+</body>
+</html>

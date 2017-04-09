@@ -1,0 +1,62 @@
+.title {
+    color: purple;
+}
+.toc {
+    color: purple;
+}
+
+.main {
+    font-family: Helvetica;
+    font-weight: 300;
+}
+table, tr, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    align-self: center;
+}
+tr, td {
+    padding: 3px;
+}
+.ex {
+    background-color: LightGoldenRodYellow;
+}
+.thmImg {
+    height: auto;
+}
+.thm {
+    font-size: 14pt;
+    width: 1000px;
+    background-color: LightGray;
+}
+.proof {
+    background-color: white;
+    width: 1000px;
+    border: 2px solid black;
+}
+canvas {
+    width:300px;
+    height:300px;
+}
+
+.hidden {
+    display: none;
+}
+
+.bin {
+    color: DarkBlue;
+    font-family: 'Courier New', Courier, monospace;
+}
+.hex {
+    background-color: Azure;
+    font-family: Century Gothic, sans-serif;
+}
+.hask {
+    background-color: Black;
+    color: White;
+    font-family: monospace;
+}
+
+.quote {
+    text-align: center;
+    font-size: 18pt;
+}

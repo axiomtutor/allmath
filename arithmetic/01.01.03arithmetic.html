@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 5.1.6.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="2017-03-27T23:16:16.160670047"/>
+	<meta name="created" content="2017-03-21T20:27:10.494278786">
+	<meta name="changed" content="2017-03-21T21:17:08.275337413">
+	<script type="text/javascript" async
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	<style type="text/css">
+		h2.western { font-family: "Albany", sans-serif; font-size: 16pt }
+		h2.cjk { font-family: "Noto Sans CJK SC Regular"; font-size: 16pt }
+		h2.ctl { font-family: "FreeSans"; font-size: 16pt }
+		h3.western { font-family: "Albany", sans-serif }
+		h3.cjk { font-family: "Noto Sans CJK SC Regular" }
+		h3.ctl { font-family: "FreeSans" }
+	</style>
+</head>
+<body lang="en-US" dir="ltr">
+<table width="100%" cellpadding="4" cellspacing="0" style="page-break-before: always; page-break-inside: avoid">
+	<col width="128*">
+	<col width="128*">
+	<tr valign="top">
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><a href="../main/main.html">Home</a> &gt; <a href="arithmetic.html">Arithmetic</a>
+			&gt; <a href="arithmeticCh01.html">Counting</a> &gt; Counting</p>
+		</td>
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding: 0.04in">
+			<p align="right">&lt; prev | <a href="01.02.01arithmetic.html">next</a>
+			&gt;
+			</p>
+		</td>
+	</tr>
+</table>
+<h1><meta name="changed" content="2017-03-20T14:18:02.467861776"><meta name="created" content="00:00:00"><meta name="changed" content="2017-03-18T18:30:35.145004036"><meta name="created" content="2017-03-18T15:39:18.664579023"><meta name="changed" content="2017-03-18T18:00:22.707877134"><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>Arithmetic</h1>
+<h2 class="western">Chapter 1: Counting</h2>
+<h3 class="western">Section 1: Counting and representation</h3>
+<p>Abstract: Counting systems, Roman and based. Focus on base-10,
+base-2, and base-16. Representation in Python.</p>
+<p>Terms: Number, numeral, Roman, base, decimal, binary, hexadecimal,
+add.</p>
+<p>Symbols: |, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0b0, 0b1, 0x0, 0x1, ...,
+0xa, 0xb, ..., 0xf</p>
+<hr/>
+
+<p>Question: How can we count?</p>
+<p>Answer: Without a symbol system for counting, we at least have
+language for counting, using words like &quot;one&quot;, &quot;two&quot;,
+and so on. But a written symbol system has the advantage of aiding
+memory and calculation when we want to add numbers.</p>
+<p>A natural way to begin counting is, for each number, make a mark!
+So for instance, we could use | as the symbol and count one, two, so
+on, as |, ||, |||, ...</p>
+<p>However, this gets tedious for large numbers, and is particularly
+difficult to add numbers with.
+</p>
+<hr/>
+
+<p>Question: How can we count more efficiently, hopefully so that
+adding is easier?</p>
+<p>Answer: Another natural first thought is to group numbers as you
+count, so that you make a symbol like V for five, and X for ten, and
+so on. Then to count would go |, ||, |||, ||||, V, V|, V||, V|||,
+V||||, X, X|, ...</p>
+<p>But adding is still a strain. What is XXX|||| + XXXXXXXV|||? Be
+careful not to convert these to your own number system--that would be
+cheating! And even if you can figure this out and think it's not so
+bad, try multiplying them!</p>
+<p>Clearly we need a better system.</p>
+<hr/>
+
+<p>Question: What's a more efficient way to count so that it's easier
+to to add and multiply?</p>
+<p>Answer: Here the answer might be surprising. It's the use of a
+base system. In a base system, you only ever directly represent a
+certain small number of numbers. In our base system, which is
+&quot;decimal&quot; or &quot;base-10&quot;, we represent ten numbers
+with the symbols 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9. To represent
+larger numbers, we create a new digit place to the left, which counts
+<i>groupings</i><span style="font-variant: normal"><span style="font-style: normal">.
+Hence 10 has a 1 in the tens-place representing a group of ten. 11 is
+just one more than this. 23 represents two groups of ten (twenty in
+total of course) and another 3 units. In 123 the 1 in the
+hundreds-place represents a group of ten units to the right--i.e. ten
+tens, or one-hundred in total. The 2 and 3 are in the tens and units
+places respectively and represent in the familiar way. </span></span>
+</p>
+<p style="font-variant: normal; font-style: normal">To make sure that
+the idea here is clear, let us imagine using a base system that is
+not decimal. Let's instead use &quot;binary&quot; or &quot;base-2&quot;
+numbers, where the symbol set is 0 and 1--however, because this is
+ambiguous we will represent binary numbers with the prefix &quot;0b&quot;.
+Hence the symbol set is 0b0 and 0b1. These count zero and one. To
+represent two we use 0b10 and three is 0b11.
+</p>
+<hr/>
+
+<p>Exercise: Show what it looks like to count to ten in binary.</p>
+<p>Answer: 0b1, 0b10, 0b11, 0b100, 0b101, 0b110, 0b111, 0b1000,
+0b1001, 0b1010.</p>
+<hr/>
+
+<p>Exercise: Use Python to represent binary numbers. First use
+<font face="FreeMono, monospace">bin(10)</font> to convert the
+decimal 10 to a binary representation. What kind of an object does it
+return, a number or a string? If you're not familiar with Python
+numbers and strings, make sure you go through the programming
+prerequisites.
+</p>
+<p>Answer: Python should return the string '0b1010'.</p>
+<hr/>
+
+<p>Exercise: Use <font face="FreeMono, monospace">int('0b1010101', 2)</font>
+to see what this represents in decimal. Of course the 2 indicates
+that '0b1010101' should be read in binary.</p>
+<p>Answer: 85</p>
+<hr/>
+
+<p>Exercise: Use Python to explore hexadecimal representation, which
+is base-16. In typical hexadecimal representation, we use symbols 0,
+1, 2, ..., 9, a, b, c, d, e, f where a represents 10 and so on. But
+again the symbols invite too much ambiguity so we use the prefix 0x0
+for zero, and so on until 0xf represents 15. Of course 0x10
+represents 16. Use <font face="FreeMono, monospace">hex(10)</font> to
+represent ten and <font face="FreeMono, monospace">hex(100)</font> to
+represent 100. Also use <font face="FreeMono, monospace">int('abcd')</font>
+to see what this is in decimal.
+</p>
+<p>Answer: In order, Python should show `'0xa'`, `'0x64'`, and
+`43981`.</p>
+<hr/>
+
+<p>Question: Why is base representation better?</p>
+<p>Answer: Base representation does a good job of counting large
+numbers with relative few symbols. As an exercise you can figure out
+how many digits are needed in binary numbers to represent the number
+one-million. You may be surprised at how few digits are needed. Base
+representation also has the nice feature that, unlike the Roman
+system where you group all quantities of a certain size, like five or
+ten, in a base system you keep grouping <i>groups</i><span style="font-variant: normal"><span style="font-style: normal">.
+300 represents three groups of ten, where each one of those ten is
+itself a group of ten. </span></span>
+</p>
+<p style="font-variant: normal; font-style: normal">But the real
+promise of base representation was that it would help us compute
+better. That in the next page.</p>
+</body>
+</html>

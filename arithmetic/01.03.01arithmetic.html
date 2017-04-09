@@ -1,0 +1,898 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 5.1.6.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="00:00:00"/>
+	<meta name="created" content="2017-03-21T20:27:10.494278786">
+	<meta name="changed" content="2017-03-21T21:28:20.559350513">
+	<meta name="created" content="2017-03-21T20:27:10.494278786">
+	<meta name="changed" content="2017-03-21T21:17:08.275337413">
+	<script type="text/javascript" async
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	<style type="text/css">
+		h2.western { font-family: "Albany", sans-serif; font-size: 16pt }
+		h2.cjk { font-family: "Noto Sans CJK SC Regular"; font-size: 16pt }
+		h2.ctl { font-family: "FreeSans"; font-size: 16pt }
+	</style>
+</head>
+<body lang="en-US" dir="ltr">
+<table width="100%" cellpadding="4" cellspacing="0" style="page-break-before: always; page-break-inside: avoid">
+	<col width="128*">
+	<col width="128*">
+	<tr valign="top">
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><a href="/home/adam/Documents/Websites/6te/main/main.html">Home</a>
+			&gt; <a href="/home/adam/Documents/Websites/6te/arithmetic/arithmetic.html">Arithmetic</a>
+			&gt; <a href="/home/adam/Documents/Websites/6te/arithmetic/arithmeticCh01.html">Counting</a>
+			&gt; Multiplying and dividing</p>
+		</td>
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding: 0.04in">
+			<p align="right">&lt; <a href="/home/adam/Documents/Websites/6te/arithmetic/01.02.01arithmetic.html">prev</a>
+			| <a href="/home/adam/Documents/Websites/6te/arithmetic/01.04.01arithmetic.html">next</a>
+			&gt;
+			</p>
+		</td>
+	</tr>
+</table>
+<h1><meta name="created" content="00:00:00"><meta name="changed" content="2017-03-21T13:43:03.556147982"><meta name="created" content="00:00:00"><meta name="changed" content="2017-03-21T08:53:05.326743910"><meta name="created" content="2017-03-21T00:42:45.251681715"><meta name="changed" content="2017-03-21T02:24:51.368792745">Arithmetic</h1>
+<h2 class="western">Chapter 1: Counting</h2>
+<h2 class="western">Section 3: Multiplication and division</h2>
+<p>Abstract: Multiplication is repeated addition and division is its
+inverse. We find table algorithms for computing these.</p>
+<p>Terms: Times, product, factor, divides, quotient, remainder,
+distribution, numerator, denominator, prime, composite, coprime,
+multiple, least common multiple, greatest common divisor, prime
+factorization</p>
+<p>Symbols: *, /, |, lcm, gcd</p>
+<hr/>
+
+<p>Question: Suppose you have 17 baskets each with 5 apples; or
+suppose you travel at 17 miles per hour for 5 hours; or suppose that
+for every egg used in a recipe you include 17 teaspoons of sugar--and
+you use 5 eggs. Determine the number of apples in all baskets, number
+of miles traveled, and number of number of teaspoons of sugar.</p>
+<p>Answer: Of course each of these involves repeated addition if you
+want to solve it that way. But repeated addition is common enough
+that we study it, and this is called multiplication. So the answer to
+the first question (and each of the others) is 17*5 or 17 added to
+itself five times. We can make a table algorithm for computing this,
+although unlike addition, the operation won't go digit-wise like it
+did for addition. If multiplication went digit-wise we would find
+17*5 would equal 1,35 and we could move the 3 over to get 45. But
+that's wrong, of course. So what's the algorithm?</p>
+<p>First we establish the vocabulary that <i>x*y</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is
+the </span></span><span style="font-variant: normal"><span style="font-style: normal"><b>product</b></span></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+each component, </span></span></span><i><span style="font-weight: normal">x</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></span><i><span style="font-weight: normal">y</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">,
+is called a </span></span></span><span style="font-variant: normal"><span style="font-style: normal"><b>factor</b></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+When confusion isn't possible, we use concatenation to represent
+multiplication, so that </span></span></span><i><span style="font-weight: normal">xy</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">=
+</span></span></span><i><span style="font-weight: normal">x*y</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+Of course we can't do this with numbers since 23 would be ambiguous
+in an unresolvable way: Is it 2 times 3 or the number 23? But since
+2</span></span></span><i><span style="font-weight: normal">x</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">cannot
+be mistaken, we will use it to express 2 times </span></span></span><i><span style="font-weight: normal">x</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+</span></span></span>
+</p>
+<p>As usual, for one-digit operations like 7*5 you just memorize
+these. Making a multiplication table and memorizing the cells of the
+table can be (slightly) helpful for this.</p>
+<p>For multiple-digit operations, we split things up by digits.
+Consider 17*5 = (10+7)*5 = 50+35 = 85. If we presented this in a
+table we would write
+</p>
+<p>__Example__</p>
+<p>The table just summarizes the steps we took earlier. Thus to
+compute a number of any size, times a single digit, you multiply
+digit-wise and do any necessary carrying of digits like in addition.</p>
+<p>If the second factor is also multi-digit, like 451*23, then we
+would break things up as (451)(2*10 + 3) = (451*2*10) + 451*3. At
+this point, in each summand, we need only multiply 451 by a single
+digit, and we know how to do that. Again, a table summarizes and
+organizes this process.</p>
+<p>__Example__</p>
+<p>The fact that the table is just an organization of what we can do
+with simple arithmetic means that there is nothing to justify--except
+for the arithmetic principles used, in this case distribution.</p>
+<hr/>
+
+<p>Question: How can we justify the principle of distributivity? That
+is to say, why should we believe that 2*(3+4) = 2*3 + (2*4) or more
+generally, why should we believe that <i>x*(y+z) = x*y+(x*z)</i><span style="font-variant: normal"><span style="font-style: normal">?</span></span></p>
+<p style="font-variant: normal; font-style: normal">Answer: A picture
+using grids of dots can make the case. If we take, for instance, 2 to
+be represented by a column of 2 dots, then 2*3 means 2+2+2 which is
+three columns.</p>
+<p style="font-variant: normal; font-style: normal">__Example__</p>
+<p style="font-variant: normal; font-style: normal">Then 2*(3+4) is
+represented as
+</p>
+<p style="font-variant: normal; font-style: normal">__Example__</p>
+<p style="font-variant: normal; font-style: normal">and 2*3 + (2*4)
+is represented as
+</p>
+<p style="font-variant: normal; font-style: normal">__Example__</p>
+<p style="font-variant: normal; font-style: normal">These pictures
+can have any number of dots and the argument will still apply:
+Distribution is correct because it only represents two ways of
+collecting the dots together, but the quantity of dots is the same in
+both cases.</p>
+<hr/>
+
+<p>Question: Why do you guess I've been using somewhat odd
+parentheses placement in expressions like 2*3 + (2*4)?</p>
+<p>Answer: Because I'm using left-associativity as my guide for order
+of operations. This is unlike the standard rules for orders of
+operations, which are often expressed in the acronym PEMDAS. I
+dislike PEMDAS partly because of memes on Facebook like these.</p>
+<p>__Example__</p>
+<p>This introduces useless sets of meaningless rules that are not the
+focus of actual mathematics. Thus I'm sticking to left-associativity
+in all cases, to handle order of operations. That means, if I only
+wrote 2*3 + 2*4 then this would be equivalent to ((2*3)+2)*4 which is
+not what I want. So I include parentheses around 2*4 in order to
+enforce this operation to take precedence. Thereafter,
+left-associativity gets what I want so that no further correction is
+needed.</p>
+<p>Again, Polish notation would have handled this seamlessly without
+the need for parentheses.</p>
+<hr/>
+
+<p>Exercise: Use Polish notation to calculate * + - 5 5 5 5.</p>
+<p>Answer: 25</p>
+<hr/>
+
+<p>Exercise: Determine, with a grid-of-dots argument, whether
+multiplication is commutative or associative.</p>
+<p>Answer: Yes in both cases, although the justification is different
+than it was for addition in the earlier section because here, the two
+numbers in say 2*3 really mean something different. 2 represents a
+count of things, 3 represents a count of <i>times that 2 is summed
+with itself</i><span style="font-variant: normal"><span style="font-style: normal">.
+Since they count different things, we might have doubted that
+multiplication is commutative. However, 2*3 and 3*2 are represented
+below, and you can see that swapping the factors corresponds to
+transposing the grid along its main diagonal--and this does not
+change the number of dots.</span></span></p>
+<p style="font-variant: normal; font-style: normal">__Example__</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Associativity
+is harder and requires a three-dimensional grid of dots. </span></span><i>x*(y*z)</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is
+a collection of rectangles of length </span></span><i>y</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+height </span></span><i>z</i><span style="font-variant: normal"><span style="font-style: normal">.
+There are </span></span><i>x</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">rectangles
+stacked. </span></span><i>(x*y)*z</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">represents
+the same number of dots, just considering </span></span><i>z</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">rectangles,
+each of dimension </span></span><i>x*y</i><span style="font-variant: normal"><span style="font-style: normal">.</span></span></p>
+<p style="font-variant: normal; font-style: normal">__Example__</p>
+<hr/>
+
+<p>Exercise: Given that multiplication is distributive, explain why
+2*3*4 is not the same as 2*3 * 2*4.
+</p>
+<p>Answer: Multiplication isn't really &quot;distributive&quot; per
+se, it's <i>distributive over addition</i><span style="font-variant: normal"><span style="font-style: normal">.
+Since the operation here is not addition, but multiplication
+throughout, then you only compute this one-product-at-a-time. Of
+course, associativity tells us that it doesn't matter which product
+we start with first. We could say that this computes to 6*4 = 24 or
+we could say it computes to 2*12 = 24. In fact, commutativity would
+allow more options, turning it into 2*4*3 and then computing 8*3 = 24
+if we wanted.</span></span></p>
+<hr/>
+
+<p>Exercise: Develop a table algorithm for multiplying binary digits
+and use it to compute 0b101*0b110.</p>
+<p>Answer: 0b11110.</p>
+<hr/>
+
+<p>Exercise: Find a number which, when multiplied with 6, produces
+192.</p>
+<p>Answer: Of course you can find it by cycling through enough
+numbers until you reach 32. This question is fundamentally equivalent
+to the equation 6<i>x = 192</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+it's also equivalent to 192 divided by 6. Both of these perspectives
+mirror what we said about subtraction as the inverse of addition. </span></span>
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Again,
+vocabulary: </span></span><i>x/y</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">we
+call the </span></span><span style="font-variant: normal"><span style="font-style: normal"><b>quotient</b></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">,
+where </span></span></span><i><span style="font-weight: normal">x</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">is
+the </span></span></span><span style="font-variant: normal"><span style="font-style: normal"><b>numerator</b></span></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></span><i><span style="font-weight: normal">y</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">is
+the </span></span></span><span style="font-variant: normal"><span style="font-style: normal"><b>denominator</b></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.</span></span></span></p>
+<p style="font-variant: normal; font-style: normal">Anyway, as usual,
+we would like to devise a table algorithm for division. Again we can
+proceed like with subtraction: Pick the largest digit that doesn't go
+too far. In this case it's easy to see 6*10 = 60 is too small but
+6*100 = 600 is too large, so we start at 6*10. From there we
+increment the digit until we go too far again. That means checking
+6*20 = 120 and 6*30 = 180 and 6*40 = 240 which is too far, so we know
+the digit 3 is neither too big nor too small, but of course 30 can't
+be the answer since we're still off by 192-180 = 12. It may be
+obvious from this stage that the ones-digit should be 2. And here we
+have a guide for stating the algorithm: Find the largest number
+starting with 1 and followed only by 0s which you can multiply the
+denominator by, without getting something larger than the numerator.
+Then increment the 1 in that digit place until again you get a number
+too large. Whatever digit that is, record it, then compute the
+product, subtract from the numerator, and compute the division yet
+again. Since at every stage we find the infimum digit, the algorithm
+must be correct. We summarize the process in a table like so.</p>
+<p style="font-variant: normal; font-style: normal">__Example__</p>
+<hr/>
+
+<p>Exercise: Make a table algorithm for binary numbers and compute
+0b101010 / 0b10. Also compute 0b110 / 0b11.</p>
+<p>Answer: 0b10101 and 0b10.</p>
+<hr/>
+
+<p>Exercise: Show that <i>(p/q)*(r/s) = (pr)/(qs)</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">assuming
+that </span></span><i>q</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">divides
+</span></span><i>p</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">and
+</span></span><i>s</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">divides
+</span></span><i>r</i><span style="font-variant: normal"><span style="font-style: normal">.</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Answer:
+Since </span></span><i>q</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">divides
+</span></span><i>p</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">then
+there is some number such that </span></span><i>p = qm</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+likewise for the other pair, there is some number such that </span></span><i>r
+= sn</i><span style="font-variant: normal"><span style="font-style: normal">.
+Then </span></span><i>pr = qmsn</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+this is clearly divisible by </span></span><i>qs</i><span style="font-variant: normal"><span style="font-style: normal">.</span></span></p>
+<hr/>
+
+<p>Exercise: Sometimes we cannot compute a quotient because there is
+no number <i>z</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">satisfying
+the equation </span></span><i>x = yz</i><span style="font-variant: normal"><span style="font-style: normal">.
+Take for instance 7/3. There is no number </span></span><i>z</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">for
+which 7 = 3</span></span><i>z</i><span style="font-variant: normal"><span style="font-style: normal">.
+Of course, if multiplication is like combining baskets of apples,
+then division is like segregating a pool of apples into baskets--and
+we could do that as much as possible with a remainder, even if the
+division is not &quot;even&quot;. So for instance we could say that
+7/3 has a quotient of 2 and a remainder of 1. This, in effect,
+communicates that 7 = 2*3 + 1. To give a formal definition we say </span></span><i>n</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">div
+</span></span><i>m</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">is
+the largest </span></span><i>q</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">such
+that </span></span><i>qm &lt; n</i><span style="font-variant: normal"><span style="font-style: normal">,
+which we also call the </span></span><span style="font-variant: normal"><span style="font-style: normal"><b>quotient</b></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+We say </span></span></span><i><span style="font-weight: normal">n</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">mod
+</span></span></span><i><span style="font-weight: normal">m</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">is
+the number </span></span></span><i><span style="font-weight: normal">n-mq</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">where
+again </span></span></span><i><span style="font-weight: normal">q</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">is
+equal to </span></span></span><i><span style="font-weight: normal">n
+</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">div
+</span></span></span><i><span style="font-weight: normal">m</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+</span></span></span><i><span style="font-weight: normal">n</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">mod
+</span></span></span><i><span style="font-weight: normal">m</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">is
+called either the </span></span></span><span style="font-variant: normal"><span style="font-style: normal"><b>remainder</b></span></span>
+<span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">or
+</span></span></span><span style="font-variant: normal"><span style="font-style: normal"><b>modulus</b></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.</span></span></span></p>
+<p style="font-variant: normal; font-style: normal">Find 22 div 5 and
+find 22 mod 5. Express 22/5 with a quotient and remainder.</p>
+<p style="font-variant: normal; font-style: normal">Answer: 22 div 5
+= 4 since 5*4 = 20 &lt; 22 but yet 5*5 is too big.</p>
+<p style="font-variant: normal; font-style: normal">22 mod 5 = 22 -
+(5*4) = 2.</p>
+<p style="font-variant: normal; font-style: normal">22 = 5*4+2</p>
+<hr/>
+
+<p>Exercise: Python has a modulus operator, which is the % symbol.</p>
+<p>In[n]: 22%5</p>
+<p>Out[n]: 2</p>
+<p>Let's write a script in which we have a list of numbers, and we
+want to loop over this list, counting the number of entries that are
+even. Since even numbers are just those that have 0 remainder when
+divided by 2, we can use this as a test for whether something is
+even. Explain what the following code does.</p>
+<p>1| exampleList = [2, 3, 4, 5, 6]</p>
+<p>2| ag = 0</p>
+<p>3| for num in exampleList:</p>
+<p>4| if num%2 == 0:</p>
+<p>5| ag += 1</p>
+<p>Answer:</p>
+<p>We start with an example list, and we want to count how many even
+numbers it has. In this example clearly the answer is 3. We also
+start an aggregator variable, `ag`, to store the count as we march
+through the list. Using the for-loop, we call each number in the list
+`num` and test whether `num%2 == 0`. This effectively tests whether
+the number is even. For instance when `num` takes the value 2 from
+the list, the answer is yes, and the code on line 5 will run,
+therefore incrementing `ag`. If `num` takes the value 3 then the test
+`num%2 == 0` will test false, and the code on line 5 will not run.</p>
+<p>Thus the aggregator variable increases once for each even number
+in the list, and we have the desired count.</p>
+<hr/>
+
+<p>Exercise: Write 0b101 / 0b10 as a quotient and remainder.</p>
+<p>Answer: 0b101 = 0b10*0b10 + 0b1</p>
+<hr/>
+
+<p>Exercise: <span style="font-variant: normal"><span style="font-style: normal">Find
+all of the factors of 10. By this I mean, list every number that
+could be used for </span></span><i>x</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">if
+we have </span></span><i>xy = 10</i><span style="font-variant: normal"><span style="font-style: normal">.</span></span></p>
+<p style="font-variant: normal; font-style: normal">Answer: 1, 2, 5,
+10.
+</p>
+<hr/>
+
+<p>Exercise: Find all of the factors of 13.</p>
+<p>Answer: 1, 13.</p>
+<hr/>
+
+<p>Exercise: We begin with a few definitions.</p>
+<p>First, we just have vocabulary over-load. We say that a number <i>z</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">has
+factor </span></span><i>x</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">to
+mean, as we have said before, that there is a number </span></span><i>y</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">such
+that </span></span><i>z = xy</i><span style="font-variant: normal"><span style="font-style: normal">.
+This is nothing new. What's new is that we also commonly describe
+this by saying that </span></span><i>x</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><b>divides</b></span></span><span style="font-variant: normal">
+</span><i><span style="font-weight: normal">z</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+We often write this as </span></span></span><i><span style="font-weight: normal">x</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">|</span></span></span><i><span style="font-weight: normal">z</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+Notice that the | symbol is not an operation. The result is not a
+number. In fact, saying </span></span></span><i><span style="font-weight: normal">x</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">|</span></span></span><i><span style="font-weight: normal">z
+</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">is
+a statement--it makes a claim. You could regard this as &quot;returning&quot;
+a truth-value if you like. But it means the same thing as saying &quot;</span></span></span><i><span style="font-weight: normal">z</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">has
+</span></span></span><i><span style="font-weight: normal">x</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">as
+a factor&quot;.</span></span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">For
+my own self-amusement I'll define a factor of </span></span></span><i><span style="font-weight: normal">x</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">to
+be a </span></span></span><span style="font-variant: normal"><span style="font-style: normal"><b>stupid
+factor</b></span></span><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">if
+that factor is either 1 or </span></span></span><i><span style="font-weight: normal">x</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+Thus the stupid factors of 13 are 1 and 13. The stupid factors of 10
+are 1 and 10. (Read: &quot;Yeah, they're factors, but they're stupid
+factors. We want more interesting factors.&quot;)</span></span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">Finally,
+we define a </span></span></span><span style="font-variant: normal"><span style="font-style: normal"><b>prime</b></span></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">number
+as any number greater than 1 which has only stupid factors. Any
+number that's not prime is </span></span></span><span style="font-variant: normal"><span style="font-style: normal"><b>composite</b></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.</span></span></span></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+(The only reason to exclude 1 is to make certain statements easier
+later on. Put another way, the number 1 is just too special to group
+it in with the other primes, so we deliberately exclude it.)</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+Now for the exercise: List the first ten primes.</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+Answer: 2, 3, 5, 7, 11, 13, 17, 19, 21, 23.</p>
+<hr/>
+
+<p>Exercise: <span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">How
+could you use the Python % operator to test whether </span></span></span><i><span style="font-weight: normal">m</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">|</span></span></span><i><span style="font-weight: normal">n</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">?</span></span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">Answer:
+</span></span></span><i><span style="font-weight: normal">m</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">|</span></span></span><i><span style="font-weight: normal">n
+</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">if
+and only if `n%m == 0` return `True`.</span></span></span></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+To illustrate this, observe the results of `10%1` and `10%2` and
+`10%3`.</p>
+<hr/>
+
+<p>Exercise: The following code will test whether `n` stores a prime
+number or not. In the given code `n` stores 7 and so will print
+`True`, but if `n` is changed to 8 for instance, the code will then
+print `False`. Explain how the code works.</p>
+<p>1| n = 7</p>
+<p>2| hasSmartFactor = False</p>
+<p>3| for num in range(n):</p>
+<p>4| if n%(num+1) == 0 and num &gt; 1 and num &lt; n:</p>
+<p>5| hasSmartFactor = True</p>
+<p>6| print( not hasSmartFactor )</p>
+<p>Answer: Line 2 creates a kind of initial hypothesis--since we
+haven't yet found a smart factor (i.e. a non-stupid factor) then we
+assume it has none at all. But this is just an initial hypothesis, to
+be revised if needed when we find the appropriate evidence.</p>
+<p>To search for the appropriate evidence, we divide `n` by all
+numbers 2 through `n`-1. To do that, we make a for-loop ranging
+through `n` using the variable `num` to store the denominator for
+each test. Unfortunately in Python this starts at 0 and, if we tried
+to compute `n%num` we would get a divide-by-zero error. Thus In
+change this to `n%(num+1)`. But also we're not interested in stupid
+factors like 1, so I include the caveat `and num &gt; 1` to make sure
+we are only testing for smart divisors. For the same reason I also
+include the caveat `num &lt; n`.
+</p>
+<p>If `n%(num+1) and n &gt; 1 and num &lt; n` ever evaluates to
+`True` then I want to conclude that the number has a smart factor, so
+in this case I set the variable `hasSmartFactor` to True. At the end
+of the day, if `hasSmartVariable` stores `True` then the number is
+not prime and I print `False`; and vice versa. Hence I print the
+negation of `hasSmartFactor`.</p>
+<p>You might find it helpful to insert a print-line within the
+for-loop to see what's going on as the code runs, rather than only
+seeing a print-out when the code terminates. If you would like to,
+you can run the following code and try to trace out why you're
+getting the print-out that you get.</p>
+<p>1| n = 7</p>
+<p>2| hasSmartFactor = False</p>
+<p>3| for num in range(n):</p>
+<p>4| print('The divisor is: ') + str(num)</p>
+<p>5| print('The remainder is: ' + str(n%num))</p>
+<p>6| print('n is divisible by num: ' + str(n%num == 0))</p>
+<p>7| if n%(num+1) == 0 and num &gt; 1 and num &lt; n:</p>
+<p>8| hasSmartFactor = True</p>
+<p>9| print( not hasSmartFactor )</p>
+<hr/>
+
+<p>Exercise: The following code also tests for whether `n` is prime
+but uses a fairly different method. Explain how this works.</p>
+<p>1| n = 7</p>
+<p>2| ag = False</p>
+<p>3| for num in range(n-2):</p>
+<p>4| ag = ag or n%(num+2)</p>
+<p>5| print( not ag )</p>
+<p>Answer: I create a kind of aggregator variable, but this one
+aggregates truth-value.
+</p>
+<p>Inside the body of the for-loop I use `num+2` so that I never
+consider the cases of 0 or 1. Because of this, I can also make the
+for-loop range from 0 to n-2 and therefore `num` will never take the
+value `n`. So in total, doing things this way, I will only ever
+attempt to divide by 2 through `n`-1. If this is confusing you can
+just run the code
+</p>
+<p>1| n = 7</p>
+<p>2| for i in range(n-2):</p>
+<p>3| print(i+2)</p>
+<p>to see the divisors we will be testing out.</p>
+<p>Now, the way that the aggregator variable works is, as I test
+every possible divisor, if it is not an actual divisor then `ag` will
+store `ag or False`. Since `ag` starts out as `False` then if it only
+ever encounters `False` values it will stay `False` through the run
+of the program. However, if it ever encounters a `True` value then it
+will store the equivalent of `ag or True` and therefore become true.</p>
+<p>You might wonder: But what if it encounters a `False` on the next
+loop? Will it over-ride the previous `True` value? No! This is the
+nature of the `or` operator, that if just one value is true the whole
+thing stays true! So nothing will change its value away from `True`
+which is just how we want it.</p>
+<p>At the end, the `ag` variable indicates whether there was any
+number from 2 to `n`-1 that divided `n`. If there is such a number we
+want to print `False` to indicate that `n` is prime; otherwise we
+want to print `True`.</p>
+<hr/>
+
+<p>Exercise: We define:</p>
+<p>The <b>greatest common divisor</b> <span style="font-weight: normal">of
+any two numbers </span><i><span style="font-weight: normal">m</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></span><i><span style="font-weight: normal">n</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">is
+the number </span></span></span><i><span style="font-weight: normal">d</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">such
+that both </span></span></span><i><span style="font-weight: normal">d</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">|</span></span></span><i><span style="font-weight: normal">m</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></span><i><span style="font-weight: normal">d</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">|</span></span></span><i><span style="font-weight: normal">n</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+there is no greater number than </span></span></span><i><span style="font-weight: normal">d</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">which
+has this property. A more mathematical way of saying that last part
+is: for every </span></span></span><i><span style="font-weight: normal">e</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">such
+that </span></span></span><i><span style="font-weight: normal">e|m</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></span><i><span style="font-weight: normal">e|n</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">then
+</span></span></span><i><span style="font-weight: normal">e</span></i>≤<font face="Liberation Serif, serif"><i><span style="font-weight: normal">d</span></i></font><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">.
+This is how, in Mathematics, we say &quot;</span></span></font></span><font face="Liberation Serif, serif"><i><span style="font-weight: normal">d</span></i></font><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">is
+the greatest number with such-and-such property&quot;.</span></span></font></span></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+<font face="Liberation Serif, serif">For instance the greatest common
+divisor of 6 and 9 is 3. To say this compactly we write gcd(6,9) = 3.
+Based on this notation, then, we also have for instance gcd(100, 75)
+= 25.</font></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+<font face="Liberation Serif, serif">Here's your exercise. Find
+gcd(9, 12) and gcd(7, 10).</font></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+<font face="Liberation Serif, serif">Answer: You can just brute-force
+check every number that divides 9: These are 1, 3, and 9. Of them,
+only 1 and 3 also divide 12. Therefore the greatest is gcd(9,12) = 3.</font></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+<font face="Liberation Serif, serif">Similarly you could brute-force
+check every number that divides 75. These are 1, 3, 5, 15, 25, and
+75. Of these only 1, 5, and 25 divide 100. Thus gcd(100,75) = 25.</font></p>
+<hr/>
+
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+<font face="Liberation Serif, serif">Exercise: For more challenging
+instances of calculating the gcd, it can help to draw what's called a
+factor tree. This leverages the fact that a) some factors are easy to
+spot and b) once you identify a factor, you can divide out by that
+factor and the quotient must contain exactly the remaining factors.
+To illustrate, suppose we want to find all the factors of 1470. A
+factor of 10 is obvious. Dividing by 10 the quotient is 147 and it's
+not too hard to see that this has a factor of 7. After dividing by 7
+we get 21 which of course factors into 3 and 7. If we then make sure
+that we have split every number down into prime factors (i.e. pieces
+that cannot be split further in any interesting way) we can describe
+the process in a tree like this.</font></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+<font face="Liberation Serif, serif">__Example__</font></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+<font face="Liberation Serif, serif">This shows us what is called the
+prime factorization of a number. To formally define this we first
+define what the multiplicity of a prime number is.</font></p>
+<p><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">If
+</span></span></font></span><font face="Liberation Serif, serif"><i><span style="font-weight: normal">n</span></i></font><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">is
+a number divisible by prime </span></span></font></span><font face="Liberation Serif, serif"><i><span style="font-weight: normal">p</span></i></font><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">,
+then we say that the </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><b>multiplicity</b></span></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">of
+</span></span></font></span><font face="Liberation Serif, serif"><i><span style="font-weight: normal">p</span></i></font><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">in
+</span></span></font></span><font face="Liberation Serif, serif"><i><span style="font-weight: normal">n</span></i></font><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">is
+the number of times </span></span></font></span><font face="Liberation Serif, serif"><i><span style="font-weight: normal">p</span></i></font><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">divides
+</span></span></font></span><font face="Liberation Serif, serif"><i><span style="font-weight: normal">n</span></i></font><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">.
+That is to say, if you divide </span></span></font></span><font face="Liberation Serif, serif"><i><span style="font-weight: normal">n</span></i></font><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">by
+</span></span></font></span><font face="Liberation Serif, serif"><i><span style="font-weight: normal">p</span></i></font><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">and
+then divide again, and again, and so on, the multiplicity of </span></span></font></span><font face="Liberation Serif, serif"><i><span style="font-weight: normal">p</span></i></font><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">is
+the number of these iterations you can perform without having a
+remainder.</span></span></font></span></p>
+<p><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">Now
+we can say what the prime factorization of a number is. The </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><b>prime
+factorization </b></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">of
+</span></span></font></span><font face="Liberation Serif, serif"><i><span style="font-weight: normal">n</span></i></font><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">is
+the list of all the primes that divide </span></span></font></span><font face="Liberation Serif, serif"><i><span style="font-weight: normal">n</span></i></font><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">and
+their multiplicity.</span></span></font></span></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+<font face="Liberation Serif, serif">Thus the prime factorization of
+1470 can be represented as $$1470 = 2\ast 3\ast 5\ast 7\ast 7$$</font></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+<font face="Liberation Serif, serif">This exhibits that 2 is a factor
+with multiplicity 1, and 3 is a factor with multiplicity 1, and 5 is
+a factor with multiplicity 1, and 7 is a factor with multiplicity 2.</font></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+<font face="Liberation Serif, serif">Your exercise is to draw a
+factor tree for 55055 and write down its prime factorization.</font></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+<font face="Liberation Serif, serif">__Example__</font></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+<font face="Liberation Serif, serif">55055 = 5 * 7 * 11*11 * 13</font></p>
+<hr/>
+
+<p>Exercise: How many factors does 1470 have?</p>
+<p>Answer: You may have been tempted to just say how many prime
+factors 1470 has, which is four: the factors 2, 3, 5, and 7. However,
+combinations of these prime factors are also prime factors, and then
+there's also 1. Hence the list of all factors of 1470 is</p>
+<p>(all factors that are 1 or prime)</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>5</p>
+<p>7</p>
+<p>(all factors that are a product of two primes)</p>
+<p>2*3 = 6</p>
+<p>2*5 = 10</p>
+<p>2*7 = 14</p>
+<p>3*5 = 15</p>
+<p>3*7 = 21</p>
+<p>5*7 = 35</p>
+<p>7*7 = 49</p>
+<p>(all factors that are a product of 3 primes)</p>
+<p>2*3*5 = 30</p>
+<p>2*3*7 = 42</p>
+<p>2*5*7 = 70</p>
+<p>2*7*7 = 98</p>
+<p>3*5*7 = 105</p>
+<p>3*7*7 = 147</p>
+<p>5*7*7 = 245</p>
+<p>(all factors that are a product of 4 primes)</p>
+<p>2*3*5*7 = 210</p>
+<p>2*3*7*7 = 294</p>
+<p>2*5*7*7 = 490</p>
+<p>3*5*7*7 = 735</p>
+<p>(all factors that are a product of 5 primes)</p>
+<p>2*3*5*7*7 = 1470</p>
+<p>In total then there are 24 different factors. That was a lot of
+work. Can we get a computer to do this for us from now on?</p>
+<hr/>
+
+<p>Exercise: Write a Python script that will, for any given number,
+produce a list of its factors. You can add elements into a list as
+needed by the `.append()` method. I'll illustrate its use in the code
+below.</p>
+<p>In[n]: someList = [1,2,3,4]</p>
+<p>In[n+1]: someList.append(13)</p>
+<p>In[n+2]: someList</p>
+<p>Out[n+2]: [1, 2, 3, 4, 13]</p>
+<p>Notice that when you use the `.append()` method, this doesn't
+&quot;return&quot; anything, it just changes the list. That's why,
+after line `In[n+1]` there is no `Out[n+1]` line, because the append
+method doesn't return anything to print. I can also illustrate this
+fact by typing
+</p>
+<p>In[n+3]: nothingHere = someList.append(5)</p>
+<p>In[n+4]: print(nothingHere)</p>
+<p>Out[n+4]: None</p>
+<p>What we see here is the Python `None` object. We won't discuss it
+much but just know that this is what pops up in certain parts of
+Python programming when you do something moderately illicit. Here
+what I did that was moderately illicit was to try to store
+`someList.append(5)`. As I've said, this does not return anything--in
+a sense, it is a &quot;verb&quot; not a &quot;noun&quot;. It is not a
+thing, it is just doing something. Thus you cannot save it into a
+variable, you must only let it do. Rather than save this thing, to
+get the result of the &quot;verb&quot; you simply access `someList`
+instead.</p>
+<p>Now having said that, replace the &quot;TODO&quot;s with code in
+the following script, so that the script will generate a list of all
+factors of given number. In the given example we should find a list
+of 24 numbers, as generated manually (bleh) above. Notice that the
+code initializes an aggregator variable to an empty list. There's
+nothing wrong with an empty list, it's just a list with nothing in
+it! Yet!</p>
+<p>1| n = 1470</p>
+<p>2| ag = []</p>
+<p>3| for num in range(n):</p>
+<p>4| if n%(num+1) == TODO1:</p>
+<p>5| ag.append(TODO2)</p>
+<p>6| print(ag)</p>
+<p>Answer: Replace TODO1 with `0` and replace TODO2 with `num+1`</p>
+<p>If you're keen in a further exercise you can try to find a list of
+a number's prime factors (in this case it would be a list of four
+numbers).</p>
+<hr/>
+
+<p>Exercise: Given that 55055 and 1470 have the prime factorizations
+that we found above, what is their gcd?</p>
+<p>Answer: We can use the prime factorizations to build up the gcd.
+We know that 5 divides both of these, so we can include it in the
+gcd. We also know that 7 divides both of them, so therefore 5*7 must
+divide them. We'll prove statements like these later, but for now it
+should be fairly obvious. In any case, if we didn't trust this
+method, we could manually check that 35 is a common divisor and
+although it might take a while, we could check that none of the other
+23 factors of 1470 is a greater common divisor.</p>
+<p>In fact we could have a computer do this.</p>
+<hr/>
+
+<p>Exercise:
+</p>
+<p>We already have a script that will find the list of all factors of
+a number, so maybe we can amend it to find both lists for both
+numbers, and search then for the greatest number that they have in
+common. Here's one way to do that:</p>
+<p>1| n = 1470</p>
+<p>2| agn = []</p>
+<p>3| for num in range(n):</p>
+<p>4| if n%(num+1) == 0:</p>
+<p>5| agn.append(num+1)</p>
+<p>6| m = 55055</p>
+<p>7| agm = []</p>
+<p>8| for num in range(m):</p>
+<p>9| if m%(num+1) == 0:</p>
+<p>10| agm.append(num+1)</p>
+<p>11| gcdHyp = 1</p>
+<p>12| for num in agn:</p>
+<p>13| if num in agm and num &gt; gcdHyp:</p>
+<p>14| gcdHyp = num</p>
+<p>15| print(gcdHyp)</p>
+<p>Explain how this code works.</p>
+<p>Answer: Of course it first produces the lists of factors, as
+described before. Then it initializes what we might call a hypothesis
+variable. It starts from the hypothesis that the gcd is 1, and will
+revise that hypothesis only when it meets counter-evidence. To search
+for counter-evidence, it marches through the first list of factors,
+and tests whether this factor is in the other list of factors
+(thereby making it a common factor) and it tests to make sure that
+what it's found so far is greater than the ongoing hypothesis (if
+it's not we shouldn't replace with something smaller--we're looking
+for the GREATEST common factor!). If what we have is a common factor
+and greater than the current hypothesis, we replace.</p>
+<hr/>
+
+<p>Exercise: One nice property of a prime number--in spite of the
+fact that I've called all its factors stupid--is that it doesn't
+share a (smart) factor with any other number. What makes this so nice
+is that, if you divide any number by a prime, like for instance 75
+divided by 5, then no matter how you split up 75 into factors, 5 will
+divide one of those factors. So for instance if we split up 75 into
+3*25 then 5|25. If we split up 75 into 5*15 then 5|5 <i>and</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">5|15.
+In every case, 5 divides one of those numbers. This is unlike 15
+which does divide 75, but if we split up 75 into 3*25 then neither
+15|3 nor 15|25. In a sense the &quot;cause&quot; of this is the fact
+that 15 has both a factor of 3 and a factor of 5, and we chose to
+split of 75 so as to keep the factors of 3 in one place and the
+factors of 5 in another. </span></span>
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">You
+could get the same result using 6 which divides 36. Since 6 has
+factors 2 and 3, if we push the factors of 2 to the left and push the
+factors of 3 to the right we come up with 6|36 and 36 = 4*9 and but
+neither 6|4 nor 6|9. However, if we had used 3 instead of 6, then no
+matter how we split 36 into factors, 3 will always divide at least
+one of those factors. This fact will be useful throughout the rest of
+Number Theory, especially when we prove the Fundamental Theorem of
+Arithmetic. Most topics have a &quot;fundamental&quot; theorem. In
+Arithmetic the fundamental theorem is that every number has a unique
+prime decomposition, and we'll prove this rigorously when we study
+Number Theory. Just to give a flavor for what a fundamental theorem
+is, the Fundamental Theorem of Algebra is (to put it very roughly) an
+equation with power </span></span><i>5</i><span style="font-variant: normal"><span style="font-style: normal">,
+like $$x^5-3x^4+1=0$$ </span></span>
+</p>
+<p style="font-variant: normal; font-style: normal">has 5 solutions.
+In Calculus the fundamental theorem states a key relationship between
+the derivative and integral, the two most important objects in
+Calculus. A fundamental theorem typically tells us some key fact
+about a key object within the topic.
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Anyway,
+the point is that we will use this nice feature of primes when we
+prove the Fundamental Theorem of Arithmetic. But although prime
+numbers have this property, they're no the only ones. There is a
+notion of numbers being &quot;coprime&quot; where the numbers may not
+be prime themselves, but in a sense, from the perspective of each
+other, they behave as if they were prime </span></span><i>for each
+other</i><span style="font-variant: normal"><span style="font-style: normal">.
+</span></span><span style="font-variant: normal"><span style="font-style: normal"><b>Coprime</b></span></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">numbers
+are those which share no common factor. Thus for example 2 and 15 are
+coprime. So are 36 and 121.</span></span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">If
+a number </span></span></span><i><span style="font-weight: normal">m</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">divides
+</span></span></span><i><span style="font-weight: normal">n</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">,
+and </span></span></span><i><span style="font-weight: normal">n</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">has
+factors </span></span></span><i><span style="font-weight: normal">ab</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">,
+and </span></span></span><i><span style="font-weight: normal">m</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></span><i><span style="font-weight: normal">a</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">are
+coprime, then </span></span></span><i><span style="font-weight: normal">m</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">divides
+</span></span></span><i><span style="font-weight: normal">b</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+For example, 2 and 15 are coprime. 2 divides 60. 60 can be split into
+factors 15 and 4. Therefore 2 must divide 4. In this example I used
+</span></span></span><i><span style="font-weight: normal">m=2, n=60,
+a=15, b=4</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+The example probably seems kind of uninteresting and contrived, but
+that's because I'm keeping it simple. It will take some time before
+the utility of the concept becomes clear. </span></span></span>
+</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+Here's the exercise. In the list of numbers [2, 3, 4, 5, 6, 7, 8, 9,
+10] find all pairs of numbers that are coprime.
+</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+Answer: 2 is coprime with 3, 5, 7, and 9. 3 is coprime with 4, 5, 7,
+8, and 10. 5 is coprime with 6, 7, 8, and 9. 6 is coprime with 7. 7
+is coprime with 8, 9, and 10. 8 is coprime with 9. 9 is coprime with
+10.</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+I organized my answer so that I wouldn't repeat myself. By saying for
+instance that 2 is coprime with 3, I don't then need to also say that
+3 is coprime with 2, so I skipped this and similar statements.
+</p>
+<hr/>
+
+<p>Exercise: Finally we introduce the concept of the least common
+multiple, or lcm, for two numbers. Of course we say that <i>m</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is
+a </span></span><span style="font-variant: normal"><span style="font-style: normal"><b>multiple</b></span></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">of
+</span></span><i>n</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">if
+there exists a number </span></span><i>q</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">such
+that </span></span><i>m = nq</i><span style="font-variant: normal"><span style="font-style: normal">.
+(I.e. </span></span><i>m</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">is
+a multiple of </span></span><i>n</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">if
+you can multiply </span></span><i>n</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">by
+something to get </span></span><i>m</i><span style="font-variant: normal"><span style="font-style: normal">.
+E.g. 75 is a multiple of 25 because 75 = 25*3.)</span></span></p>
+<p>Definition: The <b>least common multiple</b> <span style="font-weight: normal">of
+</span><i><span style="font-weight: normal">m</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></span><i><span style="font-weight: normal">n</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">is
+that number </span></span></span><i><span style="font-weight: normal">a</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">such
+that there exist numbers </span></span></span><i><span style="font-weight: normal">b</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></span><i><span style="font-weight: normal">c</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">such
+that </span></span></span><i><span style="font-weight: normal">a=mb</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></span><i><span style="font-weight: normal">a=nc</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+For example if </span></span></span><i><span style="font-weight: normal">m=22
+</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></span><i><span style="font-weight: normal">n=16</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">then
+their least common multiple is 176. That is because 176 = 22*8 and
+also 176 = 16*11. Said another way, the lcm of two number is the
+least number that is a multiple of both.</span></span></span></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+Find lcm(5,7) and lcm(15,7) and lcm(35,7). Also explain how to use
+the prime factorization of two numbers, like 1470 and 55055, to
+easily obtain their lcm. Also explain the relationship between the
+lcm and gcd. Also write a script that will find the lcm of two
+numbers.
+</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+Answer: The three lcms are 35, 35, and 35.
+</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+To find the lcm of 1470 = 2*3*5*7*7 and 55055 = 5*7*11*11*13 we need
+a number which is a multiple of 1470 and therefore has all of its
+factors. So to begin with we write 2*3*5*7*7. This however is not a
+multiple of 55055 because it's missing some factors, namely two
+factors of 11 and one factor of 13. Since it already has factors 5
+and 7 we need not worry about these. We just add on the factors we
+need (so that the result is the least value possible) and get
+2*3*5*7*7*11*11*13. This computes to 2312310, hence lcm(1470, 55055)
+= 2312310.</p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">The
+relationship between the lcm(</span></span></span><i><span style="font-weight: normal">m</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">,</span></span></span><i><span style="font-weight: normal">n</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">)
+= </span></span></span><i><span style="font-weight: normal">mn</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">/gcd(</span></span></span><i><span style="font-weight: normal">m,n</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">).
+If this isn't clear to you, example the example of 1470 and 55055. By
+multiplying them you would get all of their factors </span></span></span><i><span style="font-weight: normal">and
+the factors that they share, the gcd, you would get twice</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+Therefore if you divide out by the factors that they share, the gcd,
+they would appear only once just like in the lcm.</span></span></span></p>
+<hr/>
+
+<p>Exercise: Sympy has helpful functions for Arithmetic. Execute the
+following commands and guess what they do.</p>
+<p>1| import sympy as sp</p>
+<p>2| print( primerange(10,20) )</p>
+<p>3| print( [prime(1), prime(2), prime(3), prime(4)] )</p>
+<p>4| print( sp.ntheory.multiplicity(11,121) )</p>
+<p>5| print( sp.ntheory.factorint(121) )</p>
+</body>
+</html>

@@ -1,0 +1,804 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title>AllMath &gt;&gt; Matrices</title>
+	<meta name="generator" content="LibreOffice 5.1.6.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="2017-04-04T21:29:02.149407535"/>
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2017-04-04T21:28:03.772178002">
+	<meta name="created" content="2017-04-02T19:17:45.892909899">
+	<meta name="changed" content="2017-04-04T21:22:49.284566341">
+	<meta name="created" content="2017-04-02T19:17:45.892909899">
+	<meta name="changed" content="2017-04-04T11:13:39.890078384">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2017-04-04T00:47:08.915477490">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2017-03-28T00:28:58.614618883">
+	<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="00:00:00">
+	<meta name="created" content="2017-03-21T20:27:10.494278786">
+	<meta name="changed" content="2017-03-21T21:28:20.559350513">
+	<meta name="created" content="2017-03-21T20:27:10.494278786">
+	<meta name="changed" content="2017-03-21T21:17:08.275337413">
+</head>
+<body lang="en-US" dir="ltr">
+<table width="100%" cellpadding="4" cellspacing="0" style="page-break-before: always; page-break-inside: avoid">
+	<col width="128*">
+	<col width="128*">
+	<tr valign="top">
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><a href="../main/main.html">Home</a> &gt; <a href="arithmetic.html">Arithmetic</a>
+			&gt; <a href="arithmeticCh03.html">Extensions and alternatives</a>
+			&gt; Matrices</p>
+		</td>
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding: 0.04in">
+			<p align="right">&lt; <a href="03.02.02arithmetic.html">prev</a> |
+			<a href="03.04.01arithmetic.html">next</a> &gt; 
+			</p>
+		</td>
+	</tr>
+</table>
+<h1>Arithmetic</h1>
+<p style="margin-top: 0.17in; page-break-after: avoid"><font face="Albany, sans-serif"><font size="4" style="font-size: 14pt">Chapter
+03: Extensions</font></font></p>
+<p style="margin-top: 0.17in; page-break-after: avoid"><font face="Albany, sans-serif"><font size="4" style="font-size: 14pt">Section
+03: Matrices</font></font></p>
+<p>Abstract: Tuples are ordered lists of numbers, and matrices are
+ordered lists of tuples. They often represent points in space and
+operations on points, although it is also very helpful to think of
+matrices as encoding the composition of linear transformation. We
+define the sum and product, and magnitude of each. 
+</p>
+<p>Terms: Tuple, matrix, row, column, dimension, coordinate,
+dot-product, square matrix, permutation matrix, main diagonal, off
+diagonal, determinant, minor, singular matrix.</p>
+<p>Symbols: [...], [[...], ..., [...]], <i>M</i><sup>t</sup>, 
+</p>
+<hr/>
+
+<p>Question: Ordered lists of numbers come up all the time in Math
+and Science. In Math they can tell you the coordinates of a point (a
+concept to be defined later, but presumably every reader is at least
+a little familiar with the idea); in Physics they can indicate the
+direction and size of a force; in Computer Science they can indicate
+the red-green-blue values of a pixel; and in Statistics they can
+represent a list of measurements. These are just a few examples and
+many more are possible. 
+</p>
+<p><span style="font-weight: normal">We will call these lists </span><b>tuples</b><span style="font-weight: normal">.
+The numbers in the list could be integers, rationals, reals, complex,
+integers mod some number, or </span><i><span style="font-weight: normal">p</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">-adic
+numbers. Although the choice of numbers is flexible, the most
+interesting choice that I know of is the complex numbers. Also, the
+choice is not perfectly flexible: For theoretical reasons we will not
+consider the natural numbers as an acceptable number set.</span></span></span></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+Here are three examples of tuples: 
+</p>
+<p><i><span style="font-weight: normal">t</span></i><sub><i><span style="font-weight: normal">1</span></i></sub>
+<span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">=
+[1, 2, 3]</span></span></span></p>
+<p><i><span style="font-weight: normal">t</span></i><sub><i><span style="font-weight: normal">2</span></i></sub>
+<span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">=
+[3, 4, 5]</span></span></span></p>
+<p><i><span style="font-weight: normal">t</span></i><sub><i><span style="font-weight: normal">3</span></i></sub>
+<span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">=
+[8, 9, 10, 11, 12]</span></span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">The
+length of </span></span></span><i><span style="font-weight: normal">t</span></i><sub><i><span style="font-weight: normal">1</span></i></sub>
+<span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">is
+3, and same for </span></span></span><i><span style="font-weight: normal">t</span></i><sub><i><span style="font-weight: normal">2</span></i></sub><i><span style="font-weight: normal">.
+</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">Of
+course </span></span></span><i><span style="font-weight: normal">t</span></i><sub><i><span style="font-weight: normal">3</span></i></sub>
+<span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">has
+length 5. It is often useful to collect lists together, ultimately
+forming a list of lists. We will always require the lists to have the
+same length. The list of lists we call a </span></span></span><span style="font-variant: normal"><span style="font-style: normal"><b>matrix</b></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.</span></span></span></p>
+<p><i><span style="font-weight: normal">M = [t</span><sub><span style="font-weight: normal">1</span></sub><span style="font-weight: normal">,
+t</span><sub><span style="font-weight: normal">2</span></sub><span style="font-weight: normal">]
+= [ [1,2,3], [3,4,5] ]</span></i></p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">Notice
+that the matrix has length 2. When a list is inside of a matrix, we
+call it a </span></span></span><span style="font-variant: normal"><span style="font-style: normal"><b>row</b></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+The reason is because we typically write the matrix </span></span></span><i><span style="font-weight: normal">M</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">in
+the following way to help our eyes see the information more
+naturally:</span></span></span></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+$$M = \left[\begin{matrix} 1 &amp; 2 &amp; 3 \\ 3 &amp; 4 &amp; 5
+\end{matrix}\right]$$</p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">In
+this presentation a matrix is a rectangular grid of numbers, and when
+we write it this way it is standard to omit commas separating the
+values--just for brevity. A row is then seen to also be a &quot;horizontal
+slice&quot; of the data. We also define a </span></span></span><span style="font-variant: normal"><span style="font-style: normal"><b>column
+</b></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">as
+a vertical slice of data, such as in this case [1, 3]. That's not
+exactly right because saying [1,3] forgets that this data was
+oriented vertically rather than horizontally, something that we
+sometimes want to remember. Hence we write that the column is either
+$$\left[\begin{matrix}1\\ 3\end{matrix}\right]$$ or</span></span></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">to
+keep things in-line we may write [1,3]</span></span></span><span style="font-variant: normal"><sup><span style="font-style: normal"><span style="font-weight: normal">t</span></span></sup></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+The super-script </span></span></span><i><span style="font-weight: normal">t</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">suggests
+the &quot;transpose&quot;, something we'll talk more about soon. We
+additionally define the </span></span></span><span style="font-variant: normal"><span style="font-style: normal"><b>dimension</b></span></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">of
+a matrix to be a pair of numbers written in the form </span></span></span><i><span style="font-weight: normal">m×n</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">so
+that for instance the example </span></span></span><i><span style="font-weight: normal">M</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">above
+has dimension </span></span></span><i><span style="font-weight: normal">2×3</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+Of course the left number reports the number of rows and the right
+number reports the number of columns. It used to be a helpful
+mnemonic to call this &quot;RC cola&quot; in order to remember which
+comes first, rows or columns--but kids these days grumble grumble. </span></span></span>
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">We
+can often harmlessly forget that matrices are lists of lists, and
+instead just regard them as rectangles of numbers. In doing so we
+also blur the distinction between a tuple and a matrix because a
+tuple is a rectangle of numbers with height 1. That is to say, a row
+can be regarded as a </span></span></span><i><span style="font-weight: normal">1×n</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">matrix
+where </span></span></span><i><span style="font-weight: normal">n</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">is
+the length of the row. We will also say that a column is the same
+thing as a </span></span></span><i><span style="font-weight: normal">m×1</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">matrix.
+</span></span></span>
+</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+How can we represent matrices in Python? Does SymPy do better?</p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">Answer:
+In bare Python the representation is obvious, we just write </span></span></span><span style="font-variant: normal"><font face="FreeMono, monospace"><span style="font-style: normal"><span style="font-weight: normal">t1
+= [1, 2, 3]</span></span></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">to
+get a tuple. However, the tuple operations are not what we usually
+want in Mathematics. Try </span></span></span><span style="font-variant: normal"><font face="FreeMono, monospace"><span style="font-style: normal"><span style="font-weight: normal">[1,2,3]
++ [3,4,5]</span></span></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+see what returns. Often in Math what we wish would return is [4,6,8]
+instead. To get a matrix we can of course write </span></span></span><span style="font-variant: normal"><font face="FreeMono, monospace"><span style="font-style: normal"><span style="font-weight: normal">mat1
+= [ [1,2,3], [4,5,6] ]</span></span></font></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">,
+but the same problem applies with addition--the result is not what we
+typically desire. In this construction, notice, matrices and rows are
+fundamentally different. If you access </span></span></span><span style="font-variant: normal"><font face="FreeMono, monospace"><span style="font-style: normal"><span style="font-weight: normal">t1[0]</span></span></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">you
+will get a number whereas if you access </span></span></span><span style="font-variant: normal"><font face="FreeMono, monospace"><span style="font-style: normal"><span style="font-weight: normal">mat1[0]
+</span></span></font></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">you
+get a row. </span></span></span><span style="font-variant: normal"><font face="FreeMono, monospace"><span style="font-style: normal"><span style="font-weight: normal">mat1[0][1]</span></span></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">will
+produce a number because it selects the &quot;zeroth&quot; (or first)
+row and then the &quot;oneth&quot; (or second) number.</span></span></span></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+In SymPy everything is a matrix, rather than having a distinction
+between rows or columns and matrices. Hence the following script
+prints a matrix. Notice that in SymPy a single row input is
+automatically converted to a column. This is because, by convention,
+we use columns more frequently than rows. There is no deep or
+interesting reason why, it is a fairly arbitrary choice.</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+1| import sympy as sp</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+2| m = sp.Matrix( [[1,2,3], [3,4,5]] )</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+3| v = sp.Matrix( [-1,0,1] )</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+4| w = sp.Matrix( [[1j, -1+2j, 2-2j]] )</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+5| print(m)</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+6| print(v)</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+7| print(w)</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+8| print(m.shape)</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+9| print(v.shape)</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+10| print(w.shape)</p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">Notice
+the difference between </span></span></span><span style="font-variant: normal"><font face="FreeMono, monospace"><span style="font-style: normal"><span style="font-weight: normal">v</span></span></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></span><span style="font-variant: normal"><font face="FreeMono, monospace"><span style="font-style: normal"><span style="font-weight: normal">w</span></span></font></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+</span></span></span><span style="font-variant: normal"><font face="FreeMono, monospace"><span style="font-style: normal"><span style="font-weight: normal">v</span></span></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">was
+entered as a single list, and SymPy automatically interpreted this as
+a column, whereas a list containing just one list like </span></span></span><span style="font-variant: normal"><font face="FreeMono, monospace"><span style="font-style: normal"><span style="font-weight: normal">w</span></span></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">was
+interpreted as a row. </span></span></span>
+</p>
+<hr/>
+
+<p>Exercise: We define <b>the </b><i><b>i,j</b></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><b>coordinate</b></span></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">of
+a matrix to be that coordinate located at row </span></span><i>i</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+column </span></span><i>j</i><span style="font-variant: normal"><span style="font-style: normal">.
+For instance in the matrix [ [ 1, 2, 3], [3, 4, 5] ] the 1,1
+coordinate is 1. The 2,3 coordinate is 5. We often denote these by
+</span></span><i>a</i><sub><i>i,j</i></sub><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">so
+that </span></span><i>a</i><sub><i>1,1</i></sub> <i>= 1</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+</span></span><i>a</i><sub><i>2,3</i></sub> <i>= 5. </i><span style="font-variant: normal"><span style="font-style: normal">For
+another example, in the matrix </span></span>
+</p>
+<p style="font-variant: normal; font-style: normal">$$M =
+\left[\begin{matrix}\_i &amp; 1 \\ 2i &amp; 2 \end{matrix}\right]$$</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">we
+have </span></span><i>a</i><sub><i>1,2</i></sub> <i>= 1</i><span style="font-variant: normal"><span style="font-style: normal">.</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Your
+exercise is to list all of the coordinates of the matrix </span></span><i>M</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">above
+in this notation. Also, if we have a matrix stored in a Python list
+like </span></span><span style="font-variant: normal"><font face="FreeMono, monospace"><span style="font-style: normal">m
+= [[1,2,3], [3,4,5]]</span></font></span><span style="font-variant: normal"><span style="font-style: normal">,
+how can we extract (slice) the first row? How can we slice the first
+number? How do we do if we store the matrix in a SymPy matrix?</span></span></p>
+<p style="font-variant: normal; font-style: normal">Answer: 
+</p>
+<p><i>a</i><sub><i>1,1</i></sub> <i>= _i</i></p>
+<p><i>a</i><sub><i>1,2</i></sub> <i>= 1</i></p>
+<p><i>a</i><sub><i>2,1</i></sub> <i>= 2i</i></p>
+<p><i>a</i><sub><i>2,2</i></sub> <i>= 2</i></p>
+<p style="font-variant: normal; font-style: normal">To slice the
+first row of <font face="FreeMono, monospace">m</font> in Python you
+run <font face="FreeMono, monospace">m[0].</font> To slice the first
+number you run <font face="FreeMono, monospace">m[0][0]</font>. 
+</p>
+<p style="font-variant: normal; font-style: normal">In SymPy if we
+store <font face="FreeMono, monospace">m = sp.Matrix(m) </font>then
+to slice the first row we can run <font face="FreeMono, monospace">m.row(0)
+</font>and to slice the first number we can execute <font face="FreeMono, monospace">m[0,0]</font>.
+</p>
+<hr/>
+
+<p>Question: <span style="font-variant: normal"><span style="font-style: normal">It
+is easy enough to suppose that matrix addition should be
+coordinate-wise. E.g. </span></span>
+</p>
+<p style="font-variant: normal; font-style: normal">$$\left[\begin{matrix}
+1 &amp; 2 &amp; 3 \\ 3 &amp; \_2 &amp; 1 \\ 1 &amp; 1 &amp; 0
+\end{matrix}\right] + \left[\begin{matrix} \_2 &amp; 3 &amp; 0 \\ 0 &amp;
+\_2 &amp; 1 \\ 1 &amp; 1 &amp; 1 \end{matrix}\right] =
+\left[\begin{matrix} \_1 &amp; 5 &amp; 3 \\ 3 &amp; \_4 &amp; 2 \\ 2
+&amp; 2 &amp; 1\end{matrix}\right]$$</p>
+<p style="font-variant: normal; font-style: normal">Notice by the way
+that the sum of two matrices is not defined if they do not share
+exactly the same dimensions--i.e. they have to have exactly the same
+number of rows and columns for this to be meaningful. If we were to
+guess the right way to multiply a matrix times a simple number, the
+guess would again be right.</p>
+<p style="font-variant: normal; font-style: normal">$$-2\left[\begin{matrix}
+1 &amp; 2 &amp; 3 \\ 4 &amp; 5 &amp; 6\end{matrix}\right] =
+\left[\begin{matrix} -2 &amp; -4 &amp; -6 \\ -8 &amp; -10 &amp;
+-12\end{matrix}\right]$$</p>
+<p style="font-variant: normal; font-style: normal">However, what
+should the product of two matrices be? The same coordinate-wise
+product so that, e.g. 
+</p>
+<p style="font-variant: normal; font-style: normal">$$\left[\begin{matrix}
+1 &amp; 2 &amp; 3 \\ 3 &amp; \_2 &amp; 1 \\ 1 &amp; 1 &amp; 0
+\end{matrix}\right] \cdot \left[\begin{matrix} \_2 &amp; 3 &amp; 0 \\
+0 &amp; \_2 &amp; 1 \\ 1 &amp; 1 &amp; 1 \end{matrix}\right]
+\stackrel{?}{=} \left[\begin{matrix} \_2 &amp; 6 &amp; 0 \\ 0 &amp; 4
+&amp; 1 \\ 1 &amp; 1 &amp; 0 \end{matrix}\right]$$</p>
+<p style="font-variant: normal; font-style: normal">Answer: This
+turns out not to be the version of multiplication that is most
+useful, surprisingly. Instead, a much more complicated version of
+multiplication turns out to be the right thing to do for most (but
+not all) applications. 
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">To
+explain the correct version of multiplication it is best to start
+with what is called the dot-product. The </span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">dot-product
+</span></span></span><span style="font-variant: normal"><span style="font-style: normal">is
+an operation that we perform between a </span></span><i>row on the
+left </i><span style="font-variant: normal"><span style="font-style: normal">and
+a </span></span><i>column on the right</i><span style="font-variant: normal"><span style="font-style: normal">.
+This operation will turn out to be of absolutely profound importance,
+although the reason is theoretical. Because we are here focused on
+computation, not theory, the reasons why this fairly simple operation
+is so important must remain a mystery until we study it further in
+Linear Algebra.</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">In
+any case, the </span></span><span style="font-variant: normal"><span style="font-style: normal"><b>dot-product</b></span></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is
+performed by coordinate-wise multiplying the row and column, and then
+summing over this result. In order to break this operation into
+steps, let's agree to say that </span></span><i>cw</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is
+the coordinate-wise product of a row and a column. Therefore </span></span>
+</p>
+<p style="font-variant: normal; font-style: normal">$$[1\,\, 2\,\,
+3]cw\left[\begin{matrix}\_2 \\ 0 \\ 1 \end{matrix}\right] = [\_2\,\,
+0, 3]$$</p>
+<p style="font-variant: normal; font-style: normal">The dot-product
+is then the sum over this coordinate-wise product. Therefore 
+</p>
+<p style="font-variant: normal; font-style: normal">$$[1\,\, 2\,\,
+3]\cdot \left[\begin{matrix}\_2\\ 0 \\1\end{matrix}\right] = \_2 + 0
+3= 1$$</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Notice
+that, very importantly, the dot product is not the kind of thing you
+usually think is a good multiplication operation. By multiplying two
+matrices, one row and one column, you get out a </span></span><i>number</i><span style="font-variant: normal"><span style="font-style: normal">.
+You would typically think that multiplication of two things would
+result in the same kind of thing. Still, this is the right thing to
+do.</span></span></p>
+<p style="font-variant: normal; font-style: normal">Note by the way
+that we cannot perform the dot-product on rows and columns that do
+not have the same length.</p>
+<hr/>
+
+<p>Exercise: Compute $$[3\,\, \_2 \,\,1]\cdot \left[\begin{matrix}3
+\\ \_2 \\ 1\end{matrix}\right]$$ Then also use Python to put these
+two matrices into variables called <font face="FreeMono, monospace">v</font>
+and <font face="FreeMono, monospace">w</font>. Then run the command
+<font face="FreeMono, monospace">v.dot(w)</font>. You could also
+execute the reverse, <font face="FreeMono, monospace">w.dot(v)</font>,
+and get the same answer.</p>
+<p>Answer: Since the coordinate-wise product is [9 4 1] then the
+dot-product is 14.</p>
+<hr/>
+
+<p>Exercise: Here are just two fairly simple examples illustrating
+what the dot-product can do for us. These are not even the most
+important, but they're the ones we can discuss at all right now. i)
+Although we have yet to discuss slopes, you may recall that if one
+line has slope <i>p/q</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">then
+the line with slope _</span></span><i>q/p</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">(the
+&quot;negative reciprocal&quot;) is perpendicular. Without defining
+any of these terms, let's just compute what the dot-product is
+between $$[p\,\, q]\cdot \left[\begin{matrix}\_q \\
+p\end{matrix}\right]$$</span></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">ii)
+Next, suppose that the row `[10\,\, 8\,\, 11]` represents the
+quantities of three different models of cars that a car dealership
+orders. The column $$\left[\begin{matrix}\$300,000,000 \\
+\$400,000,000 \\ \$500,000,000\end{matrix}\right]$$</span></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">represents
+the cost of each model of car (I've set the prices a little high so
+that the numbers still sound plausible in ten years even after
+inflation.). What is the total cost that the dealership incurs? Also,
+what is the average cost? </span></span>
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Answer:
+i) 0. What this shows is that, in a sense, the dot-product of
+perpendicular slopes will always be 0, no matter what their slopes
+actually are. ii) The total is $11.7 billion. The average is $11.7
+billion / sum([10 8 11]) </span></span><span style="font-variant: normal">≈
+$</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">403
+million. Because the computation of totals and especially </span></font></span><font face="Liberation Serif, serif"><i>averages</i></font><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">are
+so well-suited to the dot-product, the dot-product makes a very
+strong showing in the study of Statistics. It is also a very helpful
+concept and notation when calculating statistical quantities like
+variance, regression values, and more.</span></font></span></p>
+<hr/>
+
+<p>Question: Now that we understand the dot-product on rows and
+columns, how do we multiply matrices in general?</p>
+<p>Answer: Let's think of this coordinate-by-coordinate in the
+product $$\left[\begin{matrix} 1 &amp; 2 &amp; 3 \\ 3 &amp; \_2 &amp;
+1 \\ 1 &amp; 1 &amp; 0 \end{matrix}\right] \cdot \left[\begin{matrix}
+\_2 &amp; 3 &amp; 0 \\ 0 &amp; \_2 &amp; 1 \\ 1 &amp; 1 &amp; 1
+\end{matrix}\right] \stackrel{?}{=} \left[\begin{matrix} a &amp; b &amp;
+c \\ d &amp; e &amp; f \\ g &amp; h &amp; i \end{matrix}\right]$$<span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">Typically
+I should write these coordinates as </span></span><span style="font-variant: normal"><i>a</i></span><span style="font-variant: normal"><sub><i>i,j</i></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">but
+that's ugly and tedious. Coordinate </span></span><i>a</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">will
+be calculated by finding the dot-product of the first row and column
+of the two matrices. We've already computed this in the previous
+question and found that the value was 1. The coordinate </span></span><i>b</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">will
+be calculated by finding the dot-product of the first row and second
+column of the two matrices, i.e. </span></span>
+</p>
+<p style="font-variant: normal; font-style: normal">$$b = [1\,\, 2
+\,\, 3]\cdot \left[\begin{matrix}3 \\ \_2 \\ 1 \end{matrix}\right] =
+3 - 4 + 3 = 2$$</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Of
+course </span></span><i>c</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">is
+found as the dot-product between the first row and third column of
+the two matrices, and </span></span><i>d</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is
+found as the dot of the second row and first column, and so on.</span></span></p>
+<p style="font-variant: normal; font-style: normal">If you multiply
+these two matrices you should find that their product is 
+</p>
+<p style="font-variant: normal; font-style: normal">$$\left[\begin{matrix}
+1 &amp; 2 &amp; 5 \\ \_5 &amp; 14 &amp; \_1 \\ \_2 &amp; 1 &amp; 1
+\end{matrix}\right]$$</p>
+<p style="font-variant: normal; font-style: normal">To enter this in
+SymPy to check your work you can run the following.</p>
+<p style="font-variant: normal; font-style: normal">1| import sympy
+as sp</p>
+<p style="font-variant: normal; font-style: normal">2| m = Matrix(
+[[1, 2, 3], [3,-2,1], [1,1,0]] )</p>
+<p style="font-variant: normal; font-style: normal">3| n = Matrix(
+[[-2,3,0],[0,-2,1],[1,1,1]] )</p>
+<p style="font-variant: normal; font-style: normal">4| print(m*n)</p>
+<hr/>
+
+<p>Exercise: Find $$\left[\begin{matrix} \_1 &amp; 3 &amp; 3 &amp; 0
+\\ 0 &amp; 1 &amp; 0 &amp; \_4 \\ 2 &amp; \_1 &amp; 0 &amp; 1
+\end{matrix}\right] \cdot \left[\begin{matrix} 1 &amp; 1 \\ \_2 &amp;
+2 \\ 1 &amp; 0 \\ 5 &amp; 0\end{matrix}\right]$$</p>
+<p style="font-variant: normal; font-style: normal">Answer: 
+</p>
+<p style="font-variant: normal; font-style: normal">$$\left[\begin{matrix}-4
+&amp; 5 \\ -22 &amp; 2 \\ 9 &amp; 0 \end{matrix}\right]$$</p>
+<p style="font-variant: normal; font-style: normal">If that is at all
+confusing, remember just to compute the row-column products. The
+upper-left coordinate was generated by computing $$[-1\,\, 3\,\,
+3\,\, 0]\cdot \left[ \begin{matrix} 1\\\_2\\1\\5
+\end{matrix}\right]$$</p>
+<hr/>
+
+<p>Question: Suppose we product an <i>m×n</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">matrix
+with a </span></span><i>p×q</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">matrix,
+i.e. these are the dimensions of the two matrices. Under what
+conditions will the matrix product be possible to compute? What will
+be the dimension of the resulting matrix?</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Answer:
+Everything is defined in terms of the dot-product and the dot-product
+must be performed on rows with the same length as the column. Since </span></span><i>n</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is
+the length of each row in the left matrix and </span></span><i>p</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is
+the length of each column in the second matrix (if you thought these
+were reversed, remember: </span></span><i>m</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is
+the NUMBER of rows, not the length of the row) then we need to have </span></span><i>n
+= p</i><span style="font-variant: normal"><span style="font-style: normal">.
+In that case the product will be defined.</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">The
+result will have dimension </span></span><i>m×q</i><span style="font-variant: normal"><span style="font-style: normal">.
+That is because, for every row of the first matrix there will be a
+row of values in the product; and for every column in the second
+matrix, there is a column in the product.</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">We
+will define a </span></span><span style="font-variant: normal"><span style="font-style: normal"><b>square
+matrix</b></span></span><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">as
+any matrix with the same number of rows as columns, i.e. it will have
+dimension </span></span></span><i><span style="font-weight: normal">n×n</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">for
+some positive integer </span></span></span><i><span style="font-weight: normal">n</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+Obviously any two square matrices can be added and they can be
+multiplied. </span></span></span>
+</p>
+<hr/>
+
+<p>Exercise: We have so far only seen examples with integer
+coordinates but that's not necessary of even very good for a lot of
+applications. Matrices are particularly useful in Physics when we use
+complex coordinates, so let's do a little practice with them. Find 
+</p>
+<p>$$\left[\begin{matrix}1+i &amp; 1-i \\ 2-3i &amp; 0
+\end{matrix}\right]\cdot \left[\begin{matrix}0 &amp; i \\ \_i &amp;
+2i\end{matrix}\right]$$</p>
+<p>Note that if you want to play with this in SymPy you can use the
+<font face="FreeMono, monospace">1j</font> notation to get complex
+numbers, however, SymPy will tend to treat these expressions
+&quot;numerically&quot; rather than &quot;symbolically&quot;. If you
+don't understand or care about the difference, don't worry about it.
+If you do care then you may instead want to use <font face="FreeMono, monospace">sp.I</font>
+to represent the complex number <i>i</i><span style="font-variant: normal"><span style="font-style: normal">.
+</span></span>
+</p>
+<p>Answer: 
+</p>
+<p>$$\left[\begin{matrix}-1-i &amp; 1+3i \\ 0 &amp;
+3+2i\end{matrix}\right]$$</p>
+<hr/>
+
+<p>Exercise: We have seen that the dot-product of a row and column is
+a number. Is it possible to compute the matrix product of a column
+and a row?</p>
+<p>Answer: Yes! We have seen that matrices of dimensions <i>m×n</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+</span></span><i>p×q</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">can
+always be multiplied so long as </span></span><i>n=p</i><span style="font-variant: normal"><span style="font-style: normal">.
+If we have a column on the left and a row on the right, then </span></span><i>n=1=p</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">so
+this will always be possible. The result of the product will be a </span></span><i>m×q</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">matrix.</span></span></p>
+<p style="font-variant: normal; font-style: normal">$$\left[\begin{matrix}
+1 \\ 2 \\ 3 \end{matrix}\right]\cdot [4\,\, 5] =
+\left[\begin{matrix}4 &amp; 5 \\ 8 &amp; 10 \\ 12 &amp;
+5\end{matrix}\right]$$</p>
+<p style="font-variant: normal; font-style: normal">In computing
+this, every dot-product that is computed is between a row of length 1
+and a column of length 1. With this example you can kind of see what
+the matrix product is doing from two new perspectives. From one
+perspective we took the column
+$$\left[\begin{matrix}1\\2\\3\end{matrix}\right]$$ copied it, and
+multiplied one copy by 4 and multiplied the other copy by 5. 
+</p>
+<p style="font-variant: normal; font-style: normal">From the dual
+perspective, so to speak, you could also imagine that we took the row
+[4 5] and copied it three times, multiplying each copy by 1 and then
+2 and then 3. Thinking of matrix operations in this way can be a
+useful shortcut in computation. 
+</p>
+<p style="font-variant: normal; font-style: normal">We can do
+something similar for general matrix multiplication, but it's more
+complicated and not quite as helpful. But just to illustrate, take
+the previous example, 
+</p>
+<p style="font-variant: normal; font-style: normal">$$\left[\begin{matrix}1+i
+&amp; 1-i \\ 2-3i &amp; 0 \end{matrix}\right]\cdot
+\left[\begin{matrix}0 &amp; i \\ \_i &amp; 2i\end{matrix}\right]$$</p>
+<p style="font-variant: normal; font-style: normal">We can get the
+first column of the product by multiplying 
+</p>
+<p style="font-variant: normal; font-style: normal">$$0\left[\begin{matrix}1+i\\2-3i\end{matrix}\right]
+= \left[\begin{matrix}0\\0\end{matrix}\right]$$ 
+</p>
+<p style="font-variant: normal; font-style: normal">and then summing
+that with 
+</p>
+<p style="font-variant: normal; font-style: normal">$$\_i\left[\begin{matrix}1-i\\0\end{matrix}\right]
+= \left[\begin{matrix}\_1-i \\ 0\end{matrix}\right]$$</p>
+<p style="font-variant: normal; font-style: normal">so that the first
+column of the product is 
+</p>
+<p style="font-variant: normal; font-style: normal">$$\left[\begin{matrix}1-i
+\\ 0\end{matrix}\right]$$</p>
+<p style="font-variant: normal; font-style: normal">The second column
+is found with 
+</p>
+<p style="font-variant: normal; font-style: normal">$$i\left[\begin{matrix}1+i\\2-3i\end{matrix}\right]
+= \left[\begin{matrix} \_1+i \\ 3+2i\end{matrix}\right]$$</p>
+<p style="font-variant: normal; font-style: normal">summing with 
+</p>
+<p style="font-variant: normal; font-style: normal">$$
+2i\left[\begin{matrix}1-i\\0\end{matrix}\right] =
+\left[\begin{matrix}2+2i \\ 0\end{matrix}\right] $$</p>
+<p style="font-variant: normal; font-style: normal">so that the
+second column is</p>
+<p style="font-variant: normal; font-style: normal">$$\left[\begin{matrix}1+3i\\3+2i\end{matrix}\right]$$</p>
+<p style="font-variant: normal; font-style: normal">Tacking these
+together you get the same matrix as before. You could likewise find a
+way to tack rows together.</p>
+<p style="font-variant: normal; font-style: normal">One way that this
+is particularly useful, though, is with a sparse matrix, i.e. one
+that is mostly 0's.</p>
+<hr/>
+
+<p>Exercise: Use the column-wise decomposition described above to
+quickly compute the following matrix product, without the use of
+software (at least at first).</p>
+<p>$$\left[\begin{matrix} 1 &amp; 2 &amp; 3 \\ 4 &amp; 5 &amp; 6 \\ 7
+&amp; 8 &amp; 9 \end{matrix}\right]\cdot \left[\begin{matrix}2 &amp;
+0 &amp; 0 \\ 0 &amp; 3 &amp;0 \\ 0 &amp; 0 &amp; 1
+\end{matrix}\right]$$</p>
+<p>Do it again with 
+</p>
+<p>$$\left[\begin{matrix} 1 &amp; 2 &amp; 3 \\ 4 &amp; 5 &amp; 6 \\
+7&amp;8&amp;9 \end{matrix}\right]\cdot\left[\begin{matrix}0 &amp; 1 &amp;
+0 \\ \_1 &amp; 0 &amp; 0 \\ 0&amp;0&amp;1 \end{matrix}\right]$$</p>
+<p>Answer: One way to read what the first right-hand matrix is
+&quot;saying&quot; is: Take two times the first column, three times
+the second, and 1 times the third. Therefore the result is 
+</p>
+<p>$$\left[\begin{matrix} 2 &amp; 6 &amp; 3 \\ 8 &amp; 15 &amp; 6 \\
+14 &amp; 24 &amp; 9 \end{matrix}\right]$$</p>
+<p>You should read these &quot;instructions in the matrix&quot;
+column-wise. Therefore in the next matrix, the first column is saying
+to take _1 of the second column--this will make the first column of
+the result. The second column of the result will be the first column
+(of the left-hand matrix). And of course the last is the last.</p>
+<p>$$\left[\begin{matrix} \_ 2 &amp; 1 &amp; 3 \\ \_ 5 &amp; 4 &amp;
+6 \\ \_ 8 &amp; 7 &amp; 9 \end{matrix}\right]$$</p>
+<hr/>
+
+<p>Exercise: You can see that, in a sense, by choosing a certain
+right-hand matrix, you can use it to permute the columns of the
+left-hand matrix. Suppose you have a 4×4 matrix, call it <i>M</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+another 4×4 matrix </span></span><i>N</i><span style="font-variant: normal"><span style="font-style: normal">.
+The matrix product </span></span><i>MN</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is
+the same as </span></span><i>M</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">but
+with its first and last columns swapped. What are </span></span><i>N</i><span style="font-variant: normal"><span style="font-style: normal">'s
+coordinates?</span></span></p>
+<p style="font-variant: normal; font-style: normal">Answer: 
+</p>
+<p style="font-variant: normal; font-style: normal">$$\left[\begin{matrix}
+0 &amp;0&amp;0&amp; 1\\ 0&amp;1&amp;0&amp;0 \\ 0&amp;0&amp;1&amp;0 \\
+1&amp;0&amp;0&amp;0\end{matrix}\right]$$</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">This
+is called a </span></span><span style="font-variant: normal"><span style="font-style: normal"><b>permutation
+matrix</b></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">:
+A matrix where every row is 0's except for one coordinate that's 1,
+and likewise for the columns.</span></span></span></p>
+<hr/>
+
+<p>Question: What is the absolute value of a matrix?</p>
+<p>Answer: This one doesn't really have an answer, and you might have
+suspected that it wouldn't. However, there is a near-by concept that
+we frequently use, called the <b>determinant</b> <span style="font-weight: normal">of
+a matrix. For this we still use the bars around the matrix, sort of
+like the absolute value. The determinant is only defined for square
+matrices, and it is easiest to understand by first looking at a 2×2
+matrix.</span></p>
+<p style="font-weight: normal">$$\left| \left[ \begin{matrix} 1 &amp;
+2 \\ 3 &amp; 4 \end{matrix}\right]\right| = 1\cdot 4 - 2\cdot 3 =
+\_2$$</p>
+<p><span style="font-weight: normal">The </span><b>main diagonal</b>
+<span style="font-weight: normal">of a matrix is frequently useful
+and so we will define it now. The main diagonal of a matrix is the
+set of coordinates </span><i><span style="font-weight: normal">a</span></i><sub><i><span style="font-weight: normal">i,j</span></i></sub><i><span style="font-weight: normal">.
+</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">That
+is to say that the main diagonal is the set of coordinates just as
+far out along the row as it is along the column. This could also be
+said: The main diagonal is the set of coordinates starting in the
+upper-left and traversing down to the lower-right corner. Similarly
+we define the </span></span></span><span style="font-variant: normal"><span style="font-style: normal"><b>off-diagonal</b></span></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">to
+be the set of coordinates that start at the lower-left and traverse
+up to the upper-right. </span></span></span>
+</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+__Example__</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+We can then say that the determinant of a 2×2 matrix is found by
+multiplying the main and off diagonals, and then subtracting (in that
+order). 
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">That
+seems simple enough but it gets dramatically harder with a 3×3. To
+compute the determinant of a 3×3 matrix we need to find the matrix
+</span></span></span><span style="font-variant: normal"><span style="font-style: normal"><b>minors</b></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+The minors are all of those matrices which we could obtain by
+deleting a row and a column. Let's take the example </span></span></span>
+</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+$$\left[\begin{matrix} 1 &amp; 2 &amp; 3 \\ 4&amp;5&amp;6\\7&amp;8
+&amp;9\end{matrix}\right]$$</p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">The
+minor of </span></span></span><span style="font-variant: normal"><i><span style="font-weight: normal">a</span></i></span><span style="font-variant: normal"><sub><i><span style="font-weight: normal">1,1</span></i></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">is
+matrix formed by deleting the first row and first column (where </span></span></span><span style="font-variant: normal"><i><span style="font-weight: normal">a</span></i></span><span style="font-variant: normal"><sub><i><span style="font-weight: normal">1,1</span></i></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">lies
+at the intersection of these).</span></span></span></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+$$M_{1,1} = \left[\begin{matrix}5&amp;6 \\ 8&amp;9\end{matrix}\right]$$</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+Similarly 
+</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+$$M_{2,2} = \left[\begin{matrix}1 &amp; 3 \\ 7&amp;9\end{matrix}\right]$$</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+We also need to know the sign of the minor. The sign of the minor is
+easily described by the following diagram:</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+$$\left[\begin{matrix}+ &amp; - &amp; + \\ - &amp; + &amp; - \\ + &amp;
+- &amp; +\end{matrix}\right]$$</p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">This
+diagram tells you that the sign of </span></span></span><span style="font-variant: normal"><i><span style="font-weight: normal">M</span></i></span><span style="font-variant: normal"><sub><i><span style="font-weight: normal">1,1</span></i></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">is
++ and the sign of </span></span></span><span style="font-variant: normal"><i><span style="font-weight: normal">M</span></i></span><span style="font-variant: normal"><sub><i><span style="font-weight: normal">1,2</span></i></sub></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">is
+-, and so on. Finally we can say what the determinant of this 3×3
+matrix is. We may pick any row or any column, and combine every
+coordinate along it with its signed minor. In this example, if we
+pick the first row, we get </span></span></span>
+</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+$$\left| \left[\begin{matrix} 1 &amp; 2 &amp; 3 \\ 4&amp;5&amp;6\\7&amp;8
+&amp;9\end{matrix}\right]\right| = a_{1,1}M_{1,1} -
+a_{1,2}M_{1,2}+a_{1,3}M_{1,3}$$</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+And this is 
+</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+1(5*9-8*6) - 2(4*9-7*6) + 3(4*8-7*5) = 45-48-2(36-42)+3(32-35) =
+-3-2(_6)+3(_3) = -3+12-9 = 0</p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">Because
+the matrix has a determinant of 0 we call this a </span></span></span><span style="font-variant: normal"><span style="font-style: normal"><b>singular</b></span></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">matrix.</span></span></span></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+The following script will compute the same thing.</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+1| import sympy as sp</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+2| m = sp.Matrix( [[1,2,3],[4,5,6],[7,8,9]] )</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+3| print( sp.det(m) )</p>
+<hr/>
+
+<p>Exercise: Calculate the same determinant as in the previous
+question, but do it by &quot;expanding&quot; along the second column.</p>
+<p>Answer: -2(4*9 - 7*6) + 5(1*9-7*3) - 8(1*6-4*3) = 0</p>
+<hr/>
+
+<p>Question: How do we calculate the determinant of an <i>n×n</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">matrix
+if </span></span><i>n &gt; 3</i><span style="font-variant: normal"><span style="font-style: normal">?</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Answer:
+The pattern is basically by &quot;recursion&quot;, a concept I don't
+want to get into quite yet, but you can still pick up the idea by
+seeing examples. </span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">We
+just expand again along a row or column, except this time the minor
+of each coordinate will be a determinant of a 3×3 instead of a 2×2.</span></span></span></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+Let's take an example with a lot of 0's to keep things easy. 
+</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+$$\left|\left[\begin{matrix} 1 &amp; 0 &amp; 0 &amp; \_1 \\ 0 &amp; 2
+&amp; \_ 2 &amp; 0 \\ 1 &amp; 2 &amp; 0 &amp; 0 \\ 1 &amp; 1 &amp; 1
+&amp; 1\end{matrix}\right]\right|$$</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+Of course we will again use the diagram of signs</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+$$\left[\begin{matrix}+&amp;-&amp;+&amp;-\\-&amp;+&amp;-&amp;+\\+&amp;-&amp;+&amp;-\\-&amp;+&amp;-&amp;+\end{matrix}\right]$$</p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">Expanding
+along the first row, since two of the coordinates are 0 we can forget
+them and just focus on </span></span></span><i><span style="font-weight: normal">1M</span></i><sub><i><span style="font-weight: normal">1,1</span></i></sub>
+<i><span style="font-weight: normal">- _1M</span></i><sub><i><span style="font-weight: normal">1,4</span></i></sub><i><span style="font-weight: normal">.
+</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">In
+order not to clutter the explanation I won't write out the
+computation of these, but simply say that </span></span></span><i><span style="font-weight: normal">M</span></i><sub><i><span style="font-weight: normal">1,1</span></i></sub>
+<i><span style="font-weight: normal">= 4</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></span><i><span style="font-weight: normal">M</span></i><sub><i><span style="font-weight: normal">1,4</span></i></sub>
+<i><span style="font-weight: normal">= 0</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+Therefore the determinant of this 4×4 is 4.</span></span></span></p>
+<hr/>
+
+<p>Exercise: Re-compute the determinant above by expanding along some
+other row or column.</p>
+<p>Answer: Of course, 4.</p>
+<hr/>
+
+<p>Exercise: Compute the determinant of a &quot;diagonal&quot;
+matrix. A <b>diagonal</b> <span style="font-weight: normal">matrix is
+one that has only zeros in coordinates that are not the diagonal. For
+instance, compute </span>
+</p>
+<p style="font-weight: normal">$$\left| \left[\begin{matrix}2 &amp; 0
+&amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 2 &amp;
+0 \\ 0 &amp; 0 &amp; 0 &amp; 3\end{matrix}\right]\right| $$</p>
+<p style="font-weight: normal">Answer: 12, just the product of the
+diagonal elements, because the zeroes elsewhere cancel out all other
+minors. 
+</p>
+<hr/>
+
+<p>Question: How can you compute the determinant of an <span style="font-weight: normal">&quot;upper
+triangular&quot; matrix? An upper triangular matrix is one with zeros
+entirely below the main diagonal, like for instance </span>
+</p>
+<p style="font-weight: normal">$$\left|\left[\begin{matrix}1&amp;2&amp;3\\0&amp;4&amp;5\\0&amp;0&amp;6\end{matrix}\right]\right|$$</p>
+<p style="font-weight: normal">Answer: Again, it's the product of the
+main diagonal elements, again because expanding in the right way
+makes other minors cancel. In this example it's 24. 
+</p>
+<hr/>
+
+<p>Note: As a final note, we will sometimes have use for the
+<b>transpose</b> of a matrix. We've already seen the transpose of a
+row, turning it into a column. No surprise: The transpose of a matrix
+does the same thing to all of its rows. Another way to describe it is
+that it &quot;flips along its main diagonal&quot;:</p>
+<p>$$ \left[\begin{matrix} 1 &amp; 2 &amp; 3 \\ 4 &amp; 5 &amp; 6
+\end{matrix}\right]^t = \left[\begin{matrix}1 &amp;4\\ 2&amp;5 \\ 3&amp;6
+\end{matrix}\right]$$</p>
+</body>
+</html>

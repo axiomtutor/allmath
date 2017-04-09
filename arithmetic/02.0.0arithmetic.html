@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type = "text/javascript" src = "../js/slideShow.js"></script>
+        <script type = "text/javascript" src = "../js/dropText.js"></script>
+        <script type="text/javascript" async
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <link rel="stylesheet" type = "text/css" href = "../css/style.css">
+        <title>Arithmetic 1.2</title>
+    </head>
+    <body>
+        <h1 class="struct">1. Extending number systems</h1>
+        <p class="main">
+            <b style="font-weight:600">A short aside about notation.</b> <br><br>
+
+            I'll desist with the prefix notation throughout the rest of these pages.  This means, among other things, that I'll write 1+1 = 2, I'll use concatenation to mean multiplication, so that <i>xy</i> means <i>x*y</i>, and the following means division: $$\frac{x}{y}$$.  However, for exponents, square-roots, and logarithms I'll use the following graphical presentation.  ^ <i>b x</i> will be $$_b \overset{x}\Delta$$
+
+            The <i>x</i>th root of <i>y</i> will be $$\overset{x}{\Delta}_y$$
+
+            And the logarithm of <i>y</i> with base <i>b</i> will be $$_b\Delta_y$$
+
+            With this notation we can say $$_5\overset{2}{\Delta} = 25\quad \overset{3}{\Delta}_{27} = 3\quad _{10}\Delta_{100} = 2$$
+
+            Notice with this notational system, if you fill in the blank space in the triangle with the number, you should get the exponential relationship.  Hence $$_5\overset{2}{\Delta}_{25}$$ expresses the fact that 5 to the second power is 25.  One nice thing about this notation is that it resembles the standard superscript notation for exponents, but superscripts without the triangle can in fact be used in other contexts without overloading the notation.  <br><br>
+
+            <b style="font-weight:600">Getting back to arithmetic.</b> <br><br>
+
+            The ancients struggled with the inadequacy of their number system, and the difficulty came from Geometry.  An initial problem, that found an easy solution, was the need to measure lengths shorter than a single unit.  If you had a 1-meter stick and broke it in half, how long is it now?  Today we might say 0.5 meters but that's getting very far ahead of ourselves.  Better in this context to just call it 1/2.  Technically this is invalid by our definitions.  There is no number which, when multiplied by 2, produces 1.  Thus we are actually producing a new number in a new number system, by allowing 1/2 to <i>define</i> a new number, and any other pair of integers in a fraction define a number. <br><br>
+
+            But if that's so then we have some work to do.  For one thing we can use our physical intuition to justify certain equalities like 1/1 = 4/4.  The left-hand side of this is what you get if you take one thing, break it into 1 piece (i.e. don't break it at all), and measure the size of the piece (just 1 unit).  The right-hand side represents breaking something in four pieces and then taking four of them--of course that should have the same measure as 1.  Hence we have something new and subtle:  A single number with multiple representations.  It was easy in this case, but for any arbitrary numbers like <i>a/b</i> and <i>c/d </i> how do we tell whether they're the same number?  Also, how do we add numbers--and is it enough to decide how we add, to then automatically know how to multiply?  <br><br>
+            Moreover, we have just seen that we can extend a number system by taking an operation and "closing" the set of numbers under that operation.  Can we--and should we--do the same for other operations like subtraction and exponentiation?  These will be the questions we address in the following sections.
+        </p>
+        <h2 class="struct">A. Integers and rationals</h2>
+        <p class="main">
+            The ancient Greeks didn't really conceive of themselves as extending their number system, which is the modern mathematical perspective.  Rather, they saw rational numbers like 1/2 as really just being a relationship between whole number quantities.  For instance, if you broke a one-meter stick in two to get a 1/2 meter stick, they would really regard this as a demonstration that the meter is not a fundamental unit of measurement.  We could naively suppose that the true unit of measurement were the half-meter, and now each piece of stick is one unit, whereas the original stick was really two half-meters.  <br><br>
+            Of course we quickly give the lie to this idea by breaking one of the pieces in half again, and of course we could again say that the true fundamental unit of measurement was in fact the quarter-meter.  We could proceed like this for while, and it was a fairly famous historical question to wonder:  Does this process have to terminate at some point, or can we truly divide a length indefinitely?  The concept of the "atom" was embraced by those who believed there was some unit that could not be divided any further.  With the modern splitting of the atom, we really showed them.  <br><br>
+            Anyway, enough with philosophy.  Unlike the Greeks we will say that 1/2 is a true number in our new number system.  This is an example of "closing a set under an operation".  I won't rigorously define what that means, because the rigorous definition is likely more confusing than just giving examples--I'll save the rigorous definition for a later, more appropriate time.  But basically what this means is, if 1/2 isn't yet a number in our system (it's not) then we add it to the system.  Since 4/2 = 2 is already in our system, this gains us nothing new, but since 1/3 isn't already in our system, we add it.  And likewise, if <i>m, n</i> are two numbers, then so long as <i>n</i> isn't zero, we add <i>m/n</i> to our number system.  We exclude <i>n=0</i> because it doesn't have a physical interpretation:  What would it mean to break a stick into 0 pieces?  Or from another perspective, we exclude it because for instance 1/0 is supposed to represent "that number which you multiply with 0 in order to produce 1".  Since no such number could exist (0 times anything is 0) then we cannot have 1/0 as a number.  <br><br>
+            But of course there's nothing special about division.  We could also find examples of numbers that don't (yet) make sense in subtraction like 1-5.  But if we close our number set under subtraction then we get the negatives.  What physical interpretation would 0-1 have?  By the way, we will in the future denote 0-1 as -1, and likewise for other so-called "negative numbers".  <br><br>
+            Obviously negative numbers don't count anything:  If you had zero things and you take away 1, that makes no sense.  But we could instead choose a completely different meaning for numbers:  Rather than counting anything, they could be measuring things--the rational numbers, in a sense, measure things rather than count them.  If regular numbers like 1 and 2 measure, say, "steps toward the right" then negative numbers could just represent "steps toward the left".  Or if positive numbers measure money, then negative numbers could measure debt.  <br><br>
+            The problem with closing a set under an operation like this, is that it gives us little guidance in knowing what to do with these new numbers.  How do we add two negative numbers like (-2) + (-3)?  If we interpret numbers as counting left-right steps, so that 2 represents two steps right and -2 represents two steps left, then addition would naturally mean aggregating the total "displacement".  2+3 = 5 would represent going two and then another three steps right, therefore going a total of five steps right.  (-2) + (-3) would therefore represent going left two steps and then three more so that (-2) + (-3) should result in -5.  <br><br>
+            From now on we'll refer to the numbers 0, 1, 2, and so on, as the natural numbers and we denote these by the symbol &#8469;.  The numbers ..., -2, -1, 0, 1, 2, ... we call the integers, denoted by the symbol &#8484;.  We will sometimes talk about the positive integers 1, 2, 3, ... denoted by &#8484;<sup>+</sup> and the negative integers -1, -2, ... denoted by &#8484;<sup>-</sup>.  In total we should give rules for how to add and subtract positive and negative numbers.  We've already said how to add two positives and two negatives, and it should make sense how you add a positive and a negative.  How you subtract a positive and negative is perhaps the hard case:  what should 1 - -3 be?  There are a couple ways to come up with the answer but one way is to ask "What is the number which, when added to -3, results in 1?"  The answer is clearly 4.  <br><br>
+            With all this said, the following examples should make sense.
+            <p class="quote">
+                (-2) + (-3) = -5 &nbsp;&nbsp; 2-3 = -1 &nbsp;&nbsp; 3 - -1 = 4 <br>
+                (-3) - 1 = -4 &nbsp;&nbsp; (-3) - -1 = -2
+            </p>
+
+            It remains to give a complete algorithm for how to add and subtract any numbers, rather than merely listing examples.  It also remains to be seen how you multiply negative numbers.  And moreover, it remains to be seen how we return to the topic of rational numbers and similarly make sense of addition, subtraction, multiplication, division--and as alluded to earlier, even the very statement that two numbers are equal is a unique challenge.  We'll address all of these issues in exercises.
+        </p>
+        <div class="ex">
+            <b>Exercise set 6:</b>
+            <ol>
+                <li>
+                    The absolute value of a number is, put simply, its "positive part".  If the number is a natural number, like 2, then abs(2) = 2 because it's already positive.  Also abs(0) = 0 even though zero isn't positive.  But abs(-2) = 2.  I could define the concept more rigorously, but I'd rather not right now.  We will also use |-2| = 2 to indicate absolute value.<br><br>
+                    The absolute value and sign are helpful when stating an algorithm for adding any two integers, which we'll call <i>x</i> and <i>y</i>.  We describe this algorithm by breaking the problem into cases.
+                    <ul>
+                        <li>
+                            If <i>x</i> and <i>y</i> are both non-negative, then <i>x+y</i> is found using the methods already discussed earlier.
+                        </li>
+                        <li>
+                            If <i>x</i> and <i>y</i> are both negative then <i>x+y = -(|x|+|y|)</i>.  This says that, to get the sum, we put a negative sign in front and compute the sum on the absolute vaues.  For example (-2) + -3 = -(|-2|+|-3|) = -(2+3) = -5.
+                        </li>
+                        <li>
+                            If one of <i>x, y</i> is a natural number and the other a negative integer, then ...
+                        </li>
+                    </ul>
+
+                    Your assignment is to fill in the "..." with an appropriate algorithm, similar to the second bullet point above, which will correctly compute the sum.  Hint:  You will need to break this case into two smaller cases!  One in which the natural number is greater than, or equal to, the absolute value of the negative integer.
+                </li>
+                <li>
+                    As in the previous problem, write an algorithm to compute the difference of any two integers.
+                </li>
+                <li>
+                    Give a non-rigorous but intuitive argument for why we should think that (-1)*-1 = 1.
+                </li>
+                <li>
+                    Substantially harder is to say how we should multiply negative numbers.  Of course if at least one of the numbers is natural, we have no problem because we can use the "repeated addition" definition.  Go ahead and write an algorithm in the style of the previous two problems for integer multiplication when at least one of the two integers is positive.  Use, where appropriate, the commutativity of addition.<br><br>
+                    In addition, try to come up with (a justification for) an algorithm for multiplying two negative integers.  Use the fact that 1 + -1 = 0 and therefore if you multiply 1 + -1 by anything (like, say, -1) the result will still be 0.  Also use the commutativity and distributivity as we learned them for natural numbers.
+                </li>
+                <li>
+                    Give an algorithm for integer division, assuming that there is no remainder.
+                </li>
+                <li>
+                    In the next sequence of exercises we'll find out how to add fractions, or what we officially call rational numbers, denoted by &#8474;.  Every rational number has the form / <i>p q</i> for some integer choices of <i>p, q</i>.  We call the number itself the "quotient", <i>p</i> we call the "numerator", and <i>q</i> we call the "denominator".  Go ahead and try to define it without any guidance just to see how difficult the exercise is.
+                    <ul>
+                        <li>
+                            Now for the guidance.  When we're trying to figure things out in Math and the Sciences we start from the easiest cases and try to expand outward from there.  Here the easiest case is where two rational numbers, <i>m/n </i>and <i>p/q</i>, have the same denominator, like for instance if we try to add $$\frac{5}{2}+\frac{3}{2}$$.  Since 5/2 is supposed to represent five quantities which are each the size of a unit broken in two, and 3/2 represents three quantities of the same size, then adding these means just having eight units of size 1/2.  Hence $$\frac{5}{2}+\frac{3}{2}=\frac{8}{2}$$  At this point we can use simple division on integers (without a remainder) to simplify this down to just 4.  <br><br>
+                            Things get tough, though, when two numbers don't share the same denominator.  Try to find a physical, intuitive way to compute $$\frac{1}{2}+\frac{1}{3}$$  Hint: what happens if you take a half-unit and break it in three equal pieces, and take a one-third unit and break it in two equal pieces?  How big are the resulting pieces and how many do you have?  <br><br>
+                            After you've explained the process for (1/2) + (1/3), give a more general algorithm for summing any two rational numbers.
+                        </li>
+                        <li>
+                            Next we try to multiply rational numbers, but as with multiplying negatives, we cannot merely rely on the notion of "repeated addition" because our numbers no longer represent counting--hence they don't count repetitions.  However, that's not generically true.  When we multiply an integer with a rational, we can regard this as repeated addition (possibly toward the left, if one of the numbers is negative).  But of course we're left to figure out what to do when we have two rationals to multiply.  One could come up with a convincing physical argument, like:  To multiply (3/2)(4/3) we want to add 4/3 with itself, 3/2 times.  That is to say, we want one copy of it (the 2/2 part) and then an extra half copy (the remaining 1/2).  Of course half of 4/3 is 2/3.  <br><br>
+                            Give a justification for my claim that $$\frac{4/3}{2}=\frac{2}{3}$$  Then try to formalize this process into an algorithm for multiplying any rational numbers (<i>m/n</i>)<i>p/q</i>. <br><br>
+                            Likely even at this point the algorithm is not clear.  In the previous example it seemed to depend on interpreting the quantity 3/2 as one whole unit 2/2 together with another half unit 1/2, and then being able to easily compute half of 4.  A more general way forward just doesn't seem forthcoming.  But here is a new perspective:  another way to think of what a fraction like 7/5 is saying, is "first divide by 5, then multiply by 7".  With this insight, we could say that (<i>m/n</i>)<i>p/q</i> is the same as first dividing (<i>m/n</i>)<i>/q</i> and then multiplying by <i>p</i>.  So if we could just say how to compute the division (<i>m/n</i>)<i>/q</i>, since we already know how to perform the integer multiplication, we'd be done.  Try to implement this algorithm.  You should reach the conclusion that $$\frac{mp}{mq} = \frac{p}{q}$$  We could perhaps say that rational number multiplication is coordinate-wise multiplication.
+                        </li>
+                        <li>
+                            Use the fact that / / <i>m n / p q</i> is that number which, when multiplied by / <i>p q </i> produces / <i>m n</i> to give an algorithm for dividing fractions.  (No division into cases is necessary.)
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Now we'll talk about ratios.  The common example is a baking recipe.  Suppose that for every teaspoon of baking soda you use in a recipe you must use two tablespoons.  Then these ingredients occur in the recipe in a ratio of 1 tsp : 2 tbsp.  With this information you cannot say how much baking soda is in a given mixture.  However, if you knew the amount of sugar, you could use this to infer the amount of baking soda.  If you found that a mixture had 4 tablespoons of sugar, you would know that there must be 2 teaspoons of baking soda.  In this case we would say that the number you multiply each ratio factor by, 2, is the "scale factor".  If the scale factor were 10 then the mixture would contain 10 teaspoons of baking soda and 20 tablespoons of sugar.  We often denote the scale factor as <i>k</i> when we don't know what it is.  Hence, if the amount of sugar were 15 tablespoons then we could set up the equation 15 = * 2 <i>k</i> and solve for <i>k</i>.  Once we know <i>k</i> we can find the other quantity. <br><br>
+                    Suppose that the ratio of cats to dogs at a pet store is 2:3 and the store has a total of 20 pets.  How many cats are there?
+                </li>
+                <li>
+                    A ratio is a kind of rate.  To see this, suppose that for every hour you travel, you displace 60 kilometers east--i.e. you travel 60 kph eastward.  Or in ratio terms, the ratio of time to displacement is 1hr : 60 km.  Suppose you travel for one and a half hours.  How far do you displace?
+                </li>
+                <li>
+                    Intuitively every rational number, like / 36 15, has a "least" form and we typically like to represent rational numbers in their least form unless we have some special reason not to.  For instance, since 3 divides both 36 and 15, it should be that / 36 15 = / 12 5.  It's sometimes nice to annotate this as / 36 15 = / * 3 12 * 3 5 = / 12 5 to help draw out exactly which factor is getting "canceled".  The rigorous mathematical justification for cancellation like this surprisingly veers pretty far into Number Theory, so well only rely on physical intuition to justify this fact for now.  <br><br>
+                    Give a physically intuitive reason why, no matter what <i>p</i> is other than 0, we have the equality / <i>* p m * p n</i> = / <i>m n</i>.
+                </li>
+            </ol>
+        </div>
+        <h2 class="struct">B. Reals</h2>
+        <p class="main">
+            We are of course not finished with closing number systems.  We have yet to discuss what happens when we closure our numer system under square-roots, for instance (or any other roots, or logarithms).  The square-root of 2 (i.e. that number which when squared is equal to 2) is certainly not an integer because it's not 1 (too small) and it's not 2 (too big).  It seems like it could be a fraction, though.  How do we know?  <br><br>
+            Here is a famous argument.  <br><br>
+            <table>
+                <tr>
+                    <td>
+                        <img src="../images/thmImg.png" alt="error" class="thmImg">
+                    </td>
+                    <td class="thm">
+                            Theorem:  The square-root of 2 is not a rational number.
+                    </td>
+                </tr>
+            </table>
+            <p class="proof">
+                Proof: We'll argue by contradiction.  That means we will assume the theorem's claim is false and show that it leads to a contradiction.  <br><br>
+                Suppose that it is the rational number / <i>p q</i> written in least form and therefore ^ / <i>p q</i> 2 = 2.  Then we can infer ^ <i>p</i> 2 = * 2 ^ <i>q</i> 2.  This shows us that ^ <i>p</i> 2 has a factor of 2, since it can be written as 2 times some number, and therefore <i>p</i> has a factor of 2 (If that's not clear to you, maybe think about the prime decomposition of ^ <i>p</i> 2.  It has a factor of 2, and that factor of 2 must have come from the prime decomposition of <i>p</i>.).  <br><br>
+                But if <i>p</i> has a factor of 2 then ^ <i>p</i> 2 has two of them, and we could re-write ^ <i>p</i> 2 as * 4 <i>k</i> since there must be some appropriate choice of <i>k</i> to make this work.  Now we have * 4 <i>k</i> = * 2 ^ <i>q</i> 2 and we can cancel another factor of 2, so we get * 2 <i>k</i> = ^ <i>q</i> 2.  But just as with <i>p</i>, this now shows that <i>q</i> has a factor of 2.  <br><br>
+                But here's the kicker:  We assumed from the outset that / <i>p q </i>was written in least form!  But now we find that they both share a factor of 2!  Contradiction, as promised!  &#9889; <br><br>
+                (the lightening bolt &#9889; is the symbol we use to denote a contradiction, marking the end of a proof by contradiction)
+            </p>
+            Since the square-root of 2 is not a rational number, then by closing our number system under square-roots we get genuinely new numbers.
+        </p>
+        <div class="ex">
+            <b>Exercise set 7:</b>
+            <ol>
+                <li>
+
+                </li>
+            </ol>
+        </div>
+        <h2 class="struct">C. Complex</h2>
+        <div class="ex">
+            <b>Exercise set 8:</b>
+            <ol>
+                <li>
+
+                </li>
+            </ol>
+        </div>
+        <!--TODO produce a large revew set of exercises.-->
+    </body>
+</html>

@@ -1,0 +1,624 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 5.1.6.2 (Linux)"/>
+	<meta name="created" content="2017-04-04T14:54:12.126203155"/>
+	<meta name="changed" content="2017-04-04T21:36:41.238450305"/>
+	<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	<meta name="created" content="2017-04-04T14:54:12.126203155">
+	<meta name="changed" content="2017-04-04T21:21:59.899921055">
+	<meta name="created" content="2017-03-21T20:27:10.494278786">
+	<meta name="changed" content="2017-03-21T21:28:20.559350513">
+	<meta name="created" content="2017-03-21T20:27:10.494278786">
+	<meta name="changed" content="2017-03-21T21:17:08.275337413">
+</head>
+<body lang="en-US" dir="ltr">
+<table width="100%" cellpadding="4" cellspacing="0" style="page-break-before: always; page-break-inside: avoid">
+	<col width="128*">
+	<col width="128*">
+	<tr valign="top">
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><a href="../main/main.html">Home</a> &gt; <a href="arithmetic.html">Arithmetic</a>
+			&gt; <a href="arithmeticCh03.html">Extensions and alternatives</a>
+			&gt; Sequences and Series</p>
+		</td>
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding: 0.04in">
+			<p align="right">&lt; <a href="03.03.01arithmetic.html">prev</a> |
+			next &gt; 
+			</p>
+		</td>
+	</tr>
+</table>
+<h1>Arithmetic</h1>
+<p style="margin-top: 0.17in; page-break-after: avoid"><font face="Albany, sans-serif"><font size="4" style="font-size: 14pt">Chapter
+03: Extensions and alternatives</font></font></p>
+<p style="margin-top: 0.17in; page-break-after: avoid"><font face="Albany, sans-serif"><font size="4" style="font-size: 14pt">Section
+04: Sequences and series</font></font></p>
+<p>Terms: Formula that defines a sequence, common difference,
+arithmetic sequence, series, index, geometric sequence, common ratio,
+</p>
+<p>Symbols: <i>a</i><sub><i>i</i></sub><i>, </i><span style="font-variant: normal"><span style="font-style: normal">`\sum`,
+</span></span><span style="font-variant: normal"><span style="font-style: normal">`\prod`</span></span></p>
+<hr/>
+
+<p>Question: The sequence of numbers 4, 7, 10, 13, ... seems like a
+natural thing to think about. It's a fairly simple sequence and you
+could imagine it describes, I don't know, taking steps of size 3 over
+and over--that probably comes up in Science somehow right? 
+</p>
+<p>Anyway, what can we say or learn about this sequence? For
+instance, can we find out what the 100<sup>th</sup> item is without
+counting them out?</p>
+<p>Answer: Well, it makes some sense that we could multiply 100*3 and
+add it to 4 to get, if not there, at least close. We can tell the
+strategy is going to be a little off, though, because if we used it
+to predict the 4<sup>th</sup> element we would get 4+4*3=16 and yet
+we know the right answer for the 4<sup>th</sup> element is 13.
+Clearly we need to multiply by one fewer because we don't actually
+add anything for the first term. I.e. to get the 4<sup>th</sup>
+element we find 4+3*3 = 13 and to get the 100<sup>th</sup> element we
+would compute 4+99*3 = 301.</p>
+<p>In general we can summarize this finding by saying that the <i>n</i><sup><i>th</i></sup><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">element
+is </span></span><i>4+3*(n-1)</i><span style="font-variant: normal"><span style="font-style: normal">.
+This is a </span></span><span style="font-variant: normal"><span style="font-style: normal"><b>formula
+that defines the sequence</b></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.</span></span></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">Obviously
+things change if we pick a different starting point and a different
+step-size. We will denote the first element as </span></span><i>a</i><sub><i>1</i></sub>
+<span style="font-variant: normal"><span style="font-style: normal">and
+the step size as </span></span><i>d</i><span style="font-variant: normal"><span style="font-style: normal">.
+Therefore in this example </span></span><i>a</i><sub><i>1</i></sub> <i>=
+4</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">and
+</span></span><i>d = 3</i><span style="font-variant: normal"><span style="font-style: normal">.</span></span></p>
+<hr/>
+
+<p>Exercise: Find a formula that defines the sequence that starts at
+<i>a</i><sub><i>1</i></sub> <i>= 5</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+uses step-size of </span></span><i>d = _2</i><span style="font-variant: normal"><span style="font-style: normal">.
+Use it to find the 100</span></span><span style="font-variant: normal"><sup><span style="font-style: normal">th</span></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">element.</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Answer:
+</span></span><i>5-2(n-1)</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">is
+the formula. The 100</span></span><span style="font-variant: normal"><sup><span style="font-style: normal">th</span></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">element
+is </span></span><i>5-2(100-1)</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">whatever
+that is.</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">We
+call the &quot;step-size&quot; the more official-sounding phrase
+</span></span><span style="font-variant: normal"><span style="font-style: normal"><b>common
+difference</b></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+Hence in this problem the common difference was _2 and in the
+question before, it was 3. If you take any two adjacent elements in
+the sequence you will get the common difference.</span></span></span></p>
+<hr/>
+
+<p>Exercise: Any sequence that can be defined by a formula like this
+is called an <b>arithmetic sequence</b><span style="font-weight: normal">.
+In order to talk about the elements in a sequence we will use the
+notation </span><i><span style="font-weight: normal">a</span></i><sub><i><span style="font-weight: normal">1</span></i></sub><i><span style="font-weight: normal">,
+a</span></i><sub><i><span style="font-weight: normal">2</span></i></sub><i><span style="font-weight: normal">,
+</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></span><i><span style="font-weight: normal">a</span></i><sub><i><span style="font-weight: normal">3</span></i></sub>
+<span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">to
+express the first, second, and third elements of the sequence. So in
+the first question we had </span></span></span><i><span style="font-weight: normal">a</span></i><sub><i><span style="font-weight: normal">1</span></i></sub>
+<i><span style="font-weight: normal">= 4, a</span></i><sub><i><span style="font-weight: normal">2</span></i></sub>
+<i><span style="font-weight: normal">= 7, </span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">and
+</span></span></span><i><span style="font-weight: normal">a</span></i><sub><i><span style="font-weight: normal">3</span></i></sub>
+<i><span style="font-weight: normal">= 10</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+In the previous exercise we had </span></span></span><i><span style="font-weight: normal">a</span></i><sub><i><span style="font-weight: normal">1</span></i></sub>
+<i><span style="font-weight: normal">= 5, a</span></i><sub><i><span style="font-weight: normal">2</span></i></sub>
+<i><span style="font-weight: normal">= 3</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">,
+and so on. </span></span></span>
+</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+I emphasize that the subscripts don't really &quot;mean&quot;
+anything! Many high school, and some college students misunderstand
+this, thinking that the subscript 1 maybe means that the number 1 is
+used in computation. IT'S NOT. It's just keeping track of which is
+the first element of the sequence. We will use this notation for all
+sequences, not just arithmetic ones.</p>
+<hr/>
+
+<p>Exercise: Find <i>a</i><sub><i>50</i></sub><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">in
+an arithmetic sequence with </span></span><i>a</i><sub><i>10</i></sub>
+<i>= 10</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">and
+</span></span><i>a</i><sub><i>11</i></sub><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">=
+</span></span><i>22</i><span style="font-variant: normal"><span style="font-style: normal">.
+Hint: Find the common difference using the two known elements of the
+sequence. You know that they're separated by four other sequence
+terms.</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Answer:
+The common difference is clearly 22-10 = 12. We need to know what the
+first term of the sequence is, but we know that </span></span><i>a</i><sub><i>10</i></sub>
+<i>= 22 = a</i><sub><i>1</i></sub> <i>+ 12*11 </i><span style="font-variant: normal"><span style="font-style: normal">and
+therefore </span></span><i>a</i><sub><i>1</i></sub> <i>= 22-12*11 =
+_110</i><span style="font-variant: normal"><span style="font-style: normal">.
+Now that we know the initial term and the common difference, it is a
+direct application of the formula to find the 50</span></span><span style="font-variant: normal"><sup><span style="font-style: normal">th</span></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">element.</span></span></p>
+<p><i>a<sub>50</sub> = _110 + 12(49) = 478</i></p>
+<hr/>
+
+<p>Question: What if we sum all of the sequence terms as we go? So
+for instance if you use the sequence 1, 2, 3, 4, 5, ..., if you take
+the sums as you go, 1, 3, 6, 10, 15, ... can we define this sequence
+by a formula as successfully as we did before?</p>
+<p>Answer: You might see that the sequence grows faster than any
+arithmetic sequence does, and may employ a quadratic term, i.e. <i>n^</i><sup><i>2</i></sup><i>.
+</i><span style="font-variant: normal"><span style="font-style: normal">This
+answer gets the first number right, 1^</span></span><span style="font-variant: normal"><sup><span style="font-style: normal">2</span></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">=
+1. However it gets the second number wrong, 2^</span></span><span style="font-variant: normal"><sup><span style="font-style: normal">2</span></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">=
+4 where we want to get 3. The answer gets worse on the next element,
+3^</span></span><span style="font-variant: normal"><sup><span style="font-style: normal">2</span></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">=
+9 where we want 6. Because our answer starts close to right but gets
+worse and worse, perhaps if we subtract </span></span><i>n</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">we
+will get the correction--</span></span><i>n</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">grows
+kind of like our error does, maybe they'll cancel each other. </span></span>
+</p>
+<p><i>n^</i><sup><i>2</i></sup><i>-n </i><span style="font-variant: normal"><span style="font-style: normal">is
+clearly wrong because it starts at 0 when </span></span><i>n=1</i><span style="font-variant: normal"><span style="font-style: normal">.
+A better next guess is </span></span><i>n^</i><sup><i>2</i></sup><i>
+- n + 1</i><span style="font-variant: normal"><span style="font-style: normal">.
+This generates the sequence 1, 3, 7, 13, ... Closer but still growing
+too fast! If this is growing too fast but an arithmetic sequence is
+too slow, maybe we can divide it by 2. To get the first term right
+that seems to require `\frac{n^{\wedge 2} + n}{2}` because with this
+if you use </span></span><i>n=1</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">you
+get out the right value, 1. This formula generates the sequence 1, 3,
+6, 10, 15, ... It seems we got it right!</span></span></p>
+<p style="font-variant: normal; font-style: normal">That was a lot of
+guess-and-check, though. Wasn't there a better way to obtain this
+result? Yep! A grid of dots can make the point. Represent 1+2+3+4+5
+in the following way.</p>
+<p style="font-variant: normal; font-style: normal">__Example__</p>
+<p style="font-variant: normal; font-style: normal">To sum these
+easily, especially in terms of multiplication, it would be nice to
+find the area of the rectangle of dots, so to speak. To try to fill
+that in, we can fill the spaces with blue dots.</p>
+<p style="font-variant: normal; font-style: normal">__Example__</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Now
+the area of dots is clearly </span></span><i>n(n+1) </i><span style="font-variant: normal"><span style="font-style: normal">but
+the ones we want are just half of this! Therefore the formula is
+`\frac{n(n+1)}{2}`, which when you multiply it out, gets you the same
+formula we found by guessing!</span></span></p>
+<hr/>
+
+<p>Exercise: To express a sum over a sequence, we use the `\sum`
+notation. This is called a <b>series</b><span style="font-weight: normal">.</span>
+More precisely, we will write 
+</p>
+<p>$$\sum_{i=1}^5a_i$$ 
+</p>
+<p>to express <i>a</i><sub><i>1</i></sub><i>+a</i><sub><i>2</i></sub><i>+a</i><sub><i>3</i></sub><i>+a</i><sub><i>4</i></sub><i>+a</i><sub><i>5</i></sub><i>.</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">Notice
+that the bottom of the `\sum` symbol tells you where to start, and
+the top tells you where to end. The expression in front tells you
+what you're adding. The </span></span><i>i</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">we
+call the </span></span><span style="font-variant: normal"><span style="font-style: normal"><b>index</b></span></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">of
+the series. </span></span></span><span style="font-variant: normal"><span style="font-style: normal">Let's
+suppose that we use two very random sequences, not generated by any
+formula that I know of. </span></span><i>a</i><sub><i>1</i></sub><i>=2,
+a</i><sub><i>2</i></sub><i>=_1, a</i><sub><i>3</i></sub><i>=5</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+the other sequence </span></span><i>b</i><sub><i>1</i></sub><i>=_2,
+b</i><sub><i>2</i></sub><i>=_1, b</i><sub><i>3</i></sub><i>=1</i><span style="font-variant: normal"><span style="font-style: normal">.
+Then we can form the sum </span></span>
+</p>
+<p style="font-variant: normal; font-style: normal">$$\sum_{i=1}^3a_i
+b_i$$</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">We
+sequentially replace </span></span><i>i</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">with
+the values from 1 to 3 and then sum at the end. We get (2)(_2) +
+(_1)(_1) + (5)(1) = _4 + 1 + 5 = 2.</span></span></p>
+<p style="font-variant: normal; font-style: normal">We could
+alternatively have formed 
+</p>
+<p style="font-variant: normal; font-style: normal">$$\sum_{i=1}^2a_i^{\wedge
+b_i}$$</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">which
+is 2^</span></span><span style="font-variant: normal"><sup><span style="font-style: normal">_2</span></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">+
+(_1)^</span></span><span style="font-variant: normal"><sup><span style="font-style: normal">_1</span></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">=
+1/4 - 1 = _3/4.</span></span></p>
+<p style="font-variant: normal; font-style: normal">So the exercise
+is to find 
+</p>
+<p style="font-variant: normal; font-style: normal">$$\sum_{i=1}^3
+a_i/b_i$$</p>
+<p style="font-variant: normal; font-style: normal">Answer: 2/_2 +
+_1/_1 = _1+1 = 0.</p>
+<hr/>
+
+<p>Exercise: We also use this notation, not just for random
+sequences, but also sequences determined by a formula. If <i>a</i><sub><i>n</i></sub>
+<i>= 2+3(n-1)</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">and
+`b_n = \frac{n(n+1)}{2}` then we can form the sum </span></span>
+</p>
+<p style="font-variant: normal; font-style: normal">$$\sum_{i=1}^3
+a_ib_i$$ 
+</p>
+<p style="font-variant: normal; font-style: normal">and infer that
+this is (2)(1) + (5)(3) + (8)(6) = 2 + 15 + 48 = 65.</p>
+<p style="font-variant: normal; font-style: normal">Your exercise is
+to use these sequences to find 
+</p>
+<p style="font-variant: normal; font-style: normal">$$\sum_{i=1}^3
+a_i$$</p>
+<p style="font-variant: normal; font-style: normal">and 
+</p>
+<p style="font-variant: normal; font-style: normal">$$\sum_{i=1}^2
+a_i-b_1$$</p>
+<p style="font-variant: normal; font-style: normal">Answer: For the
+first one, it's 2+5 = 7.</p>
+<p style="font-variant: normal; font-style: normal">For the second,
+I'll use parentheses to separate the terms of the series. (2-1) +
+(5-3) = 3</p>
+<hr/>
+
+<p>Exercise: There is no need to use <i>a</i><sub><i>i</i></sub><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">inside
+the summation. We can put the formula in there directly. Here are
+some examples.</span></span></p>
+<p>$$\sum_{i=1}^4i = 1+2+3+4$$</p>
+<p>$$\sum_{i=3}^6i^{\wedge 2} = 3^{\wedge 2} + 4^{\wedge 2} +
+5^{\wedge 2} $$</p>
+<p>$$\sum_{i=2}^5 \log(2,i-1) = \log(2,1) + \log(2, 2) + \log(2,3) +
+\log(2,4)$$</p>
+<p>How can we use this notation to find the formula that we found for
+1+2+3+4?</p>
+<p>Answer: If we just sum the first four numbers, 
+</p>
+<p>$$\sum_{i=1}^4 i = \frac{4(4+1)}{2}$$</p>
+<p>If we sum up to an arbitrary <i>n</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">it's
+</span></span>
+</p>
+<p style="font-variant: normal; font-style: normal">$$\sum_{i=1}^n i
+= \frac{n(n+1)}{2}$$</p>
+<hr/>
+
+<p>Exercise: To practice the use of the `\sum` notation, suppose that
+<i>a</i><sub><i>1</i></sub><i>=20, a</i><sub><i>2</i></sub><i>=24,
+a</i><sub><i>3</i></sub><i>=22, a</i><sub><i>4</i></sub><i>=18</i><span style="font-variant: normal"><span style="font-style: normal">.
+Use the `\sum` notation to express the average of these numbers, i.e.
+the sum of all the elements, divided by the number of elements.</span></span></p>
+<p style="font-variant: normal; font-style: normal">Answer: 
+</p>
+<p style="font-variant: normal; font-style: normal">$$\frac{\sum_{i=1}^4a_i}{n}$$</p>
+<hr/>
+
+<p>Exercise: Suppose <i>a</i><sub><i>i</i></sub><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+</span></span><i>b</i><sub><i>i</i></sub> <span style="font-variant: normal"><span style="font-style: normal">are
+the coordinates of a row and column matrix, respectively. For
+concreteness, suppose </span></span><i>v = [2, 4, -1, 0]</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+</span></span><i>w = [1, 2, _1, _2]</i><sup><i>t</i></sup><i>. </i><span style="font-variant: normal"><span style="font-style: normal">Then
+we'd have </span></span><i>a</i><sub><i>1</i></sub><i>=2 </i><span style="font-variant: normal"><span style="font-style: normal">and
+</span></span><i>a</i><sub><i>2</i></sub><i>=4</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+so on. Likewise </span></span><i>b</i><sub><i>1</i></sub><i>=1</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+so on again. Use the `\sum` notation to express the dot-product </span></span><i>v</i>•<font face="Liberation Serif, serif"><i>w</i></font><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">.
+</span></font></span>
+</p>
+<p style="font-variant: normal; font-style: normal"><font face="Liberation Serif, serif">Answer:
+</font>
+</p>
+<p style="font-variant: normal; font-style: normal"><font face="Liberation Serif, serif">$$v\cdot
+w = \sum_{i=1}^4a_ib_i$$</font></p>
+<hr/>
+
+<p>Exercise: The `\prod` symbol means repeated multiplication in the
+way that `\sum` means repeated addition. Use the `\prod` notation to
+express the factorial.</p>
+<p>Answer: 
+</p>
+<p>$$n! = \prod_{i=1}^n i$$</p>
+<hr/>
+
+<p>Exercise: There is actually yet another way of deriving this
+formula, this one sometimes attributed to the mathematician Gauss. It
+is to take the sum 1+2+3+...+98+99+100, for instance, then you can
+re-arrange the sum. Putting 1 together with 100, and putting 2
+together with 99, and so on, you always get 101. Can you complete the
+derivation?</p>
+<p>Answer: There are 100 numbers here, so there are 50 pairs, all of
+them summing to 101, therefore the resulting sum is equal to 50*101 =
+5050.</p>
+<p>What if there aren't an even number of elements of the series?
+What if we sum up to 101? An obvious fix is just to sum up to 100 and
+then add the 101 at the end. 
+</p>
+<p>If we want to prove that the formula is true through this
+argument, we can say that if <i>n </i><span style="font-variant: normal"><span style="font-style: normal">is
+even then</span></span> <i>1+2+...+(n-2)+(n-1)+n = (1+n) + (2+n-1) +
+... </i><span style="font-variant: normal"><span style="font-style: normal">where
+every term evaluates to </span></span><i>1+n</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+there are </span></span><i>n/2</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">terms.
+Thus the sum is </span></span><i>(1+n)(n/2)</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">which
+is the same formula as before. If </span></span><i>n</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">is
+odd then you use </span></span><i>1+2+3+...+(n-1)+n = (1+n-1) +
+(2+n-2) + ... </i><span style="font-variant: normal"><span style="font-style: normal">where
+there are </span></span><i>(n-1)/2</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">terms
+each evaluating to </span></span><i>n</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+again the same formula results.</span></span></p>
+<hr/>
+
+<p>Question: Now that we know how to sum 1+2+3+4+... How can we sum
+other arithmetic sequences? What is the formula for 4+7+10+...?</p>
+<p>Answer: We can represent this sum as 
+</p>
+<p>$$\sum_{i=1}^n(4+3(i-1))$$ 
+</p>
+<p>and we will use some properties of a series, but first it'll be
+better to simplify</p>
+<p>$$\sum_{i=1}^n(1+3i)$$</p>
+<p>Now the first series property we will use is that the sum is
+distributive over addition.</p>
+<p>$$\sum_{i=1}^n(1) + \sum_{i=1}^n (3i)$$</p>
+<p>The left-hand summand here is just adding 1 over and over <i>n</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">times.
+Of course that's just going to be equal to </span></span><i>n</i><span style="font-variant: normal"><span style="font-style: normal">!
+In the right-hand summand, we can use the property of series that a
+constant factor (i.e. a factor with no </span></span><i>i</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">in
+it) can factor out of a sum. Thus this transforms into </span></span>
+</p>
+<p style="font-variant: normal; font-style: normal">$$n + 3
+\sum_{i=1}^n i$$</p>
+<p style="font-variant: normal; font-style: normal">At this point we
+can use the formula that we've found before.</p>
+<p style="font-variant: normal; font-style: normal">$$n+3\left(\frac{n(n+1)}{2}\right)$$</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">I
+call this last formula the </span></span><span style="font-variant: normal"><span style="font-style: normal"><b>summing
+the index </b></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">formula.
+</span></span></span><span style="font-variant: normal"><span style="font-style: normal">For
+instance this can be used to tell us 4+7+10+13+16 is the same as
+`\sum_{i=1}^5(4+3(i-1)) = 5+3</span></span><span style="font-variant: normal"><span style="font-style: normal">\left(</span></span><span style="font-variant: normal"><span style="font-style: normal">\frac{5(5+1)}{2}</span></span><span style="font-variant: normal"><span style="font-style: normal">\right)</span></span><span style="font-variant: normal"><span style="font-style: normal">
+= 50`.</span></span></p>
+<hr/>
+
+<p>Exercise: Find the sum of the first 100 terms of 4+7+10+...</p>
+<p>Answer: 
+</p>
+<p>$$\sum_{i=1}^100 (4+3(n-i)) = 100+3(100*101)/2 = 100+350*101 =
+35450$$</p>
+<hr/>
+
+<p>Exercise: Find a formula for 5 + 2 + _1 + _4 + ...</p>
+<p>Answer:</p>
+<p>The first equality below is just due to simplification. The second
+is due to distribution. The third is due to factoring in both series.
+The fourth is summing 1 (left series) and summing the index (right
+series)</p>
+<p>$$\sum_{i=1}^n (5+_3(i-1)) = \sum_{i=1}^n(8-3i) = \sum_{i=1}^n8 +
+\sum_{i=1}^n\_3i = $$</p>
+<p>$$8\sum_{i=1}^n1 - 3\sum_{i=1}^ni = 8n -
+3\left(\frac{n(n+1)}{2}\right)$$</p>
+<hr/>
+
+<p>Exercise: Use the formula found before to sum the 5<sup>th</sup>
+to the 100<sup>th</sup> elements of the sequence.</p>
+<p>Answer: Probably the easiest way to do this is to first figure out
+the sum of the first 100 elements. 
+</p>
+<p>$$8(100) - 3\left(\frac{100(100+1)}{2}\right)$$</p>
+<p>This has too much in it, but we can subtract it out. The part we
+want to subtract out is 
+</p>
+<p>$$8(5) - 3\left(\frac{5(5+1)}{2}\right)$$</p>
+<p>I won't bother to subtract these for you, but the difference of
+these two expressions is the answer.</p>
+<hr/>
+
+<p>Question: Having studied arithmetic sequences, are there other
+interesting sequences? What if, rather than use repeated addition, we
+use repeated multiplication?</p>
+<p>Answer: This is a <b>geometric sequence</b><span style="font-weight: normal">.
+Here's an example, 6, 12, 24, 48, 96, ... The formula for an
+arithmetic sequence used multiplication, </span><i><span style="font-weight: normal">a</span></i><sub><i><span style="font-weight: normal">1</span></i></sub>
+<i><span style="font-weight: normal">+ d(n-1)</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+It's not hard to expect that the formula for the geometric sequence
+would use exponentiation. It's </span></span></span><i><span style="font-weight: normal">a</span></i><sub><i><span style="font-weight: normal">1</span></i></sub>
+<i><span style="font-weight: normal">r^</span></i><sup><i><span style="font-weight: normal">n-1</span></i></sup><i><span style="font-weight: normal">.
+</span></i><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">As
+usual </span></span></span><i><span style="font-weight: normal">a</span></i><sub><i><span style="font-weight: normal">1</span></i></sub>
+<span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">expresses
+the first term of the sequence, like 6 in the example above. </span></span></span><i><span style="font-weight: normal">r</span></i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">is
+called the </span></span></span><span style="font-variant: normal"><span style="font-style: normal"><b>common
+ratio</b></span></span><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+If you divide any two adjacent terms by each other, you get the
+common ratio: 12/6 = 2.</span></span></span></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+We will only study these two sorts of sequences, so we can summarize
+the sequence formulae now.</p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">Arithmetic:
+</span></span></span><i><span style="font-weight: normal">a</span></i><sub><i><span style="font-weight: normal">n
+</span></i></sub><i><span style="font-weight: normal">= a</span></i><sub><i><span style="font-weight: normal">1</span></i></sub>
+<i><span style="font-weight: normal">+ d(n-1)</span></i></p>
+<p><span style="font-variant: normal"><span style="font-style: normal"><span style="font-weight: normal">Geometric:
+</span></span></span><i><span style="font-weight: normal">a</span></i><sub><i><span style="font-weight: normal">n</span></i></sub>
+<i><span style="font-weight: normal">= a</span></i><sub><i><span style="font-weight: normal">1</span></i></sub>
+<i><span style="font-weight: normal">r^</span></i><sup><i><span style="font-weight: normal">n-1</span></i></sup></p>
+<hr/>
+
+<p>Exercise: Express the 100<sup>th</sup> term of the sequence 6, 12,
+24, ... but don't bother to evaluate it--the number is too large.</p>
+<p>Answer: <i>6(2^</i><sup><i>99</i></sup><i>)</i></p>
+<hr/>
+
+<p>Exercise: Find the initial value and common ratio of the sequence
+determined by `\frac{1.3^{\wedge n-1}}{2}`.</p>
+<p>Answer: The initial value is 1/2 and the common ratio is 1.3.</p>
+<hr/>
+
+<p>Question: Can we sum a geometric series? In a good (efficient)
+way?</p>
+<p>Answer: Of course the bad, brute-force way, 6+12+24 = 42 is
+possible. But the smarter way involves some serious trickery. Let's
+try to find 6+12+24+48+96+192+384 efficiently. First we can notice
+that if you multiply everything by 2 you will shift most of the terms
+over.</p>
+<p>2( 6+12+24+48+96+192+384 ) = 12+24+48+96+192+384+768</p>
+<p>Now what we can infer is that if you take the difference 
+</p>
+<p>12+24+48+96+192+384+768</p>
+<p>- (6+12+24+48+96+192+384)</p>
+<p>and most of the terms cancel except 768 and _6. These sum to 762. 
+</p>
+<p>Now, if we call the <i>s = 6+12+24+48+96+192+384 </i><span style="font-variant: normal"><span style="font-style: normal">effectively
+what we just showed was that </span></span><i>2s - s = 762</i><span style="font-variant: normal"><span style="font-style: normal">.
+If you know Algebra you know that the left-hand side simplifies to </span></span><i>s</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">but
+since I want to try not to reply on Algebra, let's just say that </span></span><i>2s-s
+= s+s-s = s</i><span style="font-variant: normal"><span style="font-style: normal">.
+</span></span>
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Putting
+this all together we've just shown that </span></span><i>s=762</i><span style="font-variant: normal"><span style="font-style: normal">.
+</span></span>
+</p>
+<p style="font-variant: normal; font-style: normal">If we took the
+sequence 1 + 1/3 + 1/9 + 1/27 + 1/81 then we have a geometric
+sequence with initial value 1 and common ratio 1/3. If we reproduce
+the reasoning that we just used, we would argue that 
+</p>
+<p><i>s = </i><span style="font-variant: normal"><span style="font-style: normal">1
++ 1/3 + 1/9 + 1/27 + 1/81 </span></span>
+</p>
+<p><span style="font-variant: normal"><span style="font-style: normal">(1/3)</span></span><i>s</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">=
+1/3 + 1/9 + 1/27 + 1/81 + 1/243</span></span></p>
+<p><i>s-(1/3)s = 1-1/243 = 242/243</i></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Now
+this is not yet the actual answer, because it's really </span></span><i>s
+- (1/3)s</i><span style="font-variant: normal"><span style="font-style: normal">.
+At this point Algebra is somewhat unavoidable--I'll keep it to a
+minimum. Here we can factor out </span></span><i>s</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+get </span></span><i>s(1-1/3)</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">which
+is </span></span><i>s(2/3)</i><span style="font-variant: normal"><span style="font-style: normal">.
+So we have </span></span>
+</p>
+<p><i>(2/3)s = 242/243</i></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">To
+get </span></span><i>s</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">we
+can divide by 2/3 and get </span></span>
+</p>
+<p style="font-variant: normal; font-style: normal">$$s =
+\frac{242/243 }{2/3}$$</p>
+<p style="font-variant: normal; font-style: normal">and you can
+compute it further if you like, but I'll leave it here because the
+point has been made.</p>
+<p style="font-variant: normal; font-style: normal">To put these
+results in the `\sum` notation we can write 
+</p>
+<p style="font-variant: normal; font-style: normal">$$\sum_{i=1}^76(2^{\wedge
+i-1}) = 762$$ 
+</p>
+<p style="font-variant: normal; font-style: normal">and</p>
+<p style="font-variant: normal; font-style: normal">$$\sum_{i=1}^41(1/3)^{\wedge
+i-1} = \frac{242/243}{2/3}$$</p>
+<hr/>
+
+<p>Exercise: Find the general formula for the sum of a geometric
+sequence. That is to say, use the trick above to find a formula for 
+</p>
+<p>$$\sum_{i=1}^n a_1 r^{\wedge i-1}$$</p>
+<p>Answer: We call this <i>s</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+multiply by </span></span><i>r</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">so
+that </span></span>
+</p>
+<p style="font-variant: normal; font-style: normal">$$s = a_1 + ra_1
++ r^{\wedge 2}a_1 + ... + r^{\wedge n-1}a_1$$</p>
+<p style="font-variant: normal; font-style: normal">$$rs = ra_1 +
+r^{\wedge 2}a_1 + ... + r^{\wedge n}a_1$$</p>
+<p style="font-variant: normal; font-style: normal">and therefore 
+</p>
+<p style="font-variant: normal; font-style: normal">$$s-sr = a_1 -
+r^{\wedge n}a_1$$</p>
+<p style="font-variant: normal; font-style: normal">$$s(1-r) = a_1(1
+- r^{\wedge n})$$</p>
+<p style="font-variant: normal; font-style: normal">$$s =
+a_1\left(\frac{1-r^n}{1-r}\right)$$</p>
+<p style="font-variant: normal; font-style: normal">Now we can
+summarize both the arithmetic <i>series</i> formula and the geometric
+<i>series</i> formula</p>
+<p style="font-variant: normal; font-style: normal">Arithmetic:
+`\sum_{i=1}^na_i = \frac{n(n+1)}{2}`</p>
+<p style="font-variant: normal; font-style: normal">Geometric:
+`\sum_{i=1}^n a_i = a_1 ( \frac{1-r^{\wedge n}}{1-r})`</p>
+<hr/>
+
+<p>Exercise: Here is a famous connection to a philosophical problem.
+An arrow is fired toward a target that is, say, 2 meters away. In
+order to cross that distance, the arrow must first cross half the
+distance, 1 meter. However, in order to cross that 1 meter, it must
+cross half of 1 meter, or 1/2 meters. In order to cross that, it must
+first cross 1/4 meters, and so on. As this process can proceed
+infinitely, the arrow must number actually move. What resolves this
+(called <b>Zeno's Paradox</b><span style="font-weight: normal">)?</span></p>
+<p style="font-weight: normal">Answer: The sum of all of the
+distances is 
+</p>
+<p style="font-weight: normal">$$\sum_{i=1}^\infty 1(1/2)^{\wedge
+n-1}$$</p>
+<p style="font-weight: normal">We know by the formula that this is 
+</p>
+<p style="font-weight: normal">$$\left(\frac{1-(1/2)^{\wedge
+\infty}}{1-1/2}\right)$$</p>
+<p><span style="font-weight: normal">Now of course this is not well
+defined yet, because it's an infinite sum and it turns into an
+infinite power. But think of it this way: Every extra power of 1/2
+makes it smaller and smaller until, so to speak, at infinity the
+value of (1/2)^</span><sup>∞</sup> <font face="Liberation Serif, serif"><span style="font-weight: normal">crushes
+down to 0. Then this whole thing simplifies to </span></font>
+</p>
+<p style="font-weight: normal"><font face="Liberation Serif, serif">$$\left(\frac{1-0}{1-1/2}\right)
+= 2$$</font></p>
+<p style="font-weight: normal"><font face="Liberation Serif, serif">The
+point is that, although the arrow passes through an infinity of
+distances, those distances become vanishingly small. It turns out
+that, sometimes, by summing an infinite number of positive quantities
+you actually result in a finite quantity--if the summands grow small
+enough fast enough.</font></p>
+<p style="font-weight: normal"><font face="Liberation Serif, serif">Mathematicians
+and physicists like to convince themselves that this resolves Zeno's
+Paradox, but it does not, it just re-asserts that a finite distance
+can be segmented into infinitely many &quot;partitions&quot; which
+was the premise in the first place. This adds nothing but formulae to
+the analysis of the philosophical problem. Of course the paradox can
+be resolved, but this is not the way. It is still a cute connection
+to the mathematical subject that we're studying for independent
+reasons.</font></p>
+</body>
+</html>

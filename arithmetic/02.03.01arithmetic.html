@@ -1,0 +1,203 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<script type="text/javascript" async
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 5.1.6.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="00:00:00"/>
+	<meta name="created" content="2017-03-21T20:27:10.494278786">
+	<meta name="changed" content="2017-03-21T21:28:20.559350513">
+	<meta name="created" content="2017-03-21T20:27:10.494278786">
+	<meta name="changed" content="2017-03-21T21:17:08.275337413">
+</head>
+<body lang="en-US" dir="ltr">
+<table width="100%" cellpadding="4" cellspacing="0" style="page-break-before: always; page-break-inside: avoid">
+	<col width="128*">
+	<col width="128*">
+	<tr valign="top">
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><a href="/home/adam/Documents/Websites/6te/main/main.html">Home</a>
+			&gt; <a href="/home/adam/Documents/Websites/6te/arithmetic/arithmetic.html">Arithmetic</a>
+			&gt; <a href="/home/adam/Documents/Websites/6te/arithmetic/arithmeticCh02.html">Extending
+			number sets</a> &gt; Reals</p>
+		</td>
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding: 0.04in">
+			<p align="right">&lt; <a href="/home/adam/Documents/Websites/6te/arithmetic/02.02.01arithmetic.html">prev</a>
+			| <a href="/home/adam/Documents/Websites/6te/arithmetic/02.04.01arithmetic.html">next</a>
+			&gt;
+			</p>
+		</td>
+	</tr>
+</table>
+<h1><meta name="created" content="2017-03-25T16:38:49.258230180"><meta name="changed" content="2017-03-25T17:53:17.782966465">Arithmetic</h1>
+<p style="margin-top: 0.17in; page-break-after: avoid"><font face="Albany, sans-serif"><font size="4" style="font-size: 14pt">Chapter
+02: Extending number sets</font></font></p>
+<p style="margin-top: 0.17in; page-break-after: avoid"><font face="Albany, sans-serif"><font size="4" style="font-size: 14pt">Section
+03: Real numbers</font></font></p>
+<p>Abstract: The real numbers plug all gaps in the number line.</p>
+<p>Terms: number line, dense, real</p>
+<p>Symbols: ℝ</p>
+<hr/>
+
+<p>Question: If sqrt(2) isn't rational then what do we say about it?</p>
+<p>Answer: The obvious answer is to close our number system under
+this operation as we have with other operations. <span style="font-variant: normal"><span style="font-style: normal">However,
+that doesn't quite get us as much as we might think it does. We know
+that eventually we're going to have to encounter and explain </span></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">π,
+the constant used for measuring circles, but this number is not going
+to be the square-root of a rational number or anything like it. Yet
+it has a famous decimal expansion, 3.14somethingsomething I don't
+really know or care about the digits of π. Don't get me wrong, I
+deeply love π, I just don't care about its digit representation. </span></font></span>
+</p>
+<p style="font-variant: normal; font-style: normal"><font face="Liberation Serif, serif">Now
+is probably a good moment to introduce the notion of the rational
+number line. This is like the labeled dot sequence that we used for
+the integers, now fitting in a lot of points in-between.</font></p>
+<p style="font-variant: normal; font-style: normal"><font face="Liberation Serif, serif">__Example__</font></p>
+<p><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">This
+number line clearly has a lot more--and infinity more--points than
+the integer number line, which itself had an infinity more points
+than the natural number line. (For the mathematicians out there,
+don't give me crap about what I've said here--there is a sense in
+which this is true using set-minus, and I'll introduce bijections
+later.)</span></font></span><span style="font-variant: normal"> </span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">But
+not only does the set of rational numbers</span></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">have
+more than the integers, but in-between any two integers there is an
+infinity of rationals.</span></font></span></p>
+<p style="font-variant: normal; font-style: normal"><font face="Liberation Serif, serif">__Example__</font></p>
+<p><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">In
+fact, in-between any two </span></font></span><font face="Liberation Serif, serif"><i>rationals</i></font><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">there
+is an infinity of rationals. This is a geometric property that we
+call </span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><b>density</b></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">,
+defined as: For any two numbers, </span></span></font></span><font face="Liberation Serif, serif"><i><span style="font-weight: normal">r
+&lt; s</span></i></font><span style="font-variant: normal"> </span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">there
+exists a number </span></span></font></span><font face="Liberation Serif, serif"><i><span style="font-weight: normal">t</span></i></font><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">such
+that </span></span></font></span><font face="Liberation Serif, serif"><i><span style="font-weight: normal">r
+&lt; t &lt; s</span></i></font><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">.
+Notice that the digit approximation of sqrt(2), which we said was
+1.414213... and this gets closer and closer to a place that's ...
+&quot;on&quot; the rational number line? Well, saying that it gets
+close to a place on the rational number line seems wrong because we
+already said that sqrt(2) is not rational. Maybe we should say that
+it gets close to a place in-between the rational number line? That
+also seems weird because there doesn't seem to be space in-between
+stuff in a dense geometry like this. But apparently there is. This is
+also strange, which is what I love about Mathematics, that even in a
+dense space like this, it still has </span></span></font></span><font face="Liberation Serif, serif"><i><span style="font-weight: normal">gaps!</span></i></font><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">Clearly
+to fill the gaps we will need to include all digit sequences. This
+and not the closure under square-roots will get us the </span></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><b>real
+numbers</b></span></font></span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">,
+denoted by ℝ. That is to say ℝ is the set of all digit sequences,
+so that 102.3456789013423423456... ∊ ℝ and any other digit
+sequence is in it too. If we want to state it just a little more
+formally we could say</span></span></font></span></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+<font face="Liberation Serif, serif">$$\mathbb{R}=\{a_ma_{m-1}...a_{0}.b_1b_2...
+: \text{ for all } i \in \mathbb{N} \text{ we have } a_i, b_i\in
+\mathbb{N} \text{ and } 0\leq a_i,b_i\leq 9\}$$</font></p>
+<p><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">But
+that's just a lot less readable than &quot;all digit sequences&quot;.
+It basically says that the real number is every sequence with </span></span></font></span><font face="Liberation Serif, serif"><i><span style="font-weight: normal">m</span></i></font><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal"><span style="font-weight: normal">characters,
+followed by a dot, followed by another sequence of characters, such
+that the indices of the characters are natural numbers and represents
+a digit.</span></span></font></span></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal">
+<font face="Liberation Serif, serif">Anyway, this has the consequence
+that, now, sqrt(2) is a number for us in the reals because it has a
+digit sequence. 0.10110111... is also a number for us now, and if we
+form the number line of reals, it is no longer gapy. Because this is
+the number line that we like, from now on we when we talk about &quot;the
+number line&quot; it is assumed that we mean this one with no gaps. </font>
+</p>
+<hr/>
+
+<p>Question: As usual, how do we define operations on reals?</p>
+<p>Answer: Effectively, we obviously cannot act on all of the digits
+of a number if they do some crazy, unpredictable pattern like for <span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">π.
+(By the way, I have not really formally introduced π and am only
+hinting that it is irrational--the proof is hard and we will save it
+for much later. For now I only ask you to have faith and patience
+with π.) More realistically we will just leave most irrational
+numbers in their symbolic form, like sqrt(2) or `\sqrt{2}`, rather
+than try to write down any part of their digit expansions. The
+operations will correspondingly just be left in symbolic form, like
+sqrt(2) + 1 most of the time. However this introduces the
+complication that some symbolic expressions are better than others.
+For instance `sqrt{2}\^^2` is better expressed as 2 since the square
+and square-root [are built to] cancel. We might call this
+simplification but the term will not be well-defined since in some
+cases it won't be clear what simplification means. Take `sqrt{8} =
+\sqrt{4\ast 2} = \sqrt{4}\ast \sqrt{2} = 2\sqrt{2}`. Which is
+&quot;simpler&quot;, `sqrt{8}` which uses only one operation, or
+`2sqrt{2}` which uses smaller numbers in the operations of
+square-root and multiplication? Most high school classes teach that
+the later is simpler, but for me the question is useless. If you can
+make an expression obviously simpler, do it--but if there's any doubt
+about whether one way of writing a number down is any simpler than
+another way, it doesn't matter, move on to more interesting
+questions! Do Math not decoration!</span></font></span></p>
+<p><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">That
+is the response about effective computations on symbols, although
+there may be a slightly different and deeper question of what even
+is--what sense can be given, in general, to say 21.75904^</span></font></span><span style="font-variant: normal"><sup><font face="Liberation Serif, serif"><span style="font-style: normal">4.33156</span></font></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">or
+any of the other combinations of symbols in our new language? Well
+for finite decimals we are still in the case of rational number
+operations, and we can always decrypt these things into their
+corresponding rational expressions and perform any of sums, products,
+powers, and roots that are needed. For infinite decimals, for most
+usual cases we will have faith that if you just keep completing their
+digit sequences you will eventually hone in on some point in the
+number line. That is to say if we wanted to compute (0.10110111...)^</span></font></span><span style="font-variant: normal"><sup><font face="Liberation Serif, serif"><span style="font-style: normal">2</span></font></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">we
+could first approximate this by 0.1^</span></font></span><span style="font-variant: normal"><sup><font face="Liberation Serif, serif"><span style="font-style: normal">2</span></font></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">and
+then 0.101^</span></font></span><span style="font-variant: normal"><sup><font face="Liberation Serif, serif"><span style="font-style: normal">2</span></font></sup></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="Liberation Serif, serif"><span style="font-style: normal">and
+so on. At every stage you get a number and this sequence of numbers
+keeps honing in on a point in the number line which is the ultimate
+value of the original expression. </span></font></span>
+</p>
+<p style="font-variant: normal; font-style: normal"><font face="Liberation Serif, serif">But
+to reiterate, we don't effectively compute things like this. Instead
+we typically just stick to symbolic representations and try our best
+to find the &quot;simplest&quot; representation available, whatever
+we might pick for that.</font></p>
+<hr/>
+
+<p>Question: Are the reals dense? That is to say, between any two
+reals <i>r &lt; s</i><span style="font-variant: normal"><span style="font-style: normal">,
+must there be a </span></span><i>t</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">such
+that </span></span><i>r &lt; t &lt; s</i><span style="font-variant: normal"><span style="font-style: normal">?</span></span></p>
+<p><span style="font-variant: normal"><span style="font-style: normal">Answer:
+Yes, if </span></span><i>r</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">and
+</span></span><i>s</i><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">are
+any two reals we can in fact </span></span><i>construct</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">a
+number in-between them. We can construct a lot of numbers, but the
+simplest is their average `\frac{r+s}{2}`. Intuitively this is
+equally distant from </span></span><i>r</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">and
+</span></span><i>s</i><span style="font-variant: normal"><span style="font-style: normal">.
+Here I'll prove that `r &lt; \frac{r+s}{2}`. By multiplying by 2 and
+then subtracting </span></span><i>r</i><span style="font-variant: normal">
+</span><span style="font-variant: normal"><span style="font-style: normal">we
+get `r &lt; s` and if we run this calculation in reverse we get an
+effective procedure for building the proof. </span></span>
+</p>
+<p style="font-variant: normal; font-style: normal">$$r &lt; s
+\Rightarrow 2r &lt; r+s \Rightarrow r &lt; \frac{r+s}{2}$$</p>
+<p style="font-variant: normal; font-style: normal">A similar proof
+shows that `\frac{r+s}{2} &lt; s`.</p>
+</body>
+</html>
