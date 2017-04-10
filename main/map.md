@@ -8,6 +8,7 @@
         1. Multiplication, division
         1. Exponentiation, roots, logarithms
         1. Factorial, permutation, combination
+        1. Sets 
     1. Extending number systems
         1. Integers
         1. Rationals
