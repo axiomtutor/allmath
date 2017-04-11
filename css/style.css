@@ -55,6 +55,9 @@ canvas {
     color: White;
     font-family: monospace;
 }
+.code {
+    font-family: monospace;
+}
 
 .quote {
     text-align: center;
