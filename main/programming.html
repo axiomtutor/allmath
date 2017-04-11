@@ -2,14 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title></title>
-	<meta name="generator" content="LibreOffice 5.1.6.2 (Linux)"/>
-	<meta name="created" content="00:00:00"/>
-	<meta name="changed" content="2017-03-21T21:35:43.522820107"/>
-	<meta name="created" content="2017-03-21T20:27:10.494278786">
-	<meta name="changed" content="2017-03-21T21:28:20.559350513">
-	<meta name="created" content="2017-03-21T20:27:10.494278786">
-	<meta name="changed" content="2017-03-21T21:17:08.275337413">
+	<title>Programming</title>
 </head>
 <body lang="en-US" dir="ltr">
 <table width="100%" cellpadding="4" cellspacing="0" style="page-break-before: always; page-break-inside: avoid">
@@ -20,147 +13,152 @@
 			<p><a href="main.html">Home</a> &gt; Programming Prerequisites</p>
 		</td>
 		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding: 0.04in">
-			<p align="right">&lt; <a href="About.html">prev</a> | next &gt; 
+			<p align="right">&lt; <a href="About.html">prev</a> | <a href="programming2.html">next</a> &gt;
 			</p>
 		</td>
 	</tr>
 </table>
-<h1 style="page-break-before: always"><meta name="created" content="00:00:00"><meta name="changed" content="2017-03-21T11:21:36.031386503"><meta name="created" content="00:00:00"><meta name="changed" content="2017-03-21T10:04:08.082907823"><meta name="created" content="00:00:00"><meta name="changed" content="2017-03-21T09:55:34.362863909"><meta name="created" content="00:00:00"><meta name="changed" content="2017-03-20T00:51:43.164328865"><meta name="created" content="2017-03-18T22:05:53.108962139"><meta name="changed" content="2017-03-19T00:42:27.551262338">Programming
-Prerequisites</h1>
-<p>Here I introduce Python programming enough to cover the concepts
-that I use until the topic on Computer Science. If you're unfamiliar
+<h1 style="page-break-before: always">Programming
+Prerequisites, Part 1 of 3</h1>
+<p>I'll try to keep this to everything that you strictly need to follow the Math lessons.  For a novice that will still mean a lot to learn.  What you need to take away in order to do the tasks in this text are:
+
+	<ul>
+		<li>Know how to use the console to do short calculations and operations.</li>
+		<li>Know how to write simple scripts with loops, if-else, and boolean operations.</li>
+		<li>Know how to define and use functions, including recursive functions.</li>
+		<li>Know how to import and use modules, particularly SymPy.</li>
+	</ul>
+
+	<br>
+	If you're unfamiliar
 with Python, I recommend doing an internet search for Anaconda's
 Python distribution, following the instructions you find there, and
-installing it. Anaconda will set you up with a lot of background
-software to make using Python easier. Once you have it installed,
-open its &quot;navigator&quot; or &quot;launcher&quot;, and from
-there open the Spyder application. If you have difficulty, try
-searching for solutions--I'll assume that I'm speaking hear to an
-independent learner of one sort or another, so you'll have to get
-good at searching for solutions to your roadblocks. 
+installing it. Anaconda will set you up with a lot of behind-the-scenes stuff to make things easier. Once you have it installed,
+open Anaconda's &quot;navigator&quot; or &quot;launcher&quot;, and from
+there open the Spyder application. If you have difficulty, now's the time to start learning how to research.  Start with a simple internet search; f you can't find it, try <i>typing in a question</i> to Stackoverflow but do not submit it yet!  Look to see if other people have asked a similar question that might answer yours--those people don't take kindly to repeat questions.  If you still don't find a solution, then submit your question.  <i><b>This is an important protocol for all technical issues.</b></i>
 </p>
-<p>With Spyder open, the screen will be split into three panes: On
-the left is the editor, the upper right is the object explorer, and
-the lower right is the console. To begin with we work in the console,
-which is designed for fast, friendly interactions. 
+<p>Assuming you've managed to find and launch Spyder, the screen will be split into three panes: On
+the left is the <b>editor</b>, the upper right is the <b>object explorer</b>, and
+the lower right is the <b>console</b>. To begin with we work in the console,
+which is designed for fast, friendly interactions.
 </p>
 <hr/>
 
 <p><b>Primitive objects in Python</b></p>
-<p>Type 
+<p>Enter
 </p>
-<p>In[1]: 1+1</p>
-<p>and the console should show 
+<p class="code">In[1]: 1+1</p>
+<p>and the console should show
 </p>
-<p>Out[1]: 2</p>
-<p>In[2]: 
+<p class="code">Out[1]: 2</p>
+<p class="code">In[2]:
 </p>
 <p>The console is now waiting for the next instructions. The commands
-you issue are numbered, but for my purposes while writing this text I
-likely won't be able to keep up with the numbering system, so I'll
-just write 
+you issue are numbered, but depending on what you do, your numbers may disagree with mine.  I'll use ^^In[n]:`` and ^^Out[n]`` to stay agnostic about line numbering.  Now try running the following.
 </p>
-<p>In[n]: 'hello world'</p>
-<p>Out[n]: 'hello world'</p>
+<p class="code">In[n]: 'hello world'</p>
+<p class="code">Out[n]: 'hello world'</p>
 <p>In this example I've used the text object 'hello world'. Python
 distinguishes text objects, called &quot;strings&quot;, from number
-objects. In the first example of `1+1` the number 1 is called an
+objects. In the first example of <font class="code">1+1</font> the number 1 is called an
 &quot;integer&quot;. It is used to distinguish numbers like these
-from numbers like 1.5 which we call &quot;floats&quot;. 
+from numbers like 1.5 which we call &quot;floats&quot;.
 </p>
-<p>In[n]: 1.5*4</p>
-<p>Out[n]: 6.0</p>
+<p class="code">In[n]: 1.5*4</p>
+<p class="code">Out[n]: 6.0</p>
 <p>There is just one more so-called primitive object type that we
 will need for a while, and that's a boolean, meant to represent true
-and false. 
+and false.
 </p>
-<p>In[n]: not True</p>
-<p>Out[n]: False</p>
-<p>In[n+1]: not False</p>
-<p>Out[n+1]: True</p>
+<p class="code">In[n]: not True</p>
+<p class="code">Out[n]: False</p>
+<p class="code">In[n+1]: not False</p>
+<p class="code">Out[n+1]: True</p>
 <p>The use of boolneans will, hopefully, become clear soon and their
 nature will be explored in greater detail in the topics on Logic and
-Computer Science. For now just appreciate that we've seen operations
-on numbers, like + and *, and an operation on booleans, the `not`
-operation. There are more operations, and we'll introduce them as
+Computer Science. For now just appreciate that + and * are operations on numbers, and in a similar way <font class="code">not</font>
+is an operation on booleans. Another operation is ^^and`` and this is an infix operation so that you have to write, for instance
+<p class="code">In[n]: True and False</p>
+<p class="code">Out[n]: False</p>
+There are more operations, and we'll introduce them as
 they become useful. Strings also have operations, here's an
 illustration of concatenation.</p>
-<p>In[n]: 'Hello ' + 'world'</p>
-<p>Out[n]: 'Hello world'</p>
+<p class="code">In[n]: 'Hello ' + 'world'</p>
+<p class="code">Out[n]: 'Hello world'</p>
 <p>Python intelligently detects what kind of object you're using, in
 this case a string, and does the right thing for that kind of object.
-Notice that sometimes you can get slightly unexpected results like 
+Notice that sometimes you can get slightly unexpected results like
 </p>
-<p>In[n]: 2*'Hello'</p>
-<p>Out[n]: 'HelloHello'</p>
-<p>and sometimes you get errors 
+<p class="code">In[n]: 2*'Hello'</p>
+<p class="code">Out[n]: 'HelloHello'</p>
+<p><i>A priori</i> you might have guessed that multiplying a number and a string would produce an error.  Sometimes operations like that does produce an error.
 </p>
-<p>In[n]: 'Hello' + 1</p>
+<p class="code">In[n]: 'Hello' + 1</p>
 <p>Traceback (most recent call last):</p>
 <p><br/>
 <br/>
 
 </p>
-<p>File &quot;&lt;ipython-input-1-d8d11a7979bf&gt;&quot;, line 1, in
+<p class="code">File &quot;&lt;ipython-input-1-d8d11a7979bf&gt;&quot;, line 1, in
 &lt;module&gt;</p>
-<p>'hello'+1</p>
+<p class="code">'Hello'+1</p>
 <p><br/>
 <br/>
 
 </p>
-<p>TypeError: Can't convert 'int' object to str implicitly</p>
-<p>The error messages can sometimes be intimidating but often the
-error type--in this case, TypeError--is helpful. This is always the
-error you get when you do something to a thing and the thing doesn't
-want that something done to it, like here. Python doesn't know how to
-add a string with a number. 
+<p class="code">TypeError: Can't convert 'int' object to str implicitly</p>
+<p>The error messages can sometimes be intimidating.  However, often the
+error type--in this case, TypeError--is helpful and simple. This is the
+error type you get when you do something to a thing and the thing doesn't
+like it. In this case the number doesn't like getting a string added to it--Python doesn't know what you want when you do that, so it gives you an error.
 </p>
 <hr/>
 
 <p><b>Variables</b></p>
 <p>Everything we've done so far creates an object, like a number or
 text, and after that it's gone--we can't access what we created
-without re-creating it. We want the ability to store the results of
+without entering it again. We want the ability to store the results of
 our work and re-use it, and for this we have variables. Every
-variable is an information storage container, with a name. The name
-is always in un-quoted text, like so</p>
-<p>In[n]: sto = 0</p>
-<p>In[n+1]: sto + 1</p>
-<p>Out[n+1]: 1</p>
-<p>Here the name of the variable is `sto` and it has been made to
+variable is an information storage container, with a name. <i>The name of the
+	is always in un-quoted text</i>, like so</p>
+<p class="code">In[n]: sto = 0</p>
+<p class="code">In[n+1]: sto + 1</p>
+<p class="code">Out[n+1]: 1</p>
+<p>Here the name of the variable is <font class="code">sto</font> and it has been made to
 store the number 0. Unexciting but it's a start. This is typical in
-Python: Whenever we create a variable we have to simultaneously store
-some initial information in it. In this example, `sto` was
-initialized to 0. If we wanted to illustrate multiplication as
+Python: Whenever we create a variable we have to simultaneously create it and store
+some initial information in it. In this example, <font class="code">sto</font> was
+"initialized" to 0. If we wanted to illustrate multiplication as
 repeated addition, for instance showing 3*4 as adding 3 with itself 4
-times, we could do the following.</p>
-<p>In[n]: sto = 3</p>
-<p>In[n+1]: sto = sto + 3</p>
-<p>In[n+2]: sto = sto + 3</p>
-<p>In[n+3]: sto = sto + 3</p>
-<p>In[n+4]: sto</p>
-<p>Out[n+4]: 12</p>
-<p>This code might be confusing, because mathematically `sto = sto +
-3` is a contradiction: There is no number which, when added with 3,
-is the same value as before. But recall that, somewhat unfortunately
-for us, in Python the `=` symbol does not express equality, it
-expresses information storage. So what line `In[n+1]: sto = sto + 3`
-does is first retrieves the value in `sto` at that point, which is 3,
-sums it with 3 to get 6, and stores 6 back into `sto` (in the
-process, erasing the 3 that was there before). The following does the
+times, we could do the following.  This code first stores 3 then adds 3 to itself four times.  At the final input line, it asks the consol to print with the simple command ^^sto``.  </p>
+<p class="code">In[n]: sto = 3</p>
+<p class="code">In[n+1]: sto = sto + 3</p>
+<p class="code">In[n+2]: sto = sto + 3</p>
+<p class="code">In[n+3]: sto = sto + 3</p>
+<p class="code">In[n+4]: sto</p>
+<p class="code">Out[n+4]: 12</p>
+<p>This code might be confusing, because mathematically <font class="code">sto = sto +
+3</font> is a contradiction: There is no number which is equal to: itself plus 3. But recall that, somewhat unfortunately
+for us, in Python the <font class="code">=</font> symbol does not express equality, it
+expresses information storage. <br><br>
+
+Let's dissect what line <font class="code">In[n+1]: sto = sto + 3</font>
+does (I really do mean the ^^n+1`` part--that's where I'm picking up the explanation here).  Reading the right-hand side first, ^^sto+3`` retrieves the value in <font class="code">sto</font>, which is 3, and
+sums it with 3 to get 6.  Finally, the ^^sto =`` tells Python to store this value, 6, back into <font class="code">sto</font>, in the
+process, erasing the 3 that was there before.  Again, make sure you think of variables, here, as storage containers and not mathematical variables.  The following does the
 same thing, using some &quot;syntactic sugar&quot; in the form of
-`+=`.</p>
-<p>In[n]: sto = 3</p>
-<p>In[n+1]: sto += 3</p>
-<p>In[n+2]: sto += 3</p>
-<p>In[n+3]: sto += 3</p>
-<p>In[n+4]: sto</p>
-<p>Out[n+4]: 12</p>
-<p>At this point you should feel free to do some exercises if you
-feel like it. Illustrate repeated multiplication, or try to
-understand what `True and False` does and what it means. Try to play
+<font class="code">+=</font>.</p>
+<p class="code">In[n]: sto = 3</p>
+<p class="code">In[n+1]: sto += 3</p>
+<p class="code">In[n+2]: sto += 3</p>
+<p class="code">In[n+3]: sto += 3</p>
+<p class="code">In[n+4]: sto</p>
+<p class="code">Out[n+4]: 12</p>
+<p>  To be clear, the line ^^In[n+1]: sto += 3`` is perfectly equivalent to ^^In[n+1]: sto = sto + 3``.  At this point you should feel free to do some exercises if you
+feel like it. For instance, illustrate repeated multiplication; or try to
+understand what <font class="code">True or False</font> does and what it means. Try to play
 around with operations like 2**3 and see if you can figure out what
-it does and what it means. 
+it does and what it means.
 </p>
 <hr/>
 
@@ -168,48 +166,47 @@ it does and what it means.
 <p>So far every object we've dealt with has just been of a primitive
 type, more or less, but sometimes we want to build a complex object
 out of primitive parts. An important example is a list, which just
-takes a bunch of objects and stores them in one place. 
+takes a bunch of objects and stores them in one place.
 </p>
-<p>In[n]: lister = [10, 5, 9]</p>
-<p>One use of this is to, for instance, compute the sum of the list.</p>
-<p>In[n+1]: sum(lister)</p>
-<p>Out[n+1]: 24</p>
+<p class="code">In[n]: lister = [10, 5, 9]</p>
+<p>The "one place" that I mean, is ^^lister``.  That is to say, ^^lister`` <i>is</i> the one storage location, holding all three of these data points.  One use of lists is to, for instance, compute the sum of the list.</p>
+<p class="code">In[n+1]: sum(lister)</p>
+<p class="code">Out[n+1]: 24</p>
 <p>which if we wanted to we could further save and use to find the
-mean of the list. 
+mean of the list.
 </p>
-<p>In[n+2]: s = sum(lister)</p>
-<p>In[n+3]: s/len(lister)</p>
-<p>Out[n+3]: 8.0</p>
-<p>Now it's great to be able to box a bunch of information together,
+<p class="code">In[n+2]: s = sum(lister)</p>
+<p class="code">In[n+3]: s/len(lister)</p>
+<p class="code">Out[n+3]: 8.0</p>
+<p>You could probably guess that the ^^len()`` function gives the length of the list.  Now it's great to be able to box a bunch of information together,
 but it's common to want to pull elements back out--so-called &quot;list
 indexing&quot;. For this we can use the bracket notation after the
 list.</p>
-<p>In[n+4]: lister[0]</p>
-<p>Out[n+4]: 10</p>
-<p>In[n+5]: lister[1]</p>
-<p>Out[n+5]: 5</p>
+<p class="code">In[n+4]: lister[0]</p>
+<p class="code">Out[n+4]: 10</p>
+<p class="code">In[n+5]: lister[1]</p>
+<p class="code">Out[n+5]: 5</p>
 <p>It is likely obvious by now that Python uses &quot;zero-indexing&quot;
-meaning that we start counting from 0. As a quick exercise with this
-concept, notice that the `len(lister)` function will produce the
-length of the list. In our example 
-</p>
-<p>In[n+6]: len(lister)</p>
-<p>Out[n+6]: 3</p>
-<p>Because of zero-indexing, the following will always throw and
-error no matter what list we store in `lister`</p>
-<p>In[n]: lister[len(lister)]</p>
+meaning that we start counting from 0. Because of zero-indexing, the following will always throw and
+error no matter what list we store in <font class="code">lister</font></p>
+<p class="code">In[n]: lister[len(lister)]</p>
 <p>but the following will always produce the last element of the list</p>
-<p>In[n]: lister[len(lister)-1]</p>
+<p class="code">In[n]: lister[len(lister)-1]</p>
+
+<p> You would not be wrong to think this is a kind of obnoxious, verbose way of getting the last element, which is kind of a "natural" and frequent thing you want to access.  Isn't there a way to save key-strokes?  Yep!  Python really is beautiful and friendly:
+
+	<p class="code">In[n+1]: lister[-1]</p>
+	<p class="code">Out[n+1]: 9</p>
 <hr/>
 
 <p><b>Strings as lists</b></p>
-<p style="font-weight: normal">Strings are in fact lists of simple
-characters. We can index them just like lists:</p>
+<p style="font-weight: normal">Strings are in fact lists of
+characters __Hide: characters are individual glyphs__. We can index them just like lists:</p>
 <p style="font-weight: normal">In[n]: exampleString = 'Here is an
 example of some random text'</p>
 <p style="font-weight: normal">In[n+1]: exampleString[1]</p>
 <p style="font-weight: normal">Out[n+1]: 'e'</p>
-<p style="font-weight: normal">We saw how we could use the `len()`
+<p style="font-weight: normal">We saw how we could use the <font class="code">len()</font>
 function to find the length of the list and use that to find the last
 element. However, both strings and lists allow you to do this with
 negative indices.</p>
@@ -218,285 +215,8 @@ negative indices.</p>
 <p style="font-weight: normal">In[n+3]: [10,9,8,7][-2]</p>
 <p style="font-weight: normal">Out[n+3]: 8</p>
 <hr/>
+<p> Now's a good time to break.  We've focused on simple objects and grouping them together into lists.  Next we'll focus on manipulating these simple objects in complex ways--isn't that the whole story of Math and Science?</p>
 
-<p><b>For-loops</b></p>
-<p>Lists have a lot of uses, we won't try to discuss even a fraction
-of them. But an important one is their use in another large and
-important subject: for-loops. For-loops are used to do &quot;something&quot;
-over and over. We can use this to illustrate repeated addition,
-again, but this time more efficiently--letting the computer do the
-repetitions rather than us having to issue the command over and over.
-Before getting to that, let's see a simpler example.</p>
-<p>In[n]: r = [0, 1, 2, 3]</p>
-<p>In[n+1]: for element in r:</p>
-<p>... print(element)</p>
-<p>0</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>Notice a few things here. First, the syntax `for element in r` is
-standard. `element` could be any name of a variable, which we're
-making up within the for-loop declaration. `r` could be replaced with
-any list. Therefore we describe this syntax as `for &lt;var&gt; in
-&lt;list&gt;:` Also notice that the colon at the end is required.
-When you line-break Python automatically puts in `... `, an ellipsis
-with indentation. The ellipses are just part of the console, not the
-code, like `In[n]:`. But the spaces are part of the code and are
-required for the for-loop to work. To make the point clearer, let's
-start talking about the editor, the left half of the Spyder window.
-If you click on it, you are just typing in a text editor, like Word
-or Notepad or whatever editor you might be familiar with, although it
-comes with extra features--but fundamentally it's just an editor to
-type code. Try entering the following.</p>
-<p>1| r = [0, 1, 2, 3]</p>
-<p>2| for i in r:</p>
-<p>3| print(i)</p>
-<p>Notice that the third line begins with four spaces for
-indentation. This is necessary for the program to work correctly. If
-you're using a smart text editor (like in Spyder) it may turn your
-&lt;tab&gt; command into four spaces automatically, but if it's not
-smart then you'll need to do this manually. Spaces are not always
-important, but in for-loops and certain other &quot;control
-structures&quot; they are.</p>
-<p>Of course in the editor pressing enter doesn't cause Python to
-run. To do that you have to go to the toolbar, or menu, or
-whatever--if you can't figure it out by playing around, you can
-google. When you do eventually run, the first time you do this you'll
-get a pop-up window. Just click &quot;Ok&quot; or whatever to get
-passed the window. When it runs, you should see the console print out
-0 through 3. Code that you enter in the editor and run, will print in
-the console. If you run code from the editor, though, sometimes
-you'll see fewer print-outs. For instance, if you put `1+1` on a line
-in the editor and run it, nothing will show. If you want things to
-show, you have to put an explicit `print()` command like in the code
-above. 
-</p>
-<p>Just to say it outright, the way the for-loop works is that the
-variable, like `i` in the code above, sequentially takes each value
-in the list `r` and does something, in this case prints. Here's the
-multiplication example, where we see an illustration of 3*4. To show
-the result we want to add 3 with itself 4 times. To do that we need
-to make a variable that will store our progress as we march through
-the list. I'll use `ag` for the this variable, to indicate that it's
-the &quot;aggregator&quot;. We need to initialize it to 0 so that we,
-in a sense, &quot;start at the start&quot;. Run the following code
-and you should see 12 printed in the console. 
-</p>
-<p>1| r = [3, 3, 3, 3]</p>
-<p>2| ag = 0</p>
-<p>3| for num in r:</p>
-<p>4| ag += num</p>
-<p>Nothing prints, though. Why?</p>
-<p>What this does is first set `ag` to 0, then `num` takes the value
-3 (the first 3 in r) and this is summed to `ag` making it now store
-6. Then `num` takes the next value, which just happens to be 3 again,
-and sums it to `ag` making it 9, and one more time and `ag` stores
-12. At this point Python has reached the end of the list and
-therefore terminates the loop. But we haven't told Python to print
-anything, and we have to do that explicitly when working in the
-editor! If we change it to the following, it will print 12 to the
-console.</p>
-<p>1| r = [3, 3, 3, 3]</p>
-<p>2| ag = 0</p>
-<p>3| for num in r:</p>
-<p>4| ag += num</p>
-<p>5| print(ag)</p>
-<p>Notice that un-indenting `ag` is important to make sure that the
-print line occurs only after the for-loop has terminated. Try
-indenting the 5<sup>th</sup> line to see what happens when it's
-included inside the for-loop.</p>
-<p>One important function in Python is the `range()` function. In
-effect `range(5)` automatically produces a list of the numbers 0
-through 4. That's not exactly true, but we may clarify the exact
-reality later. But if you run 
-</p>
-<p>1| for num in range(5):</p>
-<p>2| print(num)</p>
-<p>you will get a print-out of the numbers 0 through 4. Here's an
-exercise: find a way to use this to compute 20!, which is pronounced
-&quot;twenty factorial&quot;. This is the number you get by computing
-1*2*3*4*...*19*20. The solution is on the next line.</p>
-<p>1| ag = 1</p>
-<p>2| for i in range(20):</p>
-<p>3| ag *= i+1</p>
-<p>4| print(ag)</p>
-<p>We can formally describe the for-loop syntax by `for &lt;var&gt;
-in &lt;list&gt;:`, that is to say, you must write `for` followed by
-some kind of variable (which will take on the value of each element
-of the list, one-by-one), followed by `in`, followed by some list,
-followed by a colon. The next line must be indented by four spaces. 
-</p>
-<hr/>
 
-<p><b>If-then</b></p>
-<p>There are many uses of the if-then control structure. For one
-thing we can loop over a list and operate only on certain elements.
-Suppose we have a list and only want to print the elements larger
-than 5. Then we can write</p>
-<p>1| exampleList = [10, 2, 7, 3, 5, 12]</p>
-<p>2| for element in exampleList:</p>
-<p>3| if element &gt; 5:</p>
-<p>4| print(element)</p>
-<p>We can also write code that effectively computes the absolute
-value of a number:</p>
-<p>1| x = 10</p>
-<p>2| if x &gt; 0:</p>
-<p>3| print(x)</p>
-<p>4| if not x &gt; 0:</p>
-<p>5| print(-1*x)</p>
-<p>It is common to abbreviate this with the if-else syntax which I
-demonstrate below.</p>
-<p>1| x = 10</p>
-<p>2| if x &gt; 0:</p>
-<p>3| print(x)</p>
-<p>4| else:</p>
-<p>5| print(-1*x)</p>
-<p>This code produces the same result as the previous code. In either
-case you can change the value of `x` and see the print result change
-each time that you run the code. In particular you'll want to make
-`x` negative to see that the print result stays positive.</p>
-<p>Just as we can formally describe the syntax of the for-loop with
-`for &lt;var&gt; in &lt;list&gt;:` we can also describe `if &lt;bool&gt;:`.
-By this I mean that, whatever comes after `if` must be a &quot;boolean&quot;,
-which might seem strange: We don't see a boolean in `if x &gt; 0:`.
-Yet it is actually there. 
-</p>
-<p>Try `print(2 &gt; 0)` and `print(not 2 &gt; 0)` either in the
-console or by writing a script in the editor. You'll see the console
-print boolean values. Thus in the code `if x &gt; 0:` the part `x &gt;
-0` will evaluate to a boolean (so long as `x` stores a number). In an
-if-declaration you must always have an expression that evaluates to a
-boolean.</p>
-<p>Here's another example.</p>
-<p>1| if 'abcdefgh'[2] == 'a':</p>
-<p>2| print('a')</p>
-<p>3| else:</p>
-<p>4| print('not a')</p>
-<p>The `==` syntax is used to <i>test</i><span style="font-variant: normal">
-</span><span style="font-variant: normal"><span style="font-style: normal">for
-equality. It returns a boolean of `True` if the objects are equal,
-hence `1 == 1` would return `True` and `1 == 2` would return `False`.
-Notice how this is different from the `=` syntax, which is used to
-store information in a variable. Thus `1 = 2` would return an error
-because `1` is not a variable. Getting back to this code, you can now
-understand what `'abcdefgh[2]` does, it just selects the &quot;second&quot;
-element (counting from 0) which is 'c'. This could have just been
-written as `'c'` rather than `'abcdefgh[2]` but I wanted to make it
-an exercise to read what it's saying. From here you can understand
-what `'abcdefgh[2] == 'a'` is saying; it's testing whether these are
-equal. They aren't equal so it returns the boolean `False`. The
-if-declaration therefore reads a `False` value and does not execute
-the code on line 2. But because line 1 read a `False` value,
-therefore we do run the code in the else-block, i.e. line 4 of the
-code will execute. </span></span>
-</p>
-<p>As usual, the syntax is somewhat rigid: To write an if-declaration
-you must first write `if` followed by an expression that evaluates to
-a boolean, followed by a colon; on the next line you must indent by
-four spaces.</p>
-<hr/>
-
-<p><b>Types and coercion</b></p>
-<p>We will often want to combine text and numbers in order to have a
-nice print-out of some of our numerical results. As we've see,
-though, this isn't possible in a direct way. `print('Here is a
-number: ' + 1)` doesn't produce text, it just causes an error. That's
-because we're trying to combine a text and number object which is
-confusing to Python. Instead we need to convert, or what is sometimes
-called &quot;coerce&quot;, the number into a string so that they can
-be concatenated. 
-</p>
-<p>In[n]: 'Here is a number:' + str(1)</p>
-<p>Out[n]: 'Here is a number: 1'</p>
-<p>This will be useful when we need to initially do calculations with
-number objects, and then at the end of the day, report certain parts
-of the results in a string.</p>
-<p>We might as well comment now on type coercion. You can convert
-many different objects to an integer using the `int()` function and
-Python makes reasonable guesses about what you mean at least some of
-the time. Notice that `int()` does not perform rounding--for that you
-need the `round()` function. Instead `int()` performs what's called
-the &quot;floor&quot; function. Don't worry about it if this is at
-all confusing, the point here is just to convey the gist of how you
-convert a certain type of object into an integer type.</p>
-<p>In[n]: int(2.5)</p>
-<p>Out[n]: 2</p>
-<p>In[n+1]: int(1)</p>
-<p>Out[n+1]: 1</p>
-<p>In[n+2]: int(True)</p>
-<p>Out[n+2]: 1</p>
-<p>If you try to enter `int('a')` however, Python throws an error
-because it has no guess about what you want for this. The boolean
-result that `int(True)` evaluates to 1 may be surprising but it's not
-terribly surprising that true is &quot;kinda like 1&quot; and false
-is &quot;kinda like 0&quot;. In fact when we study boolean algebras
-later on, we will take this idea even more seriously. But even for
-now it kinda makes sense: 0 is the probability we give to
-certainly-false things and 1 is the probability we give to
-certainly-true things. Anyway these are just cute and motivating
-considerations. Back to programming.</p>
-<p>You can also convert just about anything to a string using
-`str()`.</p>
-<p>In[n+3]: str(2.5)</p>
-<p>Out[n+3]: '2.5'</p>
-<p>In[n+4]: str(True)</p>
-<p>Out[n+4]: &quot;True&quot;</p>
-<p>In[n+5]: str([1,2,3])</p>
-<p>Out[n+5]: '[1, 2, 3]'</p>
-<p>And you can convert integers and booleans to floats, but not
-strings or lists. In fact, I once said that `range(5)` is not a list
-but it's very list-like and therefore can be used in many places
-where a list can be used. But one way to see how it differs from a
-list is to see how it prints.</p>
-<p>In[n+6]: range(5)</p>
-<p>Out[n+6]: range(0,5)</p>
-<p>In[n+7]: [0, 1, 2, 3, 4]</p>
-<p>Out[n+7]: [0, 1, 2, 3, 4]</p>
-<p>So `range(5)` prints differently from `[0, 1, 2, 3, 4]` and
-indicates that there's some subtle difference between them. In fact
-`range(5)` is what's called an &quot;iterator&quot; and I won't go
-into what that means right now, it's too complicated and not
-important enough for us to justify getting into it right now. But we
-can convert the iterator into a list, and then see everything inside
-of it the way we can with lists.</p>
-<p>In[n+8]: list(range(5))</p>
-<p>Out[n+8]: [0, 1, 2, 3, 4]</p>
-<hr/>
-
-<p><b>Modules</b></p>
-<p>The last thing to discuss is how to use objects and modules. One
-module that I'll use frequently is SymPy. To get access to it just
-include `import sympy as sp` at the top of the script. Here's an
-example wherein I compute 20! using its built-in function.</p>
-<p>1| import sympy as sp</p>
-<p>2| print(sp.factorial(20))</p>
-<p>What's going on here is that sympy was installed automatically
-when you installed Anaconda. By importing it, you gain access to its
-functions. There are a lot of good reasons why you have to import it
-in order to gain access to it but for now, we won't discuss them. 
-</p>
-<p>Once it's imported, it's like a toolbox, it comes with a bunch of
-different functions, but to use them you have to use the &quot;dot&quot;
-notation. Hence writing `sp.` and then following the `.` with the
-name of a function you want to use, is the standard syntax. Just for
-another demonstration you can use SymPy to compute the cosine
-(whatever that means) of a value.</p>
-<p>1| import sympy as sp</p>
-<p>2| print(sp.cos(1))</p>
-<p>We'll often want to represent functions of a real variable,
-though, and to do that you need to tell SymPy to reserve certain
-variables to be used in mathematical expressions. So for instance if
-I want to define the function x**2 (which is &quot;x squared&quot; or
-x<sup>2</sup>), and then plot it, one would have to write 
-</p>
-<p>1| import sympy as sp</p>
-<p>2| x = sp.variables('x')</p>
-<p>3| f = x**2</p>
-<p>4| sp.plot(f)</p>
-<p>Hopefully in the console a nice plot of the function showed up. 
-</p>
-<p>For now we end Python primer, as this is about as much as is
-necessary to get warmed up, playing around with it, and pick up extra
-skills as needed in the lessons.</p>
 </body>
 </html>
