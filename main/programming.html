@@ -55,7 +55,7 @@ which is designed for fast, friendly interactions.
 <p class="code">In[2]:
 </p>
 <p>The console is now waiting for the next instructions. The commands
-you issue are numbered, but depending on what you do, your numbers may disagree with mine.  I'll use ^^In[n]:`` and ^^Out[n]`` to stay agnostic about line numbering.  Now try running the following.
+you issue are numbered, but depending on what you do, your numbers may disagree with mine.  I'll use <font class="code">In[n]:</font> and <font class="code">Out[n]</font> to stay agnostic about line numbering.  Now try running the following.
 </p>
 <p class="code">In[n]: 'hello world'</p>
 <p class="code">Out[n]: 'hello world'</p>
@@ -78,7 +78,7 @@ and false.
 <p>The use of boolneans will, hopefully, become clear soon and their
 nature will be explored in greater detail in the topics on Logic and
 Computer Science. For now just appreciate that + and * are operations on numbers, and in a similar way <font class="code">not</font>
-is an operation on booleans. Another operation is ^^and`` and this is an infix operation so that you have to write, for instance
+is an operation on booleans. Another operation is <font class="code">and</font> and this is an infix operation so that you have to write, for instance
 <p class="code">In[n]: True and False</p>
 <p class="code">Out[n]: False</p>
 There are more operations, and we'll introduce them as
@@ -131,7 +131,7 @@ Python: Whenever we create a variable we have to simultaneously create it and st
 some initial information in it. In this example, <font class="code">sto</font> was
 "initialized" to 0. If we wanted to illustrate multiplication as
 repeated addition, for instance showing 3*4 as adding 3 with itself 4
-times, we could do the following.  This code first stores 3 then adds 3 to itself four times.  At the final input line, it asks the consol to print with the simple command ^^sto``.  </p>
+times, we could do the following.  This code first stores 3 then adds 3 to itself four times.  At the final input line, it asks the consol to print with the simple command <font class="code">sto</font>.  </p>
 <p class="code">In[n]: sto = 3</p>
 <p class="code">In[n+1]: sto = sto + 3</p>
 <p class="code">In[n+2]: sto = sto + 3</p>
@@ -144,8 +144,8 @@ for us, in Python the <font class="code">=</font> symbol does not express equali
 expresses information storage. <br><br>
 
 Let's dissect what line <font class="code">In[n+1]: sto = sto + 3</font>
-does (I really do mean the ^^n+1`` part--that's where I'm picking up the explanation here).  Reading the right-hand side first, ^^sto+3`` retrieves the value in <font class="code">sto</font>, which is 3, and
-sums it with 3 to get 6.  Finally, the ^^sto =`` tells Python to store this value, 6, back into <font class="code">sto</font>, in the
+does (I really do mean the <font class="code">n+1</font> part--that's where I'm picking up the explanation here).  Reading the right-hand side first, <font class="code">sto+3</font> retrieves the value in <font class="code">sto</font>, which is 3, and
+sums it with 3 to get 6.  Finally, the <font class="code">sto =</font> tells Python to store this value, 6, back into <font class="code">sto</font>, in the
 process, erasing the 3 that was there before.  Again, make sure you think of variables, here, as storage containers and not mathematical variables.  The following does the
 same thing, using some &quot;syntactic sugar&quot; in the form of
 <font class="code">+=</font>.</p>
@@ -155,7 +155,7 @@ same thing, using some &quot;syntactic sugar&quot; in the form of
 <p class="code">In[n+3]: sto += 3</p>
 <p class="code">In[n+4]: sto</p>
 <p class="code">Out[n+4]: 12</p>
-<p>  To be clear, the line ^^In[n+1]: sto += 3`` is perfectly equivalent to ^^In[n+1]: sto = sto + 3``.  At this point you should feel free to do some exercises if you
+<p>  To be clear, the line <font class="code">In[n+1]: sto += 3</font> is perfectly equivalent to <font class="code">In[n+1]: sto = sto + 3</font>.  At this point you should feel free to do some exercises if you
 feel like it. For instance, illustrate repeated multiplication; or try to
 understand what <font class="code">True or False</font> does and what it means. Try to play
 around with operations like 2**3 and see if you can figure out what
@@ -170,7 +170,7 @@ out of primitive parts. An important example is a list, which just
 takes a bunch of objects and stores them in one place.
 </p>
 <p class="code">In[n]: lister = [10, 5, 9]</p>
-<p>The "one place" that I mean, is ^^lister``.  That is to say, ^^lister`` <i>is</i> the one storage location, holding all three of these data points.  One use of lists is to, for instance, compute the sum of the list.</p>
+<p>The "one place" that I mean, is <font class="code">lister</font>.  That is to say, <font class="code">lister</font> <i>is</i> the one storage location, holding all three of these data points.  One use of lists is to, for instance, compute the sum of the list.</p>
 <p class="code">In[n+1]: sum(lister)</p>
 <p class="code">Out[n+1]: 24</p>
 <p>which if we wanted to we could further save and use to find the
@@ -179,7 +179,7 @@ mean of the list.
 <p class="code">In[n+2]: s = sum(lister)</p>
 <p class="code">In[n+3]: s/len(lister)</p>
 <p class="code">Out[n+3]: 8.0</p>
-<p>You could probably guess that the ^^len()`` function gives the length of the list.  Now it's great to be able to box a bunch of information together,
+<p>You could probably guess that the <font class="code">len()</font> function gives the length of the list.  Now it's great to be able to box a bunch of information together,
 but it's common to want to pull elements back out--so-called &quot;list
 indexing&quot;. For this we can use the bracket notation after the
 list.</p>
