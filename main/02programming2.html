@@ -1,0 +1,332 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Programming</title>
+</head>
+<body lang="en-US" dir="ltr">
+<table width="100%" cellpadding="4" cellspacing="0" style="page-break-before: always; page-break-inside: avoid">
+	<col width="128*">
+	<col width="128*">
+	<tr valign="top">
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><a href="main.html">Home</a> &gt; <a href="About.html">About</a> &gt; Programming Prerequisites Part 2 </p>
+		</td>
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding: 0.04in">
+			<p align="right">&lt; <a href="02programming.html">prev</a> | <a href="02programming3.html">next</a> &gt;
+			</p>
+		</td>
+	</tr>
+</table>
+<h1 style="page-break-before: always">Programming
+Prerequisites, Part 2 of 3</h1>
+<p> <h2>Primitive Python types</h2> </p>
+<p> We've already seen a couple Python objects.  In the example </p>
+<p class="code">In[n]: 1+1</p>
+<p class="code">Out[n]: 2</p>
+<p>
+	the number <font class="code">1</font> is a basic object in Python, as is <font class="code">2</font>.  __Hide: in CompSci we call basic objects by the more official phrase, "primitive data types".__  The <font class="code">+</font> in-between the <font class="code">1</font>'s is an operation on objects.  These numbers are called <b>integers</b>.  In the example
+</p>
+<p class="code">In[n]: 'hello world'</p>
+<p class="code">Out[n]: 'hello world'</p>
+<p>
+	the string <font class="code">'hello world'</font> is a basic object, called a <b>string</b>.  Just as there are operations on integers, one can also perform operations on strings.
+</p>
+<p class="code">In[n]: 'hello' + 'world'</p>
+<p class="code">Out[n]: 'helloworld'</p>
+<p>
+	Notice that if you want the space in-between the words, you need to explicitly put it in somehow, either as <font class="code">'hello '</font> or as <font class="code">' world'</font>.  Also pay attention to the quote-marks, these are what signal that you're entering a string.  If you drop the quote-marks you get an error.
+</p>
+<p class="code">
+In[n]: hello world <br>
+  File "<ipython-input-3-6f590ac2370>", line 1 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;hello world <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^ <br>
+SyntaxError: invalid syntax</p>
+<p>There are many other basic objects in Python.  The ones we will introduce here are: integers, floats, complexes, strings, and booleans.  The use of integers is likely clear.  A <b>float</b> is a numeric type with a decimal.</p>
+<p class="code">In[n]: 1.2*-3.1</p>
+<p class="code">Out[n]: -3.7199999999999998</p>
+<p>
+	The distinction between a float and an integer may not seem interesting, but it will be important.  I will quickly comment that you might think that 8^2 would result in 64 but it won't.  In Python the ^ operator does not mean exponent.  If you want the exponent of a number, you have to use **.  Thus 8**2 = 64.  We'll explain this more in the Logic topic.<br><br>
+	There is another numeric type that we will use, which is complex, meant to model the complex numbers, i.e. the square-root of -1.  In Math we denote this by <i>i</i> but in Python and other subjects we denote this by <i>j</i>.  To get this number in Python, we have to type <font class="code">1j</font>.  Simply typing <font class="code">j</font> doesn't work.
+</p>
+<p class="code">In[n]: 1j*1j</p>
+<p class="code">Out[n]: (-1+0j)</p>
+<p>
+	The output is essentially equivalent to the number -1 except that it's kept in a complex number format.  This may be unclear if you don't already understand complex numbers, so don't worry about it until you get to the part of the Arithmetic topic where we introduce complex numbers.  <br><br>
+	These are all of the numeric data types.  We've already met the string type, used to represent text.  We wrap text in quote-marks to create strings.  These quote-marks can be either single- or double-quotes, it usually doesn't matter which.
+</p>
+<p class="code">In[n]: 'text'</p>
+<p class="code">Out[n]: 'text'</p>
+<p class="code">In[n+1]: "text"</p>
+<p class="code">Out[n+1]: 'text'</p>
+<p>
+	Generally the only times the distinction matters is when the text you're representing has an apostrophe in it.  <br><br>
+	When performing operations on numeric types, generally you can mix up the types.  So for instance you can add or multipy or whatever else, with an integer, float, complex, it doesn't matter.  However, with strings that's not always the case.
+</p>
+
+<p class="code">In[n]: 'string1' + ' ' + 'string2'</p>
+<p class="code">Out[n]: 'string1 string2'</p>
+<p class="code">In[n+1]: 1 + 'string'</p>
+<p class="code">Traceback (most recent call last): <br><br>
+  File "<stdin>", line 1, in <module> <br><br>
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+</p>
+
+<p>
+	Your error message may not be exactly the same as mine but they should convey the same gist, which is just that something went wrong, and it's because of a TypeError.  This means that you tried to tell Python to do something and Python didn't know what you meant.  In this case you told it to add an integer to a string and it didn't understand--quite reasonable that it wouldn't--even I don't know what that means and I'm this smart primate.  However, Python may sometimes surprise you by actually being able to mix types.
+</p>
+
+<p class="code">In[n]: 'a'*4</p>
+<p class="code">Out[n]: 'aaaa'</p>
+
+<p>
+	We've now seen all the numeric types and strings.  All that remains is to introduce boolean types which are meant to represent True and False.
+</p>
+<p class="code">In[n]: True</p>
+<p class="code">Out[n]: True</p>
+<p class="code">In[n+1]: False</p>
+<p class="code">Out[n+1]: False</p>
+<p class="code">In[n+2]: not True</p>
+<p class="code">Out[n+2]: False</p>
+<p>
+	There are only the two boolean values, <font class="code">True</font> and <font class="code">False</font>.  Line <font class="code">n+2</font> illustrates the use of the "not" operator.  It also has "and" and "or" operators.  I'll show two instances and you can play with more if you like.  We will study the mathematical theory relevant to booleans in the Logic topic.
+</p>
+<p class="code">In[n]: True and False</p>
+<p class="code">Out[n]: False</p>
+<p class="code">In[n+1]: not True or False</p>
+<p class="code">Out[n+1]: False</p>
+
+<p>
+	These examples use booleans directly, but this is not the typical use.  More often booleans arrise by performing a <i>test</i> on other kinds of objects, where the test returns a boolean.  In the next two lines, I illustrate the use of the == test and the < test.
+</p>
+<p class="code">In[n]: 'hello' == 'goodbye'</p>
+<p class="code">Out[n]: False</p>
+<p class="code">In[n+1]: 1 < 2</p>
+<p class="code">Out[n+1]: True</p>
+
+<p>
+	One interesting test to form is to build a divisibility test.  Suppose you want to know whether 164 is divisible by 4.  <br><br>
+	To investigate this we'll use the modulo operator, ^^%``.  This operation tells you the remainder after division.  So for instance 61%5 = 1 and 8%2 = 0.  If <font class="code">164%4</font> returns <font class="code">0</font> then 164 is divisible by 0 because the remainder is 0 if and only if one number divides the other.  Therefore we could build the following divisibility test, which tests whether or not the remainder is 0.
+</p>
+
+<p class="code">In[n]: 164%4 == 0</p>
+<p class="code">Out[n]: True</p>
+
+<p>
+	This tells us that 164 is divisible by 4.  You might wonder, why not just run <font class="code">164/4</font> and see the result <font class="code">41.0</font>?  Can't you just look at that and tell that 164 is divisible by 4? <br><br>
+	The answer is that, when you ask about divisibility, sometimes all you want is a true/false answer.  If the answer is true, then you'll perform some other steps, and if the answer is false then you'll do yet another thing.  When that's the plan you really want a boolean answer, not a numeric.  We'll see more about why in the next page.
+</p>
+<b>Variables</b>
+<p>
+	Everything we've done so far performs operations and then prints the result.  That's fine if that's all you <i>want</i>, but sometimes we want to store stuff in memory for later use.
+</p>
+<p class="code">In[n]: x = 31.9</p>
+<p class="code">In[n+1]: x</p>
+<p class="code">Out[n+1]: 31.9</p>
+
+<p>
+	Notice that line <font class="code">n</font> stored the information into variable <font class="code">x</font> but did not print anything.  To make the console print the content of <font class="code">x</font> we had to compell it with line <font class="code">n+1</font>.  Also notice that variable assignment is done with a single <font class="code">=</font> while a test for equality <font class="code">==</font> is an operation that returns a boolean value.<br><br>
+	I used the letter <font class="code">x</font> for the variable but the variable can be named by any other letters.  You cannot however use a space, you cannot begin the name with a number, and there are other rules.  I won't enumerate all of the permissible and impermissible names for variables, but here are some examples you might reasonably have been unsure about:
+</p>
+<p class="code">In[n]: x21 = True</p>
+<p class="code">In[n+1]: wEeD_69_bRo = 'some random string'</p>
+<p>
+	Notice that you can store anything in a variable.  One other thing to pay special attention to, and this is a subtle point, is that the code <font class="code">x = 1</font> does NOT mean what we mean when we say this in a mathematical context.  This is information storage, not true equality.  <font class="code">x</font> is just the name of a variable, which is really a place in your computer's memory, storing the number 1.  Here's one way that this matters:
+</p>
+<p class="code">In[n]: x = 1</p>
+<p class="code">In[n+1]: x = x+1</p>
+<p class="code">In[n+2]: x</p>
+<p class="code">Out[n+2]: 2</p>
+
+<p>
+	If <font class="code">x = 1</font> meant equality, line <font class="code">n+1</font> would make no sense.  It would be saying that <font class="code">x</font> is a number which is the same after you add 1.  There is no number like this!  In Mathematics this would be equivalent to a contradiction!  However, as information storage, this does make sense.  The right-hand side of the <font class="code">=</font> names a value.  In this example that value is the same as 1+1.  The left-hand side is where this value gets stored.  Therefore this line puts 2 into <font class="code">x</font>.  It previously stored 1, but that's erased due to the new assignment.  <br><br>
+	This example might seem like a limited and cute little glitch in the system or something, but it's not at all.  We will frequently have reason to store information in a variable, pull the info back out, manipulate it, and replace the new info back into the same variable.  For instance, we can perform repeated addition to mimic multiplication.
+</p>
+<p class="code">In[n]: x = 5</p>
+<p class="code">In[n+1]: x = x+5</p>
+<p class="code">In[n+2]: x = x+5</p>
+<p class="code">In[n+3]: x = x+5</p>
+<p class="code">In[n+4]: x</p>
+<p class="code">Out[n+4]: 20</p>
+
+<p>
+	Because this adds 5 with itself 4 times, it produces the same value as 5*4.  Because this kind of thing is so common, there is some "syntactic sugar" to make it easier to write.  The following code does exactly the same thing as the code above.
+</p>
+<p class="code">In[n]: x = 5</p>
+<p class="code">In[n+1]: x += 5</p>
+<p class="code">In[n+2]: x += 5</p>
+<p class="code">In[n+3]: x += 5</p>
+<p class="code">In[n+4]: x</p>
+<p class="code">Out[n+4]: 20</p>
+
+<p>
+	So far the examples have likely not been terribly provocative.  At this stage the only motivation I can give for using variables is to break up computations into stages, in order to make them more readable.  Later we'll see stronger reasons.  But for now suppose that you want to compute, say, `\sqrt{-1^2+(3/1.1)^2}`.  On a single line that would be unpleasant to read, but with a variable we can separate this into many lines.
+</p>
+<p class="code">In[n]: x = (3/1.1)**2</p>
+<p class="code">In[n+1]: x += -1**2</p>
+<p class="code">In[n+2]: x = x**0.5</p>
+<p class="code">In[n+3]: x</p>
+<p class="code">Out[n+3]: 2.537324...</p>
+
+<p>
+	Notice that to compute the square-root you need to use an exponent of 0.5.  If this isn't already clear it will be after studying Arirthmetic.
+</p>
+
+<b>Composite types</b>
+
+<p>Up to now we've only dealt with primitive types, but now we'll talk about types that we build up from primitives.  The first and most ubiquitous is the "list".  To make a list we wrap all the data in square brackets.</p>
+
+<p class="code">In[n]: sentence = ['the', 'quick', 'brown', 'fox', 'did', 'whatever', 'they', 'do']</p>
+<p class="code">In[n+1]: sentence</p>
+<p class="code">Out[n+1]: ['the', 'quick', 'brown', 'fox', 'did', 'whatever', 'they', 'do']</p>
+
+<p>
+	Now all the information is stored in one variable, <font class="code">sentence</font>.  Although it's nice to put all the information in one place, it is also important to be able to extract the components when we want them--this is called "slicing" or "subsetting".  To get the first element we enter
+</p>
+
+<p class="code">In[n+2]: sentence[0]</p>
+<p class="code">Out[n+2]: 'the'</p>
+
+<p>
+	What we're seeing here is "zero indexing", meaning that the first element is associated with the number 0.  Of course the following indices associate with the following elements of the list.
+</p>
+
+<p class="code">In[n+3]: sentence[1]</p>
+<p class="code">Out[n+3]: 'quick'</p>
+<p class="code">In[n+4]: sentence[2]</p>
+<p class="code">Out[n+4]: 'brown'</p>
+
+<p>
+	The <font class="code">len()</font> function will tell us the length of a list.
+</p>
+
+<p class="code">In[n+5]: l = len(sentence)</p>
+<p class="code">In[n+6]: l</p>
+<p class="code">Out[n+6]: 8</p>
+
+<p>
+	We could try to use this to find the last element of the list, but we can't run <font class="code">sentence[l]</font> to find it.  Zero-indexing means that the last element will have index 7 in this case.
+</p>
+
+<p class="code">In[n+7]: sentence[l-1]</p>
+<p class="code">Out[n+7]: 'do'</p>
+
+<p>
+	However, there's a simpler way.  Negative indices will index from the end of the list back to the front.
+</p>
+
+<p class="code">In[n+8]: sentence[-1]</p>
+<p class="code">Out[n+8]: 'do'</p>
+<p class="code">In[n+9]: sentence[-2]</p>
+<p class="code">Out[n+9]: 'they'</p>
+
+<p>
+	Just to give another example, we could also build a list of data and find its sum. <br><br>
+	By the way, notice that there is some room for sympathetic confusion here.  We used square brackets to <i>create</i> the list and we used square brackets to <i>subset</i> the list.  Keep in mind that a list always stands alone when we make it.  When square brackets stand adjacent to the right of something, the brackets are being used for subsetting. <br><br>
+	Returning to the example of summing over a list:
+</p>
+
+<p class="code">In[n]: data = [10,11,9,10]</p>
+<p class="code">In[n+1]: sum(data)</p>
+<p class="code">Out[n+1]: 30</p>
+
+<p>
+	Notice that we can easily leverage this to get a formula for computing the average of a list of numbers.
+</p>
+
+<p class="code">In[n+2]: sum(data)/len(data)</p>
+<p class="code">Out[n+2]: 10.0</p>
+
+<p>
+	The appearance of the float, 10.0, rather than an integer, reminds me of another point.  We cannot use floats for indices!  Only integers!  If you try to run <font class="code">data[len(data)/2]</font> you will receive an error because <font class="code">len(data)/2</font> will always be a float.  Python always returns a float when division is involved. <br><br>
+	But that invokes a concern.  What if we want to access the item at the middle of the list?  This could be a way to find the median of a data set, which is often useful.  The answer is to "coerce" <font class="code">len(data)/2</font> to be an integer.  Here's how.
+</p>
+
+<p class="code">In[n+3]: len(data)/2</p>
+<p class="code">Out[n+3]: 2.0</p>
+<p class="code">In[n+4]: int( len(data)/2 )</p>
+<p class="code">Out[n+4]: 2</p>
+<p class="code">In[n+5]: data[ int(len(data)/2)) ]</p>
+<p class="code">Out[n+5]: 9</p>
+
+<p>
+	Of course this doesn't actually find the median of the list for a few reasons.  One reason is that the list is un-sorted, so the middle of the list isn't the median of the data.  We could easily handle this with the ^^sorted()`` function.  Another problem is that this list doesn't have a true middle because its length is even.  Therefore to get the median we need to average the middle two coordinates.
+</p>
+<p class="code">In[n+6]: midIndex = int(len(data)/2)</p>
+<p class="code">In[n+7]: data = sorted(data)</p>
+<p class="code">In[n+8]: mid1 = data[midIndex-1]</p>
+<p class="code">In[n+9]: mid2 = data[midIndex]</p>
+<p class="code">In[n+10]: (mid1+mid2)/2</p>
+<p class="code">Out[n+10]: 10.0</p>
+<p>
+	We've been using coercion to turn floats into integers with the ^^int()`` function, but coercion can apply to other types too.  Very often we will want to put text together with other kinds of objects in order to output a readable final result.  We can accomplish this with the ^^str()`` function.  If we were to run ^^"The median of " data + " is " + (mid1+mid2)/2`` we would get an error because, as we've seen, you can't add strings and numerics.  However, the following will work.
+</p>
+
+<p class="code">In[n+11]: "The median of " + str(data) + " is " + str( (mid1+mid2)/2 )</p>
+<p class="code">Out[n+11]: "The median of [9,10,10,11] is 10.0"</p>
+
+<p>
+	The <font class="code">int()</font> function is what we use to coerce an object into being an integer.  Notice that we can use it on any float, not just one that came from a list--and if we use it on any float, it always just drops the part after the decimal.  You might have wanted it to round, but for that you need the <font class="code">round()</font> function.
+</p>
+
+<p class="code">In[n]: int(10.2)</p>
+<p class="code">Out[n]: 10</p>
+<p class="code">In[n+1]: int(0.5)</p>
+<p class="code">Out[n+1]: 0</p>
+<p class="code">In[n+2]: round(1.9)</p>
+<p class="code">Out[n+2]: 2</p>
+
+<p>
+	One thing that we will sometimes need to be able to do, is manipulate a list's contents after creation.  One version of this is easy.  Suppose we want to change the last word of the <font class="code">sentence</font> list we created before.  Here we can do "coordinate assignment".  I'll re-declare the variable in order to be clear.
+</p>
+
+<p class="code">In[n]: sentence = ['the', 'quick', 'brown', 'fox', 'did', 'whatever', 'they', 'do']</p>
+<p class="code">In[n+1]: sentence[-1] = 'done'</p>
+<p class="code">In[n+2]: sentence</p>
+<p class="code">Out[n+2]: ['the', 'quick', 'brown', 'fox', 'did', 'whatever', 'they', 'done']</p>
+
+<p>
+	But what if we want to append to the list new values, i.e. make it longer?  For this we need the <font class="code">.append()</font> method.  There are a few subtly different but similar ideas in this neighborhood.  One is an operation, another is a function, and now we have a method.  It's more trouble than it's worth to explain these differences right now, but just know that methods must always be attached to an object.  In this case, the <font class="code">.append()</font> method must be attached to the list we are appending to.  Here is how we do that.
+</p>
+
+<p class="code">In[n+3]: sentence.append('did')</p>
+<p class="code">In[n+4]: sentence</p>
+<p class="code">Out[n+4]: ['the', 'quick', 'brown', 'fox', 'did', 'whatever', 'they', 'done', 'did']</p>
+
+<p>
+	Here's comes a big important topic that a lot of newbies find difficult:  Lists don't have to be made of primitive objects.  In fact, we can have lists of lists.  And in fact, this happens quite a lot, because this is how we represent matrices.  See the relevant section in Arithmetic and then later in Linear Algebra, for further details on matrices, but I'll illustrate a few of the possibly surprising features here.
+</p>
+
+<p class="code">In[n]: matrix = [ [1,2], [3,4], [5,6] ]</p>
+<p class="code">In[n+1]: len(matrix)</p>
+<p class="code">Out[n+1]: 3</p>
+<p class="code">In[n+2]: matrix[1]</p>
+<p class="code">Out[n+2]: [3,4]</p>
+<p class="code">In[n+3]: matrix[1][1]</p>
+<p class="code">Out[n+3]: 4</p>
+
+<p>
+	Finally, lists are not the only composite data type, even if they're the most popular.  Another important data type is the "dictionary".  A list keeps track of the component data by indexing it, as we've seen.  A dictionary, however, keeps track by what's called key-value pairs.
+</p>
+
+<p class="code">In[n]: d = {'name': 'Ruth', 'age': 100, 90210: 'SC'}</p>
+<p class="code">In[n+1]: d['name']</p>
+<p class="code">Out[n+1]: 'Ruth'</p>
+<p class="code">In[n+2]: d[90210]</p>
+<p class="code">Out[n+2]: 'SC'</p>
+
+<p>
+	In this way of doing things we don't have to remember which data is stored at which location--the key <font class="code">'name'</font> is easier to remember and will give us the value <font class="code">'Ruth'</font>.  The dictionary <font class="code">d</font> can be a good way to store a large bank of data about a person.
+</p>
+<h2>What you should have learned:</h2>
+<ul>
+	<li>The various primitive data types, integers, floats, complex, strings, and booleans, and some of the main operations that we use on them.</li>
+	<li>Tests (operations that return booleans).</li>
+	<li>Variables.</li>
+	<li>The composite data types, lists and dictionaries, and how to subset lists and dictionaries. </li>
+</ul>
+
+</body>
+</html>

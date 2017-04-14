@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Programming 1</title>
+</head>
+<body lang="en-US" dir="ltr">
+<table width="100%" cellpadding="4" cellspacing="0" style="page-break-before: always; page-break-inside: avoid">
+	<col width="128*">
+	<col width="128*">
+	<tr valign="top">
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><a href="main.html">Home</a> &gt; Programming Prerequisites</p>
+		</td>
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding: 0.04in">
+			<p align="right">&lt; <a href="About.html">prev</a> | <a href="02programming2.html">next</a> &gt;
+			</p>
+		</td>
+	</tr>
+</table>
+<h1>Programming Prerequisites, Part 1 of 3</h1>
+<p><b>Anaconda and Spyder</b> </p>
+<p>In this section I'll focus on setting you up with software to write Python code.  This assumes you do not already have Python software or familiarity with programming.</p>
+<p>If that's true, google "anaconda download" and follow their instructions to install their software.  If you run into problems you'll need to do some more googling to try to resolve everything--if you're reading this then presumably you're an independent learner, and out here in the wild you'll need a lot of skill with researching your obstacles.  Once the Anaconda software has been installed, you will want to find the Anaconda "launcher" or "navigator".  This may have been automatically added to your desktop shortcuts, applications bar, or you may need to search your computer for it.  With the launcher open, you should see a program called Spyder.  Run that program.</p>
+<p>Assuming that you've done the previous steps, let's talk about what just happened.  Python is a programming language.  Anaconda is a software package that contains several different softwares in it, and also runs some stuff behind the scenes so that you have more pleasant programming experience.  Spyder is a software that comes with Anaconda, although you could obtain it separately if you had wanted.  It is particularly geared toward running scientific programs written in Python.</p>
+<p>With Spyder open you'll see three panes in the window, one on the left half, one in the upper-right quarter, and one in the lower-right quarter.  These are, respectively, the <b>editor</b>, the <b>object inspector</b>, and the <b>console</b>.  We will initially do most of our work in the console because it is intended for easy, fast punching up one-liner code and running it just to see what it does.  The editor is intended for building multi-line code and saving your work.  The object inspector attempts to read what you're writing, whether in the editor or console, and give up little blips of information about it.  </p>
+<p>If you click on the console you should be able to enter the following.</p>
+
+<p class="code">In[1]: 1+1</p>
+<p class="code">Out[1]: 2</p>
+<p class="code">In[2]: 'hello world'</p>
+<p class="code">Out[2]: 'hello world'</p>
+
+<p>Notice that the console keeps track of the lines that you've entered.  Here I gave it a first input on line 1 and it returned a corresponding output.  I then entered another input on line 2 and it gave a corresponding output.  All of this is very exciting I'm sure.</p>
+<p>Now click on the editor and type the following.</p>
+<p class="code">1| 1+1</p>
+<p>and hit "enter".  If nothing happend except for a line-break, that's as it should be.  </p>
+<p>Note: By the above code I do not mean for you to actually type the "1|" part.  I will always indicate code that is meant for the console by showing you the prompt <font class="code">In[n]: ...</font> and code meant for the editor with <font class="code">1| ...</font>  I won't always keep accurate track of the line numbering, because if you do stuff that I don't, our line numbers may not agree and that's fine.  Hence especially when giving code for the console, I'll use <font class="code">n</font> instead of a specific number.   To indicate the next line after this I'll use <i>n+1</i>.  </p>
+<p> So if in the editor hitting "enter" does not cause the code to run, how do you run it?  You can either click the "play" looking button at the top bar of the window, or you can go through the drop-down menu and find an appropriate button, or you can press F5 on certain kinds of machines.  However, when you do so, <i>again</i> nothing happens!  What gives?   </p>
+<p>The answer is that the editor is pickier about the things it shows you than the console is.  In the editor you have to explicitly tell it what you want to print; whereas in the console, it usually assumes that you want to print most things.  If you run the following script in the editor, it should show you a print-out in the console. </p>
+<p class="code">1| print(1+1)</p>
+<p>Thus concludes the introduction to Spyder.  From now on we'll focus on the language that we enter into Spyder, Python.</p>
+
+<h2>What you should have learned:</h2>
+<ul>
+	<li>How to get Spyder to run.</li>
+	<li>The difference between running code from the console and from the editor.</li>
+	<li>The notation that I use for editor and console code.</li>
+</ul>
+</body>
+</html>

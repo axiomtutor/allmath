@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Programming</title>
+</head>
+<body lang="en-US" dir="ltr">
+<table width="100%" cellpadding="4" cellspacing="0" style="page-break-before: always; page-break-inside: avoid">
+	<col width="128*">
+	<col width="128*">
+	<tr valign="top">
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><a href="main.html">Home</a> &gt; <a href="About.html">About</a> &gt; Programming Prerequisites Part 3</p>
+		</td>
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding: 0.04in">
+			<p align="right">&lt; <a href="02programming2.html">prev</a> | next &gt;
+			</p>
+		</td>
+	</tr>
+</table>
+<h1>Programming Prerequisites, Part 3 of 3</h1>
+<h2>Control structures</h2>
+<b>if-else</b>
+<p>
+	It will be a common occurence that we want the computer to do one thing in one case, and another thing in another case.  For instance when we want to know the median of a list we will want to a) find the middle coordinate when the length of the list is odd, and b) find the average of the middle two coordinates when the length is even.  For this kind of "conditional" behavior we use an if-then structure.  <br><br>
+	To understand the code below, recall that lists are wraped in square brackets, the <font class="code">sorted()</font> function sorts the list, the % is the modulo operator which computes the remainder after division, and note that a number is even if and only if it is divisible by 2.
+</p>
+<p class="code">1| data = [4, 9, 12, 12, 13, 15]</p>
+<p class="code">2| data = sorted(data)</p>
+<p class="code">3| midInd = int(len(data)/2)</p>
+<p class="code">4| if len(data) % 2 == 0:</p>
+<p class="code">5| &nbsp;&nbsp;&nbsp;&nbsp;num1 = data[midInd-1]</p>
+<p class="code">6| &nbsp;&nbsp;&nbsp;&nbsp;num2 = data[midInd]</p>
+<p class="code">7| &nbsp;&nbsp;&nbsp;&nbsp;med = (num1+num2)/2</p>
+<p class="code">8| if len(data) % 2 == 1:</p>
+<p class="code">9| &nbsp;&nbsp;&nbsp;&nbsp;med = data[midInd]</p>
+<p class="code">10| print(med)</p>
+<p>
+	Essentially this code sorts the data, finds the "middle index"; if the data has even length it finds the middle two numbers and their average and stores in <font class="code">med</font>; if the data has odd length it only finds the middle number, and stores in <font class="code">med</font>.  We could have simply entered the data and directly computed the version of the median that we wanted.  What is gained by structuring the code with an if-then?  We gain the ability to change the data and still have the algorithm do the right thing, without having to change the algorithm too. <br><br>
+	This code performed two tests, one for whether the list is of even length and one for whether the list is of odd length.  These two cases are exhaustive, though.  Every length has to be one of these two.  Therefore we could have obtained the same behavior with simpler code, which I display below.
+</p>
+<p class="code">1| data = [4, 9, 12, 12, 13, 15]</p>
+<p class="code">2| data = sorted(data)</p>
+<p class="code">3| midInd = int(len(data)/2)</p>
+<p class="code">4| if len(data) % 2 == 0:</p>
+<p class="code">5| &nbsp;&nbsp;&nbsp;&nbsp;num1 = data[midInd-1]</p>
+<p class="code">6| &nbsp;&nbsp;&nbsp;&nbsp;num2 = data[midInd]</p>
+<p class="code">7| &nbsp;&nbsp;&nbsp;&nbsp;med = (num1+num2)/2</p>
+<p class="code">8| else:</p>
+<p class="code">9| &nbsp;&nbsp;&nbsp;&nbsp;med = data[midInd]</p>
+<p class="code">10| print(med)</p>
+
+<p>
+	The only thing I've changed is the <font class="code">else:</font> in line <font class="code">8</font>.  This is called an if-else structure.  If the condition in the if-test passes (here that means <font class="code">len(data) %2 == 0</font>) then the code in the indented block runs.  If the code in the if-test fails, the code in the indented block after the <font class="code">else:</font> will run.  Here's an other example, this time computing the absolute value of a number.
+</p>
+<p class="code">1| x = -1</p>
+<p class="code">2| if x < 0:</p>
+<p class="code">3|&nbsp;&nbsp;&nbsp;&nbsp;x = -x</p>
+<p class="code">4| print(x)</p>
+
+<p>
+	Of course in this case there was no need for an else-block.  <font class="code">x</font> here is initialized as a negative and therefore, when the script is run, it will enter the if-block at line 3 and switch the sign of <font class="code">x</font> therefore printing <font class="code">1</font>.  If <font class="code">x</font> were instead initialized as 2, for instance, it would fail the if-test <font class="code">x<0</font> and never enter the block.  Therefore the number remains positive. <br><br>
+	Notice that the if-test is always reading a boolean value.  The tests <font class="code">len(data) % 2 == 0</font> returns <font class="code">True</font> if the length is even and the test <font class="code">x < 0</font> returns <font class="code">True if <font class="code">x</font> is negative.  Because these are reading boolean values we can therefore perform boolean operations in order to get more precise division of cases.  Say for instance that we would like to look at points in a coordinate plane and we want a script to tell us which coordinate each point is in.  We represent a point as a list of two numbers, the first is <i>x</i> and the second is <i>y</i>.
+</p>
+<p class="code">1| point = [1,-2]</p>
+<p class="code">2| if point[0] > 0 and point[1] > 0:</p>
+<p class="code">3| &nbsp;&nbsp;&nbsp;&nbsp;print("Q1")</p>
+<p class="code">4| elif point[0] > 0 and point[1] < 0:</p>
+<p class="code">5| &nbsp;&nbsp;&nbsp;&nbsp;print("Q4")</p>
+<p class="code">6| elif point[0] < 0 and point[1] > 0:</p>
+<p class="code">7| &nbsp;&nbsp;&nbsp;&nbsp;print("Q3")</p>
+<p class="code">8| elif point[0] < 0 and point[1] < 0:</p>
+<p class="code">9| &nbsp;&nbsp;&nbsp;&nbsp;print("Q4")</p>
+<p class="code">10| else:</p>
+<p class="code">11| &nbsp;&nbsp;&nbsp;&nbsp;print("The point lies on an axis.")</p>
+
+<p>
+	The above example is meant to illustrate a) the use of the boolean operation <font class="code">and</font> b) the fact that I don't always have to save things in a variable, I can just print things if I want to, c) you might have thought the first four cases were exhaustive but they weren't--one of the two numbers could have been 0--and d) the use of <font class="code">elif</font>.  You guessed right, this is a mix of "else" and "if".  At line 4 this has the effect of requiring both the if-test <font class="code">point[0] > 0 and point[1] <= 0</font> to hold AND the previous if-test <font class="code">point[0] >= 0 and point[1] > 0</font> NOT to hold.  You might notice that this is kind of redundant because if one condition holds the other automatically doesn't.  However, the use of elif throughout this code matters when we get to line 10.  At line 10, what should the <font class="code">else</font> do?  Should it run the block of code if the first if-test fails?  Or if the last if-test fails?  By using <font class="code">elif</font> throughout, this makes the final <font class="code">else</font> run if ALL of the previous if-tests failed. <br><br>
+	If we want to say that a number lying on the positive <i>x</i>-axis is in quadrant 1, as some prefer to say, then we need to be able to express "less-than-or-equal-to".  We could do this with, say, <font class="code">if (point[0] > 0 or point[0] == 0) and point[1] > 0</font> and so on, but there is a nice syntactic sugar for this.
+</p>
+<p class="code">1| point = [1,-2]</p>
+<p class="code">2| if point[0] >= 0 and point[1] > 0:</p>
+<p class="code">3|&nbsp;&nbsp;&nbsp;&nbsp;print("Q1")</p>
+<p class="code">4| elif point[0] > 0 and point[1] <= 0:</p>
+<p class="code">5|&nbsp;&nbsp;&nbsp;&nbsp;print("Q4")</p>
+<p class="code">6| elif point[0] < 0 and point[1] >= 0:</p>
+<p class="code">7|&nbsp;&nbsp;&nbsp;&nbsp;print("Q2")</p>
+<p class="code">8| elif point[0] <= 0 and point[1] < 0:</p>
+<p class="code">9|&nbsp;&nbsp;&nbsp;&nbsp;print("Q3")</p>
+<p class="code">10| else:</p>
+<p class="code">11|&nbsp;&nbsp;&nbsp;&nbsp;print("The point is at the origin.")</p>
+
+<p>
+	There is another way to do the same job.  It is to first decide <font class="code">x</font> and then decide <font class="code">y</font> so to speak.
+</p>
+
+<p class="code">1| point = [-2,1]</p>
+<p class="code">2| if point[0] > 0:</p>
+<p class="code">3| &nbsp;&nbsp;&nbsp;&nbsp;if point[1] > 0:</p>
+<p class="code">4| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Q1")</p>
+<p class="code">5| &nbsp;&nbsp;&nbsp;&nbsp;if point[1] < 0: </p>
+<p class="code">6|  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Q4")</p>
+<p class="code">7| elif point[0] < 0:</p>
+<p class="code">8| &nbsp;&nbsp;&nbsp;&nbsp;if point[1] > 0:</p>
+<p class="code">9| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Q2")</p>
+<p class="code">10| &nbsp;&nbsp;&nbsp;&nbsp;if point[1] < 0:</p>
+<p class="code">11| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Q3")</p>
+<p class="code">12| else:</p>
+<p class="code">13| &nbsp;&nbsp;&nbsp;&nbsp;print("The point lies on an axis.")</p>
+
+<p>
+	<b>for-loops</b>
+	<br>
+	Suppose we have the list <font class="code">['a','b','c','d','e','f','g','h','i','j','k']</font> and we want to select every third element.  One way to do this is with a for-loop.  Before actually doing this, let's see a simpler example of a for-loop.
+</p>
+<p class="code">1| someLetters = ['a','b','c','d','e','f','g','h','i','j','k']</p>
+<p class="code">2| for l in someLetters:</p>
+<p class="code">3| &nbsp;&nbsp;&nbsp;&nbsp;print(l)</p>
+
+<p>
+	If you run this you should see every letter in the list printed.  The way this works is, when you write <font class="code">for &lt;var&gt; in &lt;list&gt;:</font> Python will sequentially give the values of the list into the variable, and then do whatever you say with it.  In this case the variable is <font class="code">l</font> and the list is <font class="code">someLetters</font> but the variable and list could be anything you want.  The indented code just says, for each letter, print it.  <br><br>
+	Below I'll give an example of joining all of the letters in the list into a single string.
+</p>
+<p class="code">1| someLetters = ['a','b','c','d','e','f','g','h','i','j','k']</p>
+<p class="code">2| ag = ''</p>
+<p class="code">3| for x in someLetters:</p>
+<p class="code">4| &nbsp;&nbsp;&nbsp;&nbsp;ag += x</p>
+<p class="code">5| print(ag)</p>
+
+<p>
+	What this code does is create <font class="code">ag</font>, what I call an "aggregator" variable.  The purpose of <font class="code">ag</font> is to just kind of "be around" waiting to absorb some of the results of the for-loop calculations whenever they're ready.  In this very simple example, the aggregator just "absorbs" every letter in the list.  At the end we print the result. <br><br>
+	Here's another instance of using an aggregator variable, this time numeric.
+</p>
+<p class="code">1| ag = 0</p>
+<p class="code">2| for num in [1,2,3,4,5]:</p>
+<p class="code">3| &nbsp;&nbsp;&nbsp;&nbsp;ag+=num</p>
+<p class="code">4| print(ag)</p>
+<p>
+	In this example we've summed all the numbers from 1 to 5.  Here's another numeric example of using an aggregator variable.
+</p>
+
+<p class="code">1| ag = 1</p>
+<p class="code">2| for i in [-1, -2, -3, -4]:</p>
+<p class="code">3| &nbsp;&nbsp;&nbsp;&nbsp;ag *= i</p>
+<p class="code">4| print(ag)</p>
+
+<p>
+	Notice that when declaring an aggregator variable you really want it to start out as "empty" in some sense.  For addition that means we start it out as 0; for multiplication that means it's initialized to 1 because this is the number that, when multiplied with anything else, in a sense contributes nothing; and when we did it with a string, we used the so-called empty string <font class="code">''</font>.  <br><br>
+	So far we've selected every element of a list directly, but often we want to select the elements coordinate-wise.  Whenever we want to do that we want to use the ^^range()`` function.  ^^range(5)`` generates a list of 5 elements from 0 to 4, so that it's equivalent to ^^[0,1,2,3,4]``.  Therefore we can use each of these elements as a coordinate in a list of length 5.
+</p>
+
+<p class="code">1| someLetters = ['a','b','c','d','e','f','g','h','i','j','k']</p>
+<p class="code">2| length = len(someLetters)</p>
+<p class="code">3| for index in range(length):</p>
+<p class="code">4| &nbsp;&nbsp;&nbsp;&nbsp;print(someLetters[index])</p>
+<p>
+	What this code does is (1|) creates the list, (2|) finds the length of the list, and then (3|) loops through all numbers (indices) from 0 up to length-1.  As it does so, (4|) it prints the letter in the list, found at that index.  To play with this a little you could instead only print the first five elements.
+</p>
+
+<p class="code">1| someLetters = ['a','b','c','d','e','f','g','h','i','j','k']</p>
+<p class="code">2| for index in range(5):</p>
+<p class="code">3| &nbsp;&nbsp;&nbsp;&nbsp;print(someLetters[index])</p>
+
+<p>
+	We can finally see how to print every third element.  We can do so by seeing which of the indices are divisible by 3.
+</p>
+
+<p class="code">1| someLetters = ['a','b','c','d','e','f','g','h','i','j','k']</p>
+<p class="code">2| for index in range(len(someLetters)):</p>
+<p class="code">3| &nbsp;&nbsp;&nbsp;&nbsp;if index%3 == 0:</p>
+<p class="code">4| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(someLetters[index])</p>
+
+</body>
+</html>

@@ -8,16 +8,17 @@
         1. Multiplication, division
         1. Exponentiation, roots, logarithms
         1. Factorial, permutation, combination
-        1. Sets 
+        1. Sets
     1. Extending number systems
         1. Integers
         1. Rationals
         1. Reals
         1. Complex
-    1. Extensions
+    1. Extensions and alternatives
         1. Vectors and matrices
         1. Modular arithmetic
         1. p-adic numbers
+        1. Graphs
 1. Logic
     1. Pre-symbolic Logic
     1. Propositional Logic

@@ -30,22 +30,27 @@ repetitions rather than us having to issue the command over and over.
 Before getting to that, let's see a simpler example.</p>
 <p class="code">In[n]: r = [0, 1, 2, 3]</p>
 <p class="code">In[n+1]: for element in r:</p>
-<p class="code">...&nbsp;&nbsp;&nbsp;&nbsp;print(element)</p>
+<p class="code">...:&nbsp;&nbsp;&nbsp;&nbsp;print(element)</p>
+<p class="code">...:</p>
 <p class="code">0</p>
 <p class="code">1</p>
 <p class="code">2</p>
 <p class="code">3</p>
-<p>Rather than explain this syntax, just contrast a few examples.
+<p>Rather than explain this syntax, just contrast a few examples.  I won't type the output, you can play with these on your own to see what they do.
 
-<p class="code">for i in ['a', 'b', 'c']:</p>
-<p class>...&nbsp;&nbsp;&nbsp;&nbsp;print(i)</p>
+<p class="code">In[n]: for i in ['a', 'b', 'c']:</p>
+<p class="code">...:&nbsp;&nbsp;&nbsp;&nbsp;print(i)</p>
+
+and here's one with a string rather than a list.
+
+<p class="code">In[n]: for letter in "hello":</p>
+<p class="code">...:&nbsp;&nbsp;&nbsp;&nbsp;print(letter)</p>
 
 Notice how we always need "for" followed by a variable, followed by "in", followed by a list, followed by a colon--<i>but that's not all!</i>  We also need to follow <i>that</i> by a linebreak, <i>followed by four spaces</i>.
 We describe this syntax with the notation <font class="code">for &lt;var&gt; in &lt;list&gt;:</font>
 When you
-line-break the console automatically puts in <font class="code">... </font> , an ellipsis with
-indentation. The ellipsis is just "part of the console", not the code.  It's just there to show you a prompt after which you insert text.  <br><br>
-But the spaces after the elipsis are part of the code and are required for
+line-break after the colon, the console automatically puts in <font class="code">...: </font>  The ellipsis and colon are just "part of the console", not part of the code.  It's just there to show you a prompt after which you insert text.  <br><br>
+But the <i>spaces</i> after the elipsis are part of the code and are required for
 the for-loop to work. To make the point clearer, let's start talking
 about the editor, the left half of the Spyder window. If you click on
 it and type code, you are just typing in a text editor, like Word or Notepad, although it comes with
@@ -68,11 +73,11 @@ important, for instance, you could enter into the console
 
 But spaces for indentation, like in for-loops and certain other &quot;control
 structures&quot;, are important.</p>
-<p>Of course in the editor, pressing enter doesn't cause Python to
+<p>In the editor, you've likely noticed that pressing enter doesn't cause Python to
 run, it just causes a line-break. To get your code to run from the editor, you have to go to the toolbar, or menu, or
 whatever--if you can't figure it out by playing around, you can
 google. On many systems, simply typing F5 will cause the script to run.  <br><br>
-When you do eventually run the code from the editor in Spyder, the first time you do this you'll
+When you do eventually run the code from your editor in Spyder, the first time you do this you'll
 get a pop-up window. Just click &quot;Ok&quot; or whatever to get
 passed the window. When it runs the code above, you should see the console print out
 0 through 3. Code that you enter in the editor and run, will often print in
@@ -82,9 +87,11 @@ in the editor and run it, nothing will show. If you want things to
 show, you have to put an explicit <font class="code">print()</font> command like in the code
 above.
 </p>
+<p>If you received an error when trying to run the above code, it is likely because you copied the "1|" part.  I have included this to both indicate code that is meant for the editor rather than the console, and so that sometimes I can refer to specific lines in the code, but you are not supposed to type this part of the text.</p>
 <p>We (I) have drifted in our conversation away from for-loops, which are ostensibly the topic of this subsection.  Let's return.  Just to say it outright, the way the for-loop works is that the
 variable, like <font class="code">i</font> in the code above, sequentially takes each value in
-the list <font class="code">r</font> and does something, in this case prints. Here's the
+the list <font class="code">r</font> and does something, in this case prints. <br><br>
+Here's the
 multiplication example, where we see an illustration of 3*4. To show
 the result we want to add 3 with itself 4 times. To do that we need
 to make a variable that will store our progress as we march through
@@ -138,56 +145,56 @@ Suppose we have a list and only want to print the elements larger
 than 5. Then we can write</p>
 <p class="code">1| exampleList = [10, 2, 7, 3, 5, 12]</p>
 <p class="code">2| for element in exampleList:</p>
-<p class="code">3| if element &gt; 5:</p>
-<p class="code">4| print(element)</p>
+<p class="code">3| &nbsp;&nbsp;&nbsp;if element &gt; 5:</p>
+<p class="code">4| &nbsp;&nbsp;&nbsp;print(element)</p>
 <p>We can also write code that effectively computes the absolute
 value of a number:</p>
 <p class="code">1| x = 10</p>
 <p class="code">2| if x &gt; 0:</p>
-<p class="code">3| print(x)</p>
+<p class="code">3| &nbsp;&nbsp;&nbsp;print(x)</p>
 <p class="code">4| if not x &gt; 0:</p>
-<p class="code">5| print(-1*x)</p>
+<p class="code">5| &nbsp;&nbsp;&nbsp;print(-1*x)</p>
 <p>It is common to abbreviate this with the if-else syntax which I
 demonstrate below.</p>
 <p class="code">1| x = 10</p>
 <p class="code">2| if x &gt; 0:</p>
-<p class="code">3| print(x)</p>
+<p class="code">3| &nbsp;&nbsp;&nbsp;print(x)</p>
 <p class="code">4| else:</p>
-<p class="code">5| print(-1*x)</p>
+<p class="code">5| &nbsp;&nbsp;&nbsp;print(-1*x)</p>
 <p>This code produces the same result as the previous code. In either
 case you can change the value of x and see the print result change
-each time that you run the code. In particular you'll want to make x
+each time that you run the code. In particular you'll want to make <font class="code">x</font>
 negative to see that the print result stays positive.</p>
 <p>Just as we can formally describe the syntax of the for-loop with
 for &lt;var&gt; in &lt;list&gt;: we can also describe if &lt;bool&gt;:.
-By this I mean that, whatever comes after if must be a &quot;boolean&quot;,
-which might seem strange: We don't see a boolean in if x &gt; 0:. Yet
+By this I mean that, whatever comes after <font class="code">if</font> must be a &quot;boolean&quot;,
+which might seem strange: We don't see a boolean in <font class="code">if x &gt; 0:</font>. Yet
 it is actually there.
 </p>
-<p>Try print(2 &gt; 0) and print(not 2 &gt; 0) either in the console
+<p>Try <font class="code">print(2 &gt; 0)</font> and <font class="code">print(not 2 &gt; 0)</font> either in the console
 or by writing a script in the editor. You'll see the console print
-boolean values. Thus in the code if x &gt; 0: the part x &gt; 0 will
-evaluate to a boolean (so long as x stores a number). In an
+boolean values. Thus in the code <font class="code">if x &gt; 0:</font> the part <font class="code">x &gt; 0</font> will
+evaluate to a boolean (so long as <font class="code">x</font> stores a number). In an
 if-declaration you must always have an expression that evaluates to a
 boolean.</p>
 <p>Here's another example.</p>
 <p class="code">1| if 'abcdefgh'[2] == 'a':</p>
-<p class="code">2| print('a')</p>
+<p class="code">2| &nbsp;&nbsp;&nbsp;print('a')</p>
 <p class="code">3| else:</p>
-<p class="code">4| print('not a')</p>
+<p class="code">4| &nbsp;&nbsp;&nbsp;print('not a')</p>
 <p>The == syntax is used to <i>test</i>for
-equality. It returns a boolean of True if the objects are equal,
-hence 1 == 1 would return True and 1 == 2 would return False. Notice
+equality. It returns a boolean of <font class="code">True</font> if the objects are equal,
+hence <font class="code">1 == 1</font> would return <font class="code">True</font> and <font class="code">1 == 2</font> would return <font class="code">False</font>. Notice
 how this is different from the = syntax, which is used to store
-information in a variable. Thus 1 = 2 would return an error because 1
+information in a variable. Thus <font class="code">1 = 2</font> would return an error because <font class="code">1</font>
 is not a variable. Getting back to this code, you can now understand
-what 'abcdefgh[2] does, it just selects the &quot;second&quot;
-element (counting from 0) which is 'c'. This could have just been
-written as 'c' rather than 'abcdefgh[2] but I wanted to make it an
+what <font class="code">'abcdefgh[2]</font> does, it just selects the &quot;second&quot;
+element (counting from <font class="code">0</font>) which is <font class="code">'c'</font>. This could have just been
+written as <font class="code">'c'</font> rather than <font class="code">'abcdefgh[2]</font> but I wanted to make it an
 exercise to read what it's saying. From here you can understand what
-'abcdefgh[2] == 'a' is saying; it's testing whether these are equal.
-They aren't equal so it returns the boolean False. The if-declaration
-therefore reads a False value and does not execute the code on line
+<font class="code">'abcdefgh[2] == 'a'</font> is saying; it's testing whether these are equal.
+They aren't equal so it returns the boolean <font class="code">False</font>. The if-declaration
+therefore reads a <font class="code">False</font> value and does not execute the code on line
 2. But because line 1 read a False value, therefore we do run the
 code in the else-block, i.e. line 4 of the code will execute.
 </p>
@@ -200,8 +207,8 @@ four spaces.</p>
 <p><b>Types and coercion</b></p>
 <p>We will often want to combine text and numbers in order to have a
 nice print-out of some of our numerical results. As we've see,
-though, this isn't possible in a direct way. print('Here is a number:
-' + 1) doesn't produce text, it just causes an error. That's because
+though, this isn't possible in a direct way. <font class="code">print('Here is a number:
+' + 1)</font> doesn't produce text, it just causes an error. That's because
 we're trying to combine a text and number object which is confusing
 to Python. Instead we need to convert, or what is sometimes called
 &quot;coerce&quot;, the number into a string so that they can be
@@ -213,10 +220,10 @@ concatenated.
 number objects, and then at the end of the day, report certain parts
 of the results in a string.</p>
 <p>We might as well comment now on type coercion. You can convert
-many different objects to an integer using the int() function and
+many different objects to an integer using the <font class="code">int()</font> function and
 Python makes reasonable guesses about what you mean at least some of
-the time. Notice that int() does not perform rounding--for that you
-need the round() function. Instead int() performs what's called the
+the time. Notice that <font class="code">int()</font> does not perform rounding--for that you
+need the <font class="code">round()</font> function. Instead <font class="code">int()</font> performs what's called the
 &quot;floor&quot; function. Don't worry about it if this is at all
 confusing, the point here is just to convey the gist of how you
 convert a certain type of object into an integer type.</p>
@@ -228,7 +235,7 @@ convert a certain type of object into an integer type.</p>
 <p class="code">Out[n+2]: 1</p>
 <p>If you try to enter <font class="code">int('a')</font> however, Python throws an error
 because it has no guess about what you want for this. The boolean
-result that int(True) evaluates to 1 may be surprising but it's not
+result that <font class="code">int(True)</font> evaluates to 1 may be surprising but it's not
 terribly surprising that true is &quot;kinda like 1&quot; and false
 is &quot;kinda like 0&quot;. In fact when we study boolean algebras
 later on, we will take this idea even more seriously. But even for
@@ -252,11 +259,11 @@ list is to see how it prints.</p>
 <p class="code">Out[n+6]: range(0,5)</p>
 <p class="code">In[n+7]: [0, 1, 2, 3, 4]</p>
 <p class="code">Out[n+7]: [0, 1, 2, 3, 4]</p>
-<p>So range(5) prints differently from [0, 1, 2, 3, 4] and indicates
-that there's some subtle difference between them. In fact range(5) is
-what's called an &quot;iterator&quot; and I won't go into what that
+<p>So <font class="code">range(5)</font> prints differently from <font class="code">[0, 1, 2, 3, 4]</font> and indicates
+that there's some subtle difference between them. In fact <font class="code">range(5)</font> is
+what's called a &quot;generator&quot; and I won't go into what that
 means right now, it's too complicated and not important enough for us
-to justify getting into it right now. But we can convert the iterator
+to justify getting into it right now. But we can convert the generator
 into a list, and then see everything inside of it the way we can with
 lists.</p>
 <p class="code">In[n+8]: list(range(5))</p>
@@ -266,18 +273,18 @@ lists.</p>
 <p><b>Modules</b></p>
 <p>The last thing to discuss is how to use objects and modules. One
 module that I'll use frequently is SymPy. To get access to it just
-include import sympy as sp at the top of the script. Here's an
+include <font class="code">import sympy as sp</font> at the top of the script. Here's an
 example wherein I compute 20! using its built-in function.</p>
 <p class="code">1| import sympy as sp</p>
 <p class="code">2| print(sp.factorial(20))</p>
-<p>What's going on here is that sympy was installed automatically
+<p>What's going on here is that SymPy was installed automatically
 when you installed Anaconda. By importing it, you gain access to its
 functions. There are a lot of good reasons why you have to import it
 in order to gain access to it but for now, we won't discuss them.
 </p>
 <p>Once it's imported, it's like a toolbox, it comes with a bunch of
 different functions, but to use them you have to use the &quot;dot&quot;
-notation. Hence writing sp. and then following the . with the name of
+notation. Hence writing <font class="code">sp.</font> and then following the <font class="code">.</font> with the name of
 a function you want to use, is the standard syntax. Just for another
 demonstration you can use SymPy to compute the cosine (whatever that
 means) of a value.</p>
