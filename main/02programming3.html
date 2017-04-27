@@ -14,12 +14,12 @@
 			<p><a href="main.html">Home</a> &gt; <a href="About.html">About</a> &gt; Programming Prerequisites Part 3</p>
 		</td>
 		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding: 0.04in">
-			<p align="right">&lt; <a href="02programming2.html">prev</a> | next &gt;
+			<p align="right">&lt; <a href="02programming2.html">prev</a> | <a href="02programming4.html">next</a> &gt;
 			</p>
 		</td>
 	</tr>
 </table>
-<h1>Programming Prerequisites, Part 3 of 3</h1>
+<h1>Programming Prerequisites, Part 3 of 5</h1>
 <h2>Control structures</h2>
 <b>if-else</b>
 <p>
@@ -61,7 +61,7 @@
 
 <p>
 	Of course in this case there was no need for an else-block.  <font class="code">x</font> here is initialized as a negative and therefore, when the script is run, it will enter the if-block at line 3 and switch the sign of <font class="code">x</font> therefore printing <font class="code">1</font>.  If <font class="code">x</font> were instead initialized as 2, for instance, it would fail the if-test <font class="code">x<0</font> and never enter the block.  Therefore the number remains positive. <br><br>
-	Notice that the if-test is always reading a boolean value.  The tests <font class="code">len(data) % 2 == 0</font> returns <font class="code">True</font> if the length is even and the test <font class="code">x < 0</font> returns <font class="code">True if <font class="code">x</font> is negative.  Because these are reading boolean values we can therefore perform boolean operations in order to get more precise division of cases.  Say for instance that we would like to look at points in a coordinate plane and we want a script to tell us which coordinate each point is in.  We represent a point as a list of two numbers, the first is <i>x</i> and the second is <i>y</i>.
+	Notice that the if-test is always reading a boolean value.  The tests <font class="code">len(data) % 2 == 0</font> returns <font class="code">True</font> if the length is even and the test <font class="code">x < 0</font> returns <font class="code">True</font> if <font class="code">x</font> is negative.  Because these are reading boolean values we can therefore perform boolean operations in order to get more precise division of cases.  Say for instance that we would like to look at points in a coordinate plane and we want a script to tell us which coordinate each point is in.  We represent a point as a list of two numbers, the first is <i>x</i> and the second is <i>y</i>.
 </p>
 <p class="code">1| point = [1,-2]</p>
 <p class="code">2| if point[0] > 0 and point[1] > 0:</p>
@@ -108,10 +108,10 @@
 <p class="code">11| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Q3")</p>
 <p class="code">12| else:</p>
 <p class="code">13| &nbsp;&nbsp;&nbsp;&nbsp;print("The point lies on an axis.")</p>
-
+<br><br>
 <p>
 	<b>for-loops</b>
-	<br>
+	<br><br>
 	Suppose we have the list <font class="code">['a','b','c','d','e','f','g','h','i','j','k']</font> and we want to select every third element.  One way to do this is with a for-loop.  Before actually doing this, let's see a simpler example of a for-loop.
 </p>
 <p class="code">1| someLetters = ['a','b','c','d','e','f','g','h','i','j','k']</p>
@@ -147,7 +147,7 @@
 
 <p>
 	Notice that when declaring an aggregator variable you really want it to start out as "empty" in some sense.  For addition that means we start it out as 0; for multiplication that means it's initialized to 1 because this is the number that, when multiplied with anything else, in a sense contributes nothing; and when we did it with a string, we used the so-called empty string <font class="code">''</font>.  <br><br>
-	So far we've selected every element of a list directly, but often we want to select the elements coordinate-wise.  Whenever we want to do that we want to use the ^^range()`` function.  ^^range(5)`` generates a list of 5 elements from 0 to 4, so that it's equivalent to ^^[0,1,2,3,4]``.  Therefore we can use each of these elements as a coordinate in a list of length 5.
+	So far we've selected every element of a list directly, but often we want to select the elements coordinate-wise.  Whenever we want to do that we want to use the ^^range()`` function.  ^^range(5)`` generates a list of 5 elements from 0 to 4, so that it's equivalent to ^^[0,1,2,3,4]``.  Therefore we can use each of these elements as a coordinate in a list of length 5.  __Hide: ^^range()`` doesn't actually produce a list, it produces a "generator"__
 </p>
 
 <p class="code">1| someLetters = ['a','b','c','d','e','f','g','h','i','j','k']</p>
@@ -170,6 +170,29 @@
 <p class="code">2| for index in range(len(someLetters)):</p>
 <p class="code">3| &nbsp;&nbsp;&nbsp;&nbsp;if index%3 == 0:</p>
 <p class="code">4| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(someLetters[index])</p>
+
+<p>
+	<b>while-loops</b>
+	This will be the last control structure that we learn (if-else, for-loop, and while-loop are the three control structures we will study).  Unlike a for-loop, a while-loop does not cap the number of times that it will loop.  However, that introduces a danger that the script my run forever.  This danger can crop up in other contexts too, so it's worth knowing how to handle it.  When you run a script that takes a long time, you can click on the console and press ^^&lt;ctrl&gt;+c`` to cancel the run.  In case that's not clear, I mean that you hold down the "control" button and then simultaneously type ^^c``.  <br><br>
+	But canceling the run is only something we do when something went wrong, so let's try to make sure we never run code that doesn't terminate (or doesn't terminate within the life-span of the sun).  Here's an example that finds out how many times we need to divide 100000000000000 by 2 to get a number less than 1.
+</p>
+<p class="code">1| x = 100000000000000</p>
+<p class="code">2| counter = 0</p>
+<p class="code">3| while x > 1:</p>
+<p class="code">4| &nbsp;&nbsp;&nbsp;&nbsp;x /= 2</p>
+<p class="code">5| &nbsp;&nbsp;&nbsp;&nbsp;counter += 1</p>
+<p class="code">6| print(counter)</p>
+
+<p>
+	Clearly the while-loop terminates when the while-test fails, in this case, ^^x > 1``.  Therefore we need to make sure that the code inside of the while-block reliably does something to ^^x`` to make it less than or equal to 1 in a finite number of loops.  Because we will use this control structure the least, I won't say more about it.
+</p>
+
+<h2>What you should have learned:</h2>
+<ul>
+	<li>if-else</li>
+	<li>for-loops</li>
+	<li>while-loops</li>
+</ul>
 
 </body>
 </html>

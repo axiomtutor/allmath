@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Programming</title>
+</head>
+<body lang="en-US" dir="ltr">
+<table width="100%" cellpadding="4" cellspacing="0" style="page-break-before: always; page-break-inside: avoid">
+	<col width="128*">
+	<col width="128*">
+	<tr valign="top">
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><a href="main.html">Home</a> &gt; <a href="About.html">About</a> &gt; Programming Prerequisites Part 3</p>
+		</td>
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding: 0.04in">
+			<p align="right">&lt; <a href="02programming2.html">prev</a> | <a href="02programming4.html">next</a> &gt;
+			</p>
+		</td>
+	</tr>
+</table>
+<h1>Programming Prerequisites, Part 5 of 5</h1>
+<h2>Modules</h2>
+<p>
+	<b>NumPy</b> <br><br>
+	We will frequently use the SymPy module.  A module is a collection of code, usually absolutely massive, that someone else has written.  You're able to install it and then use that code without ever having to look at it.  One fairly easy module to learn is the NumPy module so we'll study that before studying NumPy. <br><br>
+	NumPy, short for numerical Python, is a module written to help you use advanced mathematical features.  Copy and run the following script.
+</p>
+
+<p class="code">1| import numpy as np</p>
+<p class="code">2| print( np.sin(1) )</p>
+<p class="code">3| print( np.sin( np.pi/2 ) )</p>
+<p class="code">4| x = np.array([1, 2, 3])</p>
+<p class="code">5| print( x.var() )</p>
+
+<p>
+	Line 5 computes the variance of the list--a statistic that we often compute on data.  But the point here is just about how to import and use a module.  Line 1 imported the module, ^^import numpy`` and then gave it a shorter name with ^^as np``.  I could have chosen most any other name, but almost everyone chooses ^^np`` for NumPy, although I've never been able to figure out why ... <br><br>
+	Anyway, on line 2 what you see is that NumPy (or np) has the sine function from Trigonometry implemented.  To access this function we write ^^np.sin()``.  I've chosen to compute the sine of 1 radian and print it on this line.  NumPy's trigonometric functions assume angle measures in radians.  On line 3 I again use NumPy's sine function, but this time I give it an argument of TODO/2.  However, Python doesn't have a TODO value out-of-the-box, so I have to get this too from NumPy.  In order to get it, I use ^^np.pi``.  You can print this on its own and see the decimal expansion of TODO.  <br><br>
+	On line 4 I exhibit the use of a NumPy array.  A NumPy array is a lot like a list (in fact, to create one, you give ^^np.array()`` a list for an argument).  However, a list is a simpler object.  A NumPy array supports many extra functions.  On line 5 I demonstrate the use of one of these, the ^^.var()`` method.  <br><br>
+	However, NumPy is numerical in its essence.  You might think, well yeah, so is Math so hip-hip-hooray for that.  But Math isn't fundamentally numerical, it's fundamentally conceptual, and we use symbols to represent abstractions.  When we talk about `sqrt{2}` we do not want to talk about the decimal 1.4 although this is kinda close.  What we really want is ... well ... we want `sqrt{2}`, there's just no better way to say it.  We want this symbolic expression.  So-called numerical methods are good for applications--engineering, finance, and so on.  But they're not good for Math.  Therefore we will rarely use NumPy and instead rely much more on SymPy:  Symbolic Python. <br><br>
+	<b>SymPy</b>
+	As advertised, the following script will not print the decimal expansion of `\sqrt{2}` or TODO.
+
+	<p class="code">1| import sympy as sp</p>
+	<p class="code">2| print( sp.sqrt(2) )</p>
+	<p class="code">3| print( sp.pi )</p>
+
+	<p>
+		This might seem useless, and a little bit it is.  However, notice that the following script prints exactly the right result, rather than one correct to many decimals:
+	</p>
+
+	<p class="code">1| import sympy as sp</p>
+	<p class="code">2| print( sp.sqrt(2)**2 )</p>
+
+	<p>
+		These sorts of examples, though easy to produce, are actually very far from the most interesting demonstrations of what SymPy can do.  Many of the things we want to do with SymPy requires the use of variables--not CompSci variables, but <i>mathematical</i> variables.  To produce these you need the ^^sp.symbols()`` function, which I demonstrate below.
+	</p>
+
+	<p class="code">1| import sympy as sp</p>
+	<p class="code">2| x = sp.symbols('x')</p>
+	<p class="code">3| print(x)</p>
+	<p class="code">4| print(x**2)</p>
+	<p class="code">5| sp.plot(sp.sin(x))</p>
+
+	<p>
+		Notice that the third line would have produced an error if the second line had not first been run.  Notice that line 3 prints the symbolic representation of the function `x^{\wedge 2}`, "<i>x</i>-squared".  Line 5 is responsible for a pop-up window showing you the graph of the sine function.  Even these don't really show you the value of SymPy.  <br><br>
+		For Geometry we can print shapes:
+	</p>
+
+	<p class="code">TODO</p>
+
+	<p>
+		For Algebra we can solve equations:
+	</p>
+
+	<p class="code">TODO</p>
+
+	<p>
+		For Calculus we can compute the derivative:
+	</p>
+
+	<p class="code">TODO</p>
+
+	<p>
+		And so on.
+	</p>
+
+	
+</p>
+
+</body>
+</html>

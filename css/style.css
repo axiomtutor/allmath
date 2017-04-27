@@ -17,6 +17,11 @@ table, tr, td {
 tr, td {
     padding: 3px;
 }
+
+p {
+    font-size: 14pt;
+}
+
 .ex {
     background-color: LightGoldenRodYellow;
 }

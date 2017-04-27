@@ -20,7 +20,7 @@
 	</tr>
 </table>
 <h1 style="page-break-before: always">Programming
-Prerequisites, Part 2 of 3</h1>
+Prerequisites, Part 2 of 5</h1>
 <p> <h2>Primitive Python types</h2> </p>
 <p> We've already seen a couple Python objects.  In the example </p>
 <p class="code">In[n]: 1+1</p>
@@ -48,7 +48,7 @@ SyntaxError: invalid syntax</p>
 <p class="code">In[n]: 1.2*-3.1</p>
 <p class="code">Out[n]: -3.7199999999999998</p>
 <p>
-	The distinction between a float and an integer may not seem interesting, but it will be important.  I will quickly comment that you might think that 8^2 would result in 64 but it won't.  In Python the ^ operator does not mean exponent.  If you want the exponent of a number, you have to use **.  Thus 8**2 = 64.  We'll explain this more in the Logic topic.<br><br>
+	The distinction between a float and an integer may not seem interesting, but it will be important.  I will quickly comment that you might think that 8^2 would result in 64 but it won't.  In Python the ^ operator does not mean exponent.  If you want the exponent of a number, you have to use **.  Thus 8**2 = 64.  We'll explain what ^ is in the Logic topic.<br><br>
 	There is another numeric type that we will use, which is complex, meant to model the complex numbers, i.e. the square-root of -1.  In Math we denote this by <i>i</i> but in Python and other subjects we denote this by <i>j</i>.  To get this number in Python, we have to type <font class="code">1j</font>.  Simply typing <font class="code">j</font> doesn't work.
 </p>
 <p class="code">In[n]: 1j*1j</p>
@@ -80,6 +80,13 @@ TypeError: unsupported operand type(s) for +: 'int' and 'str'
 
 <p class="code">In[n]: 'a'*4</p>
 <p class="code">Out[n]: 'aaaa'</p>
+
+<p>
+	<i>Exercise 1</i>: Predict what ^^1-1+1`` will produce.  There are two reasonable beliefs about what the answer is, what are they?  Execute the command and see which one is right. <br><br>
+	<i>Exercise 2</i>: Does 'a'^2 produce an error or an output?  What about 'a'**2?  What about 'a'*2.2?<br><br>
+	<i>Exercise 3</i>: What is `i^{\wedge i}`?  Run ^^1j**1j`` to find out. <br><br>
+	<i>Exercise 4</i>: The empty string is, when you first meet it, a funny thing.  Run ^^print('')`` and ^^print('' + 'a')`` to get a sense of what it is.  Can you think of an analogy for what this thing is like?
+</p>
 
 <p>
 	We've now seen all the numeric types and strings.  All that remains is to introduce boolean types which are meant to represent True and False.
@@ -118,6 +125,15 @@ TypeError: unsupported operand type(s) for +: 'int' and 'str'
 	This tells us that 164 is divisible by 4.  You might wonder, why not just run <font class="code">164/4</font> and see the result <font class="code">41.0</font>?  Can't you just look at that and tell that 164 is divisible by 4? <br><br>
 	The answer is that, when you ask about divisibility, sometimes all you want is a true/false answer.  If the answer is true, then you'll perform some other steps, and if the answer is false then you'll do yet another thing.  When that's the plan you really want a boolean answer, not a numeric.  We'll see more about why in the next page.
 </p>
+
+<p>
+	<i>Exercise 6</i>: Does ^^True+True`` produce an error or output?  What about ^^True*True?``? <br><br>
+	<i>Exercise 7</i>: Predict the result of ^^(True or not False) or (False and False)``. <br><br>
+	<i>Exercise 8</i>: Predict the result of ^^1 < 1 or 1 == 1 or 1 > 1``. <br><br>
+	<i>Exercise 9</i>: Experiment with ^^<=`` to find out what it means.  Try running ^^1 <= 2`` and ^^2 <= 2`` and ^^3 <= 2``.
+	<i>Exercise 10</i>: Python often will regard objects as being "true-like" or "false-like" even though they are not boolean.  For instance, ^^1 or 0`` returns 1 because 1 is regarded as true-like and 0 is regarded as false-like.  Therefore it treats this like ^^True or False`` and returns ^^True``--except it first converts that back to 1 and so returns 1.  Similarly any non-empty string is regarded as true-like and the empty string is regarded as false-like.  Therefore ^^'a' and ''`` returns ^^''``.  Find out what ^^2 and 1`` returns.  Also try ^^2 and 0``, and ^^' ' and ''`` and anything else you please.
+</p>
+
 <b>Variables</b>
 <p>
 	Everything we've done so far performs operations and then prints the result.  That's fine if that's all you <i>want</i>, but sometimes we want to store stuff in memory for later use.
@@ -172,6 +188,17 @@ TypeError: unsupported operand type(s) for +: 'int' and 'str'
 
 <p>
 	Notice that to compute the square-root you need to use an exponent of 0.5.  If this isn't already clear it will be after studying Arirthmetic.
+</p>
+
+<p>
+	<i>Exercise 11</i>: Predict the result of the following code:
+	<p class="code">1| x = 1</p>
+	<p class="code">2| y = x</p>
+	<p class="code">3| x = 2</p>
+	<p class="code">4| print(x)</p>
+	<p class="code">5| print(y)</p>
+	There are two reasonable predictions.  What are they?  Run the code and find out which is correct.  <br><br>
+	<i>Exercise 12</i>: 
 </p>
 
 <b>Composite types</b>

@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Programming</title>
+</head>
+<body lang="en-US" dir="ltr">
+<table width="100%" cellpadding="4" cellspacing="0" style="page-break-before: always; page-break-inside: avoid">
+	<col width="128*">
+	<col width="128*">
+	<tr valign="top">
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+			<p><a href="main.html">Home</a> &gt; <a href="About.html">About</a> &gt; Programming Prerequisites Part 3</p>
+		</td>
+		<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding: 0.04in">
+			<p align="right">&lt; <a href="02programming2.html">prev</a> | next &gt;
+			</p>
+		</td>
+	</tr>
+</table>
+<h1>Programming Prerequisites, Part 4 of 5</h1>
+<h2>Functions</h2>
+<p>
+	<b>def</b><br><br>
+
+	Functions are an important concept in Math and CompSci--we study the idea with some focus in Algebra and then again in Set Theory.  In CompSci the idea is very similar: You plug a thing in and get a thing out.  In fact we've been using functions all along.  The "not" operation is a kind of function:  Plug in ^^True`` and get out ^^False``; plug in ^^False`` and get out ^^True``.  Another example is the ^^sum()`` function for lists:  Plug in a list, get out its sum. The + operation is also a function, but for this one you plug in two numbers and get out one.  <br><br>
+	For non-standard functions, Python allows you to define new ones.  We wrote a script to compute the absolute value before, but we didn't encapsulate it in a function.  Here's how we can, and a few instances of using the function:
+</p>
+<p class="code">1| def abVal(x):</p>
+<p class="code">2| &nbsp;&nbsp;&nbsp;&nbsp;if x < 0:</p>
+<p class="code">3| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return -x</p>
+<p class="code">4| &nbsp;&nbsp;&nbsp;&nbsp;else:</p>
+<p class="code">5| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return x</p>
+<p class="code">6| print( abVal(2) )</p>
+<p class="code">7| print( abVal(-2) )</p>
+<p class="code">8| print( abVal(0) )</p>
+
+<p>
+	The console should print 2, 2, and 0.  These are called the "value" of the function and the inputs -2, 2, and 0 are called the function's "arguments".  If we want to define a two-variable function, we can do that as well.  This one computes `nCx`, the choose function which we study in the Arithmetic topic.  (It's sometimes written in other texts as C(n,x) or `\binom{n}{x}`.)  I'll also introduce the use of comments.  Comments are code that doesn't run, and are included only for the purpose of explanation.
+</p>
+
+<p class="code">1| def choose(n, x):</p>
+<p class="code">2| &nbsp;&nbsp;&nbsp;&nbsp;# Compute n! and store it in nf</p>
+<p class="code">3| &nbsp;&nbsp;&nbsp;&nbsp;nf = 1</p>
+<p class="code">4| &nbsp;&nbsp;&nbsp;&nbsp;for i in range(n):</p>
+<p class="code">5| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nf *= i+1</p>
+<p class="code">6| &nbsp;&nbsp;&nbsp;&nbsp;# Compute (n-x)! and store it in nxf</p>
+<p class="code">7| &nbsp;&nbsp;&nbsp;&nbsp;nxf = 1</p>
+<p class="code">8| &nbsp;&nbsp;&nbsp;&nbsp;for i in range(n-x):</p>
+<p class="code">9| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nxf += i+1</p>
+<p class="code">10| &nbsp;&nbsp;&nbsp;&nbsp;# Compute x! and store it in xf</p>
+<p class="code">11| &nbsp;&nbsp;&nbsp;&nbsp;xf = 1</p>
+<p class="code">12| &nbsp;&nbsp;&nbsp;&nbsp;for i in range(x):</p>
+<p class="code">13| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xf *= i+1</p>
+<p class="code">14| &nbsp;&nbsp;&nbsp;&nbsp;return(nf/(nxf*xf))</p>
+<p class="code">15| print( choose(8,3) )</p>
+<p class="code">16| print( choose(8,5) )</p>
+<p class="code">17| print( choose(8,0) )</p>
+<p class="code">18| print( choose(8,8) )</p>
+
+<p>
+	It is possibly surprising that this code even works when ^^x`` is given the value 0 or the same as ^^n`` because this involves dividing by 0!.  You might expect that to either be problematic because [you think] it's dividing by 0, or because range(0) produces an empty list (sorta) and therefore there might be a problem when creating the for-loop.  Turns out neither of these were problematic.  The mathematical reason is explained in Arithmetic, and when a for-loop encounters an empty list it just skips the for-loop all together and performs the next thing. <br><br>
+	The syntax for defining a new function is
+</p>
+
+<p class="code">def &lt;name&gt;(&lt;var1&gt;, &lt;var2&gt;, ..., &lt;varn&gt;):</p>
+<p class="code">&nbsp;&nbsp;&nbsp;&nbsp;&lt;body&gt;</p>
+
+<p>
+	Function names have certain restrictions, like how the variable names do, but most reasonable names are permissible.  You can include any number of variables.  The body of the function is the code that will run when you use it. <br><br>
+	One thing that we gain from being able to create functions is the ease of repeated use.  If I wanted to repeatedly calculate choose-function values, it's easier to type ^^print(choose(10,5))`` rather than manipulate some previously declared variable again and again.  But we also gain the ability to do genuinely new things.  For one thing we can treat the function like an object, and let <i>other</i> functions use it!  In the following example, I apply the choose function with ^^n`` storing 10, then I apply the square function to each element.
+</p>
+
+<p class="code">1| nums = [1, 2, 3, 4, 5, 10]</p>
+<p class="code">2| def square(x):</p>
+<p class="code">3| &nbsp;&nbsp;&nbsp;&nbsp;return x**2</p>
+<p class="code">4| def choose(n, x):</p>
+<p class="code">5| &nbsp;&nbsp;&nbsp;&nbsp;# Compute n! and store it in nf</p>
+<p class="code">6| &nbsp;&nbsp;&nbsp;&nbsp;nf = 1</p>
+<p class="code">7| &nbsp;&nbsp;&nbsp;&nbsp;for i in range(n):</p>
+<p class="code">8| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nf *= i+1</p>
+<p class="code">9| &nbsp;&nbsp;&nbsp;&nbsp;# Compute (n-x)! and store it in nxf</p>
+<p class="code">10| &nbsp;&nbsp;&nbsp;&nbsp;nxf = 1</p>
+<p class="code">11| &nbsp;&nbsp;&nbsp;&nbsp;for i in range(n-x):</p>
+<p class="code">12| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nxf += i+1</p>
+<p class="code">13| &nbsp;&nbsp;&nbsp;&nbsp;# Compute x! and store it in xf</p>
+<p class="code">14| &nbsp;&nbsp;&nbsp;&nbsp;xf = 1</p>
+<p class="code">15| &nbsp;&nbsp;&nbsp;&nbsp;for i in range(x):</p>
+<p class="code">16| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xf *= i+1</p>
+<p class="code">17| &nbsp;&nbsp;&nbsp;&nbsp;return(nf/(nxf*xf))</p>
+<p class="code">18| def applyTo( aList, aFunc )</p>
+<p class="code">19| &nbsp;&nbsp;&nbsp;&nbsp;newList = []</p>
+<p class="code">20| &nbsp;&nbsp;&nbsp;&nbsp;for elem in aList:</p>
+<p class="code">21| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;newList.append( aFunc(elem) )</p>
+<p class="code">22| &nbsp;&nbsp;&nbsp;&nbsp;return newList</p>
+<p class="code">23| print( applyTo(nums, choose) )</p>
+<p class="code">24| print( applyTo(nums, square) )</p>
+
+<p>
+	Another gain that we make is the ability to define a function recursively. <br><br>
+	<b>Recursion</b>  <br><br>
+	A recursive function is one that is define for an initial value, and then every other value is defined in terms of a previous value.  One example is the factorial function.  <i>n! = n*(n-1)*...*2*1</i>.  We could define 0! = 1 and then define 1! as 1*0! and then define 2! as 2*1! and define 3! as 3*2! and so on.  To handle all possible cases, here's how we do it:
+</p>
+
+<p class="code">1| def fact(n): </p>
+<p class="code">2| &nbsp;&nbsp;&nbsp;&nbsp;if n == 0:</p>
+<p class="code">3| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 1</p>
+<p class="code">4| &nbsp;&nbsp;&nbsp;&nbsp;return n*fact(n-1)</p>
+<p class="code">5| print( fact(1) )</p>
+<p class="code">6| print( fact(4) )</p>
+
+<p>
+	Notice that we define the base-case, where ^^n`` stores 0, separately under an if-block.  Typically we would define the rest under an else-block but here it's not necessary.  Why?  Because in the if-block we used a return statement.  A return statement always causes the script to halt.  Therefore, if we enter the if-block, there would be no danger of also running the code that follows it--therefore an else-block would be redundant.  The same is actually true of the ^^abVal()`` function defined above, so that if we wanted we could have dropped the else statement. <br><br>
+	After defining the base-case, we have to take care of the "inductive-case", which is everything that could come up after the base-case.  This always involves using the function that we're defining, with smaller inputs.  Another very common example to give is the Fibonacci sequence, 1, 1, 2, 3, 5, 8, 13, 21, ...  The pattern is that every number (except the first two) is generated by summing the previous two.
+</p>
+
+<p class="code">1| def fibo(n):</p>
+<p class="code">2| &nbsp;&nbsp;&nbsp;&nbsp;if n <= 2:</p>
+<p class="code">3| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 1</p>
+<p class="code">4| &nbsp;&nbsp;&nbsp;&nbsp;return fibo(n-2) + fibo(n-1)</p>
+<p class="code">5| for i in range(10):</p>
+<p class="code">6| &nbsp;&nbsp;&nbsp;&nbsp;print(fibo(i))</p>
+
+
+
+</body>
+</html>
